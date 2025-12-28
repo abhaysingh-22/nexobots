@@ -236,12 +236,11 @@ export default function Solution3Page() {
   useEffect(() => createAnimation(setRedBarTop6, setActiveIndex6, cloudMobilePoints, 365, 4000), []);
 
   return (
-    <div className="bg-[#F8F8F8] text-black">
+    <div className="bg-[#F8F8F8] text-black overflow-x-hidden">
       <Navbar />
 
-      {/* Hero Section - Exact from Figma */}
-      <section className="relative h-[935px] w-full overflow-hidden">
-        {/* Background Image */}
+      {/* Hero Section */}
+      <section className="relative w-full overflow-hidden min-h-[380px] sm:min-h-[450px] md:min-h-[550px] lg:min-h-[750px] xl:min-h-[935px]">
         <div className="absolute inset-0">
           <Image
             src="/solution-3-hero-bg.png"
@@ -252,107 +251,86 @@ export default function Solution3Page() {
             sizes="100vw"
           />
         </div>
-        {/* Dark Overlay */}
         <div
           className="absolute inset-0"
-          style={{
-            backgroundColor: "rgba(0, 0, 0, 0.63)",
-          }}
+          style={{ backgroundColor: "rgba(0, 0, 0, 0.63)" }}
         />
-        {/* Content */}
-        <div className="relative z-10 h-full">
-          {/* Title - Position: left 142px, top 169px */}
-          <div className="absolute" style={{ left: "142px", top: "169px" }}>
-            <h1
-              className="font-['TASA_Orbiter'] text-white"
-              style={{
-                fontSize: "64px",
-                fontWeight: 600,
-                lineHeight: "1.32",
-                maxWidth: "1172px",
-              }}
-            >
-              Control Smartly. Authenticate Securely. Access Seamlessly.
-            </h1>
-          </div>
 
-          {/* Description - Position: left 142px, top 366px */}
-          <div className="absolute" style={{ left: "142px", top: "366px" }}>
-            <p
-              className="font-['TASA_Orbiter'] text-white"
-              style={{
-                fontSize: "24px",
-                fontWeight: 600,
-                lineHeight: "1.44",
-                maxWidth: "812px",
-              }}
-            >
-              Empower your workplace security with Nexobots' Biometric & Access
-              Control Solutions.
-            </p>
-          </div>
-
-          {/* CTA Button - Position: left 142px, top 489px */}
-          <div className="absolute" style={{ left: "142px", top: "489px" }}>
-            <Link
-              href="#contact"
-              className="inline-flex h-[67px] w-[261px] items-center justify-between rounded-[75px] border border-white/30 bg-white transition-all hover:bg-gray-100"
-              style={{
-                padding: "20px 29px",
-              }}
-            >
-              <span
-                className="font-['Manrope'] text-black whitespace-nowrap"
+        <div className="relative z-10">
+          <div className="mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-[78px]">
+            <div className="pt-10 sm:pt-14 md:pt-20 lg:pt-[120px] xl:pt-[169px]">
+              <h1
+                className="font-['TASA_Orbiter'] text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[64px]"
                 style={{
-                  fontSize: "20px",
                   fontWeight: 600,
-                  lineHeight: "1.366",
-                  letterSpacing: "0.02em",
+                  lineHeight: "1.32",
+                  maxWidth: "1172px",
                 }}
               >
-                Talk to an Expert
-              </span>
-              <svg
-                width="41"
-                height="41"
-                viewBox="0 0 41 41"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
+                Control Smartly. Authenticate Securely. Access Seamlessly.
+              </h1>
+
+              <p
+                className="font-['TASA_Orbiter'] text-white mt-4 sm:mt-6 text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl"
                 style={{
-                  flexShrink: 0,
+                  fontWeight: 600,
+                  lineHeight: "1.44",
+                  maxWidth: "812px",
                 }}
               >
-                <path
-                  d="M16 12L25 20.5L16 29"
-                  stroke="#E11E24"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </Link>
+                Empower your workplace security with Nexobots' Biometric & Access
+                Control Solutions.
+              </p>
+
+              <div className="mt-6 sm:mt-8 lg:mt-10">
+                <Link
+                  href="#contact"
+                  className="inline-flex items-center justify-between rounded-[75px] border border-white/30 bg-white transition-all hover:bg-gray-100 px-4 py-3 sm:px-6 sm:py-4 lg:px-[29px] lg:py-5"
+                >
+                  <span
+                    className="font-['Manrope'] text-black whitespace-nowrap text-sm sm:text-base lg:text-xl"
+                    style={{
+                      fontWeight: 600,
+                      lineHeight: "1.366",
+                      letterSpacing: "0.02em",
+                    }}
+                  >
+                    Talk to an Expert
+                  </span>
+                  <svg
+                    width="41"
+                    height="41"
+                    viewBox="0 0 41 41"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="w-6 h-6 sm:w-8 sm:h-8 lg:w-[41px] lg:h-[41px] flex-shrink-0"
+                  >
+                    <path
+                      d="M16 12L25 20.5L16 29"
+                      stroke="#E11E24"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </Link>
+              </div>
+            </div>
+
+            <div className="pb-8 sm:pb-10 lg:pb-0" />
           </div>
         </div>
       </section>
 
-      {/* Closing CTA Section - Exact from Figma (node-id=37-2655) */}
-      <section
-        className="bg-black"
-        style={{
-          padding: "120px 0",
-        }}
-      >
-        <div className="mx-auto w-full max-w-[1440px] px-[78px]">
-          {/* First Text */}
+      {/* Closing CTA Section */}
+      <section className="bg-black py-8 sm:py-10 md:py-14 lg:py-[80px] xl:py-[120px]">
+        <div className="mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-[78px]">
           <p
-            className="font-['TASA_Orbiter'] text-white mx-auto text-center mb-[60px]"
+            className="font-['TASA_Orbiter'] text-white mx-auto text-center mb-6 sm:mb-8 lg:mb-[40px] text-base sm:text-lg md:text-xl lg:text-2xl"
             style={{
-              fontSize: "24px",
               fontWeight: 600,
               lineHeight: "1.17",
               maxWidth: "1108px",
-              marginLeft: "auto",
-              marginRight: "auto",
             }}
           >
             In today's connected enterprises, managing who enters, where they go,
@@ -362,16 +340,12 @@ export default function Solution3Page() {
             accuracy, scalability, and real-time control.
           </p>
 
-          {/* Second Text */}
           <p
-            className="font-['TASA_Orbiter'] text-[#727272] mx-auto text-center mb-[60px]"
+            className="font-['TASA_Orbiter'] text-[#727272] mx-auto text-center mb-6 sm:mb-8 lg:mb-[40px] text-sm sm:text-base md:text-lg lg:text-xl"
             style={{
-              fontSize: "20px",
               fontWeight: 600,
               lineHeight: "1.17",
               maxWidth: "918px",
-              marginLeft: "auto",
-              marginRight: "auto",
             }}
           >
             Nexobots Technologies delivers Biometric & Access Control Solutions
@@ -381,21 +355,14 @@ export default function Solution3Page() {
             that safeguard people, assets, and data.
           </p>
 
-          {/* Get In Touch Button */}
-          <div className="flex justify-center mb-[80px]">
+          <div className="flex justify-center mb-6 sm:mb-8 lg:mb-[50px]">
             <Link
               href="#contact"
-              className="inline-flex items-center justify-center gap-3 rounded-[75px] border border-white/30 bg-black transition-all hover:bg-black/90"
-              style={{
-                width: "155px",
-                height: "45px",
-                padding: "12px 25px",
-              }}
+              className="inline-flex items-center justify-center gap-2 sm:gap-3 rounded-[75px] border border-white/30 bg-black transition-all hover:bg-black/90 px-4 py-2.5 sm:px-6 sm:py-3"
             >
               <span
-                className="font-['Manrope'] text-white whitespace-nowrap"
+                className="font-['Manrope'] text-white whitespace-nowrap text-sm sm:text-[15px]"
                 style={{
-                  fontSize: "15px",
                   fontWeight: 600,
                   lineHeight: "1.366em",
                   letterSpacing: "0.02em",
@@ -409,9 +376,7 @@ export default function Solution3Page() {
                 viewBox="0 0 5 8"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                style={{
-                  flexShrink: 0,
-                }}
+                className="flex-shrink-0"
               >
                 <path
                   d="M1 1L4 4L1 7"
@@ -425,88 +390,52 @@ export default function Solution3Page() {
           </div>
 
           {/* Three Image Cards */}
-          <div
-            className="mx-auto flex gap-[17px]"
-            style={{
-              width: "1201px",
-              height: "623px",
-              marginLeft: "auto",
-              marginRight: "auto",
-            }}
-          >
-            {/* Left Large Image */}
-            <div
-              className="relative rounded-[18px] overflow-hidden flex-shrink-0"
-              style={{
-                width: "549px",
-                height: "623px",
-              }}
-            >
-              <Image
-                src="/solution-3-cta-1.png"
-                alt="Biometric Access Control"
-                fill
-                className="object-cover"
-                sizes="549px"
-                loading="lazy"
-              />
-            </div>
-
-            {/* Right Two Images Stacked */}
-            <div className="flex flex-col gap-[26.17px] flex-shrink-0">
-              {/* Top Right Image */}
-              <div
-                className="relative rounded-[18px] overflow-hidden"
-                style={{
-                  width: "635px",
-                  height: "312.22px",
-                }}
-              >
+          <div className="mx-auto w-full max-w-[1201px]">
+            <div className="grid gap-4 sm:gap-6 grid-cols-1 lg:grid-cols-2">
+              <div className="relative rounded-[18px] overflow-hidden w-full aspect-[549/400] sm:aspect-[549/500] lg:aspect-[549/623]">
                 <Image
-                  src="/solution-3-cta-2.png"
-                  alt="Access Management"
+                  src="/solution-3-cta-1.png"
+                  alt="Biometric Access Control"
                   fill
                   className="object-cover"
-                  sizes="635px"
+                  sizes="(min-width: 1024px) 549px, 100vw"
                   loading="lazy"
                 />
               </div>
 
-              {/* Bottom Right Image */}
-              <div
-                className="relative rounded-[18px] overflow-hidden"
-                style={{
-                  width: "635px",
-                  height: "283.57px",
-                }}
-              >
-                <Image
-                  src="/solution-3-cta-3.png"
-                  alt="Secure Access"
-                  fill
-                  className="object-cover"
-                  sizes="635px"
-                  loading="lazy"
-                />
+              <div className="grid gap-4 sm:gap-6">
+                <div className="relative rounded-[18px] overflow-hidden w-full aspect-[16/9] lg:aspect-[635/312]">
+                  <Image
+                    src="/solution-3-cta-2.png"
+                    alt="Access Management"
+                    fill
+                    className="object-cover"
+                    sizes="(min-width: 1024px) 635px, 100vw"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="relative rounded-[18px] overflow-hidden w-full aspect-[16/9] lg:aspect-[635/283]">
+                  <Image
+                    src="/solution-3-cta-3.png"
+                    alt="Secure Access"
+                    fill
+                    className="object-cover"
+                    sizes="(min-width: 1024px) 635px, 100vw"
+                    loading="lazy"
+                  />
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Why Access Control Matters Section - Exact from Figma (node-id=1-2931) */}
-      <section
-        className="bg-[#D9D9D9]"
-        style={{
-          padding: "120px 0",
-        }}
-      >
-        <div className="mx-auto w-full max-w-[1440px] px-[78px]">
-          {/* Heading */}
+      {/* Why Access Control Matters */}
+      <section className="bg-[#D9D9D9] py-8 sm:py-10 md:py-14 lg:py-[80px] xl:py-[120px]">
+        <div className="mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-[78px]">
           <h2
-            className="font-['TASA_Orbiter'] text-black mb-[40px]"
+            className="font-['TASA_Orbiter'] text-black mb-4 sm:mb-6 lg:mb-[30px] text-2xl sm:text-3xl md:text-4xl lg:text-[48px]"
             style={{
-              fontSize: "48px",
               fontWeight: 600,
               lineHeight: "1.494",
               maxWidth: "973px",
@@ -515,15 +444,12 @@ export default function Solution3Page() {
             Why Access Control Matters
           </h2>
 
-          {/* Two Column Text Layout */}
-          <div className="grid grid-cols-2 gap-[60px] mb-[60px]">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-[40px] mb-6 sm:mb-8 lg:mb-[40px]">
             <p
-              className="font-['TASA_Orbiter'] text-black"
+              className="font-['TASA_Orbiter'] text-black text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl"
               style={{
-                fontSize: "24px",
                 fontWeight: 500,
                 lineHeight: "1.32",
-                maxWidth: "562px",
               }}
             >
               As businesses grow, securing physical and digital perimeters
@@ -533,12 +459,10 @@ export default function Solution3Page() {
               protection — combining automation with precision.
             </p>
             <p
-              className="font-['TASA_Orbiter'] text-black"
+              className="font-['TASA_Orbiter'] text-black text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl"
               style={{
-                fontSize: "24px",
                 fontWeight: 500,
                 lineHeight: "1.32",
-                maxWidth: "573px",
               }}
             >
               With Nexobots, you gain a unified, technology-driven access
@@ -549,19 +473,14 @@ export default function Solution3Page() {
             </p>
           </div>
 
-          {/* Get In Touch Button - Left aligned below text */}
           <div>
             <Link
               href="#contact"
-              className="inline-flex h-[45px] w-[155px] items-center justify-center gap-3 rounded-[75px] border border-white/30 bg-black transition-all hover:bg-black/90"
-              style={{
-                padding: "12px 25px",
-              }}
+              className="inline-flex items-center justify-center gap-2 sm:gap-3 rounded-[75px] border border-white/30 bg-black transition-all hover:bg-black/90 px-4 py-2.5 sm:px-6 sm:py-3"
             >
               <span
-                className="font-['Manrope'] text-white whitespace-nowrap"
+                className="font-['Manrope'] text-white whitespace-nowrap text-sm sm:text-[15px]"
                 style={{
-                  fontSize: "15px",
                   fontWeight: 600,
                   lineHeight: "1.366",
                   letterSpacing: "0.02em",
@@ -575,9 +494,7 @@ export default function Solution3Page() {
                 viewBox="0 0 5 8"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                style={{
-                  flexShrink: 0,
-                }}
+                className="flex-shrink-0"
               >
                 <path
                   d="M1 1L4 4L1 7"
@@ -592,18 +509,12 @@ export default function Solution3Page() {
         </div>
       </section>
 
-      {/* Our Core Offerings Heading - Exact from Figma */}
-      <section
-        style={{
-          padding: "120px 0",
-          backgroundColor: "#F8F8F8",
-        }}
-      >
-        <div className="mx-auto w-full max-w-[1440px] px-[78px]">
+      {/* Our Core Offerings Heading */}
+      <section className="py-8 sm:py-10 md:py-14 lg:py-[80px] bg-[#F8F8F8]">
+        <div className="mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-[78px]">
           <h2
-            className="font-['TASA_Orbiter'] text-black"
+            className="font-['TASA_Orbiter'] text-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[64px]"
             style={{
-              fontSize: "64px",
               fontWeight: 600,
               lineHeight: "1.494",
               maxWidth: "678px",
@@ -614,43 +525,20 @@ export default function Solution3Page() {
         </div>
       </section>
 
-      {/* Biometric Authentication Systems Section - Exact from Figma (node-id=1-2939) */}
-      <section
-        style={{
-          padding: "60px 78px",
-          backgroundColor: "#F8F8F8",
-        }}
-      >
+      {/* Biometric Authentication Systems */}
+      <section className="bg-[#F8F8F8] px-4 sm:px-6 lg:px-[78px] py-4 sm:py-6 lg:py-[40px]">
         <div className="mx-auto w-full max-w-[1440px]">
-          <div
-            className="rounded-[21px]"
-            style={{
-              padding: "60px 78px",
-              backgroundColor: "#F8F8F8",
-            }}
-          >
-            {/* Title */}
+          <div className="rounded-[21px] bg-[#F8F8F8] py-4 sm:py-6 lg:py-[40px]">
             <h2
-              className="font-['TASA_Orbiter'] text-black mb-[40px]"
-              style={{
-                fontSize: "64px",
-                fontWeight: 600,
-                lineHeight: "1.22",
-                maxWidth: "1172px",
-              }}
+              className="font-['TASA_Orbiter'] text-black mb-3 sm:mb-4 lg:mb-[30px] text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-[64px]"
+              style={{ fontWeight: 600, lineHeight: "1.22" }}
             >
               Biometric Authentication Systems
             </h2>
 
-            {/* Description */}
             <p
-              className="font-['TASA_Orbiter'] text-black mb-[50px]"
-              style={{
-                fontSize: "24px",
-                fontWeight: 600,
-                lineHeight: "1.26",
-                maxWidth: "1284px",
-              }}
+              className="font-['TASA_Orbiter'] text-black mb-4 sm:mb-6 lg:mb-[30px] text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl"
+              style={{ fontWeight: 600, lineHeight: "1.26" }}
             >
               Ensure identity verification with unmatched accuracy and convenience.
               We deploy biometric solutions — including fingerprint, facial, iris,
@@ -658,46 +546,27 @@ export default function Solution3Page() {
               needs.
             </p>
 
-            {/* Image and Key Services Row */}
-            <div className="relative mb-[50px]">
-              {/* Image */}
-              <div
-                className="relative rounded-[13px] overflow-hidden inline-block"
-                style={{
-                  width: "640px",
-                  height: "457px",
-                }}
-              >
+            <div className="mb-6 sm:mb-8 lg:mb-[30px] grid gap-4 sm:gap-6 lg:gap-8 grid-cols-1 lg:grid-cols-2">
+              <div className="relative rounded-[13px] overflow-hidden w-full aspect-[4/3] lg:aspect-[640/457]">
                 <Image
                   src="/solution-3-biometric-section.png"
                   alt="Biometric Authentication Systems"
                   fill
                   className="object-cover"
-                  sizes="640px"
+                  sizes="(min-width: 1024px) 640px, 100vw"
                 />
               </div>
 
-              {/* Key Services with Progress Bar - Right side */}
-              <div
-                className="absolute top-0"
-                style={{
-                  left: "673.5px",
-                  width: "719px",
-                }}
-              >
+              <div className="w-full">
                 <h3
-                  className="font-['TASA_Orbiter'] text-black mb-[40px]"
-                  style={{
-                    fontSize: "40px",
-                    fontWeight: 600,
-                    lineHeight: "1.08",
-                  }}
+                  className="font-['TASA_Orbiter'] text-black mb-4 sm:mb-6 lg:mb-[40px] text-xl sm:text-2xl md:text-3xl lg:text-[40px]"
+                  style={{ fontWeight: 600, lineHeight: "1.08" }}
                 >
                   Key Services
                 </h3>
 
-                <div className="relative" style={{ width: "719px", height: "370px" }}>
-                  {/* Background line */}
+                {/* Desktop: Animated progress */}
+                <div className="hidden lg:block relative w-full max-w-[719px]" style={{ height: "370px" }}>
                   <div
                     className="absolute left-0 top-0"
                     style={{
@@ -707,7 +576,6 @@ export default function Solution3Page() {
                       backgroundColor: "#D9D9D9",
                     }}
                   />
-                  {/* Red progress line - Animated */}
                   <div
                     className="absolute left-0"
                     style={{
@@ -718,7 +586,6 @@ export default function Solution3Page() {
                       backgroundColor: "#E11E24",
                     }}
                   />
-                  {/* Services */}
                   <div
                     className="space-y-[50px]"
                     style={{ paddingLeft: "52px", paddingTop: "11px" }}
@@ -731,7 +598,6 @@ export default function Solution3Page() {
                           fontSize: activeIndex1 === i ? "24px" : "20px",
                           fontWeight: activeIndex1 === i ? 700 : 600,
                           lineHeight: "1.08",
-                          width: i === 3 ? "596px" : "596px",
                           transition: "font-weight 0.2s ease-in-out, font-size 0.2s ease-in-out",
                         }}
                       >
@@ -740,1164 +606,362 @@ export default function Solution3Page() {
                     ))}
                   </div>
                 </div>
+
+                {/* Mobile list */}
+                <ul className="lg:hidden space-y-3 sm:space-y-4">
+                  {biometricServices.map((service, i) => (
+                    <li
+                      key={i}
+                      className="font-['TASA_Orbiter'] text-black text-sm sm:text-base flex items-start gap-2"
+                      style={{ fontWeight: 600, lineHeight: "1.3" }}
+                    >
+                      <span className="text-[#E11E24] mt-1">•</span>
+                      {service}
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
 
-            {/* Outcome */}
-            <div
-              style={{
-                width: "1223px",
-                marginTop: "50px",
-              }}
-            >
-              <div className="mb-[30px]">
-                <h3
-                  className="font-['TASA_Orbiter'] text-black mb-[14px]"
-                  style={{
-                    fontSize: "40px",
-                    fontWeight: 600,
-                    lineHeight: "1.08",
-                  }}
-                >
-                  Outcome
-                </h3>
-                <p
-                  className="font-['TASA_Orbiter'] text-black"
-                  style={{
-                    fontSize: "32px",
-                    fontWeight: 600,
-                    lineHeight: "1.38",
-                    maxWidth: "1223px",
-                  }}
-                >
+            <div className="w-full">
+              <div className="mb-3 sm:mb-4 lg:mb-[20px]">
+                <h3 className="font-['TASA_Orbiter'] text-black mb-1.5 sm:mb-2 lg:mb-[10px] text-xl sm:text-2xl md:text-3xl lg:text-[40px]" style={{ fontWeight: 600, lineHeight: "1.08" }}>Outcome</h3>
+                <p className="font-['TASA_Orbiter'] text-black text-base sm:text-lg md:text-xl lg:text-2xl xl:text-[32px]" style={{ fontWeight: 600, lineHeight: "1.38" }}>
                   Accurate authentication, enhanced security, and reduced identity
                   fraud.
                 </p>
               </div>
-              <Link
-                href="#contact"
-                className="inline-flex h-[45px] w-[225px] items-center justify-center gap-3 rounded-[75px] border border-white/30 bg-black transition-all hover:bg-black/90"
-                style={{
-                  padding: "12px 25px",
-                }}
-              >
-                <span
-                  className="font-['Manrope'] text-white"
-                  style={{
-                    fontSize: "15px",
-                    fontWeight: 600,
-                    lineHeight: "1.366",
-                    letterSpacing: "0.02em",
-                  }}
-                >
-                  Let's Discuss Needs
-                </span>
-                <svg
-                  width="5"
-                  height="8"
-                  viewBox="0 0 5 8"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  style={{
-                    flexShrink: 0,
-                  }}
-                >
-                  <path
-                    d="M1 1L4 4L1 7"
-                    stroke="#E11E24"
-                    strokeWidth="1"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
+              <Link href="#contact" className="inline-flex items-center justify-center gap-2 sm:gap-3 rounded-[75px] border border-white/30 bg-black transition-all hover:bg-black/90 px-4 py-2.5 sm:px-6 sm:py-3">
+                <span className="font-['Manrope'] text-white text-xs sm:text-sm lg:text-[15px]" style={{ fontWeight: 600, lineHeight: "1.366", letterSpacing: "0.02em" }}>Let's Discuss Needs</span>
+                <svg width="5" height="8" viewBox="0 0 5 8" fill="none" xmlns="http://www.w3.org/2000/svg" className="flex-shrink-0"><path d="M1 1L4 4L1 7" stroke="#E11E24" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
               </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* RFID & Smart Card Access Control Section - Exact from Figma (node-id=1-2964) */}
-      <section
-        style={{
-          padding: "60px 78px",
-          backgroundColor: "#F8F8F8",
-        }}
-      >
+      {/* RFID & Smart Card Access Control Section */}
+      <section className="bg-[#F8F8F8] px-4 sm:px-6 lg:px-[78px] py-4 sm:py-6 lg:py-[40px]">
         <div className="mx-auto w-full max-w-[1440px]">
-          <div
-            className="rounded-[21px]"
-            style={{
-              padding: "60px 78px",
-              backgroundColor: "#F8F8F8",
-            }}
-          >
-            {/* Title */}
-            <h2
-              className="font-['TASA_Orbiter'] text-black mb-[40px]"
-              style={{
-                fontSize: "64px",
-                fontWeight: 600,
-                lineHeight: "1.22",
-                maxWidth: "1073px",
-              }}
-            >
+          <div className="rounded-[21px] bg-[#F8F8F8] py-4 sm:py-6 lg:py-[40px]">
+            <h2 className="font-['TASA_Orbiter'] text-black mb-3 sm:mb-4 lg:mb-[30px] text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-[64px]" style={{ fontWeight: 600, lineHeight: "1.22" }}>
               RFID & Smart Card Access Control
             </h2>
 
-            {/* Description */}
-            <p
-              className="font-['TASA_Orbiter'] text-black mb-[50px]"
-              style={{
-                fontSize: "24px",
-                fontWeight: 600,
-                lineHeight: "1.26",
-                maxWidth: "1151px",
-              }}
-            >
+            <p className="font-['TASA_Orbiter'] text-black mb-4 sm:mb-6 lg:mb-[30px] text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl" style={{ fontWeight: 600, lineHeight: "1.26" }}>
               Combine simplicity with efficiency using RFID- and card-based access
               systems. Ideal for workplaces, campuses, and hospitality sectors,
               these systems offer flexible entry management and audit trail
               capabilities.
             </p>
 
-            {/* Image and Key Services Row */}
-            <div className="relative mb-[50px]">
-              {/* Image */}
-              <div
-                className="relative rounded-[13px] overflow-hidden inline-block"
-                style={{
-                  width: "640px",
-                  height: "457px",
-                }}
-              >
-                <Image
-                  src="/solution-3-rfid-section.png"
-                  alt="RFID & Smart Card Access Control"
-                  fill
-                  className="object-cover"
-                  sizes="640px"
-                />
+            <div className="mb-6 sm:mb-8 lg:mb-[30px] grid gap-4 sm:gap-6 lg:gap-8 grid-cols-1 lg:grid-cols-2">
+              <div className="relative rounded-[13px] overflow-hidden w-full aspect-[4/3] lg:aspect-[640/457]">
+                <Image src="/solution-3-rfid-section.png" alt="RFID & Smart Card Access Control" fill className="object-cover" sizes="(min-width: 1024px) 640px, 100vw" />
               </div>
 
-              {/* Key Services with Progress Bar - Right side */}
-              <div
-                className="absolute top-0"
-                style={{
-                  left: "673.5px",
-                  width: "719px",
-                }}
-              >
-                <h3
-                  className="font-['TASA_Orbiter'] text-black mb-[40px]"
-                  style={{
-                    fontSize: "40px",
-                    fontWeight: 600,
-                    lineHeight: "1.08",
-                  }}
-                >
-                  Key Services
-                </h3>
+              <div className="w-full">
+                <h3 className="font-['TASA_Orbiter'] text-black mb-4 sm:mb-6 lg:mb-[40px] text-xl sm:text-2xl md:text-3xl lg:text-[40px]" style={{ fontWeight: 600, lineHeight: "1.08" }}>Key Services</h3>
 
-                <div className="relative" style={{ width: "719px", height: "365px" }}>
-                  {/* Background line */}
-                  <div
-                    className="absolute left-0 top-0"
-                    style={{
-                      width: "9px",
-                      height: "365px",
-                      borderRadius: "55px",
-                      backgroundColor: "#D9D9D9",
-                    }}
-                  />
-                  {/* Red progress line - Animated */}
-                  <div
-                    className="absolute left-0"
-                    style={{
-                      width: "8.6px",
-                      height: `${redBarHeight}px`,
-                      top: `${redBarTop2}px`,
-                      borderRadius: "55px",
-                      backgroundColor: "#E11E24",
-                    }}
-                  />
-                  {/* Services */}
-                  <div
-                    className="space-y-[54px]"
-                    style={{ paddingLeft: "52px", paddingTop: "10px" }}
-                  >
+                <div className="hidden lg:block relative w-full max-w-[719px]" style={{ height: "365px" }}>
+                  <div className="absolute left-0 top-0" style={{ width: "9px", height: "365px", borderRadius: "55px", backgroundColor: "#D9D9D9" }} />
+                  <div className="absolute left-0" style={{ width: "8.6px", height: `${redBarHeight}px`, top: `${redBarTop2}px`, borderRadius: "55px", backgroundColor: "#E11E24" }} />
+                  <div className="space-y-[54px]" style={{ paddingLeft: "52px", paddingTop: "10px" }}>
                     {rfidServices.map((service, i) => (
-                      <p
-                        key={i}
-                        className="font-['TASA_Orbiter'] text-black"
-                        style={{
-                          fontSize: activeIndex2 === i ? "24px" : "20px",
-                          fontWeight: activeIndex2 === i ? 700 : 600,
-                          lineHeight: "1.08",
-                          width: "596px",
-                          transition: "font-weight 0.2s ease-in-out, font-size 0.2s ease-in-out",
-                        }}
-                      >
-                        {service}
-                      </p>
+                      <p key={i} className="font-['TASA_Orbiter'] text-black" style={{ fontSize: activeIndex2 === i ? "24px" : "20px", fontWeight: activeIndex2 === i ? 700 : 600, lineHeight: "1.08", transition: "font-weight 0.2s ease-in-out, font-size 0.2s ease-in-out" }}>{service}</p>
                     ))}
                   </div>
                 </div>
+
+                <ul className="lg:hidden space-y-3 sm:space-y-4">
+                  {rfidServices.map((service, i) => (
+                    <li key={i} className="font-['TASA_Orbiter'] text-black text-sm sm:text-base flex items-start gap-2" style={{ fontWeight: 600, lineHeight: "1.3" }}><span className="text-[#E11E24] mt-1">•</span>{service}</li>
+                  ))}
+                </ul>
               </div>
             </div>
 
-            {/* Outcome */}
-            <div
-              style={{
-                width: "1222px",
-                marginTop: "50px",
-              }}
-            >
-              <div className="mb-[30px]">
-                <h3
-                  className="font-['TASA_Orbiter'] text-black mb-[14px]"
-                  style={{
-                    fontSize: "40px",
-                    fontWeight: 600,
-                    lineHeight: "1.08",
-                  }}
-                >
-                  Outcome
-                </h3>
-                <p
-                  className="font-['TASA_Orbiter'] text-black"
-                  style={{
-                    fontSize: "32px",
-                    fontWeight: 600,
-                    lineHeight: "1.27",
-                    maxWidth: "1222px",
-                  }}
-                >
+            <div className="w-full">
+              <div className="mb-3 sm:mb-4 lg:mb-[20px]">
+                <h3 className="font-['TASA_Orbiter'] text-black mb-1.5 sm:mb-2 lg:mb-[10px] text-xl sm:text-2xl md:text-3xl lg:text-[40px]" style={{ fontWeight: 600, lineHeight: "1.08" }}>Outcome</h3>
+                <p className="font-['TASA_Orbiter'] text-black text-base sm:text-lg md:text-xl lg:text-2xl xl:text-[32px]" style={{ fontWeight: 600, lineHeight: "1.27" }}>
                   Streamlined entry control and reliable attendance management
                   with minimal manual intervention.
                 </p>
               </div>
-              <Link
-                href="#contact"
-                className="inline-flex h-[45px] w-[225px] items-center justify-center gap-3 rounded-[75px] border border-white/30 bg-black transition-all hover:bg-black/90"
-                style={{
-                  padding: "12px 25px",
-                }}
-              >
-                <span
-                  className="font-['Manrope'] text-white"
-                  style={{
-                    fontSize: "15px",
-                    fontWeight: 600,
-                    lineHeight: "1.366",
-                    letterSpacing: "0.02em",
-                  }}
-                >
-                  Let's Discuss Needs
-                </span>
-                <svg
-                  width="5"
-                  height="8"
-                  viewBox="0 0 5 8"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  style={{
-                    flexShrink: 0,
-                  }}
-                >
-                  <path
-                    d="M1 1L4 4L1 7"
-                    stroke="#E11E24"
-                    strokeWidth="1"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
+              <Link href="#contact" className="inline-flex items-center justify-center gap-2 sm:gap-3 rounded-[75px] border border-white/30 bg-black transition-all hover:bg-black/90 px-4 py-2.5 sm:px-6 sm:py-3">
+                <span className="font-['Manrope'] text-white text-xs sm:text-sm lg:text-[15px]" style={{ fontWeight: 600, lineHeight: "1.366", letterSpacing: "0.02em" }}>Let's Discuss Needs</span>
+                <svg width="5" height="8" viewBox="0 0 5 8" fill="none" xmlns="http://www.w3.org/2000/svg" className="flex-shrink-0"><path d="M1 1L4 4L1 7" stroke="#E11E24" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
               </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Integrated Attendance & Workforce Management Section - Exact from Figma (node-id=1-2988) */}
-      <section
-        style={{
-          padding: "60px 78px",
-          backgroundColor: "#F8F8F8",
-        }}
-      >
+      {/* Integrated Attendance & Workforce Management Section */}
+      <section className="bg-[#F8F8F8] px-4 sm:px-6 lg:px-[78px] py-4 sm:py-6 lg:py-[40px]">
         <div className="mx-auto w-full max-w-[1440px]">
-          <div
-            className="rounded-[21px]"
-            style={{
-              padding: "60px 78px",
-              backgroundColor: "#F8F8F8",
-            }}
-          >
-            {/* Title */}
-            <h2
-              className="font-['TASA_Orbiter'] text-black mb-[40px]"
-              style={{
-                fontSize: "64px",
-                fontWeight: 600,
-                lineHeight: "1.22",
-                maxWidth: "1151px",
-              }}
-            >
+          <div className="rounded-[21px] bg-[#F8F8F8] py-4 sm:py-6 lg:py-[40px]">
+            <h2 className="font-['TASA_Orbiter'] text-black mb-3 sm:mb-4 lg:mb-[30px] text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-[64px]" style={{ fontWeight: 600, lineHeight: "1.22" }}>
               Integrated Attendance & Workforce Management
             </h2>
 
-            {/* Description */}
-            <p
-              className="font-['TASA_Orbiter'] text-black mb-[50px]"
-              style={{
-                fontSize: "24px",
-                fontWeight: 600,
-                lineHeight: "1.26",
-                maxWidth: "1151px",
-              }}
-            >
+            <p className="font-['TASA_Orbiter'] text-black mb-4 sm:mb-6 lg:mb-[30px] text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl" style={{ fontWeight: 600, lineHeight: "1.26" }}>
               Automate attendance tracking and workforce management through
               centralized, real-time systems. We integrate biometric devices with
               HRMS and payroll platforms for seamless data synchronization.
             </p>
 
-            {/* Image and Key Services Row */}
-            <div className="relative mb-[50px]">
-              {/* Image */}
-              <div
-                className="relative rounded-[13px] overflow-hidden inline-block"
-                style={{
-                  width: "640px",
-                  height: "457px",
-                }}
-              >
-                <Image
-                  src="/solution-3-attendance-section.png"
-                  alt="Integrated Attendance & Workforce Management"
-                  fill
-                  className="object-cover"
-                  sizes="640px"
-                />
+            <div className="mb-6 sm:mb-8 lg:mb-[30px] grid gap-4 sm:gap-6 lg:gap-8 grid-cols-1 lg:grid-cols-2">
+              <div className="relative rounded-[13px] overflow-hidden w-full aspect-[4/3] lg:aspect-[640/457]">
+                <Image src="/solution-3-attendance-section.png" alt="Integrated Attendance & Workforce Management" fill className="object-cover" sizes="(min-width: 1024px) 640px, 100vw" />
               </div>
 
-              {/* Key Services with Progress Bar - Right side */}
-              <div
-                className="absolute top-0"
-                style={{
-                  left: "673.5px",
-                  width: "719px",
-                }}
-              >
-                <h3
-                  className="font-['TASA_Orbiter'] text-black mb-[40px]"
-                  style={{
-                    fontSize: "40px",
-                    fontWeight: 600,
-                    lineHeight: "1.08",
-                  }}
-                >
-                  Key Services
-                </h3>
+              <div className="w-full">
+                <h3 className="font-['TASA_Orbiter'] text-black mb-4 sm:mb-6 lg:mb-[40px] text-xl sm:text-2xl md:text-3xl lg:text-[40px]" style={{ fontWeight: 600, lineHeight: "1.08" }}>Key Services</h3>
 
-                <div className="relative" style={{ width: "719px", height: "365px" }}>
-                  {/* Background line */}
-                  <div
-                    className="absolute left-0 top-0"
-                    style={{
-                      width: "9px",
-                      height: "365px",
-                      borderRadius: "55px",
-                      backgroundColor: "#D9D9D9",
-                    }}
-                  />
-                  {/* Red progress line - Animated */}
-                  <div
-                    className="absolute left-0"
-                    style={{
-                      width: "8.6px",
-                      height: `${redBarHeight}px`,
-                      top: `${redBarTop3}px`,
-                      borderRadius: "55px",
-                      backgroundColor: "#E11E24",
-                    }}
-                  />
-                  {/* Services */}
-                  <div
-                    className="space-y-[54px]"
-                    style={{ paddingLeft: "52px", paddingTop: "10px" }}
-                  >
+                <div className="hidden lg:block relative w-full max-w-[719px]" style={{ height: "365px" }}>
+                  <div className="absolute left-0 top-0" style={{ width: "9px", height: "365px", borderRadius: "55px", backgroundColor: "#D9D9D9" }} />
+                  <div className="absolute left-0" style={{ width: "8.6px", height: `${redBarHeight}px`, top: `${redBarTop3}px`, borderRadius: "55px", backgroundColor: "#E11E24" }} />
+                  <div className="space-y-[54px]" style={{ paddingLeft: "52px", paddingTop: "10px" }}>
                     {attendanceServices.map((service, i) => (
-                      <p
-                        key={i}
-                        className="font-['TASA_Orbiter'] text-black"
-                        style={{
-                          fontSize: activeIndex3 === i ? "24px" : "20px",
-                          fontWeight: activeIndex3 === i ? 700 : 600,
-                          lineHeight: "1.08",
-                          width: "596px",
-                          transition: "font-weight 0.2s ease-in-out, font-size 0.2s ease-in-out",
-                        }}
-                      >
-                        {service}
-                      </p>
+                      <p key={i} className="font-['TASA_Orbiter'] text-black" style={{ fontSize: activeIndex3 === i ? "24px" : "20px", fontWeight: activeIndex3 === i ? 700 : 600, lineHeight: "1.08", transition: "font-weight 0.2s ease-in-out, font-size 0.2s ease-in-out" }}>{service}</p>
                     ))}
                   </div>
                 </div>
+
+                <ul className="lg:hidden space-y-3 sm:space-y-4">
+                  {attendanceServices.map((service, i) => (
+                    <li key={i} className="font-['TASA_Orbiter'] text-black text-sm sm:text-base flex items-start gap-2" style={{ fontWeight: 600, lineHeight: "1.3" }}><span className="text-[#E11E24] mt-1">•</span>{service}</li>
+                  ))}
+                </ul>
               </div>
             </div>
 
-            {/* Outcome */}
-            <div
-              style={{
-                width: "1151px",
-                marginTop: "50px",
-              }}
-            >
-              <div className="mb-[30px]">
-                <h3
-                  className="font-['TASA_Orbiter'] text-black mb-[14px]"
-                  style={{
-                    fontSize: "40px",
-                    fontWeight: 600,
-                    lineHeight: "1.08",
-                  }}
-                >
-                  Outcome
-                </h3>
-                <p
-                  className="font-['TASA_Orbiter'] text-black"
-                  style={{
-                    fontSize: "32px",
-                    fontWeight: 600,
-                    lineHeight: "1.27",
-                    maxWidth: "1151px",
-                  }}
-                >
+            <div className="w-full">
+              <div className="mb-3 sm:mb-4 lg:mb-[20px]">
+                <h3 className="font-['TASA_Orbiter'] text-black mb-1.5 sm:mb-2 lg:mb-[10px] text-xl sm:text-2xl md:text-3xl lg:text-[40px]" style={{ fontWeight: 600, lineHeight: "1.08" }}>Outcome</h3>
+                <p className="font-['TASA_Orbiter'] text-black text-base sm:text-lg md:text-xl lg:text-2xl xl:text-[32px]" style={{ fontWeight: 600, lineHeight: "1.27" }}>
                   Accurate attendance, higher productivity, and effortless HR
                   compliance.
                 </p>
               </div>
-              <Link
-                href="#contact"
-                className="inline-flex h-[45px] w-[225px] items-center justify-center gap-3 rounded-[75px] border border-white/30 bg-black transition-all hover:bg-black/90"
-                style={{
-                  padding: "12px 25px",
-                }}
-              >
-                <span
-                  className="font-['Manrope'] text-white"
-                  style={{
-                    fontSize: "15px",
-                    fontWeight: 600,
-                    lineHeight: "1.366",
-                    letterSpacing: "0.02em",
-                  }}
-                >
-                  Let's Discuss Needs
-                </span>
-                <svg
-                  width="5"
-                  height="8"
-                  viewBox="0 0 5 8"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  style={{
-                    flexShrink: 0,
-                  }}
-                >
-                  <path
-                    d="M1 1L4 4L1 7"
-                    stroke="#E11E24"
-                    strokeWidth="1"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
+              <Link href="#contact" className="inline-flex items-center justify-center gap-2 sm:gap-3 rounded-[75px] border border-white/30 bg-black transition-all hover:bg-black/90 px-4 py-2.5 sm:px-6 sm:py-3">
+                <span className="font-['Manrope'] text-white text-xs sm:text-sm lg:text-[15px]" style={{ fontWeight: 600, lineHeight: "1.366", letterSpacing: "0.02em" }}>Let's Discuss Needs</span>
+                <svg width="5" height="8" viewBox="0 0 5 8" fill="none" xmlns="http://www.w3.org/2000/svg" className="flex-shrink-0"><path d="M1 1L4 4L1 7" stroke="#E11E24" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
               </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Multi-Door & Enterprise Access Control Systems Section - Exact from Figma (node-id=1-3012) */}
-      <section
-        style={{
-          padding: "60px 78px",
-          backgroundColor: "#F8F8F8",
-        }}
-      >
+      {/* Multi-Door & Enterprise Access Control Systems Section */}
+      <section className="bg-[#F8F8F8] px-4 sm:px-6 lg:px-[78px] py-4 sm:py-6 lg:py-[40px]">
         <div className="mx-auto w-full max-w-[1440px]">
-          <div
-            className="rounded-[21px]"
-            style={{
-              padding: "60px 78px",
-              backgroundColor: "#F8F8F8",
-            }}
-          >
-            {/* Title */}
-            <h2
-              className="font-['TASA_Orbiter'] text-black mb-[40px]"
-              style={{
-                fontSize: "64px",
-                fontWeight: 600,
-                lineHeight: "1.22",
-                maxWidth: "1151px",
-              }}
-            >
+          <div className="rounded-[21px] bg-[#F8F8F8] py-4 sm:py-6 lg:py-[40px]">
+            <h2 className="font-['TASA_Orbiter'] text-black mb-3 sm:mb-4 lg:mb-[30px] text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-[64px]" style={{ fontWeight: 600, lineHeight: "1.22" }}>
               Multi-Door & Enterprise Access Control Systems
             </h2>
 
-            {/* Description */}
-            <p
-              className="font-['TASA_Orbiter'] text-black mb-[50px]"
-              style={{
-                fontSize: "24px",
-                fontWeight: 600,
-                lineHeight: "1.26",
-                maxWidth: "1151px",
-              }}
-            >
+            <p className="font-['TASA_Orbiter'] text-black mb-4 sm:mb-6 lg:mb-[30px] text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl" style={{ fontWeight: 600, lineHeight: "1.26" }}>
               Manage and monitor access across multiple entry points, floors, or
               facilities — all from one centralized console. Our scalable systems
               are ideal for large enterprises, campuses, and critical
               infrastructure.
             </p>
 
-            {/* Image and Key Services Row */}
-            <div className="relative mb-[50px]">
-              {/* Image */}
-              <div
-                className="relative rounded-[13px] overflow-hidden inline-block"
-                style={{
-                  width: "640px",
-                  height: "457px",
-                }}
-              >
-                <Image
-                  src="/solution-3-multi-door-section.png"
-                  alt="Multi-Door & Enterprise Access Control Systems"
-                  fill
-                  className="object-cover"
-                  sizes="640px"
-                />
+            <div className="mb-6 sm:mb-8 lg:mb-[30px] grid gap-4 sm:gap-6 lg:gap-8 grid-cols-1 lg:grid-cols-2">
+              <div className="relative rounded-[13px] overflow-hidden w-full aspect-[4/3] lg:aspect-[640/457]">
+                <Image src="/solution-3-multi-door-section.png" alt="Multi-Door & Enterprise Access Control Systems" fill className="object-cover" sizes="(min-width: 1024px) 640px, 100vw" />
               </div>
 
-              {/* Key Services with Progress Bar - Right side */}
-              <div
-                className="absolute top-0"
-                style={{
-                  left: "673.5px",
-                  width: "719px",
-                }}
-              >
-                <h3
-                  className="font-['TASA_Orbiter'] text-black mb-[40px]"
-                  style={{
-                    fontSize: "40px",
-                    fontWeight: 600,
-                    lineHeight: "1.08",
-                  }}
-                >
-                  Key Services
-                </h3>
+              <div className="w-full">
+                <h3 className="font-['TASA_Orbiter'] text-black mb-4 sm:mb-6 lg:mb-[40px] text-xl sm:text-2xl md:text-3xl lg:text-[40px]" style={{ fontWeight: 600, lineHeight: "1.08" }}>Key Services</h3>
 
-                <div className="relative" style={{ width: "719px", height: "365px" }}>
-                  {/* Background line */}
-                  <div
-                    className="absolute left-0 top-0"
-                    style={{
-                      width: "9px",
-                      height: "365px",
-                      borderRadius: "55px",
-                      backgroundColor: "#D9D9D9",
-                    }}
-                  />
-                  {/* Red progress line - Animated */}
-                  <div
-                    className="absolute left-0"
-                    style={{
-                      width: "8.6px",
-                      height: `${redBarHeight}px`,
-                      top: `${redBarTop4}px`,
-                      borderRadius: "55px",
-                      backgroundColor: "#E11E24",
-                    }}
-                  />
-                  {/* Services */}
-                  <div
-                    className="space-y-[54px]"
-                    style={{ paddingLeft: "52px", paddingTop: "10px" }}
-                  >
+                <div className="hidden lg:block relative w-full max-w-[719px]" style={{ height: "365px" }}>
+                  <div className="absolute left-0 top-0" style={{ width: "9px", height: "365px", borderRadius: "55px", backgroundColor: "#D9D9D9" }} />
+                  <div className="absolute left-0" style={{ width: "8.6px", height: `${redBarHeight}px`, top: `${redBarTop4}px`, borderRadius: "55px", backgroundColor: "#E11E24" }} />
+                  <div className="space-y-[54px]" style={{ paddingLeft: "52px", paddingTop: "10px" }}>
                     {multiDoorServices.map((service, i) => (
-                      <p
-                        key={i}
-                        className="font-['TASA_Orbiter'] text-black"
-                        style={{
-                          fontSize: activeIndex4 === i ? "24px" : "20px",
-                          fontWeight: activeIndex4 === i ? 700 : 600,
-                          lineHeight: "1.08",
-                          width: "596px",
-                          transition: "font-weight 0.2s ease-in-out, font-size 0.2s ease-in-out",
-                        }}
-                      >
-                        {service}
-                      </p>
+                      <p key={i} className="font-['TASA_Orbiter'] text-black" style={{ fontSize: activeIndex4 === i ? "24px" : "20px", fontWeight: activeIndex4 === i ? 700 : 600, lineHeight: "1.08", transition: "font-weight 0.2s ease-in-out, font-size 0.2s ease-in-out" }}>{service}</p>
                     ))}
                   </div>
                 </div>
+
+                <ul className="lg:hidden space-y-3 sm:space-y-4">
+                  {multiDoorServices.map((service, i) => (
+                    <li key={i} className="font-['TASA_Orbiter'] text-black text-sm sm:text-base flex items-start gap-2" style={{ fontWeight: 600, lineHeight: "1.3" }}><span className="text-[#E11E24] mt-1">•</span>{service}</li>
+                  ))}
+                </ul>
               </div>
             </div>
 
-            {/* Outcome */}
-            <div
-              style={{
-                width: "1216px",
-                marginTop: "50px",
-              }}
-            >
-              <div className="mb-[30px]">
-                <h3
-                  className="font-['TASA_Orbiter'] text-black mb-[14px]"
-                  style={{
-                    fontSize: "40px",
-                    fontWeight: 600,
-                    lineHeight: "1.08",
-                  }}
-                >
-                  Outcome
-                </h3>
-                <p
-                  className="font-['TASA_Orbiter'] text-black"
-                  style={{
-                    fontSize: "32px",
-                    fontWeight: 600,
-                    lineHeight: "1.27",
-                    maxWidth: "1216px",
-                  }}
-                >
+            <div className="w-full">
+              <div className="mb-3 sm:mb-4 lg:mb-[20px]">
+                <h3 className="font-['TASA_Orbiter'] text-black mb-1.5 sm:mb-2 lg:mb-[10px] text-xl sm:text-2xl md:text-3xl lg:text-[40px]" style={{ fontWeight: 600, lineHeight: "1.08" }}>Outcome</h3>
+                <p className="font-['TASA_Orbiter'] text-black text-base sm:text-lg md:text-xl lg:text-2xl xl:text-[32px]" style={{ fontWeight: 600, lineHeight: "1.27" }}>
                   Centralized visibility, scalable management, and improved
                   compliance across all locations.
                 </p>
               </div>
-              <Link
-                href="#contact"
-                className="inline-flex h-[45px] w-[225px] items-center justify-center gap-3 rounded-[75px] border border-white/30 bg-black transition-all hover:bg-black/90"
-                style={{
-                  padding: "12px 25px",
-                }}
-              >
-                <span
-                  className="font-['Manrope'] text-white"
-                  style={{
-                    fontSize: "15px",
-                    fontWeight: 600,
-                    lineHeight: "1.366",
-                    letterSpacing: "0.02em",
-                  }}
-                >
-                  Let's Discuss Needs
-                </span>
-                <svg
-                  width="5"
-                  height="8"
-                  viewBox="0 0 5 8"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  style={{
-                    flexShrink: 0,
-                  }}
-                >
-                  <path
-                    d="M1 1L4 4L1 7"
-                    stroke="#E11E24"
-                    strokeWidth="1"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
+              <Link href="#contact" className="inline-flex items-center justify-center gap-2 sm:gap-3 rounded-[75px] border border-white/30 bg-black transition-all hover:bg-black/90 px-4 py-2.5 sm:px-6 sm:py-3">
+                <span className="font-['Manrope'] text-white text-xs sm:text-sm lg:text-[15px]" style={{ fontWeight: 600, lineHeight: "1.366", letterSpacing: "0.02em" }}>Let's Discuss Needs</span>
+                <svg width="5" height="8" viewBox="0 0 5 8" fill="none" xmlns="http://www.w3.org/2000/svg" className="flex-shrink-0"><path d="M1 1L4 4L1 7" stroke="#E11E24" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
               </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Integration with CCTV & Surveillance Systems Section - Exact from Figma (node-id=1-3036) */}
-      <section
-        style={{
-          padding: "60px 78px",
-          backgroundColor: "#F8F8F8",
-        }}
-      >
+      {/* Integration with CCTV & Surveillance Systems Section */}
+      <section className="bg-[#F8F8F8] px-4 sm:px-6 lg:px-[78px] py-4 sm:py-6 lg:py-[40px]">
         <div className="mx-auto w-full max-w-[1440px]">
-          <div
-            className="rounded-[21px]"
-            style={{
-              padding: "60px 78px",
-              backgroundColor: "#F8F8F8",
-            }}
-          >
-            {/* Title */}
-            <h2
-              className="font-['TASA_Orbiter'] text-black mb-[40px]"
-              style={{
-                fontSize: "64px",
-                fontWeight: 600,
-                lineHeight: "1.22",
-                maxWidth: "1151px",
-              }}
-            >
+          <div className="rounded-[21px] bg-[#F8F8F8] py-4 sm:py-6 lg:py-[40px]">
+            <h2 className="font-['TASA_Orbiter'] text-black mb-3 sm:mb-4 lg:mb-[30px] text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-[64px]" style={{ fontWeight: 600, lineHeight: "1.22" }}>
               Integration with CCTV & Surveillance Systems
             </h2>
 
-            {/* Description */}
-            <p
-              className="font-['TASA_Orbiter'] text-black mb-[50px]"
-              style={{
-                fontSize: "24px",
-                fontWeight: 600,
-                lineHeight: "1.26",
-                maxWidth: "1151px",
-              }}
-            >
+            <p className="font-['TASA_Orbiter'] text-black mb-4 sm:mb-6 lg:mb-[30px] text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl" style={{ fontWeight: 600, lineHeight: "1.26" }}>
               Create a unified security ecosystem by linking access control with
               surveillance. Every access event can trigger video capture, audit
               logging, or real-time alerts for maximum situational awareness.
             </p>
 
-            {/* Image and Key Services Row */}
-            <div className="relative mb-[50px]">
-              {/* Image */}
-              <div
-                className="relative rounded-[13px] overflow-hidden inline-block"
-                style={{
-                  width: "640px",
-                  height: "457px",
-                }}
-              >
-                <Image
-                  src="/solution-3-cctv-integration-section.png"
-                  alt="Integration with CCTV & Surveillance Systems"
-                  fill
-                  className="object-cover"
-                  sizes="640px"
-                />
+            <div className="mb-6 sm:mb-8 lg:mb-[30px] grid gap-4 sm:gap-6 lg:gap-8 grid-cols-1 lg:grid-cols-2">
+              <div className="relative rounded-[13px] overflow-hidden w-full aspect-[4/3] lg:aspect-[640/457]">
+                <Image src="/solution-3-cctv-integration-section.png" alt="Integration with CCTV & Surveillance Systems" fill className="object-cover" sizes="(min-width: 1024px) 640px, 100vw" />
               </div>
 
-              {/* Key Services with Progress Bar - Right side */}
-              <div
-                className="absolute top-0"
-                style={{
-                  left: "673.5px",
-                  width: "719px",
-                }}
-              >
-                <h3
-                  className="font-['TASA_Orbiter'] text-black mb-[40px]"
-                  style={{
-                    fontSize: "40px",
-                    fontWeight: 600,
-                    lineHeight: "1.08",
-                  }}
-                >
-                  Key Services
-                </h3>
+              <div className="w-full">
+                <h3 className="font-['TASA_Orbiter'] text-black mb-4 sm:mb-6 lg:mb-[40px] text-xl sm:text-2xl md:text-3xl lg:text-[40px]" style={{ fontWeight: 600, lineHeight: "1.08" }}>Key Services</h3>
 
-                <div className="relative" style={{ width: "719px", height: "365px" }}>
-                  {/* Background line */}
-                  <div
-                    className="absolute left-0 top-0"
-                    style={{
-                      width: "9px",
-                      height: "365px",
-                      borderRadius: "55px",
-                      backgroundColor: "#D9D9D9",
-                    }}
-                  />
-                  {/* Red progress line - Animated */}
-                  <div
-                    className="absolute left-0"
-                    style={{
-                      width: "8.6px",
-                      height: `${redBarHeight}px`,
-                      top: `${redBarTop5}px`,
-                      borderRadius: "55px",
-                      backgroundColor: "#E11E24",
-                    }}
-                  />
-                  {/* Services */}
-                  <div
-                    className="space-y-[54px]"
-                    style={{ paddingLeft: "52px", paddingTop: "10px" }}
-                  >
+                <div className="hidden lg:block relative w-full max-w-[719px]" style={{ height: "365px" }}>
+                  <div className="absolute left-0 top-0" style={{ width: "9px", height: "365px", borderRadius: "55px", backgroundColor: "#D9D9D9" }} />
+                  <div className="absolute left-0" style={{ width: "8.6px", height: `${redBarHeight}px`, top: `${redBarTop5}px`, borderRadius: "55px", backgroundColor: "#E11E24" }} />
+                  <div className="space-y-[54px]" style={{ paddingLeft: "52px", paddingTop: "10px" }}>
                     {cctvIntegrationServices.map((service, i) => (
-                      <p
-                        key={i}
-                        className="font-['TASA_Orbiter'] text-black"
-                        style={{
-                          fontSize: activeIndex5 === i ? "24px" : "20px",
-                          fontWeight: activeIndex5 === i ? 700 : 600,
-                          lineHeight: "1.08",
-                          width: "596px",
-                          transition: "font-weight 0.2s ease-in-out, font-size 0.2s ease-in-out",
-                        }}
-                      >
-                        {service}
-                      </p>
+                      <p key={i} className="font-['TASA_Orbiter'] text-black" style={{ fontSize: activeIndex5 === i ? "24px" : "20px", fontWeight: activeIndex5 === i ? 700 : 600, lineHeight: "1.08", transition: "font-weight 0.2s ease-in-out, font-size 0.2s ease-in-out" }}>{service}</p>
                     ))}
                   </div>
                 </div>
+
+                <ul className="lg:hidden space-y-3 sm:space-y-4">
+                  {cctvIntegrationServices.map((service, i) => (
+                    <li key={i} className="font-['TASA_Orbiter'] text-black text-sm sm:text-base flex items-start gap-2" style={{ fontWeight: 600, lineHeight: "1.3" }}><span className="text-[#E11E24] mt-1">•</span>{service}</li>
+                  ))}
+                </ul>
               </div>
             </div>
 
-            {/* Outcome */}
-            <div
-              style={{
-                width: "1216px",
-                marginTop: "50px",
-              }}
-            >
-              <div className="mb-[30px]">
-                <h3
-                  className="font-['TASA_Orbiter'] text-black mb-[14px]"
-                  style={{
-                    fontSize: "40px",
-                    fontWeight: 600,
-                    lineHeight: "1.08",
-                  }}
-                >
-                  Outcome
-                </h3>
-                <p
-                  className="font-['TASA_Orbiter'] text-black"
-                  style={{
-                    fontSize: "32px",
-                    fontWeight: 600,
-                    lineHeight: "1.27",
-                    maxWidth: "1216px",
-                  }}
-                >
+            <div className="w-full">
+              <div className="mb-3 sm:mb-4 lg:mb-[20px]">
+                <h3 className="font-['TASA_Orbiter'] text-black mb-1.5 sm:mb-2 lg:mb-[10px] text-xl sm:text-2xl md:text-3xl lg:text-[40px]" style={{ fontWeight: 600, lineHeight: "1.08" }}>Outcome</h3>
+                <p className="font-['TASA_Orbiter'] text-black text-base sm:text-lg md:text-xl lg:text-2xl xl:text-[32px]" style={{ fontWeight: 600, lineHeight: "1.27" }}>
                   Enhanced accountability, incident traceability, and real-time
                   verification.
                 </p>
               </div>
-              <Link
-                href="#contact"
-                className="inline-flex h-[45px] w-[225px] items-center justify-center gap-3 rounded-[75px] border border-white/30 bg-black transition-all hover:bg-black/90"
-                style={{
-                  padding: "12px 25px",
-                }}
-              >
-                <span
-                  className="font-['Manrope'] text-white"
-                  style={{
-                    fontSize: "15px",
-                    fontWeight: 600,
-                    lineHeight: "1.366",
-                    letterSpacing: "0.02em",
-                  }}
-                >
-                  Let's Discuss Needs
-                </span>
-                <svg
-                  width="5"
-                  height="8"
-                  viewBox="0 0 5 8"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  style={{
-                    flexShrink: 0,
-                  }}
-                >
-                  <path
-                    d="M1 1L4 4L1 7"
-                    stroke="#E11E24"
-                    strokeWidth="1"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
+              <Link href="#contact" className="inline-flex items-center justify-center gap-2 sm:gap-3 rounded-[75px] border border-white/30 bg-black transition-all hover:bg-black/90 px-4 py-2.5 sm:px-6 sm:py-3">
+                <span className="font-['Manrope'] text-white text-xs sm:text-sm lg:text-[15px]" style={{ fontWeight: 600, lineHeight: "1.366", letterSpacing: "0.02em" }}>Let's Discuss Needs</span>
+                <svg width="5" height="8" viewBox="0 0 5 8" fill="none" xmlns="http://www.w3.org/2000/svg" className="flex-shrink-0"><path d="M1 1L4 4L1 7" stroke="#E11E24" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
               </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Cloud-Based & Mobile Access Solutions Section - Exact from Figma (node-id=1-3060) */}
-      <section
-        style={{
-          padding: "60px 78px",
-          backgroundColor: "#F8F8F8",
-        }}
-      >
+      {/* Cloud-Based & Mobile Access Solutions Section */}
+      <section className="bg-[#F8F8F8] px-4 sm:px-6 lg:px-[78px] py-4 sm:py-6 lg:py-[40px]">
         <div className="mx-auto w-full max-w-[1440px]">
-          <div
-            className="rounded-[21px]"
-            style={{
-              padding: "60px 78px",
-              backgroundColor: "#F8F8F8",
-            }}
-          >
-            {/* Title */}
-            <h2
-              className="font-['TASA_Orbiter'] text-black mb-[40px]"
-              style={{
-                fontSize: "64px",
-                fontWeight: 600,
-                lineHeight: "1.22",
-                maxWidth: "1151px",
-              }}
-            >
+          <div className="rounded-[21px] bg-[#F8F8F8] py-4 sm:py-6 lg:py-[40px]">
+            <h2 className="font-['TASA_Orbiter'] text-black mb-3 sm:mb-4 lg:mb-[30px] text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-[64px]" style={{ fontWeight: 600, lineHeight: "1.22" }}>
               Cloud-Based & Mobile Access Solutions
             </h2>
 
-            {/* Description */}
-            <p
-              className="font-['TASA_Orbiter'] text-black mb-[50px]"
-              style={{
-                fontSize: "24px",
-                fontWeight: 600,
-                lineHeight: "1.26",
-                maxWidth: "1151px",
-              }}
-            >
+            <p className="font-['TASA_Orbiter'] text-black mb-4 sm:mb-6 lg:mb-[30px] text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl" style={{ fontWeight: 600, lineHeight: "1.26" }}>
               Enable flexible, modern access management with cloud-hosted and
               mobile-controlled systems. Our solutions provide secure remote
               management, real-time data access, and seamless scalability.
             </p>
 
-            {/* Image and Key Services Row */}
-            <div className="relative mb-[50px]">
-              {/* Image */}
-              <div
-                className="relative rounded-[13px] overflow-hidden inline-block"
-                style={{
-                  width: "640px",
-                  height: "457px",
-                }}
-              >
-                <Image
-                  src="/solution-3-cloud-mobile-section.png"
-                  alt="Cloud-Based & Mobile Access Solutions"
-                  fill
-                  className="object-cover"
-                  sizes="640px"
-                />
+            <div className="mb-6 sm:mb-8 lg:mb-[30px] grid gap-4 sm:gap-6 lg:gap-8 grid-cols-1 lg:grid-cols-2">
+              <div className="relative rounded-[13px] overflow-hidden w-full aspect-[4/3] lg:aspect-[640/457]">
+                <Image src="/solution-3-cloud-mobile-section.png" alt="Cloud-Based & Mobile Access Solutions" fill className="object-cover" sizes="(min-width: 1024px) 640px, 100vw" />
               </div>
 
-              {/* Key Services with Progress Bar - Right side */}
-              <div
-                className="absolute top-0"
-                style={{
-                  left: "673.5px",
-                  width: "719px",
-                }}
-              >
-                <h3
-                  className="font-['TASA_Orbiter'] text-black mb-[40px]"
-                  style={{
-                    fontSize: "40px",
-                    fontWeight: 600,
-                    lineHeight: "1.08",
-                  }}
-                >
-                  Key Services
-                </h3>
+              <div className="w-full">
+                <h3 className="font-['TASA_Orbiter'] text-black mb-4 sm:mb-6 lg:mb-[40px] text-xl sm:text-2xl md:text-3xl lg:text-[40px]" style={{ fontWeight: 600, lineHeight: "1.08" }}>Key Services</h3>
 
-                <div className="relative" style={{ width: "719px", height: "365px" }}>
-                  {/* Background line */}
-                  <div
-                    className="absolute left-0 top-0"
-                    style={{
-                      width: "9px",
-                      height: "365px",
-                      borderRadius: "55px",
-                      backgroundColor: "#D9D9D9",
-                    }}
-                  />
-                  {/* Red progress line - Animated */}
-                  <div
-                    className="absolute left-0"
-                    style={{
-                      width: "8.6px",
-                      height: `${redBarHeight}px`,
-                      top: `${redBarTop6}px`,
-                      borderRadius: "55px",
-                      backgroundColor: "#E11E24",
-                    }}
-                  />
-                  {/* Services */}
-                  <div
-                    className="space-y-[54px]"
-                    style={{ paddingLeft: "52px", paddingTop: "10px" }}
-                  >
+                <div className="hidden lg:block relative w-full max-w-[719px]" style={{ height: "365px" }}>
+                  <div className="absolute left-0 top-0" style={{ width: "9px", height: "365px", borderRadius: "55px", backgroundColor: "#D9D9D9" }} />
+                  <div className="absolute left-0" style={{ width: "8.6px", height: `${redBarHeight}px`, top: `${redBarTop6}px`, borderRadius: "55px", backgroundColor: "#E11E24" }} />
+                  <div className="space-y-[54px]" style={{ paddingLeft: "52px", paddingTop: "10px" }}>
                     {cloudMobileServices.map((service, i) => (
-                      <p
-                        key={i}
-                        className="font-['TASA_Orbiter'] text-black"
-                        style={{
-                          fontSize: activeIndex6 === i ? "24px" : "20px",
-                          fontWeight: activeIndex6 === i ? 700 : 600,
-                          lineHeight: "1.08",
-                          width: "596px",
-                          transition: "font-weight 0.2s ease-in-out, font-size 0.2s ease-in-out",
-                        }}
-                      >
-                        {service}
-                      </p>
+                      <p key={i} className="font-['TASA_Orbiter'] text-black" style={{ fontSize: activeIndex6 === i ? "24px" : "20px", fontWeight: activeIndex6 === i ? 700 : 600, lineHeight: "1.08", transition: "font-weight 0.2s ease-in-out, font-size 0.2s ease-in-out" }}>{service}</p>
                     ))}
                   </div>
                 </div>
+
+                <ul className="lg:hidden space-y-3 sm:space-y-4">
+                  {cloudMobileServices.map((service, i) => (
+                    <li key={i} className="font-['TASA_Orbiter'] text-black text-sm sm:text-base flex items-start gap-2" style={{ fontWeight: 600, lineHeight: "1.3" }}><span className="text-[#E11E24] mt-1">•</span>{service}</li>
+                  ))}
+                </ul>
               </div>
             </div>
 
-            {/* Outcome */}
-            <div
-              style={{
-                width: "1216px",
-                marginTop: "50px",
-              }}
-            >
-              <div className="mb-[30px]">
-                <h3
-                  className="font-['TASA_Orbiter'] text-black mb-[14px]"
-                  style={{
-                    fontSize: "40px",
-                    fontWeight: 600,
-                    lineHeight: "1.08",
-                  }}
-                >
-                  Outcome
-                </h3>
-                <p
-                  className="font-['TASA_Orbiter'] text-black"
-                  style={{
-                    fontSize: "32px",
-                    fontWeight: 600,
-                    lineHeight: "1.27",
-                    maxWidth: "1216px",
-                  }}
-                >
+            <div className="w-full">
+              <div className="mb-3 sm:mb-4 lg:mb-[20px]">
+                <h3 className="font-['TASA_Orbiter'] text-black mb-1.5 sm:mb-2 lg:mb-[10px] text-xl sm:text-2xl md:text-3xl lg:text-[40px]" style={{ fontWeight: 600, lineHeight: "1.08" }}>Outcome</h3>
+                <p className="font-['TASA_Orbiter'] text-black text-base sm:text-lg md:text-xl lg:text-2xl xl:text-[32px]" style={{ fontWeight: 600, lineHeight: "1.27" }}>
                   Remote control, easy scalability, and complete visibility —
                   anytime, anywhere.
                 </p>
               </div>
-              <Link
-                href="#contact"
-                className="inline-flex h-[45px] w-[225px] items-center justify-center gap-3 rounded-[75px] border border-white/30 bg-black transition-all hover:bg-black/90"
-                style={{
-                  padding: "12px 25px",
-                }}
-              >
-                <span
-                  className="font-['Manrope'] text-white"
-                  style={{
-                    fontSize: "15px",
-                    fontWeight: 600,
-                    lineHeight: "1.366",
-                    letterSpacing: "0.02em",
-                  }}
-                >
-                  Let's Discuss Needs
-                </span>
-                <svg
-                  width="5"
-                  height="8"
-                  viewBox="0 0 5 8"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  style={{
-                    flexShrink: 0,
-                  }}
-                >
-                  <path
-                    d="M1 1L4 4L1 7"
-                    stroke="#E11E24"
-                    strokeWidth="1"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
+              <Link href="#contact" className="inline-flex items-center justify-center gap-2 sm:gap-3 rounded-[75px] border border-white/30 bg-black transition-all hover:bg-black/90 px-4 py-2.5 sm:px-6 sm:py-3">
+                <span className="font-['Manrope'] text-white text-xs sm:text-sm lg:text-[15px]" style={{ fontWeight: 600, lineHeight: "1.366", letterSpacing: "0.02em" }}>Let's Discuss Needs</span>
+                <svg width="5" height="8" viewBox="0 0 5 8" fill="none" xmlns="http://www.w3.org/2000/svg" className="flex-shrink-0"><path d="M1 1L4 4L1 7" stroke="#E11E24" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
               </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Why Choose Nexobots Section - Exact from Figma (node-id=1-3084) */}
-      <section
-        className="bg-[#F8F8F8]"
-        style={{
-          padding: "120px 0",
-        }}
-      >
-        <div className="mx-auto w-full max-w-[1440px] px-[78px]">
+      {/* Why Choose Nexobots */}
+      <section className="bg-[#F8F8F8] py-8 sm:py-10 md:py-14 lg:py-[80px]">
+        <div className="mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-[78px]">
           <h2
-            className="font-['TASA_Orbiter'] text-black text-center"
-            style={{
-              fontSize: "40px",
-              fontWeight: 600,
-              lineHeight: "1.494",
-              maxWidth: "860px",
-              margin: "0 auto 80px",
-            }}
+            className="font-['TASA_Orbiter'] text-black text-center mb-6 sm:mb-8 lg:mb-[50px] text-xl sm:text-2xl md:text-3xl lg:text-[40px]"
+            style={{ fontWeight: 600, lineHeight: "1.494" }}
           >
             Why Choose Nexobots for Biometric & Access Control Solutions
           </h2>
 
-          {/* Benefit Cards Grid - 5 cards in a row - Exact from Figma */}
-          <div
-            className="flex items-start justify-center"
-            style={{
-              gap: "24px",
-            }}
-          >
+          {/* Benefit Cards - Responsive Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 sm:gap-6">
             {benefitCards.map((card, index) => (
               <div
                 key={index}
-                className="bg-white rounded-[21px]"
-                style={{
-                  width: "241px",
-                  height: "243px",
-                  padding: index === 0 ? "20px 16px" : "20px",
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: "20px",
-                }}
+                className="bg-white rounded-[21px] p-4 sm:p-5 flex flex-col gap-3 sm:gap-4"
               >
-                {/* Icon - Exact from Figma */}
-                <div
-                  className="flex-shrink-0"
-                  style={{
-                    width: "51px",
-                    height: "51px",
-                  }}
-                >
+                <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12">
                   <Image
                     src="/cpu-light-logo.svg"
                     alt=""
                     width={51}
                     height={51}
-                    className="w-[51px] h-[51px]"
+                    className="w-full h-full"
                   />
                 </div>
                 <h3
-                  className="font-['Manrope'] text-black"
-                  style={{
-                    fontSize: "16px",
-                    fontWeight: 700,
-                    lineHeight: "1.25",
-                  }}
+                  className="font-['Manrope'] text-black text-sm sm:text-base"
+                  style={{ fontWeight: 700, lineHeight: "1.25" }}
                 >
                   {card.title}
                 </h3>
                 <p
-                  className="font-['Manrope'] text-[#A4A4A4]"
-                  style={{
-                    fontSize: "13px",
-                    fontWeight: 700,
-                    lineHeight: "1.462",
-                    width: index === 0 ? "206px" : index === 1 ? "209px" : "209px",
-                  }}
+                  className="font-['Manrope'] text-[#A4A4A4] text-xs sm:text-sm"
+                  style={{ fontWeight: 700, lineHeight: "1.462" }}
                 >
                   {card.description}
                 </p>
@@ -1907,77 +971,47 @@ export default function Solution3Page() {
         </div>
       </section>
 
-      {/* FAQs Section - Exact from Figma */}
-      <section
-        style={{
-          padding: "120px 0",
-          backgroundColor: "#F8F8F8",
-        }}
-      >
-        <div className="mx-auto w-full max-w-[1440px] px-[78px]">
+      {/* FAQs */}
+      <section className="py-8 sm:py-10 md:py-14 lg:py-[80px] bg-[#F8F8F8]">
+        <div className="mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-[78px]">
           <h2
-            className="font-['TASA_Orbiter'] text-black text-center mb-[80px]"
-            style={{
-              fontSize: "64px",
-              fontWeight: 600,
-              lineHeight: "1.494",
-              maxWidth: "851px",
-              marginLeft: "auto",
-              marginRight: "auto",
-            }}
+            className="font-['TASA_Orbiter'] text-black text-center mb-6 sm:mb-8 lg:mb-[50px] text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-[64px]"
+            style={{ fontWeight: 600, lineHeight: "1.494" }}
           >
             FAQs – Biometric & Access Control Solutions
           </h2>
 
-          <div className="space-y-[40px]">
+          <div className="space-y-2 sm:space-y-3 lg:space-y-4 max-w-[1225px] mx-auto">
             {faqs.map((faq, index) => (
               <div
                 key={index}
-                className="bg-[#EFEFEF] rounded-[15px]"
-                style={{
-                  width: "1225px",
-                  height: faq.answer ? "120px" : "64px",
-                  padding: "20px",
-                }}
+                className="bg-[#EFEFEF] rounded-[15px] w-full p-4 sm:p-5"
               >
-                <div className="flex items-start justify-between">
+                <div className="flex items-start justify-between gap-3">
                   <div className="flex-1">
                     <h3
-                      className="font-['Manrope'] text-[#333333] mb-[16px]"
-                      style={{
-                        fontSize: "20px",
-                        fontWeight: 500,
-                        lineHeight: "1.2",
-                      }}
+                      className="font-['Manrope'] text-[#333333] mb-2 sm:mb-3 text-sm sm:text-base lg:text-xl"
+                      style={{ fontWeight: 500, lineHeight: "1.2" }}
                     >
                       {faq.question}
                     </h3>
                     {faq.answer && (
                       <p
-                        className="font-['Manrope'] text-[#333333]"
-                        style={{
-                          fontSize: "16px",
-                          fontWeight: 400,
-                          lineHeight: "1.4375",
-                        }}
+                        className="font-['Manrope'] text-[#333333] text-xs sm:text-sm lg:text-base"
+                        style={{ fontWeight: 400, lineHeight: "1.4375" }}
                       >
                         {faq.answer}
                       </p>
                     )}
                   </div>
-                  <button
-                    className="flex-shrink-0 ml-4"
-                    style={{
-                      width: "24px",
-                      height: "24px",
-                    }}
-                  >
+                  <button className="flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6">
                     <svg
                       width="24"
                       height="24"
                       viewBox="0 0 24 24"
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
+                      className="w-full h-full"
                     >
                       <path
                         d="M7.64 8.73L12 13.09L16.36 8.73"
@@ -1995,15 +1029,12 @@ export default function Solution3Page() {
         </div>
       </section>
 
-      {/* Our Partners Section */}
       <Partners />
 
-      {/* Contact Form */}
       <div id="contact">
         <ContactForm />
       </div>
 
-      {/* Footer */}
       <Footer />
     </div>
   );
