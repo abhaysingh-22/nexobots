@@ -12,305 +12,76 @@ type TestimonialsProps = {
 };
 
 export default function Testimonials({ testimonials }: TestimonialsProps) {
-  // Card positions from Figma
-  const cardPositions = [
-    { x: 82, y: 384 },   // Card 1
-    { x: 515, y: 384 },  // Card 2
-    { x: 941, y: 384 },  // Card 3
-  ];
-
   return (
     <section
       id="testimonials"
-      className="relative bg-white"
-      style={{
-        width: "100%",
-        height: "800px",
-        minHeight: "800px",
-      }}
+      className="relative bg-white py-16 sm:py-20 lg:py-24 xl:py-[120px] overflow-hidden"
     >
-      <div
-        className="relative mx-auto"
-        style={{
-          width: "1440px",
-          maxWidth: "100%",
-          height: "800px",
-          position: "relative",
-        }}
-      >
-        {/* Decorative Image 1 - Group 22 */}
-        <div
-          className="absolute hidden lg:block"
-          style={{
-            left: "82px",
-            top: "120px",
-            width: "283px",
-            height: "218.29px",
-          }}
-        >
+      {/* Decorative Images - Desktop only, positioned relative to section */}
+      <div className="absolute inset-0 pointer-events-none">
+        {/* Decorative Image 1 - Top Left */}
+        <div className="hidden xl:block absolute left-[40px] 2xl:left-[82px] top-[100px]">
           <Image
             src="/testimonials-decorative-1.svg"
             alt=""
             width={283}
             height={218}
-            className="h-auto w-auto"
+            className="w-[200px] h-auto 2xl:w-[283px]"
           />
         </div>
 
-        {/* Decorative Image 2 - Group 24 */}
-        <div
-          className="absolute hidden lg:block"
-          style={{
-            left: "668px",
-            top: "695px",
-            width: "104.2px",
-            height: "46.1px",
-          }}
-        >
+        {/* Decorative Image 2 - Bottom Center-Right */}
+        <div className="hidden xl:block absolute left-1/2 bottom-[40px] 2xl:bottom-[60px]">
           <Image
             src="/testimonials-decorative-2.svg"
             alt=""
             width={105}
             height={47}
-            className="h-auto w-auto"
+            className="w-[80px] h-auto 2xl:w-[105px]"
           />
         </div>
+      </div>
 
-        {/* Heading Section - Frame 22 */}
-        <div
-          className="absolute flex flex-col items-center"
-          style={{
-            left: "330px",
-            top: "120px",
-            width: "766px",
-            gap: "16px",
-          }}
-        >
-          {/* Frame 24 - Testimonials label */}
-          <div
-            className="flex justify-center items-center"
-            style={{
-              width: "100%",
-            }}
-          >
-            <p
-              className="font-['Manrope'] text-black text-center"
-              style={{
-                fontSize: "18px",
-                fontWeight: 500,
-                lineHeight: "1.366",
-              }}
-            >
-              Testimonials
-            </p>
-          </div>
-
-          {/* Frame 23 - Main heading */}
-          <div
-            className="flex justify-center items-center"
-            style={{
-              width: "792px",
-            }}
-          >
-            <h2
-              className="font-['TASA_Orbiter'] text-black text-center"
-              style={{
-                fontSize: "36px",
-                fontWeight: 700,
-                lineHeight: "1.222",
-                width: "522px",
-              }}
-            >
-              Trusted by Enterprises. Proven Through Experience
-            </h2>
-          </div>
+      {/* Main Content Container */}
+      <div className="relative z-10 mx-auto max-w-[1440px] px-4 sm:px-6 md:px-10 lg:px-[72px]">
+        {/* Heading Section */}
+        <div className="text-center mb-10 sm:mb-12 lg:mb-16">
+          <p className="font-['Manrope'] text-black text-[14px] sm:text-[16px] lg:text-[18px] font-medium leading-[1.366] mb-3 sm:mb-4">
+            Testimonials
+          </p>
+          <h2 className="font-['TASA_Orbiter'] text-black text-[24px] sm:text-[30px] lg:text-[36px] font-bold leading-[1.3] sm:leading-[1.222] max-w-[320px] sm:max-w-[450px] lg:max-w-[522px] mx-auto">
+            Trusted by Enterprises. Proven Through Experience
+          </h2>
         </div>
 
-        {/* Testimonial Cards */}
-        <div className="relative z-10 hidden lg:block">
+        {/* Testimonial Cards - Responsive Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 justify-items-center">
           {testimonials.map((testimonial, index) => {
             const authorName = testimonial.author || testimonial.name || "";
             const roleText = testimonial.role.startsWith("—")
               ? testimonial.role
               : `— ${testimonial.role}`;
-            const position = cardPositions[index] || cardPositions[0];
 
             return (
               <div
                 key={`testimonial-${index}`}
-                className="absolute bg-white rounded-[13px] border border-[#D9D9D9]"
-                style={{
-                  left: `${position.x}px`,
-                  top: `${position.y}px`,
-                  width: "411px",
-                  height: "258px",
-                }}
+                className="bg-white rounded-[13px] border border-[#D9D9D9] shadow-sm w-full max-w-[411px] min-h-[240px] sm:min-h-[258px]"
               >
-              {/* Testimonial content - positioned at x: 24, y: 17 with padding 10px */}
-              <div
-                className="flex flex-col"
-                style={{
-                  position: "absolute",
-                  left: "24px",
-                  top: "17px",
-                  padding: "10px",
-                  width: "363px",
-                  height: "223px",
-                }}
-              >
-                {/* Frame 56 - Name and role section */}
-                <div
-                  className="flex flex-col"
-                  style={{
-                    width: "100%",
-                    gap: "16px",
-                  }}
-                >
-                  {/* Frame 55 - Name and role */}
-                  <div
-                    className="flex flex-col"
-                    style={{
-                      gap: "8px",
-                    }}
-                  >
-                    {/* Frame 53 - Name */}
-                    <div
-                      className="flex items-center"
-                    >
-                      <p
-                        className="font-['Manrope'] text-black"
-                        style={{
-                          fontSize: "22px",
-                          fontWeight: 400,
-                          lineHeight: "1.366",
-                          letterSpacing: "0.02em",
-                        }}
-                      >
-                        {authorName}
-                      </p>
-                    </div>
-
-                    {/* Frame 54 - Role */}
-                    <div
-                      className="flex items-center"
-                    >
-                      <p
-                        className="font-['Manrope'] text-black"
-                        style={{
-                          fontSize: "12px",
-                          fontWeight: 400,
-                          lineHeight: "1.366",
-                          letterSpacing: "0.02em",
-                        }}
-                      >
-                        {roleText}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Paragraph - Quote */}
-                <div
-                  className="flex"
-                  style={{
-                    width: "100%",
-                    marginTop: "16px",
-                    flex: 1,
-                  }}
-                >
-                  <p
-                    className="font-['Manrope'] text-black"
-                    style={{
-                      fontSize: "16px",
-                      fontWeight: 300,
-                      lineHeight: "1.75",
-                      letterSpacing: "0.02em",
-                      width: "100%",
-                    }}
-                  >
-                    {testimonial.quote}
-                  </p>
-                </div>
-              </div>
-            </div>
-          );
-        })}
-        </div>
-
-        {/* Mobile/Tablet Cards */}
-        <div className="relative z-10 flex flex-wrap justify-center gap-[14.33px] px-6 lg:hidden">
-          {testimonials.map((testimonial, index) => {
-            const authorName = testimonial.author || testimonial.name || "";
-            const roleText = testimonial.role.startsWith("—")
-              ? testimonial.role
-              : `— ${testimonial.role}`;
-
-            return (
-              <div
-                key={`testimonial-mobile-${index}`}
-                className="bg-white rounded-[13px] border border-[#D9D9D9]"
-                style={{
-                  width: "411px",
-                  maxWidth: "100%",
-                  minHeight: "258px",
-                }}
-              >
-                <div
-                  className="flex flex-col"
-                  style={{
-                    padding: "10px",
-                    width: "100%",
-                    minHeight: "238px",
-                    gap: "16px",
-                  }}
-                >
-                  <div
-                    className="flex flex-col"
-                    style={{
-                      gap: "8px",
-                    }}
-                  >
-                    <div className="flex items-center">
-                      <p
-                        className="font-['Manrope'] text-black"
-                        style={{
-                          fontSize: "22px",
-                          fontWeight: 400,
-                          lineHeight: "1.366",
-                          letterSpacing: "0.02em",
-                        }}
-                      >
-                        {authorName}
-                      </p>
-                    </div>
-                    <div className="flex items-center">
-                      <p
-                        className="font-['Manrope'] text-black"
-                        style={{
-                          fontSize: "12px",
-                          fontWeight: 400,
-                          lineHeight: "1.366",
-                          letterSpacing: "0.02em",
-                        }}
-                      >
-                        {roleText}
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex" style={{ flex: 1 }}>
-                    <p
-                      className="font-['Manrope'] text-black"
-                      style={{
-                        fontSize: "16px",
-                        fontWeight: 300,
-                        lineHeight: "1.75",
-                        letterSpacing: "0.02em",
-                        width: "100%",
-                      }}
-                    >
-                      {testimonial.quote}
+                <div className="flex flex-col p-5 sm:p-6 lg:p-[24px_34px] h-full">
+                  {/* Name and Role */}
+                  <div className="flex flex-col gap-2 mb-4">
+                    <p className="font-['Manrope'] text-black text-[18px] sm:text-[20px] lg:text-[22px] font-normal leading-[1.366] tracking-[0.02em]">
+                      {authorName}
+                    </p>
+                    <p className="font-['Manrope'] text-black text-[11px] sm:text-[12px] font-normal leading-[1.366] tracking-[0.02em]">
+                      {roleText}
                     </p>
                   </div>
+                  
+                  {/* Quote */}
+                  <p className="font-['Manrope'] text-black text-[14px] sm:text-[15px] lg:text-[16px] font-light leading-[1.6] sm:leading-[1.75] tracking-[0.02em] flex-grow">
+                    {testimonial.quote}
+                  </p>
                 </div>
               </div>
             );
