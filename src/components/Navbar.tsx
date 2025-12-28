@@ -3,20 +3,49 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { NavDropdown } from "./NavDropdown";
 
 const navLinks = [
-  { label: "Solutions", href: "/solutions", isHighlighted: true },
-  { label: "Services", href: "/services", isHighlighted: false },
   { label: "Industries", href: "/industries", isHighlighted: false },
   { label: "Company", href: "/about", isHighlighted: false },
   { label: "Contact us", href: "/contact", isHighlighted: false },
 ] as const;
 
+const ServiceDropDownLinks = [
+  { label: "IT Infrastructure Consulting", href: "/service-1" },
+  { label: "Annual Maintenance & Support (AMC)", href: "/service-2" },
+  { label: "System Integration", href: "/service-3" },
+  { label: "Cloud & Virtualization Support", href: "/service-4" },
+] as const;
+
+const SolutionDropDownLinks = [
+  { label: "Smart Structured Cabling Solutions", href: "/solution-1" },
+  { label: "IT Infrastructure & Managed Services", href: "/solution-2" },
+  { label: "CCTV & Intelligent Surveillance Solutions", href: "/solution-3" },
+  { label: "Biometric & Access Control Solutions", href: "/solution-4" },
+] as const;
+
 export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMobileSolutionsOpen, setIsMobileSolutionsOpen] = useState(false);
+  const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
 
-  const handleToggle = () => setIsMenuOpen((prev) => !prev);
-  const handleNavigate = () => setIsMenuOpen(false);
+  const handleToggle = () => {
+    setIsMenuOpen((prev) => {
+      const next = !prev;
+      if (!next) {
+        setIsMobileSolutionsOpen(false);
+        setIsMobileServicesOpen(false);
+      }
+      return next;
+    });
+  };
+
+  const handleNavigate = () => {
+    setIsMenuOpen(false);
+    setIsMobileSolutionsOpen(false);
+    setIsMobileServicesOpen(false);
+  };
 
   return (
     <header className="sticky top-0 z-50 bg-white mb-[13px]">
@@ -37,6 +66,17 @@ export function Navbar() {
         </Link>
 
         <nav className="hidden items-center gap-[40px] lg:flex absolute left-1/2 -translate-x-1/2" aria-label="Primary navigation">
+          <NavDropdown
+            label="Solutions"
+            links={SolutionDropDownLinks}
+            isHighlighted={true}
+            onNavigate={handleNavigate}
+          />
+          <NavDropdown
+            label="Services"
+            links={ServiceDropDownLinks}
+            onNavigate={handleNavigate}
+          />
           {navLinks.map((link) => (
             <Link
               key={link.label}
@@ -63,27 +103,12 @@ export function Navbar() {
           </Link>
           <button
             type="button"
-            className="inline-flex items-center gap-2 rounded-full border border-[#C4C4C4] px-4 py-2 font-display text-[11px] font-semibold uppercase tracking-[0.32em] text-black transition hover:bg-[#F7F7F7] lg:hidden"
+            className="inline-flex items-center gap-2 px-4 py-2 font-display text-[11px] font-semibold uppercase tracking-[0.32em] text-black transition hover:bg-[#F7F7F7] lg:hidden"
             aria-controls="mobile-nav"
             aria-expanded={isMenuOpen}
             onClick={handleToggle}
           >
-            Menu
-            <svg
-              viewBox="0 0 12 12"
-              className="h-3 w-3 stroke-black"
-              fill="none"
-              strokeWidth={1.5}
-              aria-hidden="true"
-            >
-              <path
-                d={
-                  isMenuOpen
-                    ? "M2 2l8 8M10 2L2 10"
-                    : "M1 3h10M1 6h10M1 9h10"
-                }
-              />
-            </svg>
+            <Image src="/hamburger.png" alt="Menu" width={24} height={24} />
           </button>
         </div>
       </div>
@@ -97,12 +122,141 @@ export function Navbar() {
             className="flex flex-col gap-4"
             aria-label="Primary mobile navigation"
           >
+            <div className="flex flex-col">
+              <div
+                className="flex flex-col"
+                onMouseEnter={() => setIsMobileSolutionsOpen(true)}
+                onMouseLeave={() => setIsMobileSolutionsOpen(false)}
+              >
+                <div
+                  className={`flex w-full items-center justify-between gap-3 rounded-[10px] px-3 py-3 transition hover:bg-[#F7F7F7] ${
+                    isMobileSolutionsOpen ? "bg-[#F7F7F7]" : ""
+                  }`}
+                >
+                  <Link
+                    href="/solutions"
+                    onClick={handleNavigate}
+                    className="flex-1 font-display text-ink-soft text-[18px] font-bold capitalize wrap-break-word"
+                  >
+                    Solutions
+                  </Link>
+                  <button
+                    type="button"
+                    onClick={() => setIsMobileSolutionsOpen((prev) => !prev)}
+                    className="inline-flex h-10 w-10 items-center justify-center rounded-[10px] transition hover:bg-white"
+                    aria-expanded={isMobileSolutionsOpen}
+                    aria-controls="mobile-solutions"
+                    aria-label="Toggle Solutions menu"
+                  >
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      className={`transition-transform duration-200 ${isMobileSolutionsOpen ? "rotate-180" : ""}`}
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M4 6L8 10L12 6"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </button>
+                </div>
+
+                {isMobileSolutionsOpen ? (
+                  <div
+                    id="mobile-solutions"
+                    className="mt-2 flex flex-col gap-1 rounded-[10px] border border-[#E5E5E5] bg-[#F7F7F7] p-2"
+                  >
+                    {SolutionDropDownLinks.map((item) => (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        onClick={handleNavigate}
+                        className="flex items-start rounded-lg px-3 py-2.5 font-sans text-[14px] font-medium leading-snug text-ink-soft transition hover:bg-white"
+                      >
+                        {item.label}
+                      </Link>
+                    ))}
+                  </div>
+                ) : null}
+              </div>
+            </div>
+
+            <div className="flex flex-col">
+              <div
+                className="flex flex-col"
+                onMouseEnter={() => setIsMobileServicesOpen(true)}
+                onMouseLeave={() => setIsMobileServicesOpen(false)}
+              >
+                <div
+                  className={`flex w-full items-center justify-between gap-3 rounded-[10px] px-3 py-3 transition hover:bg-[#F7F7F7] ${
+                    isMobileServicesOpen ? "bg-[#F7F7F7]" : ""
+                  }`}
+                >
+                  <Link
+                    href="/services"
+                    onClick={handleNavigate}
+                    className="flex-1 font-display text-ink-soft text-[18px] font-bold capitalize wrap-break-word"
+                  >
+                    Services
+                  </Link>
+                  <button
+                    type="button"
+                    onClick={() => setIsMobileServicesOpen((prev) => !prev)}
+                    className="inline-flex h-10 w-10 items-center justify-center rounded-[10px] transition hover:bg-white"
+                    aria-expanded={isMobileServicesOpen}
+                    aria-controls="mobile-services"
+                    aria-label="Toggle Services menu"
+                  >
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      className={`transition-transform duration-200 ${isMobileServicesOpen ? "rotate-180" : ""}`}
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M4 6L8 10L12 6"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </button>
+                </div>
+
+                {isMobileServicesOpen ? (
+                  <div
+                    id="mobile-services"
+                    className="mt-2 flex flex-col gap-1 rounded-[10px] border border-[#E5E5E5] bg-[#F7F7F7] p-2"
+                  >
+                    {ServiceDropDownLinks.map((item) => (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        onClick={handleNavigate}
+                        className="flex items-start rounded-lg px-3 py-2.5 font-sans text-[14px] font-medium leading-snug text-ink-soft transition hover:bg-white"
+                      >
+                        {item.label}
+                      </Link>
+                    ))}
+                  </div>
+                ) : null}
+              </div>
+            </div>
             {navLinks.map((link) => (
               <Link
                 key={link.label}
                 href={link.href}
                 onClick={handleNavigate}
-                className="font-display text-[#333333] text-[18px] font-bold capitalize break-words transition"
+                className="flex w-full items-center justify-between gap-3 rounded-[10px] px-3 py-3 font-display text-ink-soft text-[18px] font-bold capitalize wrap-break-word transition hover:bg-[#F7F7F7]"
               >
                 {link.label}
               </Link>
@@ -110,7 +264,7 @@ export function Navbar() {
             <Link
               href="/contact"
               onClick={handleNavigate}
-              className="rounded-[10px] border border-[#C4C4C4] px-[26px] py-3 font-sans text-[14px] font-semibold text-[rgba(228,29,40,0.79)] break-words"
+              className="mt-1 inline-flex w-full items-center justify-center rounded-[10px] border border-[#C4C4C4] bg-white px-6 py-3 font-sans text-[14px] font-semibold text-red-primary-soft wrap-break-word transition hover:bg-[#F7F7F7]"
             >
               Get a Free Quote
             </Link>
