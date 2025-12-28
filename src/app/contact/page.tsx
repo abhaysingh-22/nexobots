@@ -145,87 +145,58 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="bg-white text-black">
+    <div className="bg-white text-black overflow-x-hidden">
       <Navbar />
 
       {/* Hero Section with Background Image */}
-      <section className="relative h-[247px] w-full overflow-hidden">
-        {/* Background Image - positioned to show bottom portion (from 644px down) */}
-        <div 
-          className="absolute"
-          style={{
-            top: "-644px",
-            left: "0",
-            width: "100%",
-            height: "891px",
-          }}
-        >
+      <section className="relative w-full overflow-hidden h-[150px] sm:h-[180px] md:h-[220px] lg:h-[247px]">
+        {/* Background Image */}
+        <div className="absolute inset-0">
           <Image
             src="/contact-hero-bg.png"
             alt="Contact Hero Background"
             fill
             priority
-            className="object-cover"
+            className="object-cover object-bottom"
             sizes="100vw"
           />
         </div>
 
-        {/* Blurred Rectangle Overlay */}
+        {/* Dark Overlay */}
         <div
-          className="absolute"
-          style={{
-            left: "-22px",
-            top: "775px",
-            width: "1499px",
-            height: "656px",
-            backgroundColor: "#000000",
-            filter: "blur(386.2px)",
-            opacity: 0.3,
-          }}
+          className="absolute inset-0"
+          style={{ backgroundColor: "rgba(0, 0, 0, 0.3)" }}
         />
 
-        {/* Red Line */}
-        <div
-          className="absolute"
-          style={{
-            left: "82px",
-            top: "48.5px",
-            width: "3px",
-            height: "81px",
-            backgroundColor: "#E11E24",
-          }}
-        />
-
-        {/* "Let's Connect" Heading */}
-        <div
-          className="absolute"
-          style={{
-            left: "118px",
-            top: "57px",
-          }}
-        >
-          <h1
-            className="text-white"
-            style={{
-              fontFamily: "TASA Orbiter",
-              fontSize: "48px",
-              fontWeight: 600,
-              lineHeight: "1.32",
-            }}
-          >
-            Let&apos;s Connect
-          </h1>
+        {/* Red Line and Heading */}
+        <div className="relative z-10 h-full flex items-center">
+          <div className="mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-[82px]">
+            <div className="flex items-center gap-4 sm:gap-6 lg:gap-9">
+              {/* Red Line */}
+              <div
+                className="w-[3px] h-[50px] sm:h-[60px] lg:h-[81px] bg-[#E11E24] flex-shrink-0"
+              />
+              {/* Heading */}
+              <h1
+                className="font-['TASA_Orbiter'] text-white text-2xl sm:text-3xl md:text-4xl lg:text-[48px]"
+                style={{
+                  fontWeight: 600,
+                  lineHeight: "1.32",
+                }}
+              >
+                Let&apos;s Connect
+              </h1>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Description Text */}
-      <section className="bg-white px-6 py-12 md:px-12 lg:px-[118px]">
+      <section className="bg-white px-4 sm:px-6 lg:px-[118px] py-6 sm:py-8 lg:py-12">
         <div className="mx-auto max-w-[1440px]">
           <p
-            className="text-black"
+            className="font-['Inter'] text-black text-lg sm:text-xl md:text-2xl lg:text-[30px]"
             style={{
-              fontFamily: "Inter",
-              fontSize: "30px",
               fontWeight: 600,
               lineHeight: "1.3",
               maxWidth: "1207px",
@@ -238,34 +209,21 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Form Section */}
-      <section className="bg-white px-6 py-12 md:px-12 lg:px-[118px]">
-        <div className="mx-auto" style={{ maxWidth: "1205px" }}>
-          <form onSubmit={handleSubmit} className="flex flex-col gap-8">
+      <section className="bg-white px-4 sm:px-6 lg:px-[118px] py-6 sm:py-8 lg:py-12">
+        <div className="mx-auto max-w-[1205px]">
+          <form onSubmit={handleSubmit} className="flex flex-col gap-5 sm:gap-6 lg:gap-8">
             {/* Name and Email Row */}
-            <div className="flex flex-col gap-6 md:flex-row md:gap-[50px]">
+            <div className="flex flex-col gap-5 sm:gap-6 lg:flex-row lg:gap-[50px]">
               {/* Name Field */}
-              <div className="flex flex-col flex-1" style={{ gap: "12px" }}>
+              <div className="flex flex-col flex-1 gap-2 sm:gap-3">
                 <label
-                  className="text-black"
-                  style={{
-                    fontFamily: "Manrope",
-                    fontSize: "20px",
-                    fontWeight: 700,
-                    lineHeight: "1.5",
-                    color: "#5B5B5B",
-                  }}
+                  className="font-['Manrope'] text-[#5B5B5B] text-base sm:text-lg lg:text-xl"
+                  style={{ fontWeight: 700, lineHeight: "1.5" }}
                 >
                   Name
                 </label>
                 <div
-                  className="flex items-center"
-                  style={{
-                    backgroundColor: "#FBFBFB",
-                    border: "1px solid #E2E2E2",
-                    borderRadius: "15px",
-                    padding: "16px 20px",
-                    height: "64px",
-                  }}
+                  className="flex items-center bg-[#FBFBFB] border border-[#E2E2E2] rounded-[15px] px-4 sm:px-5 h-[52px] sm:h-[58px] lg:h-[64px]"
                 >
                   <input
                     type="text"
@@ -273,46 +231,28 @@ export default function ContactPage() {
                     value={formData.name}
                     onChange={handleChange}
                     placeholder="Enter Full Name"
-                    className="w-full bg-transparent text-black placeholder:text-[#4C4C4C] focus:outline-none"
-                    style={{
-                      fontFamily: "Manrope",
-                      fontSize: "16px",
-                      fontWeight: 500,
-                      lineHeight: "1.5",
-                    }}
+                    className="w-full bg-transparent text-black placeholder:text-[#4C4C4C] focus:outline-none font-['Manrope'] text-sm sm:text-base"
+                    style={{ fontWeight: 500, lineHeight: "1.5" }}
                     aria-label="Name"
                     aria-required="true"
                     aria-invalid={!!errors.name}
                   />
                 </div>
                 {errors.name && (
-                  <p className="mt-1 text-sm text-[#E11E24]">{errors.name}</p>
+                  <p className="text-sm text-[#E11E24]">{errors.name}</p>
                 )}
               </div>
 
               {/* Email Field */}
-              <div className="flex flex-col flex-1" style={{ gap: "12px" }}>
+              <div className="flex flex-col flex-1 gap-2 sm:gap-3">
                 <label
-                  className="text-black"
-                  style={{
-                    fontFamily: "Manrope",
-                    fontSize: "20px",
-                    fontWeight: 700,
-                    lineHeight: "1.5",
-                    color: "#5B5B5B",
-                  }}
+                  className="font-['Manrope'] text-[#5B5B5B] text-base sm:text-lg lg:text-xl"
+                  style={{ fontWeight: 700, lineHeight: "1.5" }}
                 >
                   Email
                 </label>
                 <div
-                  className="flex items-center"
-                  style={{
-                    backgroundColor: "#FBFBFB",
-                    border: "1px solid #E2E2E2",
-                    borderRadius: "15px",
-                    padding: "16px 20px",
-                    height: "64px",
-                  }}
+                  className="flex items-center bg-[#FBFBFB] border border-[#E2E2E2] rounded-[15px] px-4 sm:px-5 h-[52px] sm:h-[58px] lg:h-[64px]"
                 >
                   <input
                     type="email"
@@ -320,49 +260,31 @@ export default function ContactPage() {
                     value={formData.email}
                     onChange={handleChange}
                     placeholder="Enter Email Address"
-                    className="w-full bg-transparent text-black placeholder:text-[#4C4C4C] focus:outline-none"
-                    style={{
-                      fontFamily: "Manrope",
-                      fontSize: "16px",
-                      fontWeight: 500,
-                      lineHeight: "1.5",
-                    }}
+                    className="w-full bg-transparent text-black placeholder:text-[#4C4C4C] focus:outline-none font-['Manrope'] text-sm sm:text-base"
+                    style={{ fontWeight: 500, lineHeight: "1.5" }}
                     aria-label="Email"
                     aria-required="true"
                     aria-invalid={!!errors.email}
                   />
                 </div>
                 {errors.email && (
-                  <p className="mt-1 text-sm text-[#E11E24]">{errors.email}</p>
+                  <p className="text-sm text-[#E11E24]">{errors.email}</p>
                 )}
               </div>
             </div>
 
             {/* Company Name and Phone Number Row */}
-            <div className="flex flex-col gap-6 md:flex-row md:gap-[50px]">
+            <div className="flex flex-col gap-5 sm:gap-6 lg:flex-row lg:gap-[50px]">
               {/* Company Name Field */}
-              <div className="flex flex-col flex-1" style={{ gap: "12px" }}>
+              <div className="flex flex-col flex-1 gap-2 sm:gap-3">
                 <label
-                  className="text-black"
-                  style={{
-                    fontFamily: "Manrope",
-                    fontSize: "20px",
-                    fontWeight: 700,
-                    lineHeight: "1.5",
-                    color: "#5B5B5B",
-                  }}
+                  className="font-['Manrope'] text-[#5B5B5B] text-base sm:text-lg lg:text-xl"
+                  style={{ fontWeight: 700, lineHeight: "1.5" }}
                 >
                   Company Name
                 </label>
                 <div
-                  className="flex items-center"
-                  style={{
-                    backgroundColor: "#FBFBFB",
-                    border: "1px solid #E2E2E2",
-                    borderRadius: "15px",
-                    padding: "16px 16px 16px 20px",
-                    height: "64px",
-                  }}
+                  className="flex items-center bg-[#FBFBFB] border border-[#E2E2E2] rounded-[15px] px-4 sm:px-5 h-[52px] sm:h-[58px] lg:h-[64px]"
                 >
                   <input
                     type="text"
@@ -370,55 +292,37 @@ export default function ContactPage() {
                     value={formData.company}
                     onChange={handleChange}
                     placeholder="Enter Company Name"
-                    className="w-full bg-transparent text-black placeholder:text-[#4C4C4C] focus:outline-none"
-                    style={{
-                      fontFamily: "Manrope",
-                      fontSize: "16px",
-                      fontWeight: 500,
-                      lineHeight: "1.5",
-                    }}
+                    className="w-full bg-transparent text-black placeholder:text-[#4C4C4C] focus:outline-none font-['Manrope'] text-sm sm:text-base"
+                    style={{ fontWeight: 500, lineHeight: "1.5" }}
                     aria-label="Company Name"
                     aria-required="true"
                     aria-invalid={!!errors.company}
                   />
                 </div>
                 {errors.company && (
-                  <p className="mt-1 text-sm text-[#E11E24]">{errors.company}</p>
+                  <p className="text-sm text-[#E11E24]">{errors.company}</p>
                 )}
               </div>
 
               {/* Phone Number Field with Country Code */}
-              <div className="flex flex-col flex-1" style={{ gap: "12px" }}>
+              <div className="flex flex-col flex-1 gap-2 sm:gap-3">
                 <label
-                  className="text-black"
-                  style={{
-                    fontFamily: "Manrope",
-                    fontSize: "20px",
-                    fontWeight: 700,
-                    lineHeight: "1.5",
-                    color: "#5B5B5B",
-                  }}
+                  className="font-['Manrope'] text-[#5B5B5B] text-base sm:text-lg lg:text-xl"
+                  style={{ fontWeight: 700, lineHeight: "1.5" }}
                 >
                   Phone Number
                 </label>
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-2 sm:gap-3">
                   {/* Country Code Selector */}
                   <div
-                    className="flex items-center gap-1"
-                    style={{
-                      backgroundColor: "#FBFBFB",
-                      border: "1px solid #E2E2E2",
-                      borderRadius: "15px",
-                      padding: "10px 12px",
-                      height: "64px",
-                    }}
+                    className="flex items-center gap-1 bg-[#FBFBFB] border border-[#E2E2E2] rounded-[15px] px-2 sm:px-3 h-[52px] sm:h-[58px] lg:h-[64px] flex-shrink-0"
                   >
                     <Image
                       src="/contact-phone-flag.png"
                       alt="India Flag"
                       width={21}
                       height={21}
-                      className="rounded"
+                      className="rounded w-4 h-4 sm:w-5 sm:h-5"
                     />
                     <svg
                       width="10"
@@ -426,6 +330,7 @@ export default function ContactPage() {
                       viewBox="0 0 10 5"
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
+                      className="w-2 h-1 sm:w-[10px] sm:h-[5px]"
                     >
                       <path
                         d="M0 0L5 5L10 0"
@@ -438,14 +343,7 @@ export default function ContactPage() {
                   </div>
                   {/* Phone Input */}
                   <div
-                    className="flex items-center flex-1"
-                    style={{
-                      backgroundColor: "#FBFBFB",
-                      border: "1px solid #E2E2E2",
-                      borderRadius: "15px",
-                      padding: "16px 20px",
-                      height: "64px",
-                    }}
+                    className="flex items-center flex-1 bg-[#FBFBFB] border border-[#E2E2E2] rounded-[15px] px-4 sm:px-5 h-[52px] sm:h-[58px] lg:h-[64px]"
                   >
                     <input
                       type="tel"
@@ -453,113 +351,74 @@ export default function ContactPage() {
                       value={formData.phone}
                       onChange={handleChange}
                       placeholder="Enter Phone Number"
-                      className="w-full bg-transparent text-black placeholder:text-[#4C4C4C] focus:outline-none"
-                      style={{
-                        fontFamily: "Manrope",
-                        fontSize: "16px",
-                        fontWeight: 500,
-                        lineHeight: "1.5",
-                      }}
+                      className="w-full bg-transparent text-black placeholder:text-[#4C4C4C] focus:outline-none font-['Manrope'] text-sm sm:text-base"
+                      style={{ fontWeight: 500, lineHeight: "1.5" }}
                       aria-label="Phone Number"
                       aria-invalid={!!errors.phone}
                     />
                   </div>
                 </div>
                 {errors.phone && (
-                  <p className="mt-1 text-sm text-[#E11E24]">{errors.phone}</p>
+                  <p className="text-sm text-[#E11E24]">{errors.phone}</p>
                 )}
               </div>
             </div>
 
             {/* Message Field */}
-            <div className="flex flex-col" style={{ gap: "12px" }}>
+            <div className="flex flex-col gap-2 sm:gap-3">
               <label
-                className="text-black"
-                style={{
-                  fontFamily: "Manrope",
-                  fontSize: "20px",
-                  fontWeight: 700,
-                  lineHeight: "1.5",
-                  color: "#5B5B5B",
-                }}
+                className="font-['Manrope'] text-[#5B5B5B] text-base sm:text-lg lg:text-xl"
+                style={{ fontWeight: 700, lineHeight: "1.5" }}
               >
                 Message
               </label>
               <div
-                className="flex items-start"
-                style={{
-                  backgroundColor: "#FBFBFB",
-                  border: "1px solid #E2E2E2",
-                  borderRadius: "15px",
-                  padding: "16px",
-                  minHeight: "220px",
-                }}
+                className="flex items-start bg-[#FBFBFB] border border-[#E2E2E2] rounded-[15px] p-4 min-h-[150px] sm:min-h-[180px] lg:min-h-[220px]"
               >
                 <textarea
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
                   placeholder="Enter your Message"
-                  rows={8}
-                  className="w-full bg-transparent text-black placeholder:text-[#4C4C4C] focus:outline-none resize-none"
-                  style={{
-                    fontFamily: "Manrope",
-                    fontSize: "16px",
-                    fontWeight: 500,
-                    lineHeight: "1.5",
-                    minHeight: "188px",
-                  }}
+                  rows={6}
+                  className="w-full bg-transparent text-black placeholder:text-[#4C4C4C] focus:outline-none resize-none font-['Manrope'] text-sm sm:text-base"
+                  style={{ fontWeight: 500, lineHeight: "1.5", minHeight: "120px" }}
                   aria-label="Message"
                   aria-required="true"
                   aria-invalid={!!errors.message}
                 />
               </div>
               {errors.message && (
-                <p className="mt-1 text-sm text-[#E11E24]">{errors.message}</p>
+                <p className="text-sm text-[#E11E24]">{errors.message}</p>
               )}
             </div>
 
             {/* Submit Status Message */}
             {submitStatus.type && (
               <div
-                className={`rounded-lg p-4 ${
+                className={`rounded-lg p-3 sm:p-4 ${
                   submitStatus.type === "success"
                     ? "bg-green-50 text-green-800 border border-green-200"
                     : "bg-red-50 text-red-800 border border-red-200"
                 }`}
               >
-                <p
-                  style={{
-                    fontFamily: "Manrope",
-                    fontSize: "16px",
-                    fontWeight: 500,
-                  }}
-                >
+                <p className="font-['Manrope'] text-sm sm:text-base" style={{ fontWeight: 500 }}>
                   {submitStatus.message}
                 </p>
               </div>
             )}
 
             {/* Submit Button */}
-            <div className="flex justify-end pt-4">
+            <div className="flex justify-center sm:justify-end pt-2 sm:pt-4">
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="inline-flex items-center justify-center gap-3 rounded-[75px] border border-[rgba(70,70,70,0.3)] bg-black transition-all hover:bg-gray-800 disabled:opacity-50 disabled:cursor-not-allowed"
-                style={{
-                  width: "152px",
-                  height: "49px",
-                }}
+                className="inline-flex items-center justify-center gap-2 sm:gap-3 rounded-[75px] border border-[rgba(70,70,70,0.3)] bg-black transition-all hover:bg-gray-800 disabled:opacity-50 disabled:cursor-not-allowed w-full sm:w-auto px-6 sm:px-8 h-[45px] sm:h-[49px]"
+                style={{ minWidth: "140px" }}
               >
                 <span
-                  className="text-white"
-                  style={{
-                    fontFamily: "Manrope",
-                    fontSize: "20px",
-                    fontWeight: 300,
-                    lineHeight: "0.78",
-                    letterSpacing: "0.02em",
-                  }}
+                  className="font-['Manrope'] text-white text-base sm:text-lg lg:text-xl"
+                  style={{ fontWeight: 300, lineHeight: "0.78", letterSpacing: "0.02em" }}
                 >
                   {isSubmitting ? "Submitting..." : "Submit"}
                 </span>
@@ -570,185 +429,101 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Info Section */}
-      <section
-        className="relative w-full bg-white"
-      >
-        <div
-          className="mx-auto flex flex-col gap-[69px] md:flex-row"
-          style={{
-            padding: "80px 240px 80px 98px",
-            maxWidth: "1440px",
-            width: "100%",
-          }}
-        >
-          {/* Header */}
-          <div className="flex flex-col" style={{ gap: "24px" }}>
-            <h2
-              className="text-black"
-              style={{
-                fontFamily: "Inter",
-                fontSize: "40px",
-                fontWeight: 700,
-                lineHeight: "1.3",
-                width: "443px",
-              }}
-            >
-              How Can We Assist you Today
-            </h2>
-          </div>
+      <section className="relative w-full bg-white">
+        <div className="mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-[98px] py-10 sm:py-14 lg:py-20">
+          <div className="flex flex-col gap-8 sm:gap-10 lg:flex-row lg:gap-[69px]">
+            {/* Header */}
+            <div className="flex flex-col gap-4 sm:gap-6 lg:flex-shrink-0">
+              <h2
+                className="font-['Inter'] text-black text-2xl sm:text-3xl md:text-4xl lg:text-[40px]"
+                style={{ fontWeight: 700, lineHeight: "1.3", maxWidth: "443px" }}
+              >
+                How Can We Assist you Today
+              </h2>
+            </div>
 
-          {/* Cards Container */}
-          <div className="flex flex-col gap-6 md:flex-row">
-            {/* Registered Address Card */}
-            <div
-              className="flex flex-col bg-white"
-              style={{
-                gap: "27px",
-                padding: "0px 32px 32px",
-                borderRadius: "8px",
-              }}
-            >
-              {/* Heading */}
-              <div className="flex flex-col" style={{ gap: "25px" }}>
-                <div className="flex flex-col" style={{ gap: "5px" }}>
+            {/* Cards Container */}
+            <div className="flex flex-col gap-6 sm:flex-row sm:gap-8 lg:gap-6">
+              {/* Registered Address Card */}
+              <div className="flex flex-col bg-white gap-5 sm:gap-6 lg:gap-[27px] p-4 sm:p-6 lg:px-8 lg:py-0 rounded-lg sm:flex-1">
+                {/* Heading */}
+                <div className="flex flex-col gap-1">
                   <p
-                    className="text-black"
-                    style={{
-                      fontFamily: "Inter",
-                      fontSize: "22px",
-                      fontWeight: 600,
-                      lineHeight: "1.21",
-                    }}
+                    className="font-['Inter'] text-black text-lg sm:text-xl lg:text-[22px]"
+                    style={{ fontWeight: 600, lineHeight: "1.21" }}
                   >
                     Registered Address
                   </p>
-                  <div
-                    style={{
-                      width: "27px",
-                      height: "3px",
-                      backgroundColor: "#000000",
-                    }}
-                  />
+                  <div className="w-[27px] h-[3px] bg-black" />
                 </div>
-              </div>
 
-              {/* Details */}
-              <div className="flex flex-col" style={{ gap: "25px" }}>
+                {/* Details */}
                 <p
-                  className="text-black"
-                  style={{
-                    fontFamily: "Inter",
-                    fontSize: "20px",
-                    fontWeight: 500,
-                    lineHeight: "1.6",
-                    width: "246px",
-                  }}
+                  className="font-['Inter'] text-black text-base sm:text-lg lg:text-xl"
+                  style={{ fontWeight: 500, lineHeight: "1.6", maxWidth: "246px" }}
                 >
                   #20/1, 2nd Main, Yeshwanthpur Industry, Bengaluru-560022, India
                 </p>
+
+                {/* Button */}
+                <Link
+                  href="https://maps.google.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-1 rounded-[65px] border border-[#F2F2F2] bg-white transition hover:bg-gray-50 px-4 sm:px-5 py-3 w-fit"
+                >
+                  <span
+                    className="font-['Inter'] text-[#555555] text-xs sm:text-sm"
+                    style={{ fontWeight: 400, lineHeight: "1.5", letterSpacing: "-0.03em" }}
+                  >
+                    Get Directions
+                  </span>
+                  <svg
+                    width="13"
+                    height="13"
+                    viewBox="0 0 13 13"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="w-3 h-3"
+                  >
+                    <path
+                      d="M6.5 0L6.5 13M6.5 13L13 6.5M6.5 13L0 6.5"
+                      stroke="#555555"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </Link>
               </div>
 
-              {/* Button */}
-              <Link
-                href="https://maps.google.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-1 rounded-[65px] border border-[#F2F2F2] bg-white transition hover:bg-gray-50"
-                style={{
-                  padding: "14px 20px",
-                  width: "fit-content",
-                }}
-              >
-                <span
-                  className="text-[#555555]"
-                  style={{
-                    fontFamily: "Inter",
-                    fontSize: "14px",
-                    fontWeight: 400,
-                    lineHeight: "1.5",
-                    letterSpacing: "-0.03em",
-                  }}
-                >
-                  Get Directions
-                </span>
-                <svg
-                  width="13"
-                  height="13"
-                  viewBox="0 0 13 13"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M6.5 0L6.5 13M6.5 13L13 6.5M6.5 13L0 6.5"
-                    stroke="#555555"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </Link>
-            </div>
-
-            {/* Contact Details Card */}
-            <div
-              className="flex flex-col bg-white"
-              style={{
-                gap: "27px",
-                padding: "0px 32px 32px",
-                borderRadius: "8px",
-              }}
-            >
-              {/* Heading */}
-              <div className="flex flex-col" style={{ gap: "25px" }}>
-                <div className="flex flex-col" style={{ gap: "5px" }}>
+              {/* Contact Details Card */}
+              <div className="flex flex-col bg-white gap-5 sm:gap-6 lg:gap-[27px] p-4 sm:p-6 lg:px-8 lg:py-0 rounded-lg sm:flex-1">
+                {/* Heading */}
+                <div className="flex flex-col gap-1">
                   <p
-                    className="text-black"
-                    style={{
-                      fontFamily: "Inter",
-                      fontSize: "22px",
-                      fontWeight: 600,
-                      lineHeight: "1.21",
-                    }}
+                    className="font-['Inter'] text-black text-lg sm:text-xl lg:text-[22px]"
+                    style={{ fontWeight: 600, lineHeight: "1.21" }}
                   >
                     Contact Details
                   </p>
-                  <div
-                    style={{
-                      width: "27px",
-                      height: "3px",
-                      backgroundColor: "#000000",
-                    }}
-                  />
+                  <div className="w-[27px] h-[3px] bg-black" />
                 </div>
-              </div>
 
-              {/* Details - Phone */}
-              <div className="flex flex-col" style={{ gap: "25px" }}>
+                {/* Details - Phone */}
                 <a
                   href="tel:+918884480040"
-                  className="text-black hover:underline"
-                  style={{
-                    fontFamily: "Inter",
-                    fontSize: "22px",
-                    fontWeight: 500,
-                    lineHeight: "1.21",
-                  }}
+                  className="font-['Inter'] text-black hover:underline text-lg sm:text-xl lg:text-[22px]"
+                  style={{ fontWeight: 500, lineHeight: "1.21" }}
                 >
                   +91 88844 80040
                 </a>
-              </div>
 
-              {/* Details - Email */}
-              <div className="flex flex-col" style={{ gap: "25px" }}>
+                {/* Details - Email */}
                 <a
                   href="mailto:contact@nexobots.com"
-                  className="text-black hover:underline"
-                  style={{
-                    fontFamily: "Inter",
-                    fontSize: "22px",
-                    fontWeight: 500,
-                    lineHeight: "1.21",
-                  }}
+                  className="font-['Inter'] text-black hover:underline text-lg sm:text-xl lg:text-[22px]"
+                  style={{ fontWeight: 500, lineHeight: "1.21" }}
                 >
                   contact@nexobots.com
                 </a>
@@ -758,7 +533,6 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Footer */}
       <Footer />
     </div>
   );
