@@ -69,31 +69,37 @@ export default function ServicesPage() {
 
       {/* Hero Section */}
       <section
-        className="relative flex items-center justify-center px-6"
+        className="relative flex items-center justify-center px-4 sm:px-6 py-12 lg:py-0"
         style={{
-          minHeight: "721px",
+          minHeight: "auto",
           backgroundColor: "#F8F8F8",
         }}
       >
+        {/* Background Image */}
+        <div className="absolute inset-0 overflow-hidden ">
+          <Image
+            src="/Hero-section.png"
+            alt="Hero Background"
+            fill
+            className="object-cover "
+            priority
+          />
+        </div>
         <div 
-          className="relative mx-auto w-full max-w-[1440px]"
-          style={{
-            minHeight: "721px",
-          }}
+          className="relative mx-auto w-full max-w-[1440px] flex flex-col lg:block lg:min-h-[721px]"
         >
           {/* Title Text - Large Font Size (50px) - Separate Div */}
           <div
-            className="absolute left-6 md:left-[99px] top-[79px]"
+            className="relative lg:absolute left-0 lg:left-[99px] top-0 lg:top-[79px] mb-8 lg:mb-0"
             style={{
-              width: "calc(100% - 48px)",
+              width: "100%",
               maxWidth: "784px",
             }}
           >
             <h1
-              className="font-display text-black"
+              className="font-display text-black text-[28px] sm:text-[36px] md:text-[44px] lg:text-[60px]"
               style={{
                 fontFamily: "TASA Orbiter",
-                fontSize: "clamp(32px, 3.5vw, 60px)",
                 fontWeight: 600,
                 lineHeight: "1.32em",
                 textAlign: "left",
@@ -107,17 +113,16 @@ export default function ServicesPage() {
 
           {/* Description Text - Smaller Font Size (20px) - Separate Div */}
           <div
-            className="absolute left-6 md:left-[694px] top-[355px]"
+            className="relative lg:absolute left-0 lg:left-[694px] top-0 lg:top-[355px] mb-8 lg:mb-0"
             style={{
-              width: "calc(100% - 48px)",
+              width: "100%",
               maxWidth: "646px",
             }}
           >
             <p
-              className="font-display text-black whitespace-pre-line"
+              className="font-display text-black whitespace-pre-line text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px]"
               style={{
                 fontFamily: "TASA Orbiter",
-                fontSize: "clamp(16px, 1.4vw, 20px)",
                 fontWeight: 600,
                 lineHeight: "1.32em",
                 textAlign: "left",
@@ -137,22 +142,19 @@ export default function ServicesPage() {
 
           {/* Button */}
           <div
-            className="absolute left-6 md:left-[694px] top-[575px]"
+            className="relative lg:absolute left-0 lg:left-[694px] top-0 lg:top-[575px]"
           >
             <Link
               href="/contact"
-              className="flex items-center justify-center gap-3 rounded-[75px] border border-white/30 bg-black transition-all hover:bg-gray-900"
+              className="flex items-center justify-center gap-3 rounded-[75px] border border-white/30 bg-black transition-all hover:bg-gray-900 w-full sm:w-[253px] h-[56px] sm:h-[67px]"
               style={{
-                width: "253px",
-                height: "67px",
                 borderColor: "rgba(255, 255, 255, 0.3)",
                 borderWidth: "1px",
               }}
             >
               <span
-                className="font-['Manrope'] text-white whitespace-nowrap"
+                className="font-['Manrope'] text-white whitespace-nowrap text-[16px] sm:text-[20px]"
                 style={{
-                  fontSize: "20px",
                   fontWeight: 600,
                   lineHeight: "1.366em",
                   letterSpacing: "0.02em",
@@ -184,20 +186,20 @@ export default function ServicesPage() {
       </section>
 
       {/* Services Sections */}
-      <div className="mx-auto max-w-[1440px] space-y-12 px-6 py-12 md:px-12">
+      <div className="mx-auto max-w-[1440px] space-y-8 sm:space-y-12 px-4 sm:px-6 py-8 sm:py-12 md:px-12">
         {services.map((service, index) => {
           const isEven = index % 2 === 0;
           return (
             <section
               key={service.id}
-              className="rounded-[21px] bg-white p-6 md:p-12"
+              className="rounded-[21px] bg-white p-4 sm:p-6 md:p-12"
               style={{
-                minHeight: "807px",
+                minHeight: "auto",
               }}
             >
               {/* Title */}
               <h2
-                className="font-['TASA_Orbiter'] text-black text-[32px] md:text-[40px] lg:text-[48px] mb-8 text-left"
+                className="font-['TASA_Orbiter'] text-black text-[24px] sm:text-[32px] md:text-[40px] lg:text-[48px] mb-6 sm:mb-8 text-left"
                 style={{
                   fontWeight: 700,
                   lineHeight: "1.366",
@@ -210,7 +212,7 @@ export default function ServicesPage() {
               {/* Content Grid */}
               <div className="flex justify-center">
                 <div
-                  className={`grid gap-6 ${
+                  className={`grid gap-6 w-full ${
                     !isEven 
                       ? "lg:grid-cols-[486px_636px]" 
                       : "lg:grid-cols-[636px_486px]"
@@ -218,13 +220,9 @@ export default function ServicesPage() {
                 >
                   {/* Image with Description Overlay */}
                   <div
-                    className={`relative ${
+                    className={`relative w-full lg:w-[636px] h-[280px] sm:h-[350px] md:h-[450px] lg:h-[513px] ${
                       !isEven ? "lg:order-2" : ""
                     }`}
-                    style={{
-                      width: "636px",
-                      height: "513px",
-                    }}
                   >
                     <Image
                       src={service.image}
@@ -244,11 +242,10 @@ export default function ServicesPage() {
                       }}
                     />
                     {/* Description Text Over Image */}
-                    <div className="absolute bottom-0 left-0 right-0 p-6" style={{ borderRadius: "20px" }}>
+                    <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6" style={{ borderRadius: "20px" }}>
                       <p
-                        className="font-['Manrope'] text-white whitespace-normal text-left"
+                        className="font-['Manrope'] text-white whitespace-normal text-left text-[14px] sm:text-[18px] md:text-[20px] lg:text-[24px]"
                         style={{
-                          fontSize: "24px",
                           fontWeight: 700,
                           lineHeight: "1.208",
                           letterSpacing: "0.02em",
@@ -261,37 +258,31 @@ export default function ServicesPage() {
 
                   {/* Features & Button */}
                   <div
-                    className={`flex flex-col items-start justify-between ${
+                    className={`flex flex-col items-start justify-between mt-6 lg:mt-0 ${
                       !isEven ? "lg:order-1" : ""
                     }`}
                     style={{
-                      height: "513px",
+                      height: "auto",
                     }}
                   >
                     {/* Our Offerings Heading */}
                     <h3 
-                      className="font-['Manrope'] text-black mb-6"
+                      className="font-['Manrope'] text-black mb-4 sm:mb-6 text-[24px] sm:text-[28px] md:text-[32px] lg:text-[36px] w-full lg:w-[486px]"
                       style={{
                         fontFamily: "Manrope",
                         fontWeight: 700,
                         fontStyle: "normal",
-                        fontSize: "36px",
-                        width: "486px",
                       }}
                     >
                       Our Offerings
                     </h3>
                     
                     {/* Offerings List */}
-                    <div className="space-y-5 w-full flex flex-col items-start">
+                    <div className="space-y-3 sm:space-y-5 w-full flex flex-col items-start">
                       {service.offerings.map((offering, i) => (
                         <div
                           key={i}
-                          className="relative flex items-center rounded-[67px] border border-[#DADADA] bg-white pl-8 pr-6 py-4"
-                          style={{
-                            height: "65px",
-                            width: "486px",
-                          }}
+                          className="relative flex items-center rounded-[67px] border border-[#DADADA] bg-white pl-8 pr-4 sm:pr-6 py-3 sm:py-4 w-full lg:w-[486px] min-h-[55px] sm:min-h-[65px]"
                         >
                           {/* Star Icon - positioned inside the card */}
                           <div className="absolute left-4 top-1/2 -translate-y-1/2 flex-shrink-0 z-10">
@@ -310,11 +301,10 @@ export default function ServicesPage() {
                             </svg>
                           </div>
                           <p
-                            className="font-['Manrope'] text-black text-left"
+                            className="font-['Manrope'] text-black text-left text-[13px] sm:text-[14px] md:text-[16px]"
                             style={{
-                              fontSize: "16px",
                               fontWeight: 600,
-                              lineHeight: "2.25",
+                              lineHeight: "1.5",
                               letterSpacing: "0.02em",
                               paddingLeft: "20px",
                               width: "100%",
@@ -329,16 +319,11 @@ export default function ServicesPage() {
                     {/* Button */}
                     <Link
                       href={`/service-${service.id}`}
-                      className="flex items-center justify-start gap-3 rounded-[75px] border border-white/30 bg-black px-[25px] py-3 transition-all hover:bg-gray-900 mt-6"
-                      style={{
-                        width: "348px",
-                        height: "45px",
-                      }}
+                      className="flex items-center justify-start gap-3 rounded-[75px] border border-white/30 bg-black px-4 sm:px-[25px] py-3 transition-all hover:bg-gray-900 mt-6 w-full sm:w-[348px] h-[45px]"
                     >
                       <span
-                        className="font-['Manrope'] text-white text-left whitespace-nowrap"
+                        className="font-['Manrope'] text-white text-left whitespace-nowrap text-[13px] sm:text-[15px]"
                         style={{
-                          fontSize: "15px",
                           fontWeight: 600,
                           lineHeight: "1.366",
                           letterSpacing: "0.02em",
@@ -375,15 +360,15 @@ export default function ServicesPage() {
 
       {/* Closing CTA */}
       <section
-        className="flex items-center justify-center px-6 py-24 md:px-12"
+        className="flex items-center justify-center px-4 sm:px-6 py-12 sm:py-16 md:py-24 md:px-12"
         style={{
-          minHeight: "735px",
+          minHeight: "auto",
           backgroundColor: "#F8F8F8",
         }}
       >
         <div className="mx-auto w-full max-w-[1440px] text-center">
           <h2
-            className="font-['TASA_Orbiter'] text-black text-[40px] md:text-[52px] lg:text-[64px]"
+            className="font-['TASA_Orbiter'] text-black text-[28px] sm:text-[36px] md:text-[52px] lg:text-[64px]"
             style={{
               fontWeight: 600,
               lineHeight: "1.494",
@@ -396,13 +381,13 @@ export default function ServicesPage() {
           </h2>
 
           <p
-            className="mt-8 font-['Manrope'] text-black text-[16px] md:text-[18px] lg:text-[20px]"
+            className="mt-6 sm:mt-8 font-['Manrope'] text-black text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px]"
             style={{
               fontWeight: 400,
               lineHeight: "1.4",
               maxWidth: "900px",
               margin: "0 auto",
-              marginTop: "32px",
+              marginTop: "24px",
             }}
           >
             Your business deserves an IT foundation that evolves with your
