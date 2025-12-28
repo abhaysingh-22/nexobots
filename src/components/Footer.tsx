@@ -48,69 +48,76 @@ const socialLinks = [
 
 export function Footer() {
   return (
-    <footer className="bg-black text-white" style={{ paddingTop: '115px', paddingRight: '72px', paddingBottom: '142px', paddingLeft: '72px' }}>
-      <div className="mx-auto w-full">
-        <div className="grid gap-[80px] lg:grid-cols-[325px_1fr] mb-[89px]">
-          <div className="space-y-0">
+    <footer className="bg-black text-white px-4 py-12 sm:px-6 sm:py-16 md:px-12 lg:px-[72px] lg:pt-[115px] lg:pb-[142px]">
+      <div className="mx-auto w-full max-w-[1440px]">
+        <div className="grid gap-10 sm:gap-12 lg:gap-[80px] lg:grid-cols-[325px_1fr] mb-12 lg:mb-[89px]">
+          {/* Logo & Social Section */}
+          <div className="space-y-0 text-center sm:text-left">
             <Image
               src="/nexobots-logo-white.svg"
               alt="Nexobots"
               width={182}
               height={34}
               priority
-              className="h-auto w-[182px] mb-[38px]"
+              className="h-auto w-[140px] sm:w-[160px] lg:w-[182px] mb-6 lg:mb-[38px] mx-auto sm:mx-0"
             />
-            <div className="space-y-0 text-left mb-[12px]" style={{ maxWidth: '280px' }}>
-              <p className="font-['Manrope'] text-[14px] font-medium leading-[1.366] text-white mb-0">
+            <div className="space-y-0 text-center sm:text-left mb-4 lg:mb-[12px] max-w-[280px] mx-auto sm:mx-0">
+              <p className="font-['Manrope'] text-xs sm:text-sm lg:text-[14px] font-medium leading-[1.366] text-white mb-0">
                 nexobots Technologies LLP
-                </p>
-              <p className="font-['Manrope'] text-[14px] font-medium leading-[1.366] text-white mt-0">
+              </p>
+              <p className="font-['Manrope'] text-xs sm:text-sm lg:text-[14px] font-medium leading-[1.366] text-white mt-0">
                 India's leading provider of structured cabling, networking, surveillance, biometric access, and managed IT services
-                </p>
-              </div>
-            <p className="font-['TASA_Orbiter'] text-[16px] font-medium leading-[1.3] tracking-[-0.03em] text-white mb-[25px]">
+              </p>
+            </div>
+            <p className="font-['TASA_Orbiter'] text-sm sm:text-base lg:text-[16px] font-medium leading-[1.3] tracking-[-0.03em] text-white mb-4 lg:mb-[25px]">
               Connect with Us
             </p>
-            <div className="flex gap-[9px]">
+            <div className="flex gap-2 sm:gap-[9px] justify-center sm:justify-start">
               {socialLinks.map(({ label, href, Icon }) => (
-            <Link
+                <Link
                   key={label}
                   href={href}
                   aria-label={label}
-                  className="flex h-[37px] w-[41px] items-center justify-center rounded-[6px] border border-[#262626] bg-[#1D1D1D] transition hover:bg-[#262626]"
-            >
+                  className="flex h-9 w-10 sm:h-[37px] sm:w-[41px] items-center justify-center rounded-[6px] border border-[#262626] bg-[#1D1D1D] transition hover:bg-[#262626]"
+                >
                   <Icon />
-            </Link>
-          ))}
+                </Link>
+              ))}
             </div>
-        </div>
+          </div>
 
-          <div className="grid gap-[100px] sm:grid-cols-2 lg:grid-cols-4">
-          {footerColumns.map((column) => (
+          {/* Footer Columns */}
+          <div className="grid grid-cols-2 gap-8 sm:gap-10 lg:gap-[100px] lg:grid-cols-4">
+            {footerColumns.map((column) => (
               <div key={column.title} className="space-y-0">
-                <h4 className="font-['TASA_Orbiter'] text-[32px] font-medium leading-[1.2] text-white mb-[24px] whitespace-nowrap">
-                {column.title}
-              </h4>
-                <ul className="space-y-0 flex flex-col gap-[34px]">
-                {column.links.map((link) => (
+                <h4 className="font-['TASA_Orbiter'] text-lg sm:text-xl md:text-2xl lg:text-[32px] font-medium leading-[1.2] text-white mb-4 sm:mb-5 lg:mb-[24px]">
+                  {column.title}
+                </h4>
+                <ul className="space-y-0 flex flex-col gap-3 sm:gap-4 lg:gap-[34px]">
+                  {column.links.map((link) => (
                     <li key={typeof link === 'string' ? link : link.label} className="m-0">
-                    <Link
-                      href={typeof link === 'string' ? '#' : link.href}
-                        className="font-['Manrope'] text-[14px] font-medium leading-[1.366] text-[#9C9C9C] transition hover:text-white whitespace-nowrap"
-                    >
-                      {typeof link === 'string' ? link : link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
+                      <Link
+                        href={typeof link === 'string' ? '#' : link.href}
+                        className="font-['Manrope'] text-xs sm:text-sm lg:text-[14px] font-medium leading-[1.366] text-[#9C9C9C] transition hover:text-white"
+                      >
+                        {typeof link === 'string' ? link : link.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
         </div>
 
-        <div className="border-t border-white/20 text-center" style={{ paddingTop: '36px', paddingBottom: '36px' }}>
-          <p className="font-['Manrope'] text-[16px] leading-[1.25] text-white whitespace-nowrap">
-            Copyright © {new Date().getFullYear()} Nexobots&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;All Rights Reserved&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Privacy Policy
+        {/* Copyright */}
+        <div className="border-t border-white/20 text-center py-6 sm:py-8 lg:py-[36px]">
+          <p className="font-['Manrope'] text-xs sm:text-sm lg:text-[16px] leading-[1.25] text-white">
+            <span className="block sm:inline">Copyright © {new Date().getFullYear()} Nexobots</span>
+            <span className="hidden sm:inline">&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</span>
+            <span className="block sm:inline mt-1 sm:mt-0">All Rights Reserved</span>
+            <span className="hidden sm:inline">&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</span>
+            <span className="block sm:inline mt-1 sm:mt-0">Privacy Policy</span>
           </p>
         </div>
       </div>
