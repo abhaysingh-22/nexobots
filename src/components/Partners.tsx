@@ -6,6 +6,7 @@ import { useRef, useEffect } from "react";
 export default function Partners() {
   const scrollRef = useRef<HTMLDivElement>(null);
 
+  // Animation runs on all screen sizes
   useEffect(() => {
     const container = scrollRef.current;
     if (!container) return;
@@ -20,7 +21,15 @@ export default function Partners() {
       const first = container.firstElementChild as HTMLElement;
       if (!first) return;
 
-      if (Math.abs(x) >= first.clientWidth + 250) {
+      // Responsive gap based on screen width
+      const gap =
+        window.innerWidth < 640
+          ? 60
+          : window.innerWidth < 1024
+          ? 150
+          : 250;
+
+      if (Math.abs(x) >= first.clientWidth + gap) {
         container.appendChild(first);
         x = 0;
       }
@@ -48,54 +57,65 @@ export default function Partners() {
           mask-image: linear-gradient(
             to right,
             transparent 0%,
-            black 12%,
-            black 88%,
+            black 5%,
+            black 95%,
             transparent 100%
           );
           -webkit-mask-image: linear-gradient(
             to right,
             transparent 0%,
-            black 12%,
-            black 88%,
+            black 5%,
+            black 95%,
             transparent 100%
           );
+        }
+        @media (min-width: 768px) {
+          .mask-fade {
+            mask-image: linear-gradient(
+              to right,
+              transparent 0%,
+              black 12%,
+              black 88%,
+              transparent 100%
+            );
+            -webkit-mask-image: linear-gradient(
+              to right,
+              transparent 0%,
+              black 12%,
+              black 88%,
+              transparent 100%
+            );
+          }
         }
       `}</style>
 
       <section
         id="partners"
-        className="relative bg-white pt-[120px] pb-0"
-        style={{ minHeight: "558px" }}
+        className="relative bg-white py-10 sm:py-16 lg:pt-[120px] lg:pb-10"
       >
         {/* Heading */}
-        <div className="mx-auto w-full max-w-[1440px] px-[72px]">
-          <div className="mx-auto mb-[64px] flex flex-col items-center gap-4"
-               style={{ maxWidth: "1143px" }}>
-            <p className="font-['Manrope'] text-[18px] font-medium text-center text-black">
+        <div className="mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-[72px]">
+          <div
+            className="mx-auto mb-8 sm:mb-12 lg:mb-[64px] flex flex-col items-center gap-3 sm:gap-4"
+            style={{ maxWidth: "1143px" }}
+          >
+            <p className="font-['Manrope'] text-sm sm:text-base lg:text-[18px] font-medium text-center text-black">
               Partner Ecosystem
             </p>
 
-            <h2 className="text-center font-['TASA_Orbiter'] text-[32px] font-bold text-black">
-              <span className="whitespace-nowrap">
-                We work with industry-leading OEMs to deliver enterprise-grade solutions
-              </span>
-              <br />
-              <span className="whitespace-nowrap">
-                that meet the highest standards of quality, performance, and security.
-              </span>
+            <h2 className="text-center font-['TASA_Orbiter'] text-lg sm:text-xl md:text-2xl lg:text-[32px] font-bold text-black px-2">
+              We work with industry-leading OEMs to deliver enterprise-grade
+              solutions that meet the highest standards of quality, performance,
+              and security.
             </h2>
           </div>
         </div>
 
-        {/* Logo Marquee */}
+        {/* Animated Marquee - All Screen Sizes */}
         <div
-          className="relative w-full overflow-hidden mask-fade"
+          className="relative w-full overflow-hidden mask-fade mt-4 sm:mt-6 lg:mt-[30px] flex items-center h-[50px] sm:h-[70px] lg:h-[93px]"
           style={{
-            height: "93px",          // EXACT Figma height
             backgroundColor: "#D9D9D9",
-            display: "flex",
-            alignItems: "center",
-            marginTop: "30px",
           }}
         >
           <div
@@ -103,19 +123,21 @@ export default function Partners() {
             className="flex items-center will-change-transform"
             style={{
               width: "max-content",
-              gap: "250px",         // EXACT Figma gap
-              paddingLeft: "250px",
             }}
           >
             {[...logos, ...logos].map((src, i) => (
-              <Image
+              <div
                 key={i}
-                src={src}
-                alt="Partner logo"
-                height={75}         // EXACT Figma visual height
-                width={200}
-                className="object-contain w-auto flex-shrink-0"
-              />
+                className="flex-shrink-0 px-[30px] sm:px-[75px] lg:px-[125px]"
+              >
+                <Image
+                  src={src}
+                  alt="Partner logo"
+                  height={75}
+                  width={200}
+                  className="object-contain w-auto h-[30px] sm:h-[50px] lg:h-[75px]"
+                />
+              </div>
             ))}
           </div>
         </div>
