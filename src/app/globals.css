@@ -1,0 +1,151 @@
+@import "tailwindcss";
+@import "@fontsource/manrope/300.css";
+@import "@fontsource/manrope/400.css";
+@import "@fontsource/manrope/500.css";
+@import "@fontsource/manrope/600.css";
+@import "@fontsource/manrope/700.css";
+@import "@fontsource/tasa-orbiter/400.css";
+@import "@fontsource/tasa-orbiter/500.css";
+@import "@fontsource/tasa-orbiter/600.css";
+@import "@fontsource/tasa-orbiter/700.css";
+
+@theme inline {
+  --color-background: #010101;
+  --color-foreground: #f5f5f7;
+  --color-muted: #9c9c9c;
+  --color-shell: #ffffff;
+  --color-ink: #050505;
+  --color-ink-soft: #333333;
+  --color-border-soft: #e5e5e5;
+  --color-surface: #0c0c0d;
+  --color-surface-elevated: #141417;
+  --color-border: #1f1f25;
+  --color-card: #101114;
+  --color-primary: #e11e24;
+  --color-primary-foreground: #ffffff;
+  --color-accent: #2a4f83;
+  --color-red-primary: #E11E24;
+  --color-red-primary-soft: rgba(228, 29, 40, 0.79);
+  --color-gray-70: #707070;
+  --color-gray-ca: #CACACA;
+  --color-gray-a4: #A4A4A4;
+  --color-gray-69: #696969;
+  --color-gray-9c: #9C9C9C;
+  --color-gray-4c: #4C4C4C;
+  --color-gray-ce: #CECECE;
+  --color-gray-c9: #C9C9C9;
+  --color-gray-d9: #D9D9D9;
+  --color-gray-e9: #E9E9E9;
+  --color-gray-f2: #F2F2F2;
+  --color-gray-ed: #EDEDED;
+  --font-sans: "Manrope", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  --font-display: "TASA Orbiter", "Manrope", system-ui, sans-serif;
+  --radius-card: 24px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font-sans);
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  scrollbar-width: none !important; /* Firefox */
+  -ms-overflow-style: none !important; /* IE and Edge */
+}
+
+html::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font-sans);
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  scrollbar-width: none !important; /* Firefox */
+  -ms-overflow-style: none !important; /* IE and Edge */
+}
+
+body::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+/* Hide scrollbar for all scrollable elements */
+* {
+  scrollbar-width: none !important; /* Firefox */
+  -ms-overflow-style: none !important; /* IE and Edge */
+}
+
+*::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  background: transparent !important;
+}
+
+::selection {
+  background-color: color-mix(in srgb, var(--color-primary) 70%, black);
+  color: var(--color-primary-foreground);
+}
+
+/* Layout container and spacing tokens */
+:root {
+  --container-max-width: 1200px;
+  --site-gutter: 24px;
+  --space-xs: 6px;
+  --space-sm: 12px;
+  --space-md: 24px;
+  --space-lg: 48px;
+}
+
+/* A simple centered container used across components/pages */
+.container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--site-gutter);
+  padding-right: var(--site-gutter);
+}
+
+/* Helpful section utility */
+.section {
+  padding-top: var(--space-lg);
+  padding-bottom: var(--space-lg);
+}
+
+/* Button reset used by components */
+.btn-reset {
+  background: transparent;
+  border: none;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+/* Minor helpers */
+.visually-hidden {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap;
+}
