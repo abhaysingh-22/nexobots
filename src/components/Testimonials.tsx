@@ -20,7 +20,7 @@ export default function Testimonials({ testimonials }: TestimonialsProps) {
       {/* Decorative Images - Desktop only, positioned relative to section */}
       <div className="absolute inset-0 pointer-events-none">
         {/* Decorative Image 1 - Top Left */}
-        <div className="hidden xl:block absolute left-[40px] 2xl:left-[82px] top-[100px]">
+        <div className="hidden xl:block absolute left-10 2xl:left-[82px] top-[100px]">
           <Image
             src="/testimonials-decorative-1.svg"
             alt=""
@@ -31,13 +31,13 @@ export default function Testimonials({ testimonials }: TestimonialsProps) {
         </div>
 
         {/* Decorative Image 2 - Bottom Center-Right */}
-        <div className="hidden xl:block absolute left-1/2 bottom-[40px] 2xl:bottom-[60px]">
+        <div className="hidden xl:block absolute left-1/2 bottom-10 2xl:bottom-[60px]">
           <Image
             src="/testimonials-decorative-2.svg"
             alt=""
             width={105}
             height={47}
-            className="w-[80px] h-auto 2xl:w-[105px]"
+            className="w-20 h-auto 2xl:w-[105px]"
           />
         </div>
       </div>
@@ -65,7 +65,7 @@ export default function Testimonials({ testimonials }: TestimonialsProps) {
             return (
               <div
                 key={`testimonial-${index}`}
-                className="bg-white rounded-[13px] border border-[#D9D9D9] shadow-sm w-full max-w-[411px] min-h-[240px] sm:min-h-[258px]"
+                className="bg-white rounded-[13px] border border-gray-300 shadow-sm w-full max-w-[411px] min-h-60 sm:min-h-[258px]"
               >
                 <div className="flex flex-col p-5 sm:p-6 lg:p-[24px_34px] h-full">
                   {/* Name and Role */}
@@ -79,7 +79,7 @@ export default function Testimonials({ testimonials }: TestimonialsProps) {
                   </div>
                   
                   {/* Quote */}
-                  <p className="font-['Manrope'] text-black text-[14px] sm:text-[15px] lg:text-[16px] font-light leading-[1.6] sm:leading-[1.75] tracking-[0.02em] flex-grow">
+                  <p className="font-['Manrope'] text-black text-[14px] sm:text-[15px] lg:text-[16px] font-light leading-[1.6] sm:leading-[1.75] tracking-[0.02em] grow">
                     {testimonial.quote}
                   </p>
                 </div>

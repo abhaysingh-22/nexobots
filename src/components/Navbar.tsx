@@ -123,11 +123,7 @@ export function Navbar() {
             aria-label="Primary mobile navigation"
           >
             <div className="flex flex-col">
-              <div
-                className="flex flex-col"
-                onMouseEnter={() => setIsMobileSolutionsOpen(true)}
-                onMouseLeave={() => setIsMobileSolutionsOpen(false)}
-              >
+              <div className="flex flex-col">
                 <div
                   className={`flex w-full items-center justify-between gap-3 rounded-[10px] px-3 py-3 transition hover:bg-[#F7F7F7] ${
                     isMobileSolutionsOpen ? "bg-[#F7F7F7]" : ""
@@ -188,11 +184,7 @@ export function Navbar() {
             </div>
 
             <div className="flex flex-col">
-              <div
-                className="flex flex-col"
-                onMouseEnter={() => setIsMobileServicesOpen(true)}
-                onMouseLeave={() => setIsMobileServicesOpen(false)}
-              >
+              <div className="flex flex-col">
                 <div
                   className={`flex w-full items-center justify-between gap-3 rounded-[10px] px-3 py-3 transition hover:bg-[#F7F7F7] ${
                     isMobileServicesOpen ? "bg-[#F7F7F7]" : ""

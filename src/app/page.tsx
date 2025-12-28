@@ -290,11 +290,11 @@ export default function Home() {
         />
         <div className="absolute inset-0 bg-black/70" aria-hidden="true" />
         <div 
-          className="relative z-10 mx-auto flex min-h-[800px] max-w-[1440px] flex-col items-center justify-center px-[72px] py-24 text-center"
+          className="relative z-10 mx-auto flex min-h-[500px] md:min-h-[600px] lg:min-h-[800px] max-w-[1440px] flex-col items-center justify-center px-4 sm:px-8 md:px-12 lg:px-[72px] py-16 md:py-20 lg:py-24 text-center"
           style={{ gap: "24px" }}
         >
           <h1 
-            className="font-['TASA_Orbiter'] text-[40px] font-bold leading-[1.8] tracking-[0.02em] text-white"
+            className="font-['TASA_Orbiter'] text-[24px] sm:text-[28px] md:text-[32px] lg:text-[40px] font-bold leading-[1.4] sm:leading-[1.6] lg:leading-[1.8] tracking-[0.02em] text-white"
             style={{ 
               maxWidth: "1120px"
             }}
@@ -302,7 +302,7 @@ export default function Home() {
             Empowering Enterprises With End-To-End IT Solutions
           </h1>
           <p 
-            className="font-['Manrope'] text-[15px] font-normal leading-[1.366] tracking-[0.02em] text-white"
+            className="font-['Manrope'] text-[14px] md:text-[15px] font-normal leading-[1.366] tracking-[0.02em] text-white px-4 sm:px-0"
             style={{ 
               maxWidth: "480px"
             }}
@@ -314,18 +314,18 @@ export default function Home() {
       </section>
 
       <main className="flex flex-col gap-0 pt-0 pb-0">
-        <section id="solutions" className="bg-white px-[24px] py-[120px]">
-          <div className="mx-auto w-full max-w-[1440px] space-y-[88px] text-black">
-            <div className="space-y-4 text-center">
-              <p className="font-['TASA_Orbiter'] text-[18px] font-medium text-[#050505]">
+        <section id="solutions" className="bg-white px-4 sm:px-6 md:px-[24px] py-16 md:py-20 lg:py-[120px]">
+          <div className="mx-auto w-full max-w-[1440px] space-y-10 md:space-y-16 lg:space-y-[88px] text-black">
+            <div className="space-y-4 text-center px-4 sm:px-0">
+              <p className="font-['TASA_Orbiter'] text-[16px] md:text-[18px] font-medium text-[#050505]">
                 Our Solutions
               </p>
-              <h2 className="font-display text-[36px] font-bold leading-[1.22] text-ink mx-auto" style={{ maxWidth: "1003px" }}>
+              <h2 className="font-display text-[24px] sm:text-[28px] md:text-[32px] lg:text-[36px] font-bold leading-[1.22] text-ink mx-auto" style={{ maxWidth: "1003px" }}>
                 Comprehensive IT and security infrastructure solutions designed for
                 performance, reliability, and scalability.
               </h2>
             </div>
-            <div className="flex flex-nowrap justify-center gap-[18px]">
+            <div className="flex flex-col sm:flex-row sm:flex-wrap lg:flex-nowrap justify-center items-center gap-6 sm:gap-4 lg:gap-[18px]">
               {solutions.map((solution, index) => {
                 // Map solutions to routes: 
                 // Index 0: Smart Structured Cabling -> /solution-4 (Smart Network Infrastructure)
@@ -335,11 +335,10 @@ export default function Home() {
                 const solutionRoutes = ["/solution-4", "/solution-1", "/solution-3", "/solution-2"];
                 const solutionRoute = solutionRoutes[index];
                 return (
-                <div key={solution.title} className="flex justify-center flex-shrink-0">
+                <div key={solution.title} className="flex justify-center flex-shrink-0 w-full sm:w-auto">
                     <Link href={solutionRoute}>
                   <article
-                        className="relative h-[442px] overflow-hidden rounded-[10px] shadow-[0_25px_60px_rgba(15,18,23,0.25)] transition-transform hover:scale-105 cursor-pointer"
-                    style={{ width: "340px" }}
+                        className="relative h-[350px] sm:h-[400px] lg:h-[442px] overflow-hidden rounded-[10px] shadow-[0_25px_60px_rgba(15,18,23,0.25)] transition-transform hover:scale-105 cursor-pointer w-full sm:w-[300px] lg:w-[340px] max-w-[340px]"
                   >
                     <Image
                       src={solution.image}
@@ -390,17 +389,17 @@ export default function Home() {
         </section>
 
         <section id="metrics" className="px-0 pb-0">
-          <div className="w-full border-y border-white/10 bg-gradient-to-r from-[#050505] via-[#0c0c0c] to-[#050505] pl-[72px] pr-[70px] py-[50px] text-white">
-            <div className="grid gap-0 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="w-full border-y border-white/10 bg-gradient-to-r from-[#050505] via-[#0c0c0c] to-[#050505] px-4 sm:px-8 md:px-12 lg:pl-[72px] lg:pr-[70px] py-8 md:py-10 lg:py-[50px] text-white">
+            <div className="grid grid-cols-2 gap-4 md:gap-0 lg:grid-cols-4">
               {stats.map((stat) => (
                 <div
                   key={stat.label}
-                  className="flex flex-col items-center justify-center border-white/10 py-8 text-center lg:border-l first:lg:border-l-0"
+                  className="flex flex-col items-center justify-center border-white/10 py-4 md:py-8 text-center lg:border-l first:lg:border-l-0"
                 >
-                  <p className="font-['TASA_Orbiter'] text-[55px] font-semibold leading-none">
+                  <p className="font-['TASA_Orbiter'] text-[32px] sm:text-[40px] md:text-[48px] lg:text-[55px] font-semibold leading-none">
                     {stat.value}
                   </p>
-                  <p className="mt-3 text-[14px] uppercase tracking-[0.3em] text-white/70">
+                  <p className="mt-2 md:mt-3 text-[11px] sm:text-[12px] md:text-[14px] uppercase tracking-[0.2em] sm:tracking-[0.3em] text-white/70">
                     {stat.label}
                   </p>
                 </div>
@@ -409,18 +408,18 @@ export default function Home() {
           </div>
         </section>
 
-        <Link href="/about" className="block bg-white px-[72px] py-[120px] cursor-pointer">
-          <div className="mx-auto flex w-full max-w-[1440px] flex-col gap-[64px] text-[#050505]">
-            <div className="mx-auto max-w-[821px] text-center">
-              <p className="font-['TASA_Orbiter'] text-[18px] font-medium text-black">
+        <Link href="/about" className="block bg-white px-4 sm:px-8 md:px-12 lg:px-[72px] py-16 md:py-20 lg:py-[120px] cursor-pointer">
+          <div className="mx-auto flex w-full max-w-[1440px] flex-col gap-10 md:gap-12 lg:gap-[64px] text-[#050505]">
+            <div className="mx-auto max-w-[821px] text-center px-4 sm:px-0">
+              <p className="font-['TASA_Orbiter'] text-[16px] md:text-[18px] font-medium text-black">
                 Who We Are
               </p>
-              <h2 className="mt-4 font-['TASA_Orbiter'] text-[36px] font-semibold leading-[1.35] text-black">
+              <h2 className="mt-4 font-['TASA_Orbiter'] text-[24px] sm:text-[28px] md:text-[32px] lg:text-[36px] font-semibold leading-[1.35] text-black">
                 Empowering Enterprises Through Intelligent Connectivity and Secure Infrastructure
               </h2>
             </div>
             <div className="grid gap-6 lg:grid-cols-2">
-              <div className="relative h-[600px] overflow-hidden rounded-[20px]">
+              <div className="relative h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] overflow-hidden rounded-[20px]">
                 <Image
                   src="/about-hero-1eb271.png"
                   alt="Nexobots team collaboration"
@@ -429,22 +428,24 @@ export default function Home() {
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 45vw"
                 />
               </div>
-              <div className="space-y-8 px-0 lg:px-6 text-left">
-                <p className="font-['TASA_Orbiter'] text-[28px] font-medium leading-[1.4] text-black">
-                  Nexobots Technologies is a trusted IT<br />
+              <div className="space-y-6 md:space-y-8 px-0 lg:px-6 text-left">
+                <p className="font-['TASA_Orbiter'] text-[20px] sm:text-[22px] md:text-[24px] lg:text-[28px] font-medium leading-[1.4] text-black">
+                  <span className="hidden lg:inline">Nexobots Technologies is a trusted IT<br />
                   and security infrastructure solutions<br />
                   provider delivering intelligent, scalable,<br />
                   and secure systems for modern<br />
-                  enterprises.
+                  enterprises.</span>
+                  <span className="lg:hidden">Nexobots Technologies is a trusted IT and security infrastructure solutions provider delivering intelligent, scalable, and secure systems for modern enterprises.</span>
                 </p>
-                <p className="font-['Manrope'] text-[16px] leading-[1.875] text-[#4C4C4C]">
-                  We specialize in structured cabling, network integration,<br />
+                <p className="font-['Manrope'] text-[14px] md:text-[15px] lg:text-[16px] leading-[1.875] text-[#4C4C4C]">
+                  <span className="hidden lg:inline">We specialize in structured cabling, network integration,<br />
                   surveillance, biometric access control, and managed IT services —<br />
                   helping organizations achieve seamless connectivity, operational<br />
                   resilience, and long-term scalability.<br />
                   Partnering with global leaders like Cisco, Fortinet, D-Link, and Palo Alto, we combine cutting-edge<br />
                   technology with expert implementation to build infrastructures that<br />
-                  drive business excellence.
+                  drive business excellence.</span>
+                  <span className="lg:hidden">We specialize in structured cabling, network integration, surveillance, biometric access control, and managed IT services — helping organizations achieve seamless connectivity, operational resilience, and long-term scalability. Partnering with global leaders like Cisco, Fortinet, D-Link, and Palo Alto, we combine cutting-edge technology with expert implementation to build infrastructures that drive business excellence.</span>
                 </p>
                 <div
                   className="inline-flex items-center gap-3 rounded-[75px] border border-white/30 bg-black px-6 py-3 text-[15px] font-semibold uppercase tracking-[0.02em] text-white"
@@ -465,18 +466,18 @@ export default function Home() {
 
         <section
           id="services"
-          className="px-[72px] py-[120px] text-white"
+          className="px-4 sm:px-8 md:px-12 lg:px-[72px] py-16 md:py-20 lg:py-[120px] text-white"
           style={{
             background:
               "radial-gradient(ellipse 180% 65% at 50% 0%, rgba(81, 81, 81, 1) 0%, rgba(0, 0, 0, 1) 22%)",
           }}
         >
-          <div className="mx-auto w-full max-w-[1296px] space-y-[64px]">
-            <div className="mx-auto max-w-[825px] space-y-4 text-center">
-              <p className="font-['TASA_Orbiter'] text-[18px] font-medium text-white">
+          <div className="mx-auto w-full max-w-[1296px] space-y-10 md:space-y-12 lg:space-y-[64px]">
+            <div className="mx-auto max-w-[825px] space-y-4 text-center px-4 sm:px-0">
+              <p className="font-['TASA_Orbiter'] text-[16px] md:text-[18px] font-medium text-white">
                 Our Services
               </p>
-              <h2 className="font-['TASA_Orbiter'] text-[36px] font-bold leading-[1.22] text-white">
+              <h2 className="font-['TASA_Orbiter'] text-[24px] sm:text-[28px] md:text-[32px] lg:text-[36px] font-bold leading-[1.22] text-white">
                 Your Aspiration, Our Expertise: Tailored Services for Unmatched Excellence.
               </h2>
             </div>
@@ -490,53 +491,53 @@ export default function Home() {
                       <div className="space-y-[12px]">
                       <div 
                         onClick={() => toggleService(service.id)}
-                        className="flex w-full items-center justify-between px-[24px] py-[24px] cursor-pointer"
+                        className="flex w-full items-center justify-between px-4 md:px-[24px] py-4 md:py-[24px] cursor-pointer"
                       >
-                        <div className="flex items-center gap-20">
-                          <p className="font-['TASA_Orbiter'] text-[28px] font-semibold leading-[1.57] tracking-[0.02em] text-white">
+                        <div className="flex items-center gap-4 sm:gap-8 md:gap-12 lg:gap-20">
+                          <p className="font-['TASA_Orbiter'] text-[18px] sm:text-[22px] md:text-[24px] lg:text-[28px] font-semibold leading-[1.57] tracking-[0.02em] text-white">
                             {service.id}
                           </p>
-                          <p className="font-['Manrope'] text-[28px] font-semibold uppercase leading-[1.57] tracking-[0.04em] text-white">
+                          <p className="font-['Manrope'] text-[14px] sm:text-[18px] md:text-[22px] lg:text-[28px] font-semibold uppercase leading-[1.4] md:leading-[1.57] tracking-[0.04em] text-white">
                             {service.title}
                           </p>
                         </div>
                         <div
-                          className="flex h-[46px] w-[46px] items-center justify-center transition hover:opacity-90 flex-shrink-0"
-                          style={{ minWidth: "46px", minHeight: "46px" }}
+                          className="flex h-[32px] w-[32px] md:h-[46px] md:w-[46px] items-center justify-center transition hover:opacity-90 flex-shrink-0"
+                          style={{ minWidth: "32px", minHeight: "32px" }}
                         >
                           <Image
                             src="/collapse-icon.svg"
                             alt=""
                             width={47}
                             height={47}
-                            className="h-[47px] w-[47px]"
+                            className="h-[32px] w-[32px] md:h-[47px] md:w-[47px]"
                           />
                         </div>
                       </div>
                         <div className="flex flex-col items-end gap-[12px] pb-[24px]">
-                          <div className="flex w-full flex-col gap-[10px] px-[24px] pb-[10px] pt-[10px]">
+                          <div className="flex w-full flex-col gap-[10px] px-4 md:px-[24px] pb-[10px] pt-[10px]">
                             <div className="flex gap-4">
                               <div className="h-auto w-[2px] rounded-[42px] bg-[#E11E24]" />
-                              <p className="font-['Manrope'] text-[20px] font-semibold leading-[1.4] tracking-[0.02em] text-white">
+                              <p className="font-['Manrope'] text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] font-semibold leading-[1.4] tracking-[0.02em] text-white">
                                 {service.description}
                               </p>
                             </div>
                           </div>
-                          <div className="grid w-full grid-cols-3 gap-[24px] px-[24px]" style={{ maxWidth: "1296px" }}>
+                          <div className="grid w-full grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-[24px] px-4 md:px-[24px]" style={{ maxWidth: "1296px" }}>
                             {service.bullets.map((bullet, bulletIndex) => (
                               <div
                                 key={bullet}
-                                className="relative flex h-[274px] items-center justify-center overflow-hidden"
+                                className="relative flex h-[200px] sm:h-[240px] lg:h-[274px] items-center justify-center overflow-hidden rounded-lg"
                               >
                                 <Image
                                   src={service.images[bulletIndex]}
                                   alt={bullet}
                                   fill
                                   className="object-cover"
-                                  sizes="(max-width: 1296px) calc((100% - 48px) / 3), 408px"
+                                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 408px"
                                 />
                                 <div className="absolute inset-0 bg-black/42" />
-                                <p className="relative z-10 px-[66px] text-center font-['Manrope'] text-[32px] font-bold leading-[1.0625] tracking-[0.02em] text-white">
+                                <p className="relative z-10 px-4 sm:px-8 md:px-12 lg:px-[66px] text-center font-['Manrope'] text-[18px] sm:text-[22px] md:text-[26px] lg:text-[32px] font-bold leading-[1.0625] tracking-[0.02em] text-white">
                                   {bullet}
                                 </p>
                               </div>
@@ -547,26 +548,26 @@ export default function Home() {
                     ) : (
                       <div 
                         onClick={() => toggleService(service.id)}
-                        className="flex w-full items-center justify-between px-[24px] py-[24px] cursor-pointer"
+                        className="flex w-full items-center justify-between px-4 md:px-[24px] py-4 md:py-[24px] cursor-pointer"
                       >
-                        <div className="flex items-center gap-20">
-                          <p className="font-['TASA_Orbiter'] text-[28px] font-semibold leading-[1.57] tracking-[0.02em] text-white/60">
+                        <div className="flex items-center gap-4 sm:gap-8 md:gap-12 lg:gap-20">
+                          <p className="font-['TASA_Orbiter'] text-[18px] sm:text-[22px] md:text-[24px] lg:text-[28px] font-semibold leading-[1.57] tracking-[0.02em] text-white/60">
                             {service.id}
                           </p>
-                          <p className="font-['Manrope'] text-[28px] font-semibold uppercase leading-[1.57] tracking-[0.04em] text-white/70">
+                          <p className="font-['Manrope'] text-[14px] sm:text-[18px] md:text-[22px] lg:text-[28px] font-semibold uppercase leading-[1.4] md:leading-[1.57] tracking-[0.04em] text-white/70">
                             {service.title}
                           </p>
                         </div>
                         <div
-                          className="flex h-[46px] w-[46px] items-center justify-center transition hover:opacity-90 flex-shrink-0"
-                          style={{ minWidth: "46px", minHeight: "46px" }}
+                          className="flex h-[32px] w-[32px] md:h-[46px] md:w-[46px] items-center justify-center transition hover:opacity-90 flex-shrink-0"
+                          style={{ minWidth: "32px", minHeight: "32px" }}
                         >
                           <Image
                             src="/expand-icon.svg"
                             alt=""
                             width={47}
                             height={47}
-                            className="h-[47px] w-[47px]"
+                            className="h-[32px] w-[32px] md:h-[47px] md:w-[47px]"
                           />
                         </div>
                       </div>
@@ -587,7 +588,7 @@ export default function Home() {
         {/* Partners Section */}
         <Partners />
 
-        <Link href="/blog" id="blogs" className="block bg-white pt-[40px] pb-[120px] cursor-pointer" style={{ width: '100%', minHeight: '927px' }}>
+        <Link href="/blog" id="blogs" className="block bg-white pt-[40px] pb-16 md:pb-20 lg:pb-[120px] cursor-pointer" style={{ width: '100%' }}>
           <style>{`
             .blog-scroll::-webkit-scrollbar {
               display: none;
@@ -608,7 +609,68 @@ export default function Home() {
               scrollbar-width: none;
             }
           `}</style>
-          <div className="relative mx-auto w-full px-[72px]" style={{ maxWidth: "1440px", height: "927px" }}>
+          
+          {/* Mobile/Tablet Layout */}
+          <div className="lg:hidden px-4 sm:px-8 md:px-12 py-8 md:py-12">
+            <div className="flex flex-col items-center gap-4 mb-8 md:mb-10">
+              <p className="font-['Manrope'] text-[16px] md:text-[18px] font-medium leading-[1.366] text-black">
+                Blogs
+              </p>
+              <h2 
+                className="font-['TASA_Orbiter'] text-[24px] sm:text-[28px] md:text-[32px] font-bold leading-[1.222] text-black text-center"
+              >
+                Read Our Latest Insights
+              </h2>
+            </div>
+            <div className="flex flex-col sm:flex-row sm:flex-wrap justify-center gap-6">
+              {blogs.map((blog, index) => (
+                <article
+                  key={index}
+                  className="flex flex-col w-full sm:w-[calc(50%-12px)] md:max-w-[400px]"
+                >
+                  <div className="relative h-[200px] sm:h-[240px] md:h-[280px] w-full overflow-hidden rounded-[20px]">
+                    <Image
+                      src={blog.image}
+                      alt={blog.title}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 400px"
+                    />
+                    <div className="absolute inset-0 bg-black/60" />
+                    <h3 className="absolute bottom-4 left-4 right-4 font-['Manrope'] text-[18px] sm:text-[20px] md:text-[24px] font-extrabold leading-[1.366] text-white">
+                      {blog.title}
+                    </h3>
+                  </div>
+                  <p className="mt-4 font-['Manrope'] text-[14px] md:text-[15px] font-normal leading-[1.366] text-[#454545] line-clamp-3">
+                    {blog.excerpt}
+                  </p>
+                  <div
+                    className="mt-4 inline-flex h-[40px] w-[130px] items-center justify-center gap-2 rounded-[75px] border border-white/30 bg-black px-4 font-['Manrope'] text-[14px] font-semibold leading-[1.366] tracking-[0.02em] text-white"
+                  >
+                    <span>Read More</span>
+                    <svg
+                      width="5"
+                      height="8"
+                      viewBox="0 0 5 8"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M1 1L4 4L1 7"
+                        stroke="#E11E24"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+          
+          {/* Desktop Layout */}
+          <div className="relative mx-auto w-full px-[72px] hidden lg:block" style={{ maxWidth: "1440px", height: "927px" }}>
             {/* Heading Section - positioned at x: 72, y: 120, width: 1296 */}
             <div 
               className="absolute flex flex-col items-center gap-4"
@@ -709,8 +771,60 @@ export default function Home() {
         </Link>
 
         {/* Our Industries Section */}
-        <Link href="/industries" id="industries" className="block relative bg-[#F8F8F8] cursor-pointer" style={{ width: '100%', minHeight: '987px', overflow: 'hidden' }}>
-          <div className="relative mx-auto w-full max-w-[1440px]" style={{ height: '987px' }}>
+        <Link href="/industries" id="industries" className="block relative bg-[#F8F8F8] cursor-pointer" style={{ width: '100%', overflow: 'hidden' }}>
+          
+          {/* Mobile/Tablet Layout */}
+          <div className="lg:hidden px-4 sm:px-8 md:px-12 py-16 md:py-20">
+            <div className="flex flex-col items-center gap-4 mb-6 md:mb-8">
+              <p className="font-['Manrope'] text-[16px] md:text-[18px] font-medium text-black">
+                Industries We Serve
+              </p>
+              <h2 className="font-['TASA_Orbiter'] text-[24px] sm:text-[28px] md:text-[32px] font-bold leading-[1.222] text-black text-center">
+                Empowering Every Industry with Intelligent, Secure, and Scalable IT Solutions
+              </h2>
+            </div>
+            <div className="flex justify-center mb-8 md:mb-10">
+              <div className="inline-flex items-center justify-center gap-3 rounded-[75px] border border-white/30 bg-black px-5 py-3">
+                <span className="font-['Manrope'] text-white whitespace-nowrap text-[14px] md:text-[15px] font-semibold tracking-[0.02em]">
+                  Find Out More
+                </span>
+                <Image
+                  src="/find-out-more-arrow.svg"
+                  alt=""
+                  width={20}
+                  height={20}
+                  className="h-4 w-4 md:h-5 md:w-5"
+                />
+              </div>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
+              {industries.map((industry) => (
+                <div key={industry.title} className="flex flex-col">
+                  <div className="relative h-[180px] sm:h-[200px] md:h-[220px] w-full overflow-hidden rounded-lg">
+                    <Image
+                      src={industry.image}
+                      alt={industry.title}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 300px"
+                    />
+                  </div>
+                  <h3 className="mt-4 font-['TASA_Orbiter'] text-[18px] md:text-[20px] font-semibold text-black">
+                    {industry.title}
+                  </h3>
+                  <p className="mt-2 font-['Manrope'] text-[13px] md:text-[14px] text-[#A4A4A4] leading-[1.4]">
+                    {industry.summary}
+                  </p>
+                  <p className="mt-2 font-['Manrope'] text-[13px] md:text-[14px] text-[#A4A4A4] leading-[1.4]">
+                    {industry.body}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+          
+          {/* Desktop Layout */}
+          <div className="relative mx-auto w-full max-w-[1440px] hidden lg:block" style={{ height: '987px' }}>
             {/* Heading Section - positioned at x: 337, y: 120 */}
             <div 
               className="absolute flex flex-col items-center gap-4"
