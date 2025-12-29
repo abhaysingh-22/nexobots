@@ -161,7 +161,7 @@ export default function AboutPage() {
       <Navbar />
 
       {/* Hero Section - Responsive */}
-      <section className="relative h-[500px] sm:h-[600px] md:h-[700px] lg:h-[800px] xl:h-[911px] w-full overflow-hidden">
+      <section className="relative h-[500px] sm:h-[600px] md:h-[750px] lg:h-[911px] w-full overflow-hidden">
         <div className="absolute inset-0">
           <Image
             src="/about-hero-grid.png"
@@ -173,7 +173,7 @@ export default function AboutPage() {
           />
         </div>
         <div className="absolute inset-0 bg-black/30" />
-        <div className="relative z-10 flex h-full items-center px-4 sm:px-6 md:px-12 lg:px-[72px] xl:px-[128px]">
+        <div className="relative z-10 flex h-full items-center px-4 sm:px-6 md:px-12 lg:px-[72px] xl:px-32">
           <div className="max-w-full lg:max-w-[1027px]">
             <h1 className="font-['TASA_Orbiter'] text-white text-[28px] sm:text-[36px] md:text-[48px] lg:text-[56px] xl:text-[64px] font-semibold leading-[1.3] sm:leading-[1.4] lg:leading-[1.494] mb-8 sm:mb-12 lg:mb-[67px]">
               Empowering Every Industry with Smart, Secure, and Scalable
@@ -201,7 +201,7 @@ export default function AboutPage() {
       {/* We Are Nexobots Section - Responsive */}
       <section className="bg-white px-4 sm:px-6 md:px-12 lg:px-[72px] xl:px-[107px] py-16 sm:py-20 lg:py-24">
         <div className="mx-auto max-w-[1440px]">
-          <h2 className="font-['TASA_Orbiter'] text-black text-[48px] sm:text-[64px] md:text-[80px] lg:text-[96px] font-semibold leading-[1.2] sm:leading-[1.494] mb-8 sm:mb-12 lg:mb-[64px]">
+          <h2 className="font-['TASA_Orbiter'] text-black text-[48px] sm:text-[64px] md:text-[80px] lg:text-[96px] font-semibold leading-[1.2] sm:leading-[1.494] mb-8 sm:mb-12 lg:mb-16">
             We are nexobots
           </h2>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 xl:gap-12 mb-8 sm:mb-[26px]">
@@ -243,7 +243,7 @@ export default function AboutPage() {
         <div className="mx-auto flex max-w-[1440px] flex-wrap items-center justify-center gap-4 sm:gap-6 lg:gap-3">
           {dataPointers.map((pointer, index) => (
             <div key={pointer.label} className="flex flex-col sm:flex-row items-center gap-4 sm:gap-3">
-              <div className="flex flex-col items-center justify-center gap-1 sm:gap-[6px] py-4 sm:py-5 px-4 sm:px-8 lg:px-[62px] w-full sm:w-auto">
+              <div className="flex flex-col items-center justify-center gap-1 sm:gap-1.5 py-4 sm:py-5 px-4 sm:px-8 lg:px-[62px] w-full sm:w-auto">
                 <p className="font-['Manrope'] text-white text-[36px] sm:text-[45px] lg:text-[55px] font-bold leading-[1.366] uppercase text-center">
                   {pointer.value}
                 </p>
@@ -252,7 +252,7 @@ export default function AboutPage() {
                 </p>
               </div>
               {index < dataPointers.length - 1 && (
-                <div className="hidden sm:block h-[50px] lg:h-[75px] w-[1px] bg-white" />
+                <div className="hidden sm:block h-[50px] lg:h-[75px] w-px bg-white" />
               )}
             </div>
           ))}
@@ -275,7 +275,7 @@ export default function AboutPage() {
           <div className="relative space-y-6 sm:space-y-8 rounded-[22px] p-6 sm:p-8 lg:p-12 max-w-full sm:max-w-[542px]">
             <div className="absolute left-0 top-0 rounded-[22px] bg-[#E11E24] w-[5px] sm:w-[7px] h-[70px] sm:h-[95px]" />
             <div className="space-y-4 sm:space-y-6 lg:space-y-8 pl-6 sm:pl-8 lg:pl-[37px]">
-              <h2 className="font-['TASA_Orbiter'] text-white text-[36px] sm:text-[48px] lg:text-[64px] font-semibold leading-[1] sm:leading-[0.93]">
+              <h2 className="font-['TASA_Orbiter'] text-white text-[36px] sm:text-[48px] lg:text-[64px] font-semibold leading-none sm:leading-[0.93]">
                 Our Vision
               </h2>
               <h3 className="font-['TASA_Orbiter'] text-white text-[24px] sm:text-[30px] lg:text-[36px] font-bold leading-[1.494]">
@@ -370,7 +370,7 @@ export default function AboutPage() {
               The Critical Smart IT Infrastructure for the AI Era
             </h2>
           </div>
-          <p className="font-['TASA_Orbiter'] text-black text-[16px] sm:text-[18px] lg:text-[22px] font-semibold leading-[1.5] sm:leading-[1.494] text-center mx-auto mb-6 sm:mb-8 max-w-full lg:max-w-[862px]">
+          <p className="font-['TASA_Orbiter'] text-black text-[16px] sm:text-[18px] lg:text-[22px] font-semibold leading-normal sm:leading-[1.494] text-center mx-auto mb-6 sm:mb-8 max-w-full lg:max-w-[862px]">
             In a world driven by automation, data, and intelligent systems, your
             technology infrastructure must do more than connect—it must enable.
             At Nexobots Technologies, we deliver the backbone of enterprise
@@ -406,11 +406,11 @@ export default function AboutPage() {
           <h2 className="font-['TASA_Orbiter'] text-black text-[28px] sm:text-[34px] lg:text-[40px] font-semibold leading-[1.3] sm:leading-[1.494] text-center mb-3 sm:mb-4">
             Delivering Outcomes That Matter
           </h2>
-          <p className="font-['Manrope'] text-black text-[18px] sm:text-[20px] lg:text-[24px] font-bold leading-[1.5] sm:leading-[1.75] text-center mx-auto mb-3 sm:mb-4 max-w-full lg:max-w-[748px]">
+          <p className="font-['Manrope'] text-black text-[18px] sm:text-[20px] lg:text-[24px] font-bold leading-normal sm:leading-[1.75] text-center mx-auto mb-3 sm:mb-4 max-w-full lg:max-w-[748px]">
             We focus on real results—so your infrastructure doesn&apos;t just
             work, it delivers value.
           </p>
-          <p className="font-['Manrope'] text-black text-[18px] sm:text-[20px] lg:text-[24px] font-bold leading-[1.5] sm:leading-[1.75] text-center mx-auto mb-10 sm:mb-12 lg:mb-16 max-w-full lg:max-w-[748px]">
+          <p className="font-['Manrope'] text-black text-[18px] sm:text-[20px] lg:text-[24px] font-bold leading-normal sm:leading-[1.75] text-center mx-auto mb-10 sm:mb-12 lg:mb-16 max-w-full lg:max-w-[748px]">
             From reducing risk and ensuring uptime to enabling growth and
             innovation, Nexobots&apos; services exceed expectation and transform
             operations.
@@ -419,12 +419,12 @@ export default function AboutPage() {
             {outcomes.map((outcome, index) => (
               <div
                 key={outcome.title}
-                className="rounded-[21px] bg-white shadow-sm p-6 sm:p-8 lg:p-9 w-full max-w-[400px] min-h-[320px] sm:min-h-[360px] lg:min-h-[396px] flex flex-col gap-5 sm:gap-6 lg:gap-[30px]"
+                className="rounded-[21px] bg-white shadow-sm p-6 sm:p-8 lg:p-9 w-full max-w-[400px] min-h-80 sm:min-h-[360px] lg:min-h-[396px] flex flex-col gap-5 sm:gap-6 lg:gap-[30px]"
               >
                 <div className="flex items-center justify-center rounded-[15px] border border-[#E9E9E9] w-[60px] h-[60px] sm:w-[70px] sm:h-[70px] lg:w-[76px] lg:h-[76px]">
                   {getIconComponent(outcome.icon, "70")}
                 </div>
-                <h3 className="font-['Manrope'] text-black text-[18px] sm:text-[20px] lg:text-[24px] font-bold leading-[1.25] sm:leading-[1.208]">
+                <h3 className="font-['Manrope'] text-black text-[18px] sm:text-[20px] lg:text-[24px] font-bold leading-tight sm:leading-[1.208]">
                   {outcome.title}
                 </h3>
                 <p className="font-['Manrope'] text-[#A4A4A4] text-[16px] sm:text-[18px] lg:text-[20px] font-bold leading-[1.3] sm:leading-[1.05]">
@@ -507,14 +507,14 @@ export default function AboutPage() {
           <h2 className="font-['TASA_Orbiter'] text-black text-[28px] sm:text-[40px] md:text-[52px] lg:text-[64px] font-semibold leading-[1.3] sm:leading-[1.494] mb-6 sm:mb-8">
             Partner with nexobots to Transform Your Industry with Smarter IT
           </h2>
-          <p className="font-['Manrope'] text-black text-[16px] sm:text-[18px] lg:text-[20px] font-normal leading-[1.5] sm:leading-[1.4] mx-auto mb-4 max-w-full lg:max-w-[854px]">
+          <p className="font-['Manrope'] text-black text-[16px] sm:text-[18px] lg:text-[20px] font-normal leading-normal sm:leading-[1.4] mx-auto mb-4 max-w-full lg:max-w-[854px]">
             Every industry faces unique challenges — but the right technology
             turns those challenges into opportunities. At Nexobots Technologies,
             we combine innovation, integration, and intelligence to help
             organizations build connected, secure, and future-ready
             environments.
           </p>
-          <p className="font-['Manrope'] text-black text-[16px] sm:text-[18px] lg:text-[20px] font-normal leading-[1.5] sm:leading-[1.4] mx-auto mb-6 sm:mb-8 max-w-full lg:max-w-[854px]">
+          <p className="font-['Manrope'] text-black text-[16px] sm:text-[18px] lg:text-[20px] font-normal leading-normal sm:leading-[1.4] mx-auto mb-6 sm:mb-8 max-w-full lg:max-w-[854px]">
             Let&apos;s collaborate to design technology solutions that empower
             your business and industry to thrive in the digital era.
           </p>
@@ -530,7 +530,7 @@ export default function AboutPage() {
               alt=""
               width={20}
               height={20}
-              className="h-[18px] w-[18px] sm:h-[20px] sm:w-[20px]"
+              className="h-[18px] w-[18px] sm:h-5 sm:w-5"
             />
           </Link>
         </div>
