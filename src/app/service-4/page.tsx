@@ -199,7 +199,7 @@ export default function Service4Page() {
       <Navbar />
 
       {/* Hero Section - Exact from Figma */}
-      <section className="relative h-[935px] w-full overflow-hidden">
+      <section className="relative h-[600px] sm:h-[700px] md:h-[800px] lg:h-[935px] w-full overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
@@ -219,13 +219,12 @@ export default function Service4Page() {
           }}
         />
         {/* Content */}
-        <div className="relative z-10 h-full">
+        <div className="relative z-10 h-full px-6 sm:px-8 md:px-12 lg:px-0">
           {/* Title - Position: left 142px, top 169px */}
-          <div className="absolute" style={{ left: "142px", top: "169px" }}>
+          <div className="absolute left-6 right-6 top-24 sm:left-8 sm:right-8 sm:top-28 md:left-12 md:right-12 md:top-32 lg:left-[142px] lg:right-auto lg:top-[169px]">
             <h1
-              className="font-['TASA_Orbiter'] text-white"
+              className="font-['TASA_Orbiter'] text-white text-3xl sm:text-4xl md:text-5xl lg:text-[64px]"
               style={{
-                fontSize: "64px",
                 fontWeight: 600,
                 lineHeight: "1.32",
                 maxWidth: "722px",
@@ -236,11 +235,10 @@ export default function Service4Page() {
           </div>
 
           {/* Description - Position: left 142px, top 442px */}
-          <div className="absolute" style={{ left: "142px", top: "442px" }}>
+          <div className="absolute left-6 right-6 top-64 sm:left-8 sm:right-8 sm:top-72 md:left-12 md:right-12 md:top-80 lg:left-[142px] lg:right-auto lg:top-[442px]">
             <p
-              className="font-['TASA_Orbiter'] text-white"
+              className="font-['TASA_Orbiter'] text-white text-base sm:text-lg md:text-xl lg:text-2xl"
               style={{
-                fontSize: "24px",
                 fontWeight: 600,
                 lineHeight: "1.44",
                 maxWidth: "812px",
@@ -252,10 +250,10 @@ export default function Service4Page() {
           </div>
 
           {/* CTA Button - Position: left 142px, top 556px */}
-          <div className="absolute" style={{ left: "142px", top: "556px" }}>
+          <div className="absolute left-6 top-[420px] sm:left-8 sm:top-[480px] md:left-12 md:top-[520px] lg:left-[142px] lg:top-[556px]">
             <Link
               href="#contact"
-              className="inline-flex h-[67px] w-[261px] items-center justify-between rounded-[75px] border border-white/30 bg-white transition-all hover:bg-gray-100"
+              className="inline-flex h-14 w-56 sm:h-16 sm:w-60 lg:h-[67px] lg:w-[261px] items-center justify-between rounded-[75px] border border-white/30 bg-white transition-all duration-300 hover:bg-gray-100 hover:shadow-xl hover:scale-105 px-6 py-4 lg:px-0 lg:py-0 shadow-lg"
               style={{
                 paddingLeft: "29px",
                 paddingRight: "18px",
@@ -266,9 +264,8 @@ export default function Service4Page() {
               }}
             >
               <span
-                className="font-['Manrope'] text-black whitespace-nowrap"
+                className="font-['Manrope'] text-black whitespace-nowrap text-base sm:text-lg lg:text-xl"
                 style={{
-                  fontSize: "20px",
                   fontWeight: 600,
                   lineHeight: "1.366",
                   letterSpacing: "0.02em",
@@ -282,6 +279,7 @@ export default function Service4Page() {
                 viewBox="0 0 41 41"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
+                className="w-8 h-8 lg:w-10 lg:h-10"
                 style={{
                   flexShrink: 0,
                 }}
@@ -301,23 +299,22 @@ export default function Service4Page() {
 
       {/* Closing CTA Section - Exact from Figma (node-id=37-2657) */}
       <section
+        className="py-16 sm:py-20 md:py-24 lg:py-[120px]"
         style={{
-          padding: "120px 0",
           backgroundColor: "#F8F8F8",
         }}
       >
-        <div className="mx-auto w-full max-w-[1440px] px-[78px]">
+        <div className="mx-auto w-full max-w-[1440px] px-6 sm:px-8 md:px-12 lg:px-[78px]">
           {/* Second Text - First in order */}
           <p
-            className="font-['TASA_Orbiter'] text-black mx-auto text-center"
+            className="font-['TASA_Orbiter'] text-black mx-auto text-center text-lg sm:text-xl md:text-2xl lg:text-2xl"
             style={{
-              fontSize: "24px",
               fontWeight: 600,
               lineHeight: "1.17",
               maxWidth: "1108px",
               marginLeft: "auto",
               marginRight: "auto",
-              marginBottom: "60px",
+              marginBottom: "40px",
             }}
           >
             In today's fast-evolving business landscape, agility and uptime
@@ -328,15 +325,14 @@ export default function Service4Page() {
 
           {/* First Text - Second in order */}
           <p
-            className="font-['TASA_Orbiter'] text-[#4B4B4B] mx-auto text-center"
+            className="font-['TASA_Orbiter'] text-[#4B4B4B] mx-auto text-center text-base sm:text-lg md:text-xl lg:text-xl"
             style={{
-              fontSize: "20px",
               fontWeight: 600,
               lineHeight: "1.17",
               maxWidth: "869px",
               marginLeft: "auto",
               marginRight: "auto",
-              marginBottom: "80px",
+              marginBottom: "60px",
             }}
           >
             Nexobots Technologies delivers comprehensive Cloud & Virtualization
@@ -347,10 +343,10 @@ export default function Service4Page() {
           </p>
 
           {/* Get In Touch Button - Above images */}
-          <div className="flex justify-center mb-[80px]">
+          <div className="flex justify-center mb-12 sm:mb-16 lg:mb-[80px]">
             <Link
               href="#contact"
-              className="inline-flex h-[45px] w-[155px] items-center justify-between rounded-[75px] border border-white/30 bg-black transition-all hover:bg-black/90"
+              className="inline-flex h-[45px] w-[155px] items-center justify-between rounded-[75px] border border-white/30 bg-black transition-all duration-300 hover:bg-black/90 hover:shadow-xl hover:scale-105 shadow-md"
               style={{
                 paddingLeft: "25px",
                 paddingRight: "17px",
@@ -394,66 +390,52 @@ export default function Service4Page() {
 
           {/* Three Image Cards - Below button */}
           <div
-            className="mx-auto flex gap-[17px]"
+            className="mx-auto flex flex-col sm:flex-col md:flex-col lg:flex-row gap-4 sm:gap-5 lg:gap-[17px] w-full lg:w-[1201px]"
             style={{
-              width: "1201px",
-              height: "644px",
               marginLeft: "auto",
               marginRight: "auto",
             }}
           >
             {/* Left Large Image */}
             <div
-              className="relative rounded-[18px] overflow-hidden flex-shrink-0"
-              style={{
-                width: "549px",
-                height: "644px",
-              }}
+              className="relative rounded-[18px] overflow-hidden w-full aspect-[549/644] lg:w-[549px] lg:h-[644px] lg:flex-shrink-0 shadow-lg hover:shadow-2xl transition-shadow duration-300 group"
             >
               <Image
                 src="/service-4-cta-1.png"
                 alt="Cloud Infrastructure"
                 fill
-                className="object-cover"
-                sizes="549px"
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+                sizes="(max-width: 1024px) 100vw, 549px"
                 loading="lazy"
               />
             </div>
 
             {/* Right Two Images Stacked */}
-            <div className="flex flex-col gap-[28.13px] flex-shrink-0">
+            <div className="flex flex-col gap-4 sm:gap-5 lg:gap-[28.13px] w-full lg:w-auto lg:flex-shrink-0">
               {/* Top Right Image */}
               <div
-                className="relative rounded-[18px] overflow-hidden"
-                style={{
-                  width: "635px",
-                  height: "322.74px",
-                }}
+                className="relative rounded-[18px] overflow-hidden w-full aspect-[635/323] lg:w-[635px] lg:h-[322.74px] shadow-lg hover:shadow-2xl transition-shadow duration-300 group"
               >
                 <Image
                   src="/service-4-cta-2.png"
                   alt="Virtualization Services"
                   fill
-                  className="object-cover"
-                  sizes="635px"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  sizes="(max-width: 1024px) 100vw, 635px"
                   loading="lazy"
                 />
               </div>
 
               {/* Bottom Right Image */}
               <div
-                className="relative rounded-[18px] overflow-hidden"
-                style={{
-                  width: "635px",
-                  height: "293.13px",
-                }}
+                className="relative rounded-[18px] overflow-hidden w-full aspect-[635/293] lg:w-[635px] lg:h-[293.13px] shadow-lg hover:shadow-2xl transition-shadow duration-300 group"
               >
                 <Image
                   src="/service-4-cta-3.png"
                   alt="Cloud Backup & DRaaS"
                   fill
-                  className="object-cover"
-                  sizes="635px"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  sizes="(max-width: 1024px) 100vw, 635px"
                   loading="lazy"
                 />
               </div>
@@ -464,17 +446,16 @@ export default function Service4Page() {
 
       {/* Why Cloud & Virtualization Matter Section - Exact from Figma (node-id=1-1970) */}
       <section
+        className="py-16 sm:py-20 md:py-24 lg:py-[120px]"
         style={{
-          padding: "120px 0",
           backgroundColor: "#F8F8F8",
         }}
       >
-        <div className="mx-auto w-full max-w-[1440px] px-[78px]">
+        <div className="mx-auto w-full max-w-[1440px] px-6 sm:px-8 md:px-12 lg:px-[78px]">
           {/* Heading */}
           <h2
-            className="font-['TASA_Orbiter'] text-black mb-[60px]"
+            className="font-['TASA_Orbiter'] text-black mb-8 sm:mb-10 md:mb-12 lg:mb-[60px] text-3xl sm:text-4xl md:text-5xl lg:text-[64px]"
             style={{
-              fontSize: "64px",
               fontWeight: 600,
               lineHeight: "1.22",
               maxWidth: "973px",
@@ -484,11 +465,10 @@ export default function Service4Page() {
           </h2>
 
           {/* Two Column Text Layout */}
-          <div className="grid grid-cols-2 gap-[60px]">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 md:gap-12 lg:gap-[60px]">
             <p
-              className="font-['TASA_Orbiter'] text-black"
+              className="font-['TASA_Orbiter'] text-black text-lg sm:text-xl md:text-2xl lg:text-2xl"
               style={{
-                fontSize: "24px",
                 fontWeight: 500,
                 lineHeight: "1.32",
                 maxWidth: "576px",
@@ -501,9 +481,8 @@ export default function Service4Page() {
               simplifying IT management.
             </p>
             <p
-              className="font-['TASA_Orbiter'] text-black"
+              className="font-['TASA_Orbiter'] text-black text-lg sm:text-xl md:text-2xl lg:text-2xl"
               style={{
-                fontSize: "24px",
                 fontWeight: 500,
                 lineHeight: "1.32",
                 maxWidth: "573px",
@@ -518,10 +497,10 @@ export default function Service4Page() {
           </div>
 
           {/* Get In Touch Button - Left aligned below text */}
-          <div className="mt-[60px]">
+          <div className="mt-10 sm:mt-12 lg:mt-[60px]">
             <Link
               href="#contact"
-              className="inline-flex h-[45px] w-[155px] items-center justify-between rounded-[75px] border border-white/30 bg-black transition-all hover:bg-black/90"
+              className="inline-flex h-[45px] w-[155px] items-center justify-between rounded-[75px] border border-white/30 bg-black transition-all duration-300 hover:bg-black/90 hover:shadow-xl hover:scale-105 shadow-md"
               style={{
                 paddingLeft: "25px",
                 paddingRight: "17px",
@@ -566,17 +545,16 @@ export default function Service4Page() {
       </section>
 
       {/* Our Core Offerings Heading - Exact from Figma */}
-      <section
+      {/* <section
+        className="py-16 sm:py-20 md:py-24 lg:py-[120px]"
         style={{
-          padding: "120px 0",
           backgroundColor: "#F8F8F8",
         }}
       >
-        <div className="mx-auto w-full max-w-[1440px] px-[78px]">
+        <div className="mx-auto w-full max-w-[1440px] px-6 sm:px-8 md:px-12 lg:px-[78px]">
           <h2
-            className="font-['TASA_Orbiter'] text-black"
+            className="font-['TASA_Orbiter'] text-black text-3xl sm:text-4xl md:text-5xl lg:text-[64px]"
             style={{
-              fontSize: "64px",
               fontWeight: 600,
               lineHeight: "1.494",
               maxWidth: "678px",
@@ -585,28 +563,26 @@ export default function Service4Page() {
             Our Core Offerings
           </h2>
         </div>
-      </section>
+      </section> */}
 
       {/* Cloud Infrastructure Deployment & Management Section - Exact from Figma (node-id=1-1978) */}
       <section
+        className="py-8 px-6 sm:py-10 sm:px-8 md:py-12 md:px-12 lg:py-[60px] lg:px-[78px]"
         style={{
-          padding: "60px 78px",
           backgroundColor: "#F8F8F8",
         }}
       >
         <div className="mx-auto w-full max-w-[1440px]">
           <div
-            className="rounded-[21px]"
+            className="rounded-[21px] py-8 px-6 sm:py-10 sm:px-8 md:py-12 md:px-12 lg:py-[60px] lg:px-[78px]"
             style={{
-              padding: "60px 78px",
               backgroundColor: "#F8F8F8",
             }}
           >
             {/* Title */}
             <h2
-              className="font-['TASA_Orbiter'] text-black mb-[40px]"
+              className="font-['TASA_Orbiter'] text-black mb-6 sm:mb-8 md:mb-10 lg:mb-[40px] text-2xl sm:text-3xl md:text-4xl lg:text-[64px]"
               style={{
-                fontSize: "64px",
                 fontWeight: 600,
                 lineHeight: "1.22",
                 maxWidth: "1172px",
@@ -617,9 +593,8 @@ export default function Service4Page() {
 
             {/* Description */}
             <p
-              className="font-['TASA_Orbiter'] text-black mb-[50px]"
+              className="font-['TASA_Orbiter'] text-black mb-8 sm:mb-10 md:mb-12 lg:mb-[50px] text-base sm:text-lg md:text-xl lg:text-2xl"
               style={{
-                fontSize: "24px",
                 fontWeight: 500,
                 lineHeight: "1.32",
                 maxWidth: "1284px",
@@ -632,36 +607,27 @@ export default function Service4Page() {
             </p>
 
             {/* Image and Key Services Row */}
-            <div className="relative mb-[50px]">
+            <div className="relative mb-8 sm:mb-10 md:mb-12 lg:mb-[50px] flex flex-col lg:flex-row lg:gap-8">
               {/* Image */}
               <div
-                className="relative rounded-[13px] overflow-hidden inline-block"
-                style={{
-                  width: "640px",
-                  height: "457px",
-                }}
+                className="relative rounded-[13px] overflow-hidden w-full mb-8 lg:mb-0 aspect-[640/457] lg:w-[640px] lg:h-[457px] lg:flex-shrink-0 shadow-lg hover:shadow-2xl transition-shadow duration-300 group"
               >
                 <Image
                   src="/service-4-cloud-infrastructure.png"
                   alt="Cloud Infrastructure Deployment & Management"
                   fill
-                  className="object-cover"
-                  sizes="640px"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  sizes="(max-width: 1024px) 100vw, 640px"
                 />
               </div>
 
               {/* Key Services with Progress Bar - Right side */}
               <div
-                className="absolute top-0"
-                style={{
-                  left: "673.5px",
-                  width: "719px",
-                }}
+                className="w-full lg:absolute lg:top-0 lg:left-[673.5px] lg:w-[719px]"
               >
                 <h3
-                  className="font-['TASA_Orbiter'] text-black mb-[50px]"
+                  className="font-['TASA_Orbiter'] text-black mb-6 sm:mb-8 md:mb-10 lg:mb-[50px] text-xl sm:text-2xl md:text-3xl lg:text-[40px]"
                   style={{
-                    fontSize: "40px",
                     fontWeight: 600,
                     lineHeight: "1.08",
                   }}
@@ -669,10 +635,10 @@ export default function Service4Page() {
                   Key Services
                 </h3>
 
-                <div className="relative" style={{ width: "719px", height: "365px" }}>
-                  {/* Background line */}
+                <div className="relative w-full lg:w-[719px] h-auto lg:h-[365px]">
+                  {/* Background line - Hidden on mobile/tablet */}
                   <div
-                    className="absolute left-0 top-0"
+                    className="hidden lg:block absolute left-0 top-0"
                     style={{
                       width: "9px",
                       height: "365px",
@@ -680,9 +646,9 @@ export default function Service4Page() {
                       backgroundColor: "#D9D9D9",
                     }}
                   />
-                  {/* Red progress line - Animated */}
+                  {/* Red progress line - Animated - Hidden on mobile/tablet */}
                   <div
-                    className="absolute left-0"
+                    className="hidden lg:block absolute left-0"
                     style={{
                       width: "8.6px",
                       height: `${redBarHeight}px`,
@@ -693,18 +659,16 @@ export default function Service4Page() {
                   />
                   {/* Services */}
                   <div
-                    className="space-y-[54px]"
-                    style={{ paddingLeft: "52px", paddingTop: "10px" }}
+                    className="space-y-4 sm:space-y-6 lg:space-y-[54px] lg:pl-[52px] lg:pt-[10px]"
                   >
                     {cloudInfrastructureServices.map((service, i) => (
                       <p
                         key={i}
-                        className="font-['TASA_Orbiter'] text-black"
+                        className="font-['TASA_Orbiter'] text-black text-base sm:text-lg md:text-xl lg:text-xl w-full lg:w-[596px]"
                         style={{
                           fontSize: activeIndex1 === i ? "24px" : "20px",
                           fontWeight: activeIndex1 === i ? 700 : 600,
                           lineHeight: "1.08",
-                          width: "596px",
                           transition: "font-weight 0.2s ease-in-out, font-size 0.2s ease-in-out",
                         }}
                       >
@@ -718,16 +682,12 @@ export default function Service4Page() {
 
             {/* Outcome */}
             <div
-              style={{
-                width: "1223px",
-                marginTop: "50px",
-              }}
+              className="w-full lg:w-[1223px] mt-8 sm:mt-10 md:mt-12 lg:mt-[50px]"
             >
-              <div className="mb-[40px]">
+              <div className="mb-6 sm:mb-8 lg:mb-[40px]">
                 <h3
-                  className="font-['TASA_Orbiter'] text-black mb-[20px]"
+                  className="font-['TASA_Orbiter'] text-black mb-3 sm:mb-4 lg:mb-[20px] text-xl sm:text-2xl md:text-3xl lg:text-[40px]"
                   style={{
-                    fontSize: "40px",
                     fontWeight: 600,
                     lineHeight: "1.08",
                   }}
@@ -735,12 +695,10 @@ export default function Service4Page() {
                   Outcome
                 </h3>
                 <p
-                  className="font-['TASA_Orbiter'] text-black"
+                  className="font-['TASA_Orbiter'] text-black text-lg sm:text-xl md:text-2xl lg:text-[32px] max-w-full lg:max-w-[1223px]"
                   style={{
-                    fontSize: "32px",
                     fontWeight: 600,
                     lineHeight: "1.38",
-                    maxWidth: "1223px",
                   }}
                 >
                   Improved scalability, lower infrastructure costs, and
@@ -749,7 +707,7 @@ export default function Service4Page() {
               </div>
               <Link
                 href="#contact"
-                className="inline-flex h-[45px] w-[225px] items-center justify-center gap-3 rounded-[75px] border border-white/30 bg-black transition-all hover:bg-black/90"
+                className="inline-flex h-[45px] w-[225px] items-center justify-center gap-3 rounded-[75px] border border-white/30 bg-black transition-all duration-300 hover:bg-black/90 hover:shadow-xl hover:scale-105 shadow-md"
                 style={{
                   padding: "12px 25px",
                 }}
@@ -791,24 +749,22 @@ export default function Service4Page() {
 
       {/* Virtualization Services Section - Exact from Figma (node-id=1-2003) */}
       <section
+        className="py-8 px-6 sm:py-10 sm:px-8 md:py-12 md:px-12 lg:py-[60px] lg:px-[78px]"
         style={{
-          padding: "60px 78px",
           backgroundColor: "#F8F8F8",
         }}
       >
         <div className="mx-auto w-full max-w-[1440px]">
           <div
-            className="rounded-[21px]"
+            className="rounded-[21px] py-8 px-6 sm:py-10 sm:px-8 md:py-12 md:px-12 lg:py-[60px] lg:px-[78px]"
             style={{
-              padding: "60px 78px",
               backgroundColor: "#F8F8F8",
             }}
           >
             {/* Title */}
             <h2
-              className="font-['TASA_Orbiter'] text-black mb-[40px]"
+              className="font-['TASA_Orbiter'] text-black mb-6 sm:mb-8 md:mb-10 lg:mb-[40px] text-2xl sm:text-3xl md:text-4xl lg:text-[64px]"
               style={{
-                fontSize: "64px",
                 fontWeight: 600,
                 lineHeight: "1.22",
                 maxWidth: "953px",
@@ -819,9 +775,8 @@ export default function Service4Page() {
 
             {/* Description */}
             <p
-              className="font-['TASA_Orbiter'] text-black mb-[50px]"
+              className="font-['TASA_Orbiter'] text-black mb-8 sm:mb-10 md:mb-12 lg:mb-[50px] text-base sm:text-lg md:text-xl lg:text-2xl"
               style={{
-                fontSize: "24px",
                 fontWeight: 500,
                 lineHeight: "1.32",
                 maxWidth: "1151px",
@@ -834,36 +789,27 @@ export default function Service4Page() {
             </p>
 
             {/* Image and Key Services Row */}
-            <div className="relative mb-[50px]">
+            <div className="relative mb-8 sm:mb-10 md:mb-12 lg:mb-[50px] flex flex-col lg:flex-row lg:gap-8">
               {/* Image */}
               <div
-                className="relative rounded-[13px] overflow-hidden inline-block"
-                style={{
-                  width: "640px",
-                  height: "457px",
-                }}
+                className="relative rounded-[13px] overflow-hidden w-full mb-8 lg:mb-0 aspect-[640/457] lg:w-[640px] lg:h-[457px] lg:flex-shrink-0 shadow-lg hover:shadow-2xl transition-shadow duration-300 group"
               >
                 <Image
                   src="/service-4-virtualization.png"
                   alt="Virtualization Services"
                   fill
-                  className="object-cover"
-                  sizes="640px"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  sizes="(max-width: 1024px) 100vw, 640px"
                 />
               </div>
 
               {/* Key Services with Progress Bar - Right side */}
               <div
-                className="absolute top-0"
-                style={{
-                  left: "673.5px",
-                  width: "719px",
-                }}
+                className="w-full lg:absolute lg:top-0 lg:left-[673.5px] lg:w-[719px]"
               >
                 <h3
-                  className="font-['TASA_Orbiter'] text-black mb-[50px]"
+                  className="font-['TASA_Orbiter'] text-black mb-6 sm:mb-8 md:mb-10 lg:mb-[50px] text-xl sm:text-2xl md:text-3xl lg:text-[40px]"
                   style={{
-                    fontSize: "40px",
                     fontWeight: 600,
                     lineHeight: "1.08",
                   }}
@@ -871,10 +817,10 @@ export default function Service4Page() {
                   Key Services
                 </h3>
 
-                <div className="relative" style={{ width: "719px", height: "365px" }}>
-                  {/* Background line */}
+                <div className="relative w-full lg:w-[719px] h-auto lg:h-[365px]">
+                  {/* Background line - Hidden on mobile/tablet */}
                   <div
-                    className="absolute left-0 top-0"
+                    className="hidden lg:block absolute left-0 top-0"
                     style={{
                       width: "9px",
                       height: "365px",
@@ -882,9 +828,9 @@ export default function Service4Page() {
                       backgroundColor: "#D9D9D9",
                     }}
                   />
-                  {/* Red progress line - Animated */}
+                  {/* Red progress line - Animated - Hidden on mobile/tablet */}
                   <div
-                    className="absolute left-0"
+                    className="hidden lg:block absolute left-0"
                     style={{
                       width: "8.6px",
                       height: `${redBarHeight}px`,
@@ -895,18 +841,16 @@ export default function Service4Page() {
                   />
                   {/* Services */}
                   <div
-                    className="space-y-[54px]"
-                    style={{ paddingLeft: "52px", paddingTop: "10px" }}
+                    className="space-y-4 sm:space-y-6 lg:space-y-[54px] lg:pl-[52px] lg:pt-[10px]"
                   >
                     {virtualizationServices.map((service, i) => (
                       <p
                         key={i}
-                        className="font-['TASA_Orbiter'] text-black"
+                        className="font-['TASA_Orbiter'] text-black text-base sm:text-lg md:text-xl lg:text-xl w-full lg:w-[596px]"
                         style={{
                           fontSize: activeIndex2 === i ? "24px" : "20px",
                           fontWeight: activeIndex2 === i ? 700 : 600,
                           lineHeight: "1.08",
-                          width: "596px",
                           transition: "font-weight 0.2s ease-in-out, font-size 0.2s ease-in-out",
                         }}
                       >
@@ -920,16 +864,12 @@ export default function Service4Page() {
 
             {/* Outcome */}
             <div
-              style={{
-                width: "1222px",
-                marginTop: "50px",
-              }}
+              className="w-full lg:w-[1222px] mt-8 sm:mt-10 md:mt-12 lg:mt-[50px]"
             >
-              <div className="mb-[40px]">
+              <div className="mb-6 sm:mb-8 lg:mb-[40px]">
                 <h3
-                  className="font-['TASA_Orbiter'] text-black mb-[20px]"
+                  className="font-['TASA_Orbiter'] text-black mb-3 sm:mb-4 lg:mb-[20px] text-xl sm:text-2xl md:text-3xl lg:text-[40px]"
                   style={{
-                    fontSize: "40px",
                     fontWeight: 600,
                     lineHeight: "1.08",
                   }}
@@ -937,12 +877,10 @@ export default function Service4Page() {
                   Outcome
                 </h3>
                 <p
-                  className="font-['TASA_Orbiter'] text-black"
+                  className="font-['TASA_Orbiter'] text-black text-lg sm:text-xl md:text-2xl lg:text-[32px] max-w-full lg:max-w-[1222px]"
                   style={{
-                    fontSize: "32px",
                     fontWeight: 600,
                     lineHeight: "1.38",
-                    maxWidth: "1222px",
                   }}
                 >
                   Higher system availability, faster provisioning, and reduced
@@ -951,7 +889,7 @@ export default function Service4Page() {
               </div>
               <Link
                 href="#contact"
-                className="inline-flex h-[45px] w-[225px] items-center justify-center gap-3 rounded-[75px] border border-white/30 bg-black transition-all hover:bg-black/90"
+                className="inline-flex h-[45px] w-[225px] items-center justify-center gap-3 rounded-[75px] border border-white/30 bg-black transition-all duration-300 hover:bg-black/90 hover:shadow-xl hover:scale-105 shadow-md"
                 style={{
                   padding: "12px 25px",
                 }}
@@ -993,24 +931,22 @@ export default function Service4Page() {
 
       {/* Cloud Backup & Disaster Recovery (DRaaS) Section - Exact from Figma (node-id=1-2027) */}
       <section
+        className="py-8 px-6 sm:py-10 sm:px-8 md:py-12 md:px-12 lg:py-[60px] lg:px-[78px]"
         style={{
-          padding: "60px 78px",
           backgroundColor: "#F8F8F8",
         }}
       >
         <div className="mx-auto w-full max-w-[1440px]">
           <div
-            className="rounded-[21px]"
+            className="rounded-[21px] py-8 px-6 sm:py-10 sm:px-8 md:py-12 md:px-12 lg:py-[60px] lg:px-[78px]"
             style={{
-              padding: "60px 78px",
               backgroundColor: "#F8F8F8",
             }}
           >
             {/* Title */}
             <h2
-              className="font-['TASA_Orbiter'] text-black mb-[40px]"
+              className="font-['TASA_Orbiter'] text-black mb-6 sm:mb-8 md:mb-10 lg:mb-[40px] text-2xl sm:text-3xl md:text-4xl lg:text-[64px]"
               style={{
-                fontSize: "64px",
                 fontWeight: 600,
                 lineHeight: "1.22",
                 maxWidth: "1151px",
@@ -1021,9 +957,8 @@ export default function Service4Page() {
 
             {/* Description */}
             <p
-              className="font-['TASA_Orbiter'] text-black mb-[50px]"
+              className="font-['TASA_Orbiter'] text-black mb-8 sm:mb-10 md:mb-12 lg:mb-[50px] text-base sm:text-lg md:text-xl lg:text-2xl"
               style={{
-                fontSize: "24px",
                 fontWeight: 500,
                 lineHeight: "1.32",
                 maxWidth: "1151px",
@@ -1036,36 +971,27 @@ export default function Service4Page() {
             </p>
 
             {/* Image and Key Services Row */}
-            <div className="relative mb-[50px]">
+            <div className="relative mb-8 sm:mb-10 md:mb-12 lg:mb-[50px] flex flex-col lg:flex-row lg:gap-8">
               {/* Image */}
               <div
-                className="relative rounded-[13px] overflow-hidden inline-block"
-                style={{
-                  width: "640px",
-                  height: "457px",
-                }}
+                className="relative rounded-[13px] overflow-hidden w-full mb-8 lg:mb-0 aspect-[640/457] lg:w-[640px] lg:h-[457px] lg:flex-shrink-0 shadow-lg hover:shadow-2xl transition-shadow duration-300 group"
               >
                 <Image
                   src="/service-4-backup-draas.png"
                   alt="Cloud Backup & Disaster Recovery"
                   fill
-                  className="object-cover"
-                  sizes="640px"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  sizes="(max-width: 1024px) 100vw, 640px"
                 />
               </div>
 
               {/* Key Services with Progress Bar - Right side */}
               <div
-                className="absolute top-0"
-                style={{
-                  left: "673.5px",
-                  width: "719px",
-                }}
+                className="w-full lg:absolute lg:top-0 lg:left-[673.5px] lg:w-[719px]"
               >
                 <h3
-                  className="font-['TASA_Orbiter'] text-black mb-[50px]"
+                  className="font-['TASA_Orbiter'] text-black mb-6 sm:mb-8 md:mb-10 lg:mb-[50px] text-xl sm:text-2xl md:text-3xl lg:text-[40px]"
                   style={{
-                    fontSize: "40px",
                     fontWeight: 600,
                     lineHeight: "1.08",
                   }}
@@ -1073,10 +999,10 @@ export default function Service4Page() {
                   Key Services
                 </h3>
 
-                <div className="relative" style={{ width: "719px", height: "365px" }}>
-                  {/* Background line */}
+                <div className="relative w-full lg:w-[719px] h-auto lg:h-[365px]">
+                  {/* Background line - Hidden on mobile/tablet */}
                   <div
-                    className="absolute left-0 top-0"
+                    className="hidden lg:block absolute left-0 top-0"
                     style={{
                       width: "9px",
                       height: "365px",
@@ -1084,9 +1010,9 @@ export default function Service4Page() {
                       backgroundColor: "#D9D9D9",
                     }}
                   />
-                  {/* Red progress line - Animated */}
+                  {/* Red progress line - Animated - Hidden on mobile/tablet */}
                   <div
-                    className="absolute left-0"
+                    className="hidden lg:block absolute left-0"
                     style={{
                       width: "8.6px",
                       height: `${redBarHeight}px`,
@@ -1097,18 +1023,16 @@ export default function Service4Page() {
                   />
                   {/* Services */}
                   <div
-                    className="space-y-[54px]"
-                    style={{ paddingLeft: "52px", paddingTop: "10px" }}
+                    className="space-y-4 sm:space-y-6 lg:space-y-[54px] lg:pl-[52px] lg:pt-[10px]"
                   >
                     {backupDraasServices.map((service, i) => (
                       <p
                         key={i}
-                        className="font-['TASA_Orbiter'] text-black"
+                        className="font-['TASA_Orbiter'] text-black text-base sm:text-lg md:text-xl lg:text-xl w-full lg:w-[596px]"
                         style={{
                           fontSize: activeIndex3 === i ? "24px" : "20px",
                           fontWeight: activeIndex3 === i ? 700 : 600,
                           lineHeight: "1.08",
-                          width: "596px",
                           transition: "font-weight 0.2s ease-in-out, font-size 0.2s ease-in-out",
                         }}
                       >
@@ -1122,16 +1046,12 @@ export default function Service4Page() {
 
             {/* Outcome */}
             <div
-              style={{
-                width: "1003px",
-                marginTop: "50px",
-              }}
+              className="w-full lg:w-[1003px] mt-8 sm:mt-10 md:mt-12 lg:mt-[50px]"
             >
-              <div className="mb-[40px]">
+              <div className="mb-6 sm:mb-8 lg:mb-[40px]">
                 <h3
-                  className="font-['TASA_Orbiter'] text-black mb-[20px]"
+                  className="font-['TASA_Orbiter'] text-black mb-3 sm:mb-4 lg:mb-[20px] text-xl sm:text-2xl md:text-3xl lg:text-[40px]"
                   style={{
-                    fontSize: "40px",
                     fontWeight: 600,
                     lineHeight: "1.08",
                   }}
@@ -1139,12 +1059,10 @@ export default function Service4Page() {
                   Outcome
                 </h3>
                 <p
-                  className="font-['TASA_Orbiter'] text-black"
+                  className="font-['TASA_Orbiter'] text-black text-lg sm:text-xl md:text-2xl lg:text-[32px] max-w-full lg:max-w-[1003px]"
                   style={{
-                    fontSize: "32px",
                     fontWeight: 600,
                     lineHeight: "1.38",
-                    maxWidth: "1003px",
                   }}
                 >
                   Minimal downtime, faster recovery, and assured data
@@ -1153,7 +1071,7 @@ export default function Service4Page() {
               </div>
               <Link
                 href="#contact"
-                className="inline-flex h-[45px] w-[225px] items-center justify-center gap-3 rounded-[75px] border border-white/30 bg-black transition-all hover:bg-black/90"
+                className="inline-flex h-[45px] w-[225px] items-center justify-center gap-3 rounded-[75px] border border-white/30 bg-black transition-all duration-300 hover:bg-black/90 hover:shadow-xl hover:scale-105 shadow-md"
                 style={{
                   padding: "12px 25px",
                 }}
@@ -1195,16 +1113,15 @@ export default function Service4Page() {
 
       {/* Why Choose Nexobots Section - Exact from Figma (node-id=1-1928) */}
       <section
+        className="py-16 sm:py-20 md:py-24 lg:py-[120px]"
         style={{
-          padding: "120px 0",
           backgroundColor: "#F8F8F8",
         }}
       >
-        <div className="mx-auto w-full max-w-[1440px] px-[69px]">
+        <div className="mx-auto w-full max-w-[1440px] px-6 sm:px-8 md:px-12 lg:px-[69px]">
           <h2
-            className="font-['TASA_Orbiter'] text-black text-center"
+            className="font-['TASA_Orbiter'] text-black text-center mb-10 sm:mb-12 md:mb-14 lg:mb-[60px] text-2xl sm:text-3xl md:text-4xl lg:text-[40px]"
             style={{
-              fontSize: "40px",
               fontWeight: 600,
               lineHeight: "1.494",
               maxWidth: "1148px",
@@ -1216,23 +1133,14 @@ export default function Service4Page() {
 
           {/* Benefit Cards Grid - 5 cards in a row - Exact from Figma */}
           <div
-            className="flex items-start justify-center"
-            style={{
-              gap: "24px",
-            }}
+            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-5 lg:gap-6"
           >
             {benefitCards.map((card, index) => (
               <div
                 key={index}
-                className="rounded-[21px]"
+                className="rounded-[21px] p-5 flex flex-col gap-5 bg-white lg:w-[241px] lg:h-[242px] shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 hover:border-2 hover:border-red-600/10"
                 style={{
-                  width: "241px",
-                  height: "242px",
                   padding: index === 0 ? "20px 16px" : "20px",
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: "20px",
-                  backgroundColor: "#FFFFFF",
                 }}
               >
                 {/* Icon - Exact from Figma */}
@@ -1267,7 +1175,6 @@ export default function Service4Page() {
                     fontSize: "13px",
                     fontWeight: 700,
                     lineHeight: "1.462",
-                    width: index === 0 ? "206px" : "209px",
                   }}
                 >
                   {card.description}
@@ -1280,16 +1187,15 @@ export default function Service4Page() {
 
       {/* FAQs Section - Exact from Figma */}
       <section
+        className="py-16 sm:py-20 md:py-24 lg:py-[120px]"
         style={{
-          padding: "120px 0",
           backgroundColor: "#F8F8F8",
         }}
       >
-        <div className="mx-auto w-full max-w-[1440px] px-[78px]">
+        <div className="mx-auto w-full max-w-[1440px] px-6 sm:px-8 md:px-12 lg:px-[78px]">
           <h2
-            className="font-['TASA_Orbiter'] text-black text-center mb-[80px]"
+            className="font-['TASA_Orbiter'] text-black text-center mb-12 sm:mb-16 md:mb-20 lg:mb-[80px] text-3xl sm:text-4xl md:text-5xl lg:text-[64px]"
             style={{
-              fontSize: "64px",
               fontWeight: 600,
               lineHeight: "1.494",
               maxWidth: "1148px",
@@ -1300,23 +1206,21 @@ export default function Service4Page() {
             FAQs – Cloud & Virtualization Support
           </h2>
 
-          <div className="space-y-[40px]">
+          <div className="space-y-6 sm:space-y-8 lg:space-y-[40px]">
             {faqs.map((faq, index) => (
               <div
                 key={index}
-                className="bg-[#D7D7D7] rounded-[15px]"
+                className="bg-[#D7D7D7] rounded-[15px] w-full p-5 sm:p-6 lg:p-5 lg:w-[1225px] shadow-md hover:shadow-xl transition-all duration-300 hover:bg-[#CECECE] cursor-pointer"
                 style={{
-                  width: "1225px",
-                  height: faq.answer ? "120px" : "64px",
-                  padding: "20px",
+                  height: faq.answer ? "auto" : "auto",
+                  minHeight: faq.answer ? "120px" : "64px",
                 }}
               >
                 <div className="flex items-start justify-between">
                   <div className="flex-1">
                     <h3
-                      className="font-['Manrope'] text-[#333333] mb-[16px]"
+                      className="font-['Manrope'] text-[#333333] mb-3 sm:mb-4 lg:mb-[16px] text-base sm:text-lg lg:text-xl"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 600,
                         lineHeight: "1.2",
                       }}
@@ -1325,9 +1229,8 @@ export default function Service4Page() {
                     </h3>
                     {faq.answer && (
                       <p
-                        className="font-['Manrope'] text-[#333333]"
+                        className="font-['Manrope'] text-[#333333] text-sm sm:text-base"
                         style={{
-                          fontSize: "16px",
                           fontWeight: 400,
                           lineHeight: "1.4375",
                         }}

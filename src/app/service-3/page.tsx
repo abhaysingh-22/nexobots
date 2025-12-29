@@ -531,7 +531,7 @@ export default function Service3Page() {
       </section>
 
       {/* Our Core Offerings Heading - Exact from Figma */}
-      <section
+      {/* <section
         className="py-16 md:py-20 lg:py-[120px]"
         style={{
           backgroundColor: "#F8F8F8",
@@ -549,7 +549,7 @@ export default function Service3Page() {
             Our Core Offerings
           </h2>
         </div>
-      </section>
+      </section> */}
 
       {/* Annual Maintenance Contracts (AMC) Section - Exact from Figma (node-id=1-3987) */}
       <section

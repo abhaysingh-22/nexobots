@@ -535,7 +535,7 @@ export default function Service1Page() {
       </section>
 
       {/* Our Core Offerings Heading - Exact from Figma */}
-      <section
+      {/* <section
         className="py-16 sm:py-20 lg:py-[120px]"
         style={{
           backgroundColor: "#F8F8F8",
@@ -553,7 +553,7 @@ export default function Service1Page() {
             Our Core Offerings
           </h2>
         </div>
-      </section>
+      </section> */}
 
       {/* IT Infrastructure Consulting Section - Exact from Figma (node-id=1-4509) */}
       <section

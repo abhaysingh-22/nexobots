@@ -487,7 +487,7 @@ export default function Service2Page() {
       </section>
 
       {/* Our Core Offerings Heading */}
-      <section
+      {/* <section
         className="py-10 sm:py-12 md:py-16 lg:py-20"
         style={{
           backgroundColor: "#F8F8F8",
@@ -504,7 +504,7 @@ export default function Service2Page() {
             Our Core Offerings
           </h2>
         </div>
-      </section>
+      </section> */}
 
       {/* IT Support Services Section */}
       <section
