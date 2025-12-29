@@ -198,7 +198,7 @@ export default function Service3Page() {
       <Navbar />
 
       {/* Hero Section - Exact from Figma */}
-      <section className="relative h-[935px] w-full overflow-hidden">
+      <section className="relative min-h-[600px] md:min-h-[750px] lg:h-[935px] w-full overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
@@ -218,13 +218,12 @@ export default function Service3Page() {
           }}
         />
         {/* Content */}
-        <div className="relative z-10 h-full">
+        <div className="relative z-10 h-full px-5 sm:px-8 md:px-12 lg:px-0 py-20 md:py-28 lg:py-0">
           {/* Title - Position: left 142px, top 169px */}
-          <div className="absolute" style={{ left: "142px", top: "169px" }}>
+          <div className="lg:absolute" style={{ left: "142px", top: "169px" }}>
             <h1
-              className="font-['TASA_Orbiter'] text-white"
+              className="font-['TASA_Orbiter'] text-white text-[32px] sm:text-[40px] md:text-[52px] lg:text-[64px]"
               style={{
-                fontSize: "64px",
                 fontWeight: 600,
                 lineHeight: "1.32",
                 maxWidth: "722px",
@@ -235,11 +234,10 @@ export default function Service3Page() {
           </div>
 
           {/* Description - Position: left 142px, top 442px */}
-          <div className="absolute" style={{ left: "142px", top: "442px" }}>
+          <div className="mt-8 md:mt-12 lg:mt-0 lg:absolute" style={{ left: "142px", top: "442px" }}>
             <p
-              className="font-['TASA_Orbiter'] text-white"
+              className="font-['TASA_Orbiter'] text-white text-base sm:text-lg md:text-xl lg:text-[24px]"
               style={{
-                fontSize: "24px",
                 fontWeight: 600,
                 lineHeight: "1.44",
                 maxWidth: "812px",
@@ -251,10 +249,10 @@ export default function Service3Page() {
           </div>
 
           {/* CTA Button - Position: left 142px, top 556px */}
-          <div className="absolute" style={{ left: "142px", top: "556px" }}>
+          <div className="mt-8 md:mt-12 lg:mt-0 lg:absolute" style={{ left: "142px", top: "556px" }}>
             <Link
               href="#contact"
-              className="inline-flex h-[67px] w-[261px] items-center justify-between rounded-[75px] border border-white/30 bg-white transition-all hover:bg-gray-100"
+              className="inline-flex h-[55px] sm:h-[60px] lg:h-[67px] w-[220px] sm:w-[240px] lg:w-[261px] items-center justify-between rounded-[75px] border border-white/30 bg-white transition-all hover:bg-gray-100"
               style={{
                 paddingLeft: "29px",
                 paddingRight: "18px",
@@ -265,9 +263,8 @@ export default function Service3Page() {
               }}
             >
               <span
-                className="font-['Manrope'] text-black whitespace-nowrap"
+                className="font-['Manrope'] text-black whitespace-nowrap text-base sm:text-lg lg:text-[20px]"
                 style={{
-                  fontSize: "20px",
                   fontWeight: 600,
                   lineHeight: "1.366",
                   letterSpacing: "0.02em",
@@ -300,23 +297,19 @@ export default function Service3Page() {
 
       {/* Closing CTA Section - Exact from Figma (node-id=37-2660) */}
       <section
+        className="py-16 md:py-20 lg:py-[120px]"
         style={{
-          padding: "120px 0",
           backgroundColor: "#F8F8F8",
         }}
       >
-        <div className="mx-auto w-full max-w-[1440px] px-[78px]">
+        <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 md:px-12 lg:px-[78px]">
           {/* Second Text - First in order */}
           <p
-            className="font-['TASA_Orbiter'] text-black mx-auto text-center"
+            className="font-['TASA_Orbiter'] text-black mx-auto text-center text-lg sm:text-xl md:text-[22px] lg:text-[24px] mb-8 md:mb-12 lg:mb-[60px]"
             style={{
-              fontSize: "24px",
               fontWeight: 600,
               lineHeight: "1.17",
               maxWidth: "977px",
-              marginLeft: "auto",
-              marginRight: "auto",
-              marginBottom: "60px",
             }}
           >
             In today's always-connected world, network uptime and system
@@ -327,15 +320,11 @@ export default function Service3Page() {
 
           {/* First Text - Second in order */}
           <p
-            className="font-['TASA_Orbiter'] text-[#4B4B4B] mx-auto text-center"
+            className="font-['TASA_Orbiter'] text-[#4B4B4B] mx-auto text-center text-base sm:text-lg md:text-[18px] lg:text-[20px] mb-10 md:mb-16 lg:mb-[80px]"
             style={{
-              fontSize: "20px",
               fontWeight: 600,
               lineHeight: "1.17",
               maxWidth: "869px",
-              marginLeft: "auto",
-              marginRight: "auto",
-              marginBottom: "80px",
             }}
           >
             Nexobots Technologies delivers Annual Maintenance Contracts (AMC)
@@ -345,7 +334,7 @@ export default function Service3Page() {
           </p>
 
           {/* Get In Touch Button - Above images */}
-          <div className="flex justify-center mb-[80px]">
+          <div className="flex justify-center mb-10 md:mb-16 lg:mb-[80px]">
             <Link
               href="#contact"
               className="inline-flex h-[45px] w-[155px] items-center justify-between rounded-[75px] border border-white/30 bg-black transition-all hover:bg-black/90"
@@ -392,66 +381,48 @@ export default function Service3Page() {
 
           {/* Three Image Cards - Below button */}
           <div
-            className="mx-auto flex gap-[17px]"
-            style={{
-              width: "1201px",
-              height: "606px",
-              marginLeft: "auto",
-              marginRight: "auto",
-            }}
+            className="mx-auto flex flex-col lg:flex-row gap-4 lg:gap-[17px] lg:w-[1201px] lg:h-[606px]"
           >
             {/* Left Large Image */}
             <div
-              className="relative rounded-[18px] overflow-hidden flex-shrink-0"
-              style={{
-                width: "549px",
-                height: "606px",
-              }}
+              className="relative rounded-[18px] overflow-hidden w-full h-[300px] sm:h-[400px] md:h-[450px] lg:w-[549px] lg:h-[606px] lg:flex-shrink-0"
             >
               <Image
                 src="/service-3-cta-1.png"
                 alt="AMC Services"
                 fill
                 className="object-cover"
-                sizes="549px"
+                sizes="(max-width: 1024px) 100vw, 549px"
                 loading="lazy"
               />
             </div>
 
             {/* Right Two Images Stacked */}
-            <div className="flex flex-col gap-[26.17px] flex-shrink-0">
+            <div className="flex flex-col gap-4 lg:gap-[26.17px] lg:flex-shrink-0">
               {/* Top Right Image */}
               <div
-                className="relative rounded-[18px] overflow-hidden"
-                style={{
-                  width: "635px",
-                  height: "303.7px",
-                }}
+                className="relative rounded-[18px] overflow-hidden w-full h-[200px] sm:h-[250px] md:h-[280px] lg:w-[635px] lg:h-[303.7px]"
               >
                 <Image
                   src="/service-3-cta-2.png"
                   alt="Managed Services"
                   fill
                   className="object-cover"
-                  sizes="635px"
+                  sizes="(max-width: 1024px) 100vw, 635px"
                   loading="lazy"
                 />
               </div>
 
               {/* Bottom Right Image */}
               <div
-                className="relative rounded-[18px] overflow-hidden"
-                style={{
-                  width: "635px",
-                  height: "275.83px",
-                }}
+                className="relative rounded-[18px] overflow-hidden w-full h-[200px] sm:h-[230px] md:h-[260px] lg:w-[635px] lg:h-[275.83px]"
               >
                 <Image
                   src="/service-3-cta-3.png"
                   alt="Lifecycle Management"
                   fill
                   className="object-cover"
-                  sizes="635px"
+                  sizes="(max-width: 1024px) 100vw, 635px"
                   loading="lazy"
                 />
               </div>
@@ -462,17 +433,16 @@ export default function Service3Page() {
 
       {/* Why AMC & Managed Services Matter Section - Exact from Figma (node-id=1-3923) */}
       <section
+        className="py-16 md:py-20 lg:py-[120px]"
         style={{
-          padding: "120px 0",
           backgroundColor: "#F8F8F8",
         }}
       >
-        <div className="mx-auto w-full max-w-[1440px] px-[78px]">
+        <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 md:px-12 lg:px-[78px]">
           {/* Heading */}
           <h2
-            className="font-['TASA_Orbiter'] text-black mb-[60px]"
+            className="font-['TASA_Orbiter'] text-black mb-8 md:mb-12 lg:mb-[60px] text-[32px] sm:text-[40px] md:text-[52px] lg:text-[64px]"
             style={{
-              fontSize: "64px",
               fontWeight: 600,
               lineHeight: "1.22",
               maxWidth: "973px",
@@ -482,11 +452,10 @@ export default function Service3Page() {
           </h2>
 
           {/* Two Column Text Layout */}
-          <div className="grid grid-cols-2 gap-[60px]">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 lg:gap-[60px]">
             <p
-              className="font-['TASA_Orbiter'] text-black"
+              className="font-['TASA_Orbiter'] text-black text-base sm:text-lg md:text-xl lg:text-[24px]"
               style={{
-                fontSize: "24px",
                 fontWeight: 500,
                 lineHeight: "1.32",
                 maxWidth: "576px",
@@ -499,9 +468,8 @@ export default function Service3Page() {
               clearly defined SLAs.
             </p>
             <p
-              className="font-['TASA_Orbiter'] text-black"
+              className="font-['TASA_Orbiter'] text-black text-base sm:text-lg md:text-xl lg:text-[24px]"
               style={{
-                fontSize: "24px",
                 fontWeight: 500,
                 lineHeight: "1.32",
                 maxWidth: "573px",
@@ -515,7 +483,7 @@ export default function Service3Page() {
           </div>
 
           {/* Get In Touch Button - Left aligned below text */}
-          <div className="mt-[60px]">
+          <div className="mt-8 md:mt-12 lg:mt-[60px]">
             <Link
               href="#contact"
               className="inline-flex h-[45px] w-[155px] items-center justify-between rounded-[75px] border border-white/30 bg-black transition-all hover:bg-black/90"
@@ -564,16 +532,15 @@ export default function Service3Page() {
 
       {/* Our Core Offerings Heading - Exact from Figma */}
       <section
+        className="py-16 md:py-20 lg:py-[120px]"
         style={{
-          padding: "120px 0",
           backgroundColor: "#F8F8F8",
         }}
       >
-        <div className="mx-auto w-full max-w-[1440px] px-[78px]">
+        <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 md:px-12 lg:px-[78px]">
           <h2
-            className="font-['TASA_Orbiter'] text-black"
+            className="font-['TASA_Orbiter'] text-black text-[32px] sm:text-[40px] md:text-[52px] lg:text-[64px]"
             style={{
-              fontSize: "64px",
               fontWeight: 600,
               lineHeight: "1.494",
               maxWidth: "678px",
@@ -586,24 +553,22 @@ export default function Service3Page() {
 
       {/* Annual Maintenance Contracts (AMC) Section - Exact from Figma (node-id=1-3987) */}
       <section
+        className="py-10 md:py-12 lg:py-[60px] px-5 sm:px-8 md:px-12 lg:px-[78px]"
         style={{
-          padding: "60px 78px",
           backgroundColor: "#F8F8F8",
         }}
       >
         <div className="mx-auto w-full max-w-[1440px]">
           <div
-            className="rounded-[21px]"
+            className="rounded-[21px] p-0 lg:p-[60px_78px]"
             style={{
-              padding: "60px 78px",
               backgroundColor: "#F8F8F8",
             }}
           >
             {/* Title */}
             <h2
-              className="font-['TASA_Orbiter'] text-black mb-[40px]"
+              className="font-['TASA_Orbiter'] text-black mb-6 md:mb-8 lg:mb-[40px] text-[28px] sm:text-[36px] md:text-[48px] lg:text-[64px]"
               style={{
-                fontSize: "64px",
                 fontWeight: 600,
                 lineHeight: "1.22",
                 maxWidth: "1172px",
@@ -614,9 +579,8 @@ export default function Service3Page() {
 
             {/* Description */}
             <p
-              className="font-['TASA_Orbiter'] text-black mb-[50px]"
+              className="font-['TASA_Orbiter'] text-black mb-8 md:mb-10 lg:mb-[50px] text-base sm:text-lg md:text-xl lg:text-[24px]"
               style={{
-                fontSize: "24px",
                 fontWeight: 500,
                 lineHeight: "1.32",
                 maxWidth: "1152px",
@@ -629,36 +593,30 @@ export default function Service3Page() {
             </p>
 
             {/* Image and Key Services Row */}
-            <div className="relative mb-[50px]">
+            <div className="flex flex-col lg:flex-row lg:relative mb-8 md:mb-10 lg:mb-[50px]">
               {/* Image */}
               <div
-                className="relative rounded-[13px] overflow-hidden inline-block"
-                style={{
-                  width: "640px",
-                  height: "457px",
-                }}
+                className="relative rounded-[13px] overflow-hidden w-full h-[280px] sm:h-[350px] md:h-[400px] lg:w-[640px] lg:h-[457px] lg:inline-block"
               >
                 <Image
                   src="/service-3-amc.png"
                   alt="Annual Maintenance Contracts"
                   fill
                   className="object-cover"
-                  sizes="640px"
+                  sizes="(max-width: 1024px) 100vw, 640px"
                 />
               </div>
 
               {/* Key Services with Progress Bar - Right side */}
               <div
-                className="absolute top-0"
+                className="mt-8 lg:mt-0 lg:absolute lg:top-0 w-full lg:w-[719px]"
                 style={{
                   left: "673.5px",
-                  width: "719px",
                 }}
               >
                 <h3
-                  className="font-['TASA_Orbiter'] text-black mb-[50px]"
+                  className="font-['TASA_Orbiter'] text-black mb-6 md:mb-8 lg:mb-[50px] text-2xl sm:text-3xl md:text-[36px] lg:text-[40px]"
                   style={{
-                    fontSize: "40px",
                     fontWeight: 600,
                     lineHeight: "1.08",
                   }}
@@ -666,7 +624,26 @@ export default function Service3Page() {
                   Key Services
                 </h3>
 
-                <div className="relative" style={{ width: "719px", height: "365px" }}>
+                {/* Mobile/Tablet: Simple list without animation */}
+                <div className="lg:hidden space-y-4 sm:space-y-5">
+                  {amcServices.map((service, i) => (
+                    <div key={i} className="flex items-start gap-3">
+                      <div className="w-2 h-2 rounded-full bg-[#E11E24] mt-2 flex-shrink-0" />
+                      <p
+                        className="font-['TASA_Orbiter'] text-black text-base sm:text-lg"
+                        style={{
+                          fontWeight: 600,
+                          lineHeight: "1.4",
+                        }}
+                      >
+                        {service}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Desktop: Animated progress bar */}
+                <div className="hidden lg:block relative" style={{ width: "719px", height: "365px" }}>
                   {/* Background line */}
                   <div
                     className="absolute left-0 top-0"
@@ -715,16 +692,12 @@ export default function Service3Page() {
 
             {/* Outcome */}
             <div
-              style={{
-                width: "1169px",
-                marginTop: "50px",
-              }}
+              className="mt-8 md:mt-10 lg:mt-[50px] w-full lg:w-[1169px]"
             >
-              <div className="mb-[40px]">
+              <div className="mb-6 md:mb-8 lg:mb-[40px]">
                 <h3
-                  className="font-['TASA_Orbiter'] text-black mb-[20px]"
+                  className="font-['TASA_Orbiter'] text-black mb-3 md:mb-4 lg:mb-[20px] text-2xl sm:text-3xl md:text-[36px] lg:text-[40px]"
                   style={{
-                    fontSize: "40px",
                     fontWeight: 600,
                     lineHeight: "1.08",
                   }}
@@ -732,9 +705,8 @@ export default function Service3Page() {
                   Outcome
                 </h3>
                 <p
-                  className="font-['TASA_Orbiter'] text-black"
+                  className="font-['TASA_Orbiter'] text-black text-lg sm:text-xl md:text-2xl lg:text-[32px]"
                   style={{
-                    fontSize: "32px",
                     fontWeight: 600,
                     lineHeight: "1.38",
                     maxWidth: "1169px",
@@ -788,24 +760,22 @@ export default function Service3Page() {
 
       {/* Managed IT Services Section - Exact from Figma (node-id=1-4012) */}
       <section
+        className="py-10 md:py-12 lg:py-[60px] px-5 sm:px-8 md:px-12 lg:px-[78px]"
         style={{
-          padding: "60px 78px",
           backgroundColor: "#F8F8F8",
         }}
       >
         <div className="mx-auto w-full max-w-[1440px]">
           <div
-            className="rounded-[21px]"
+            className="rounded-[21px] p-0 lg:p-[60px_78px]"
             style={{
-              padding: "60px 78px",
               backgroundColor: "#F8F8F8",
             }}
           >
             {/* Title */}
             <h2
-              className="font-['TASA_Orbiter'] text-black mb-[40px]"
+              className="font-['TASA_Orbiter'] text-black mb-6 md:mb-8 lg:mb-[40px] text-[28px] sm:text-[36px] md:text-[48px] lg:text-[64px]"
               style={{
-                fontSize: "64px",
                 fontWeight: 600,
                 lineHeight: "1.22",
                 maxWidth: "953px",
@@ -816,9 +786,8 @@ export default function Service3Page() {
 
             {/* Description */}
             <p
-              className="font-['TASA_Orbiter'] text-black mb-[50px]"
+              className="font-['TASA_Orbiter'] text-black mb-8 md:mb-10 lg:mb-[50px] text-base sm:text-lg md:text-xl lg:text-[24px]"
               style={{
-                fontSize: "24px",
                 fontWeight: 500,
                 lineHeight: "1.32",
                 maxWidth: "1151px",
@@ -831,36 +800,30 @@ export default function Service3Page() {
             </p>
 
             {/* Image and Key Services Row */}
-            <div className="relative mb-[50px]">
+            <div className="flex flex-col lg:flex-row lg:relative mb-8 md:mb-10 lg:mb-[50px]">
               {/* Image */}
               <div
-                className="relative rounded-[13px] overflow-hidden inline-block"
-                style={{
-                  width: "640px",
-                  height: "457px",
-                }}
+                className="relative rounded-[13px] overflow-hidden w-full h-[280px] sm:h-[350px] md:h-[400px] lg:w-[640px] lg:h-[457px] lg:inline-block"
               >
                 <Image
                   src="/service-3-managed-services.png"
                   alt="Managed IT Services"
                   fill
                   className="object-cover"
-                  sizes="640px"
+                  sizes="(max-width: 1024px) 100vw, 640px"
                 />
               </div>
 
               {/* Key Services with Progress Bar - Right side */}
               <div
-                className="absolute top-0"
+                className="mt-8 lg:mt-0 lg:absolute lg:top-0 w-full lg:w-[719px]"
                 style={{
                   left: "673.5px",
-                  width: "719px",
                 }}
               >
                 <h3
-                  className="font-['TASA_Orbiter'] text-black mb-[50px]"
+                  className="font-['TASA_Orbiter'] text-black mb-6 md:mb-8 lg:mb-[50px] text-2xl sm:text-3xl md:text-[36px] lg:text-[40px]"
                   style={{
-                    fontSize: "40px",
                     fontWeight: 600,
                     lineHeight: "1.08",
                   }}
@@ -868,7 +831,26 @@ export default function Service3Page() {
                   Key Services
                 </h3>
 
-                <div className="relative" style={{ width: "719px", height: "365px" }}>
+                {/* Mobile/Tablet: Simple list without animation */}
+                <div className="lg:hidden space-y-4 sm:space-y-5">
+                  {managedServices.map((service, i) => (
+                    <div key={i} className="flex items-start gap-3">
+                      <div className="w-2 h-2 rounded-full bg-[#E11E24] mt-2 flex-shrink-0" />
+                      <p
+                        className="font-['TASA_Orbiter'] text-black text-base sm:text-lg"
+                        style={{
+                          fontWeight: 600,
+                          lineHeight: "1.4",
+                        }}
+                      >
+                        {service}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Desktop: Animated progress bar */}
+                <div className="hidden lg:block relative" style={{ width: "719px", height: "365px" }}>
                   {/* Background line */}
                   <div
                     className="absolute left-0 top-0"
@@ -990,24 +972,22 @@ export default function Service3Page() {
 
       {/* IT Asset Lifecycle Management Section - Exact from Figma (node-id=1-4036) */}
       <section
+        className="py-10 md:py-12 lg:py-[60px] px-5 sm:px-8 md:px-12 lg:px-[78px]"
         style={{
-          padding: "60px 78px",
           backgroundColor: "#F8F8F8",
         }}
       >
         <div className="mx-auto w-full max-w-[1440px]">
           <div
-            className="rounded-[21px]"
+            className="rounded-[21px] p-0 lg:p-[60px_78px]"
             style={{
-              padding: "60px 78px",
               backgroundColor: "#F8F8F8",
             }}
           >
             {/* Title */}
             <h2
-              className="font-['TASA_Orbiter'] text-black mb-[40px]"
+              className="font-['TASA_Orbiter'] text-black mb-6 md:mb-8 lg:mb-[40px] text-[28px] sm:text-[36px] md:text-[48px] lg:text-[64px]"
               style={{
-                fontSize: "64px",
                 fontWeight: 600,
                 lineHeight: "1.22",
                 maxWidth: "1151px",
@@ -1018,9 +998,8 @@ export default function Service3Page() {
 
             {/* Description */}
             <p
-              className="font-['TASA_Orbiter'] text-black mb-[50px]"
+              className="font-['TASA_Orbiter'] text-black mb-8 md:mb-10 lg:mb-[50px] text-base sm:text-lg md:text-xl lg:text-[24px]"
               style={{
-                fontSize: "24px",
                 fontWeight: 500,
                 lineHeight: "1.32",
                 maxWidth: "1151px",
@@ -1032,36 +1011,30 @@ export default function Service3Page() {
             </p>
 
             {/* Image and Key Services Row */}
-            <div className="relative mb-[50px]">
+            <div className="flex flex-col lg:flex-row lg:relative mb-8 md:mb-10 lg:mb-[50px]">
               {/* Image */}
               <div
-                className="relative rounded-[13px] overflow-hidden inline-block"
-                style={{
-                  width: "640px",
-                  height: "457px",
-                }}
+                className="relative rounded-[13px] overflow-hidden w-full h-[280px] sm:h-[350px] md:h-[400px] lg:w-[640px] lg:h-[457px] lg:inline-block"
               >
                 <Image
                   src="/service-3-lifecycle-management.png"
                   alt="IT Asset Lifecycle Management"
                   fill
                   className="object-cover"
-                  sizes="640px"
+                  sizes="(max-width: 1024px) 100vw, 640px"
                 />
               </div>
 
               {/* Key Services with Progress Bar - Right side */}
               <div
-                className="absolute top-0"
+                className="mt-8 lg:mt-0 lg:absolute lg:top-0 w-full lg:w-[719px]"
                 style={{
                   left: "673.5px",
-                  width: "719px",
                 }}
               >
                 <h3
-                  className="font-['TASA_Orbiter'] text-black mb-[50px]"
+                  className="font-['TASA_Orbiter'] text-black mb-6 md:mb-8 lg:mb-[50px] text-2xl sm:text-3xl md:text-[36px] lg:text-[40px]"
                   style={{
-                    fontSize: "40px",
                     fontWeight: 600,
                     lineHeight: "1.08",
                   }}
@@ -1069,7 +1042,26 @@ export default function Service3Page() {
                   Key Services
                 </h3>
 
-                <div className="relative" style={{ width: "719px", height: "365px" }}>
+                {/* Mobile/Tablet: Simple list without animation */}
+                <div className="lg:hidden space-y-4 sm:space-y-5">
+                  {lifecycleServices.map((service, i) => (
+                    <div key={i} className="flex items-start gap-3">
+                      <div className="w-2 h-2 rounded-full bg-[#E11E24] mt-2 flex-shrink-0" />
+                      <p
+                        className="font-['TASA_Orbiter'] text-black text-base sm:text-lg"
+                        style={{
+                          fontWeight: 600,
+                          lineHeight: "1.4",
+                        }}
+                      >
+                        {service}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Desktop: Animated progress bar */}
+                <div className="hidden lg:block relative" style={{ width: "719px", height: "365px" }}>
                   {/* Background line */}
                   <div
                     className="absolute left-0 top-0"
@@ -1118,16 +1110,12 @@ export default function Service3Page() {
 
             {/* Outcome */}
             <div
-              style={{
-                width: "1003px",
-                marginTop: "50px",
-              }}
+              className="mt-8 md:mt-10 lg:mt-[50px] w-full lg:w-[1003px]"
             >
-              <div className="mb-[40px]">
+              <div className="mb-6 md:mb-8 lg:mb-[40px]">
                 <h3
-                  className="font-['TASA_Orbiter'] text-black mb-[20px]"
+                  className="font-['TASA_Orbiter'] text-black mb-3 md:mb-4 lg:mb-[20px] text-2xl sm:text-3xl md:text-[36px] lg:text-[40px]"
                   style={{
-                    fontSize: "40px",
                     fontWeight: 600,
                     lineHeight: "1.08",
                   }}
@@ -1135,9 +1123,8 @@ export default function Service3Page() {
                   Outcome
                 </h3>
                 <p
-                  className="font-['TASA_Orbiter'] text-black"
+                  className="font-['TASA_Orbiter'] text-black text-lg sm:text-xl md:text-2xl lg:text-[32px]"
                   style={{
-                    fontSize: "32px",
                     fontWeight: 600,
                     lineHeight: "1.38",
                     maxWidth: "1003px",
@@ -1191,44 +1178,35 @@ export default function Service3Page() {
 
       {/* Why Choose Nexobots Section - Exact from Figma (node-id=1-3881) */}
       <section
+        className="py-16 md:py-20 lg:py-[120px]"
         style={{
-          padding: "120px 0",
           backgroundColor: "#F8F8F8",
         }}
       >
-        <div className="mx-auto w-full max-w-[1440px] px-[69px]">
+        <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 md:px-12 lg:px-[69px]">
           <h2
-            className="font-['TASA_Orbiter'] text-black text-center"
+            className="font-['TASA_Orbiter'] text-black text-center text-2xl sm:text-3xl md:text-[36px] lg:text-[40px] mb-8 md:mb-12 lg:mb-[60px]"
             style={{
-              fontSize: "40px",
               fontWeight: 600,
               lineHeight: "1.494",
               maxWidth: "1148px",
-              margin: "0 auto 60px",
+              marginLeft: "auto",
+              marginRight: "auto",
             }}
           >
             Why Choose Nexobots for Annual Maintenance Contracts (AMC) &
             Managed Services
           </h2>
 
-          {/* Benefit Cards Grid - 5 cards in a row - Exact from Figma */}
+          {/* Benefit Cards Grid - 5 cards in a row on desktop, responsive grid on mobile */}
           <div
-            className="flex items-start justify-center"
-            style={{
-              gap: "24px",
-            }}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 md:gap-6 lg:gap-[24px] justify-items-center"
           >
             {benefitCards.map((card, index) => (
               <div
                 key={index}
-                className="rounded-[21px]"
+                className="rounded-[21px] w-full sm:w-[280px] md:w-[260px] lg:w-[241px] h-auto min-h-[200px] lg:h-[242px] p-5 flex flex-col gap-4 lg:gap-[20px]"
                 style={{
-                  width: "241px",
-                  height: "242px",
-                  padding: index === 0 ? "20px 16px" : "20px",
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: "20px",
                   backgroundColor: "#FFFFFF",
                 }}
               >
@@ -1264,7 +1242,6 @@ export default function Service3Page() {
                     fontSize: "13px",
                     fontWeight: 700,
                     lineHeight: "1.462",
-                    width: index === 0 ? "206px" : "209px",
                   }}
                 >
                   {card.description}
@@ -1277,16 +1254,15 @@ export default function Service3Page() {
 
       {/* FAQs Section - Exact from Figma */}
       <section
+        className="py-16 md:py-20 lg:py-[120px]"
         style={{
-          padding: "120px 0",
           backgroundColor: "#F8F8F8",
         }}
       >
-        <div className="mx-auto w-full max-w-[1440px] px-[78px]">
+        <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 md:px-12 lg:px-[78px]">
           <h2
-            className="font-['TASA_Orbiter'] text-black text-center mb-[80px]"
+            className="font-['TASA_Orbiter'] text-black text-center mb-10 md:mb-16 lg:mb-[80px] text-[28px] sm:text-[36px] md:text-[48px] lg:text-[64px]"
             style={{
-              fontSize: "64px",
               fontWeight: 600,
               lineHeight: "1.494",
               maxWidth: "1148px",
@@ -1297,23 +1273,20 @@ export default function Service3Page() {
             FAQs – AMC & Managed IT Services
           </h2>
 
-          <div className="space-y-[40px]">
+          <div className="space-y-6 md:space-y-8 lg:space-y-[40px]">
             {faqs.map((faq, index) => (
               <div
                 key={index}
-                className="bg-[#D7D7D7] rounded-[15px]"
+                className="bg-[#D7D7D7] rounded-[15px] w-full lg:w-[1225px] p-4 sm:p-5"
                 style={{
-                  width: "1225px",
-                  height: faq.answer ? "120px" : "64px",
-                  padding: "20px",
+                  minHeight: faq.answer ? "auto" : "64px",
                 }}
               >
                 <div className="flex items-start justify-between">
-                  <div className="flex-1">
+                  <div className="flex-1 pr-4">
                     <h3
-                      className="font-['Manrope'] text-[#333333] mb-[16px]"
+                      className="font-['Manrope'] text-[#333333] mb-2 sm:mb-3 lg:mb-[16px] text-base sm:text-lg lg:text-[20px]"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 600,
                         lineHeight: "1.2",
                       }}
@@ -1322,9 +1295,8 @@ export default function Service3Page() {
                     </h3>
                     {faq.answer && (
                       <p
-                        className="font-['Manrope'] text-[#333333]"
+                        className="font-['Manrope'] text-[#333333] text-sm sm:text-base"
                         style={{
-                          fontSize: "16px",
                           fontWeight: 400,
                           lineHeight: "1.4375",
                         }}
@@ -1334,7 +1306,7 @@ export default function Service3Page() {
                     )}
                   </div>
                   <button
-                    className="flex-shrink-0 ml-4"
+                    className="flex-shrink-0 ml-2 sm:ml-4"
                     style={{
                       width: "24px",
                       height: "24px",
