@@ -83,10 +83,20 @@ export default function SolutionsPage() {
 			<Navbar />
 
 			{/* Hero Section */}
-			<section className="bg-[#F8F8F8] px-4 sm:px-6">
-				<div className="mx-auto w-full max-w-[1440px] py-10 sm:py-12 lg:py-16">
+			<section className="bg-[#F8F8F8] px-4 sm:px-6 relative overflow-hidden">
+				{/* Background Image */}
+				<div className="absolute inset-0 z-0">
+					<Image
+						src="/solution-hero-image.png"
+						alt="Network pattern background"
+						fill
+						className="object-cover object-left opacity-80"
+						priority
+					/>
+				</div>
+				<div className="mx-auto w-full max-w-[1440px] py-10 sm:py-12 lg:py-16 relative z-10">
 					{/* Replace absolute layout with responsive grid */}
-					<div className="grid gap-6 lg:gap-10 lg:grid-cols-[minmax(0,784px)_minmax(0,646px)] lg:items-start">
+					<div className="flex w-full  gap-10 flex-col ">
 						{/* Title */}
 						<div className="max-w-[784px]">
 							<h1
@@ -105,7 +115,7 @@ export default function SolutionsPage() {
 						</div>
 
 						{/* Description + Button */}
-						<div className="max-w-[646px]">
+						<div className="md:self-end max-w-[646px] md:pr-20">
 							<p
 								className="font-display text-black whitespace-pre-line text-sm sm:text-base md:text-lg lg:text-[20px]"
 								style={{
