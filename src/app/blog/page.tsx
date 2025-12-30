@@ -123,51 +123,54 @@ export default function BlogPage() {
       <Navbar />
 
       {/* Hero Section - Exact from Figma */}
-      <section className="relative w-full bg-white" style={{ padding: "120px 81px 120px" }}>
-        <div className="mx-auto max-w-[1440px]">
+      <section className="relative w-full bg-white px-5 py-12 sm:px-10 sm:py-16 md:py-20 lg:px-[81px] lg:py-[120px] overflow-hidden min-h-[400px] sm:min-h-[450px] md:min-h-[500px] lg:min-h-[550px]">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0 w-full h-full">
+          <Image
+            src="/blog-hero-image.png"
+            alt=""
+            fill
+            className="object-cover w-full h-full"
+            sizes="100vw"
+            priority
+          />
+        </div>
+        
+        <div className="mx-auto max-w-[1440px] relative z-10">
           <div className="relative">
-            {/* "Blogs" text - Exact from Figma */}
-            <div className="mb-[25px]">
+            {/* "nexobots Blogs" text */}
+            <div className="mb-4 lg:mb-[25px]">
               <p
-                className="font-['Inter'] text-black"
+                className="font-['Inter'] text-black text-base sm:text-lg lg:text-[24px]"
                 style={{
-                  fontSize: "24px",
                   fontWeight: 400,
                   lineHeight: "1.5",
                 }}
               >
-                Blogs
+                nexobots Blogs
               </p>
             </div>
 
-            {/* Main Heading - Exact from Figma */}
-            <div className="mb-[58px]">
+            {/* Main Heading */}
+            <div className="mb-6 sm:mb-8 lg:mb-[58px] lg:max-w-[60%]">
               <h1
-                className="font-['TASA_Orbiter'] text-black"
+                className="font-['TASA_Orbiter'] text-black text-2xl sm:text-3xl md:text-4xl lg:text-[64px]"
                 style={{
-                  fontSize: "64px",
                   fontWeight: 600,
-                  lineHeight: "1.32",
-                  maxWidth: "1135px",
+                  lineHeight: "1.2",
                 }}
               >
-                Nexobots Blogs – IT Infrastructure & Network Insights
+                IT Infrastructure & Network Insights
               </h1>
             </div>
 
-            {/* Description Text - Exact from Figma: positioned on the right */}
+            {/* Description Text - positioned on the right on desktop, below heading on mobile */}
             <div
-              className="absolute"
-              style={{
-                right: "0",
-                top: "225px",
-                maxWidth: "574px",
-              }}
+              className="relative mt-6 sm:mt-8 lg:absolute lg:right-0 lg:top-[140px] lg:mt-0 lg:max-w-[480px] lg:text-right"
             >
               <p
-                className="font-['TASA_Orbiter'] text-black"
+                className="font-['TASA_Orbiter'] text-black text-base sm:text-lg md:text-xl lg:text-[24px]"
                 style={{
-                  fontSize: "24px",
                   fontWeight: 600,
                   lineHeight: "1.32",
                 }}
@@ -181,13 +184,12 @@ export default function BlogPage() {
       </section>
 
       {/* Latest Post Section - Exact from Figma */}
-      <section className="bg-white" style={{ padding: "120px 75px" }}>
+      <section className="bg-white px-5 py-12 sm:px-10 sm:py-16 md:py-20 lg:px-[75px] lg:py-[120px]">
         <div className="mx-auto max-w-[1440px]">
           {/* Section Heading - Exact from Figma */}
           <h2
-            className="font-['TASA_Orbiter'] text-black mb-[80px]"
+            className="font-['TASA_Orbiter'] text-black mb-8 sm:mb-12 lg:mb-[80px] text-xl sm:text-2xl lg:text-[24px]"
             style={{
-              fontSize: "24px",
               fontWeight: 700,
               lineHeight: "1.167",
             }}
@@ -196,39 +198,40 @@ export default function BlogPage() {
           </h2>
 
           {/* Blog Cards Grid - 3 columns, 2 rows */}
-          <div className="grid grid-cols-3 gap-[57px]">
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-8 lg:grid-cols-3 lg:gap-[57px]">
             {blogPosts.map((post) => (
               <article
                 key={post.id}
-                className="group flex w-full flex-col items-center gap-4 rounded-[12px] border border-[#E8E8EA] bg-white p-4 transition-all hover:border-red-primary hover:shadow-lg"
+                className="group flex w-full flex-col items-center gap-4 rounded-[12px] border border-[#E8E8EA] bg-white p-4 transition-all hover:border-red-primary hover:shadow-lg max-w-[392px] mx-auto sm:max-w-none"
                 style={{
-                  width: "392px",
                   minHeight: "fit-content",
                 }}
               >
                 {/* Blog Image - Exact from Figma: 360x240px, borderRadius: 6px */}
                 <div
-                  className="relative overflow-hidden"
+                  className="relative overflow-hidden w-full aspect-[3/2] sm:aspect-auto"
                   style={{
-                    width: "360px",
-                    height: "240px",
+                    maxWidth: "360px",
+                    height: "auto",
                     borderRadius: "6px",
                   }}
                 >
-                  <Image
-                    src={post.image}
-                    alt={post.title}
-                    fill
-                    className="object-cover transition-transform duration-300 group-hover:scale-105"
-                    sizes="360px"
-                    loading="lazy"
-                  />
+                  <div className="relative w-full h-0 pb-[66.67%] sm:pb-0 sm:h-[240px]">
+                    <Image
+                      src={post.image}
+                      alt={post.title}
+                      fill
+                      className="object-cover transition-transform duration-300 group-hover:scale-105"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 360px"
+                      loading="lazy"
+                    />
+                  </div>
                 </div>
 
                 {/* Content Container */}
-                <div className="flex w-full flex-1 flex-col gap-5" style={{ alignSelf: "stretch", padding: "8px" }}>
+                <div className="flex w-full flex-1 flex-col gap-4 sm:gap-5" style={{ alignSelf: "stretch", padding: "8px" }}>
                   {/* Badge and Title */}
-                  <div className="flex flex-col gap-4">
+                  <div className="flex flex-col gap-3 sm:gap-4">
                     {/* Badge - Exact from Figma */}
                     <span
                       className="inline-flex w-fit items-center justify-center rounded-[6px] px-[10px] py-1"
@@ -238,9 +241,8 @@ export default function BlogPage() {
                       }}
                     >
                       <span
-                        className="font-['Work_Sans'] text-[#E11E24]"
+                        className="font-['Work_Sans'] text-[#E11E24] text-xs sm:text-sm lg:text-[14px]"
                         style={{
-                          fontSize: "14px",
                           fontWeight: 500,
                           lineHeight: "1.429",
                         }}
@@ -251,9 +253,8 @@ export default function BlogPage() {
 
                     {/* Blog Title - Exact from Figma */}
                     <h3
-                      className="font-['Manrope'] text-[#181A2A]"
+                      className="font-['Manrope'] text-[#181A2A] text-lg sm:text-xl lg:text-[24px]"
                       style={{
-                        fontSize: "24px",
                         fontWeight: 600,
                         lineHeight: "1.167",
                       }}
@@ -263,11 +264,10 @@ export default function BlogPage() {
                   </div>
 
                   {/* Author and Date - Exact from Figma */}
-                  <div className="flex items-center gap-5">
+                  <div className="flex flex-wrap items-center gap-2 sm:gap-5">
                     <span
-                      className="font-['Manrope'] text-[#97989F]"
+                      className="font-['Manrope'] text-[#97989F] text-sm sm:text-base lg:text-[16px]"
                       style={{
-                        fontSize: "16px",
                         fontWeight: 500,
                         lineHeight: "1.5",
                       }}
@@ -275,9 +275,8 @@ export default function BlogPage() {
                       {post.Author}
                     </span>
                     <span
-                      className="font-['Manrope'] text-[#97989F]"
+                      className="font-['Manrope'] text-[#97989F] text-sm sm:text-base lg:text-[16px]"
                       style={{
-                        fontSize: "16px",
                         fontWeight: 500,
                         lineHeight: "1.5",
                       }}
