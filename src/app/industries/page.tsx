@@ -492,7 +492,7 @@ export default function IndustriesPage() {
 			{/* Hero Section - Responsive */}
 			<Link
 				href="#contact"
-				className="block relative h-[450px] sm:h-[550px] md:h-[650px] lg:h-[750px] xl:h-[804px] w-full overflow-hidden cursor-pointer"
+				className="block relative h-[600px] sm:h-[550px] md:h-[650px] lg:h-[750px] xl:h-[804px] w-full overflow-hidden cursor-pointer"
 			>
 				<div className="absolute inset-0">
 					<Image
@@ -500,13 +500,21 @@ export default function IndustriesPage() {
 						alt="Industries hero background"
 						fill
 						priority
-						className="object-cover"
+						className="object-cover object-center sm:object-top"
 						sizes="100vw"
 					/>
 				</div>
-				{/* Blur overlay */}
+				{/* Gradient overlay - Black from top */}
 				<div
-					className="absolute bg-black w-full h-[200px] sm:h-[300px] md:h-[400px] left-0 -top-[50px] sm:-top-[100px] md:-top-[157px]"
+					className="absolute inset-0"
+					style={{
+						background: "linear-gradient(to bottom, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.85) 15%, rgba(0,0,0,0.6) 35%, rgba(0,0,0,0.3) 55%, rgba(0,0,0,0.1) 75%, transparent 100%)",
+					}}
+					aria-hidden="true"
+				/>
+				{/* Desktop blur overlay - hidden on mobile */}
+				<div
+					className="hidden lg:block absolute bg-black w-full h-[400px] left-0 -top-[157px]"
 					style={{
 						filter: "blur(150px)",
 						opacity: 0.91,
@@ -514,14 +522,13 @@ export default function IndustriesPage() {
 					aria-hidden="true"
 				/>
 				{/* Content */}
-				<div className="relative z-10 flex h-full items-center">
-					<div className="mx-auto w-full max-w-[1440px] px-4 sm:px-6 md:px-10 lg:px-[72px]">
-						<h1 className="font-['TASA_Orbiter'] text-white text-[28px] sm:text-[36px] md:text-[42px] lg:text-[48px] font-semibold leading-[1.3] sm:leading-[1.4] lg:leading-[1.494] max-w-full lg:max-w-[1027px] mb-6 sm:mb-8 lg:mb-[33px]">
-							Empowering Every Industry with Smart, Secure, and Scalable
-							Technology
+				<div className="relative z-10 h-full flex flex-col justify-start pt-8 sm:pt-12 lg:pt-0 lg:justify-center">
+					<div className="mx-auto w-full max-w-[1440px] px-6 sm:px-8 md:px-10 lg:px-[72px]">
+						<h1 className="font-['TASA_Orbiter'] text-white text-[26px] sm:text-[32px] md:text-[38px] lg:text-[44px] xl:text-[48px] font-semibold leading-[1.25] sm:leading-[1.35] lg:leading-[1.494] max-w-[320px] sm:max-w-[500px] lg:max-w-[1027px] mb-6 sm:mb-8 lg:mb-[33px]">
+							Empowering Every Industry with Smart, Secure, and Scalable Technology
 						</h1>
-						<div className="inline-flex h-[50px] sm:h-[58px] lg:h-[67px] items-center justify-center gap-2 sm:gap-3 rounded-[75px] border border-white/30 bg-black transition-all hover:bg-black/90 px-5 sm:px-6 lg:px-[29px] py-3 sm:py-4 lg:py-5">
-							<span className="font-['Manrope'] text-white whitespace-nowrap text-[16px] sm:text-[18px] lg:text-[20px] font-semibold leading-[1.366] tracking-[0.02em]">
+						<div className="inline-flex h-[44px] sm:h-[52px] lg:h-[67px] items-center justify-center gap-2 sm:gap-3 rounded-full border border-white/30 bg-black transition-all hover:bg-black/90 px-5 sm:px-6 lg:px-[29px]">
+							<span className="font-['Manrope'] text-white whitespace-nowrap text-[14px] sm:text-[16px] lg:text-[20px] font-medium leading-[1.366] tracking-[0.02em]">
 								Find Out More
 							</span>
 							<svg
@@ -530,7 +537,7 @@ export default function IndustriesPage() {
 								viewBox="0 0 5 8"
 								fill="none"
 								xmlns="http://www.w3.org/2000/svg"
-								className="ml-1 sm:ml-2"
+								className="ml-1"
 							>
 								<path
 									d="M1 1L4 4L1 7"
