@@ -7,455 +7,305 @@ import Footer from "@/components/Footer";
 import ContactForm from "@/components/ContactForm";
 
 const services = [
-  {
-    id: 1,
-    title: "IT Infrastructure Consulting",
-    description:
-      "Build the backbone of your enterprise network with high-performance copper and fiber-optic cabling systems. Our structured cabling solutions ensure seamless connectivity, scalability, and compliance with global standards.",
-    image: "/service-consulting.png",
-    offerings: [
-      "Network Architecture Design & Assessment",
-      "Technology Roadmap & Deployment Planning",
-      "Infrastructure Modernization Strategy",
-    ],
-    ctaText: "Explore Infrastructure Consulting",
-  },
-  {
-    id: 2,
-    title: "System Integration",
-    description:
-      "Nexobots integrates multi-vendor technologies into unified, high-performing systems.From networking and surveillance to security and communication platforms, we deliver seamless interoperability and enhanced reliability.",
-    image: "/service-consulting.png", // TODO: Replace with correct service-integration.png from Figma
-    offerings: [
-      "Hardware & software integration",
-      "Data & Communication Infrastructure Setup",
-      "Network and security system integration",
-    ],
-    ctaText: "Explore System Integration",
-  },
-  {
-    id: 3,
-    title: "Annual Maintenance & Support (AMC)",
-    description:
-      "Keep your IT and security systems running at peak performance with our proactive AMC services.We offer preventive maintenance, real-time monitoring, and rapid support to minimize downtime and ensure business continuity.",
-    image: "/service-amc.png",
-    offerings: [
-      "Preventive Maintenance & Health Checks",
-      "Onsite Service & Spare Management",
-      "24/7 Technical Assistance & Remote Support",
-    ],
-    ctaText: "Learn About AMC & Support",
-  },
-  {
-    id: 4,
-    title: "Cloud & Virtualization Support",
-    description:
-      "Empower your enterprise with secure, scalable, and efficient cloud operations.Our cloud and virtualization services enable easy migration, optimized workloads, and disaster recovery — ensuring flexibility and resilience.",
-    image: "/service-4-intro-1-6536ac.png", // Cloud & Virtualization service image
-    offerings: [
-      "Cloud setup, migration & optimization",
-      "Virtualization planning & deployment",
-      "Backup, recovery & disaster management",
-    ],
-    ctaText: "Explore Cloud & Virtualization Services",
-  },
+	{
+		id: 1,
+		title: "IT Infrastructure Consulting",
+		description:
+			"Build the backbone of your enterprise network with high-performance copper and fiber-optic cabling systems. Our structured cabling solutions ensure seamless connectivity, scalability, and compliance with global standards.",
+		image: "/service-consulting.png",
+		offerings: [
+			"Network Architecture Design & Assessment",
+			"Technology Roadmap & Deployment Planning",
+			"Infrastructure Modernization Strategy",
+		],
+		ctaText: "Explore Infrastructure Consulting",
+		imagePosition: "left",
+		href: "/service-1",
+	},
+	{
+		id: 2,
+		title: "System Integration",
+		description:
+			"Nexobots integrates multi-vendor technologies into unified, high-performing systems. From networking and surveillance to security and communication platforms, we deliver seamless interoperability and enhanced reliability.",
+		image: "/service-consulting.png",
+		offerings: [
+			"Hardware & software integration",
+			"Data & Communication Infrastructure Setup",
+			"Network and security system integration",
+		],
+		ctaText: "Explore System Integration",
+		imagePosition: "right",
+		href: "/service-2",
+	},
+	{
+		id: 3,
+		title: "Annual Maintenance & Support (AMC)",
+		description:
+			"Keep your IT and security systems running at peak performance with our proactive AMC services. We offer preventive maintenance, real-time monitoring, and rapid support to minimize downtime and ensure business continuity.",
+		image: "/service-amc.png",
+		offerings: [
+			"Preventive Maintenance & Health Checks",
+			"Onsite Service & Spare Management",
+			"24/7 Technical Assistance & Remote Support",
+		],
+		ctaText: "Learn About AMC & Support",
+		imagePosition: "left",
+		href: "/service-3",
+	},
+	{
+		id: 4,
+		title: "Cloud & Virtualization Support",
+		description:
+			"Empower your enterprise with secure, scalable, and efficient cloud operations. Our cloud and virtualization services enable easy migration, optimized workloads, and disaster recovery — ensuring flexibility and resilience.",
+		image: "/service-4-intro-1-6536ac.png",
+		offerings: [
+			"Cloud setup, migration & optimization",
+			"Virtualization planning & deployment",
+			"Backup, recovery & disaster management",
+		],
+		ctaText: "Explore Cloud & Virtualization",
+		imagePosition: "right",
+		href: "/service-4",
+	},
 ] as const;
 
-
 export default function ServicesPage() {
-  return (
-    <div className="bg-[#F8F8F8] text-black">
-      <Navbar />
+	return (
+		<div className="bg-[#F8F8F8] text-black overflow-x-hidden">
+			<Navbar />
 
-      {/* Hero Section */}
-      <section
-        className="relative flex items-center justify-center px-4 sm:px-6 py-12 lg:py-0"
-        style={{
-          minHeight: "auto",
-          backgroundColor: "#F8F8F8",
-        }}
-      >
-        {/* Background Image */}
-        <div className="absolute inset-0 overflow-hidden ">
-          <Image
-            src="/Hero-section.png"
-            alt="Hero Background"
-            fill
-            className="object-cover "
-            priority
-          />
-        </div>
-        <div 
-          className="relative mx-auto w-full max-w-[1440px] flex flex-col lg:block lg:min-h-[721px]"
-        >
-          {/* Title Text - Large Font Size (50px) - Separate Div */}
-          <div
-            className="relative lg:absolute left-0 lg:left-[99px] top-0 lg:top-[79px] mb-8 lg:mb-0"
-            style={{
-              width: "100%",
-              maxWidth: "784px",
-            }}
-          >
-            <h1
-              className="font-display text-black text-[28px] sm:text-[36px] md:text-[44px] lg:text-[60px]"
-              style={{
-                fontFamily: "TASA Orbiter",
-                fontWeight: 600,
-                lineHeight: "1.32em",
-                textAlign: "left",
-                color: "#000000",
-              }}
-            >
-              End-to-End IT Services That Power Connectivity, Security, and
-              Scalability
-            </h1>
-          </div>
+			{/* Hero Section */}
+			<section className="bg-[#F8F8F8] px-6 sm:px-8 md:px-12 lg:px-16 xl:px-20 relative overflow-hidden">
+				{/* Background Image */}
+				<div className="absolute inset-0 z-0">
+					<Image
+						src="/Hero-section.png"
+						alt="Hero Background"
+						fill
+						className="object-cover object-center opacity-90"
+						priority
+					/>
+				</div>
+				<div className="mx-auto w-full max-w-[1440px] py-12 sm:py-16 lg:py-20 xl:py-24 relative z-10 min-h-[500px] lg:min-h-[600px]">
+					{/* Title - Top Left */}
+					<div className="max-w-[500px] lg:max-w-[550px] xl:max-w-[600px] lg:mr-auto">
+						<h1 className="font-['TASA_Orbiter'] text-black text-[28px] sm:text-[34px] md:text-[40px] lg:text-[46px] xl:text-[54px] font-semibold leading-[1.2] tracking-[-0.02em]">
+							End-to-End IT Services That Power Connectivity, Security, and Scalability
+						</h1>
+					</div>
 
-          {/* Description Text - Smaller Font Size (20px) - Separate Div */}
-          <div
-            className="relative lg:absolute left-0 lg:left-[694px] top-0 lg:top-[355px] mb-8 lg:mb-0"
-            style={{
-              width: "100%",
-              maxWidth: "646px",
-            }}
-          >
-            <p
-              className="font-display text-black whitespace-pre-line text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px]"
-              style={{
-                fontFamily: "TASA Orbiter",
-                fontWeight: 600,
-                lineHeight: "1.32em",
-                textAlign: "left",
-                color: "#000000",
-              }}
-            >
-              At Nexobots Technologies, we deliver a complete suite of IT
-              services designed to help enterprises stay connected, secure, and
-              future-ready.
+					{/* Description + Button - Bottom Right */}
+					<div className="mt-16 sm:mt-20 lg:mt-0 lg:absolute lg:bottom-20 xl:bottom-24 lg:right-0 xl:right-0 lg:max-w-[420px] xl:max-w-[480px]">
+						<p className="font-['TASA_Orbiter'] text-black text-[14px] sm:text-[15px] lg:text-[16px] xl:text-[18px] font-medium leading-[1.6]">
+							At Nexobots Technologies, we deliver a complete suite of IT services designed to help enterprises stay connected, secure, and future-ready.
+						</p>
+						<p className="font-['TASA_Orbiter'] text-black text-[14px] sm:text-[15px] lg:text-[16px] xl:text-[18px] font-medium leading-[1.6] mt-4">
+							From infrastructure consulting and system integration to proactive maintenance and cloud management, our expert-driven services ensure that your technology investments deliver lasting value and performance.
+						</p>
 
-              From infrastructure consulting and system integration to proactive
-              maintenance and cloud management, our expert-driven services ensure
-              that your technology investments deliver lasting value and
-              performance.
-            </p>
-          </div>
+						<div className="mt-8 lg:mt-6">
+							<Link
+								href="/contact"
+								className="inline-flex items-center gap-3 rounded-full bg-black px-7 py-3.5 transition-all hover:bg-gray-900"
+							>
+								<span className="font-['Manrope'] text-white text-[15px] font-medium">
+									Talk to an Expert
+								</span>
+								<svg
+									width="6"
+									height="10"
+									viewBox="0 0 6 10"
+									fill="none"
+									xmlns="http://www.w3.org/2000/svg"
+									className="flex-shrink-0"
+								>
+									<path
+										d="M1 1L5 5L1 9"
+										stroke="#E11E24"
+										strokeWidth="1.5"
+										strokeLinecap="round"
+										strokeLinejoin="round"
+									/>
+								</svg>
+							</Link>
+						</div>
+					</div>
+				</div>
+			</section>
 
-          {/* Button */}
-          <div
-            className="relative lg:absolute left-0 lg:left-[694px] top-0 lg:top-[575px]"
-          >
-            <Link
-              href="/contact"
-              className="flex items-center justify-center gap-3 rounded-[75px] border border-white/30 bg-black transition-all hover:bg-gray-900 w-full sm:w-[253px] h-[56px] sm:h-[67px]"
-              style={{
-                borderColor: "rgba(255, 255, 255, 0.3)",
-                borderWidth: "1px",
-              }}
-            >
-              <span
-                className="font-['Manrope'] text-white whitespace-nowrap text-[16px] sm:text-[20px]"
-                style={{
-                  fontWeight: 600,
-                  lineHeight: "1.366em",
-                  letterSpacing: "0.02em",
-                }}
-              >
-                Talk to an Expert
-              </span>
-              <svg
-                width="41"
-                height="41"
-                viewBox="0 0 41 41"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                style={{
-                  flexShrink: 0,
-                }}
-              >
-                <path
-                  d="M16 12L25 20.5L16 29"
-                  stroke="#E11E24"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </Link>
-          </div>
-        </div>
-      </section>
+			{/* Services Sections - Continuous white background on mobile */}
+			<div className="bg-white lg:bg-[#F8F8F8]">
+				<div className="mx-auto max-w-[1440px] px-6 sm:px-8 md:px-12 lg:px-16 xl:px-20 py-10 sm:py-12 lg:py-16 xl:py-20">
+					<div className="space-y-14 sm:space-y-16 lg:space-y-12 xl:space-y-14">
+						{services.map((service) => (
+							<section
+								key={service.id}
+								className="lg:bg-white lg:rounded-[24px] lg:p-8 xl:p-10 lg:shadow-[0_2px_20px_rgba(0,0,0,0.04)]"
+							>
+								{/* Title - Left aligned */}
+								<h2 className="font-['TASA_Orbiter'] text-black text-[22px] sm:text-[26px] md:text-[30px] lg:text-[36px] xl:text-[42px] font-bold leading-[1.2] tracking-[0.01em] mb-6 sm:mb-8 lg:mb-8">
+									{service.title}
+								</h2>
 
-      {/* Services Sections */}
-      <div className="mx-auto max-w-[1440px] space-y-8 sm:space-y-12 px-4 sm:px-6 py-8 sm:py-12 md:px-12">
-        {services.map((service, index) => {
-          const isEven = index % 2 === 0;
-          return (
-            <section
-              key={service.id}
-              className="rounded-[21px] bg-white p-4 sm:p-6 md:p-12"
-              style={{
-                minHeight: "auto",
-              }}
-            >
-              {/* Title */}
-              <h2
-                className="font-['TASA_Orbiter'] text-black text-[24px] sm:text-[32px] md:text-[40px] lg:text-[48px] mb-6 sm:mb-8 text-left"
-                style={{
-                  fontWeight: 700,
-                  lineHeight: "1.366",
-                  letterSpacing: "0.02em",
-                }}
-              >
-                {service.title}
-              </h2>
+								{/* Content - Stacked on mobile, side by side on desktop */}
+								<div
+									className={`flex flex-col gap-6 sm:gap-8 lg:flex-row lg:gap-8 xl:gap-12 ${
+										service.imagePosition === "right" ? "lg:flex-row-reverse" : ""
+									}`}
+								>
+									{/* Image with Description Overlay */}
+									<div className="lg:w-[48%] xl:w-[50%] flex-shrink-0">
+										<div
+											className="relative w-full rounded-[12px] sm:rounded-[16px] lg:rounded-[20px] overflow-hidden"
+											style={{ aspectRatio: "4/3" }}
+										>
+											<Image
+												src={service.image}
+												alt={service.title}
+												fill
+												className="object-cover"
+											/>
+											<div
+												className="absolute inset-0"
+												style={{
+													background:
+														"linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.5) 40%, rgba(0, 0, 0, 0.3) 70%, rgba(0, 0, 0, 0.2) 100%)",
+												}}
+											/>
+											{/* Description Text Over Image */}
+											<div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6 lg:p-7">
+												<p className="font-['Manrope'] text-white text-[13px] sm:text-[14px] lg:text-[16px] xl:text-[18px] font-bold leading-[1.5]">
+													{service.description}
+												</p>
+											</div>
+										</div>
+									</div>
 
-              {/* Content Grid */}
-              <div className="flex justify-center">
-                <div
-                  className={`grid gap-6 w-full ${
-                    !isEven 
-                      ? "lg:grid-cols-[486px_636px]" 
-                      : "lg:grid-cols-[636px_486px]"
-                  }`}
-                >
-                  {/* Image with Description Overlay */}
-                  <div
-                    className={`relative w-full lg:w-[636px] h-[280px] sm:h-[350px] md:h-[450px] lg:h-[513px] ${
-                      !isEven ? "lg:order-2" : ""
-                    }`}
-                  >
-                    <Image
-                      src={service.image}
-                      alt={service.title}
-                      fill
-                      className="object-cover"
-                      style={{
-                        borderRadius: "20px"
-                      }}
-                      loading={index > 0 ? "lazy" : "eager"}
-                    />
-                    <div
-                      className="absolute inset-0"
-                      style={{
-                        borderRadius: "20px",
-                        background: "rgba(0, 0, 0, 0.5)",
-                      }}
-                    />
-                    {/* Description Text Over Image */}
-                    <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6" style={{ borderRadius: "20px" }}>
-                      <p
-                        className="font-['Manrope'] text-white whitespace-normal text-left text-[14px] sm:text-[18px] md:text-[20px] lg:text-[24px]"
-                        style={{
-                          fontWeight: 700,
-                          lineHeight: "1.208",
-                          letterSpacing: "0.02em",
-                        }}
-                      >
-                        {service.description.replace(/\n/g, ' ')}
-                      </p>
-                    </div>
-                  </div>
+									{/* Offerings & Button */}
+									<div className="flex-1 flex flex-col justify-between">
+										{/* Our Offerings Heading */}
+										<div>
+											<h3 className="font-['Manrope'] text-black text-[22px] sm:text-[26px] lg:text-[30px] xl:text-[34px] font-bold mb-5 sm:mb-6 lg:mb-7">
+												Our Offerings
+											</h3>
 
-                  {/* Features & Button */}
-                  <div
-                    className={`flex flex-col items-start justify-between mt-6 lg:mt-0 ${
-                      !isEven ? "lg:order-1" : ""
-                    }`}
-                    style={{
-                      height: "auto",
-                    }}
-                  >
-                    {/* Our Offerings Heading */}
-                    <h3 
-                      className="font-['Manrope'] text-black mb-4 sm:mb-6 text-[24px] sm:text-[28px] md:text-[32px] lg:text-[36px] w-full lg:w-[486px]"
-                      style={{
-                        fontFamily: "Manrope",
-                        fontWeight: 700,
-                        fontStyle: "normal",
-                      }}
-                    >
-                      Our Offerings
-                    </h3>
-                    
-                    {/* Offerings List */}
-                    <div className="space-y-3 sm:space-y-5 w-full flex flex-col items-start">
-                      {service.offerings.map((offering, i) => (
-                        <div
-                          key={i}
-                          className="relative flex items-center rounded-[67px] border border-[#DADADA] bg-white pl-8 pr-4 sm:pr-6 py-3 sm:py-4 w-full lg:w-[486px] min-h-[55px] sm:min-h-[65px]"
-                        >
-                          {/* Star Icon - positioned inside the card */}
-                          <div className="absolute left-4 top-1/2 -translate-y-1/2 flex-shrink-0 z-10">
-                            <svg
-                              width="17"
-                              height="18"
-                              viewBox="0 0 17 18"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                              className="h-[18px] w-[17px]"
-                            >
-                              <path
-                                d="M8.5 0L10.4 6.5H17L11.3 10.5L13.2 17L8.5 13L3.8 17L5.7 10.5L0 6.5H6.6L8.5 0Z"
-                                fill="#E11E24"
-                              />
-                            </svg>
-                          </div>
-                          <p
-                            className="font-['Manrope'] text-black text-left text-[13px] sm:text-[14px] md:text-[16px]"
-                            style={{
-                              fontWeight: 600,
-                              lineHeight: "1.5",
-                              letterSpacing: "0.02em",
-                              paddingLeft: "20px",
-                              width: "100%",
-                            }}
-                          >
-                            {offering}
-                          </p>
-                        </div>
-                      ))}
-                    </div>
+											{/* Offerings List */}
+											<div className="space-y-3 lg:space-y-4">
+												{service.offerings.map((offering, i) => (
+													<div
+														key={i}
+														className="flex items-center gap-4 lg:rounded-full lg:border lg:border-[#E8E8E8] lg:bg-white px-0 lg:px-5 py-2 lg:py-3.5 w-full"
+													>
+														{/* Star Icon */}
+														<svg
+															width="16"
+															height="16"
+															viewBox="0 0 17 18"
+															fill="none"
+															xmlns="http://www.w3.org/2000/svg"
+															className="flex-shrink-0"
+														>
+															<path
+																d="M8.5 0L10.4 6.5H17L11.3 10.5L13.2 17L8.5 13L3.8 17L5.7 10.5L0 6.5H6.6L8.5 0Z"
+																fill="#E11E24"
+															/>
+														</svg>
+														<span className="font-['Manrope'] text-black text-[14px] sm:text-[15px] lg:text-[15px] font-semibold">
+															{offering}
+														</span>
+													</div>
+												))}
+											</div>
+										</div>
 
-                    {/* Button */}
-                    <Link
-                      href={`/service-${service.id}`}
-                      className="flex items-center justify-start gap-3 rounded-[75px] border border-white/30 bg-black px-4 sm:px-[25px] py-3 transition-all hover:bg-gray-900 mt-6 w-full sm:w-[348px] h-[45px]"
-                    >
-                      <span
-                        className="font-['Manrope'] text-white text-left whitespace-nowrap text-[13px] sm:text-[15px]"
-                        style={{
-                          fontWeight: 600,
-                          lineHeight: "1.366",
-                          letterSpacing: "0.02em",
-                        }}
-                      >
-                        {service.ctaText}
-                      </span>
-                      <svg
-                        width="5"
-                        height="8"
-                        viewBox="0 0 5 8"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                        style={{
-                          flexShrink: 0,
-                        }}
-                      >
-                        <path
-                          d="M1 1L4 4L1 7"
-                          stroke="#E11E24"
-                          strokeWidth="1"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </section>
-          );
-        })}
-      </div>
+										{/* Button - Left aligned */}
+										<div className="mt-8 lg:mt-8">
+											<Link
+												href={service.href}
+												className="inline-flex items-center gap-2.5 rounded-full bg-black px-6 py-3 transition-all hover:bg-gray-900"
+											>
+												<span className="font-['Manrope'] text-white text-[13px] sm:text-[14px] font-medium">
+													{service.ctaText}
+												</span>
+												<svg
+													width="6"
+													height="10"
+													viewBox="0 0 6 10"
+													fill="none"
+													xmlns="http://www.w3.org/2000/svg"
+													className="flex-shrink-0"
+												>
+													<path
+														d="M1 1L5 5L1 9"
+														stroke="#E11E24"
+														strokeWidth="1.5"
+														strokeLinecap="round"
+														strokeLinejoin="round"
+													/>
+												</svg>
+											</Link>
+										</div>
+									</div>
+								</div>
+							</section>
+						))}
+					</div>
+				</div>
+			</div>
 
-      {/* Closing CTA */}
-      <section
-        className="flex items-center justify-center px-4 sm:px-6 py-12 sm:py-16 md:py-24 md:px-12"
-        style={{
-          minHeight: "auto",
-          backgroundColor: "#F8F8F8",
-        }}
-      >
-        <div className="mx-auto w-full max-w-[1440px] text-center">
-          <h2
-            className="font-['TASA_Orbiter'] text-black text-[28px] sm:text-[36px] md:text-[52px] lg:text-[64px]"
-            style={{
-              fontWeight: 600,
-              lineHeight: "1.494",
-              maxWidth: "1148px",
-              margin: "0 auto",
-            }}
-          >
-            Partner with Nexobots for Reliable, Scalable, and Secure IT
-            Operations
-          </h2>
+			{/* Closing CTA */}
+			<section className="bg-[#F8F8F8] px-6 sm:px-8 md:px-12 lg:px-16 xl:px-20 py-16 sm:py-20 lg:py-28 xl:py-36">
+				<div className="mx-auto w-full max-w-[1440px] text-center">
+					<h2 className="font-['TASA_Orbiter'] text-black text-[24px] sm:text-[30px] md:text-[38px] lg:text-[48px] xl:text-[56px] font-bold leading-[1.15]">
+						Partner with Nexobots for Reliable, Scalable, and Secure IT Operations
+					</h2>
 
-          <p
-            className="mt-6 sm:mt-8 font-['Manrope'] text-black text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px]"
-            style={{
-              fontWeight: 400,
-              lineHeight: "1.4",
-              maxWidth: "900px",
-              margin: "0 auto",
-              marginTop: "24px",
-            }}
-          >
-            Your business deserves an IT foundation that evolves with your
-            goals.
-            <br />
-            <br />
-            At Nexobots Technologies, our expert team provides end-to-end
-            services that simplify management, enhance performance, and
-            protect your digital ecosystem.
-            <br />
-            <br />
-            <strong>Let&apos;s work together to optimize your IT infrastructure and
-            turn technology into your competitive advantage.</strong>
-          </p>
+					<div className="mt-10 sm:mt-12 lg:mt-16 max-w-[900px] mx-auto">
+						<p className="font-['Manrope'] text-black text-[14px] sm:text-[15px] md:text-[17px] lg:text-[18px] xl:text-[20px] font-normal leading-[1.7]">
+							Your business deserves an IT foundation that evolves with your goals.
+						</p>
+						<p className="font-['Manrope'] text-black text-[14px] sm:text-[15px] md:text-[17px] lg:text-[18px] xl:text-[20px] font-normal leading-[1.7] mt-4">
+							At Nexobots Technologies, our expert team provides end-to-end services that simplify management, enhance performance, and protect your digital ecosystem.
+						</p>
+						<p className="mt-8 lg:mt-10 font-['Manrope'] text-black text-[14px] sm:text-[15px] md:text-[17px] lg:text-[18px] xl:text-[20px] font-bold leading-[1.7]">
+							Let&apos;s work together to optimize your IT infrastructure and turn technology into your competitive advantage.
+						</p>
+					</div>
 
-          <Link
-            href="/contact"
-            className="mx-auto mt-12 flex items-center rounded-[75px] border border-white/30 bg-black transition-all hover:bg-gray-900 relative"
-            style={{
-              width: "155px",
-              height: "45px",
-              paddingLeft: "25px",
-              paddingRight: "25px",
-            }}
-          >
-            <span
-              className="font-['Manrope'] text-white whitespace-nowrap"
-              style={{
-                fontSize: "15px",
-                fontWeight: 600,
-                lineHeight: "1.366",
-                letterSpacing: "0.02em",
-              }}
-            >
-              Get In Touch
-            </span>
-            <svg
-              width="5"
-              height="8"
-              viewBox="0 0 5 8"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              style={{
-                position: "absolute",
-                right: "17px",
-                top: "50%",
-                transform: "translateY(-50%)",
-              }}
-            >
-              <path
-                d="M1 1L4 4L1 7"
-                stroke="#E11E24"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </Link>
-        </div>
-      </section>
+					<Link
+						href="/contact"
+						className="mt-10 sm:mt-12 lg:mt-14 inline-flex items-center gap-3 rounded-full bg-black px-8 py-4 transition-all hover:bg-gray-900"
+					>
+						<span className="font-['Manrope'] text-white text-[15px] lg:text-[16px] font-medium">
+							Get In Touch
+						</span>
+						<svg
+							width="6"
+							height="10"
+							viewBox="0 0 6 10"
+							fill="none"
+							xmlns="http://www.w3.org/2000/svg"
+							className="flex-shrink-0"
+						>
+							<path
+								d="M1 1L5 5L1 9"
+								stroke="#E11E24"
+								strokeWidth="1.5"
+								strokeLinecap="round"
+								strokeLinejoin="round"
+							/>
+						</svg>
+					</Link>
+				</div>
+			</section>
 
-      {/* Contact Form Section */}
-      <ContactForm />
+			{/* Contact Form Section */}
+			<ContactForm />
 
-      {/* Footer */}
-      <Footer />
-    </div>
-  );
+			{/* Footer */}
+			<Footer />
+		</div>
+	);
 }
 
 
