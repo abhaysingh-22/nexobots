@@ -92,7 +92,7 @@ const faqs = [
   },
 ] as const;
 
-// Helper function to calculate service points based on number of items
+// Helper function to calculate service points based on number of items - EXACT COPY from solution-2
 const calculateServicePoints = (itemCount: number, paddingTop: number = 10, itemHeight: number = 30, spacing: number = 54) => {
   const points = [];
   let currentTop = paddingTop;
@@ -120,7 +120,7 @@ export default function Service1Page() {
   const infrastructureDeploymentPoints = calculateServicePoints(infrastructureDeploymentServices.length);
   const consultingPoints = calculateServicePoints(consultingServices.length);
 
-  // Animation function factory
+  // Animation function factory - EXACT COPY from solution-2
   const createAnimation = (
     setRedBarTop: (value: number) => void,
     setActiveIndex: (value: number) => void,
@@ -136,8 +136,14 @@ export default function Service1Page() {
       const elapsed = currentTime - startTime;
       const progress = (elapsed % animationDuration) / animationDuration;
 
+      const lastPointIndex = servicePoints.length - 1;
+      const lastPoint = servicePoints[lastPointIndex];
+      const thirdPoint = servicePoints[servicePoints.length - 2];
+      const thirdPointBottom = thirdPoint ? thirdPoint.top + thirdPoint.height : 0;
+
       const maxTop = totalHeight - redBarHeight;
       const currentTop = progress * maxTop;
+
       const barCenter = currentTop + redBarHeight / 2;
       const barBottom = currentTop + redBarHeight;
       const barTop = currentTop;
@@ -189,18 +195,17 @@ export default function Service1Page() {
     };
   };
 
-  // Set up animations for all sections
+  // Set up animations for all sections - EXACT COPY from solution-2
   useEffect(() => createAnimation(setRedBarTop1, setActiveIndex1, systemIntegrationPoints, 365, 0), []);
   useEffect(() => createAnimation(setRedBarTop2, setActiveIndex2, infrastructureDeploymentPoints, 365, 800), []);
   useEffect(() => createAnimation(setRedBarTop3, setActiveIndex3, consultingPoints, 365, 1600), []);
 
   return (
-    <div className="text-black" style={{ backgroundColor: "#F8F8F8", minHeight: "100vh" }}>
+    <div className="bg-[#F8F8F8] text-black overflow-x-hidden">
       <Navbar />
 
-      {/* Hero Section - Exact from Figma */}
-      <section className="relative min-h-[600px] sm:min-h-[700px] lg:h-[935px] w-full overflow-hidden">
-        {/* Background Image */}
+      {/* Hero Section */}
+      <section className="relative w-full overflow-hidden min-h-[380px] sm:min-h-[450px] md:min-h-[550px] lg:min-h-[750px] xl:min-h-[935px]">
         <div className="absolute inset-0">
           <Image
             src="/service-1-hero-bg-355263.png"
@@ -210,103 +215,83 @@ export default function Service1Page() {
             className="object-cover"
             sizes="100vw"
           />
-            </div>
-        {/* Dark Overlay */}
+        </div>
         <div
           className="absolute inset-0"
-          style={{
-            backgroundColor: "rgba(0, 0, 0, 0.76)",
-          }}
+          style={{ backgroundColor: "rgba(0, 0, 0, 0.76)" }}
         />
-        {/* Content */}
-        <div className="relative z-10 h-full px-6 sm:px-10 lg:px-0 py-20 sm:py-24 lg:py-0">
-          {/* Title - Position: left 142px, top 169px */}
-          <div className="lg:absolute static" style={{ left: "142px", top: "169px" }}>
-            <h1
-              className="font-['TASA_Orbiter'] text-white text-3xl sm:text-4xl md:text-5xl lg:text-[64px]"
-              style={{
-                fontWeight: 600,
-                lineHeight: "1.32",
-                maxWidth: "917px",
-              }}
-            >
+
+        <div className="relative z-10">
+          <div className="mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-[78px]">
+            <div className="pt-10 sm:pt-14 md:pt-20 lg:pt-[120px] xl:pt-[169px]">
+              <h1
+                className="font-['TASA_Orbiter'] text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[64px]"
+                style={{
+                  fontWeight: 600,
+                  lineHeight: "1.32",
+                  maxWidth: "917px",
+                }}
+              >
                 Build Smarter. Integrate Seamlessly. Perform Reliably.
               </h1>
-          </div>
 
-          {/* Description - Position: left 142px, top 366px */}
-          <div className="lg:absolute static mt-6 sm:mt-8 lg:mt-0" style={{ left: "142px", top: "366px" }}>
-            <p
-              className="font-['TASA_Orbiter'] text-white text-base sm:text-lg md:text-xl lg:text-2xl"
-              style={{
-                fontWeight: 600,
-                lineHeight: "1.44",
-                maxWidth: "812px",
-              }}
-            >
+              <p
+                className="font-['TASA_Orbiter'] text-white mt-4 sm:mt-6 text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl"
+                style={{
+                  fontWeight: 600,
+                  lineHeight: "1.44",
+                  maxWidth: "812px",
+                }}
+              >
                 Design, deploy, and optimize your IT ecosystem with Nexobots'
                 Infrastructure Consulting & System Integration services.
               </p>
-          </div>
 
-          {/* CTA Button - Position: left 142px, top 468px */}
-          <div className="lg:absolute static mt-8 sm:mt-10 lg:mt-0" style={{ left: "142px", top: "468px" }}>
-              <Link
-                href="#contact"
-              className="inline-flex h-[55px] sm:h-[60px] lg:h-[67px] w-[220px] sm:w-[240px] lg:w-[261px] items-center justify-between rounded-[75px] border border-white/30 bg-white transition-all hover:bg-gray-100"
-              style={{
-                paddingLeft: "29px",
-                paddingRight: "18px",
-                paddingTop: "20px",
-                paddingBottom: "20px",
-                borderColor: "rgba(255, 255, 255, 0.3)",
-                borderWidth: "1px",
-              }}
-            >
-              <span
-                className="font-['Manrope'] text-black whitespace-nowrap text-base sm:text-lg lg:text-xl"
-                style={{
-                  fontWeight: 600,
-                  lineHeight: "1.366",
-                  letterSpacing: "0.02em",
-                }}
-              >
-                Talk to an Expert
-              </span>
-              <svg
-                width="41"
-                height="41"
-                viewBox="0 0 41 41"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                style={{
-                  flexShrink: 0,
-                }}
-              >
-                <path
-                  d="M16 12L25 20.5L16 29"
-                  stroke="#E11E24"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-              </Link>
+              <div className="mt-6 sm:mt-8 lg:mt-10">
+                <Link
+                  href="#contact"
+                  className="inline-flex items-center justify-between rounded-[75px] border border-white/30 bg-white transition-all hover:bg-gray-100 px-4 py-3 sm:px-6 sm:py-4 lg:px-[29px] lg:py-5"
+                >
+                  <span
+                    className="font-['Manrope'] text-black whitespace-nowrap text-sm sm:text-base lg:text-xl"
+                    style={{
+                      fontWeight: 600,
+                      lineHeight: "1.366",
+                      letterSpacing: "0.02em",
+                    }}
+                  >
+                    Talk to an Expert
+                  </span>
+                  <svg
+                    width="41"
+                    height="41"
+                    viewBox="0 0 41 41"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="w-6 h-6 sm:w-8 sm:h-8 lg:w-[41px] lg:h-[41px] flex-shrink-0"
+                  >
+                    <path
+                      d="M16 12L25 20.5L16 29"
+                      stroke="#E11E24"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </Link>
+              </div>
+            </div>
+
+            <div className="pb-8 sm:pb-10 lg:pb-0" />
           </div>
         </div>
       </section>
 
-      {/* Closing CTA Section - Exact from Figma (node-id=37-2659) */}
-      <section
-        className="py-16 sm:py-20 lg:py-[120px]"
-        style={{
-          backgroundColor: "#F8F8F8",
-        }}
-      >
-        <div className="mx-auto w-full max-w-[1440px] px-6 sm:px-10 lg:px-[78px]">
-          {/* Second Text - First in order */}
+      {/* Closing CTA Section */}
+      <section className="bg-[#F8F8F8] py-8 sm:py-10 md:py-14 lg:py-[80px] xl:py-[120px]">
+        <div className="mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-[78px]">
           <p
-            className="font-['TASA_Orbiter'] text-black mx-auto text-center text-lg sm:text-xl lg:text-2xl mb-10 sm:mb-12 lg:mb-[60px]"
+            className="font-['TASA_Orbiter'] text-black mx-auto text-center mb-6 sm:mb-8 lg:mb-[40px] text-base sm:text-lg md:text-xl lg:text-2xl"
             style={{
               fontWeight: 600,
               lineHeight: "1.32",
@@ -319,9 +304,8 @@ export default function Service1Page() {
             often create operational bottlenecks and security gaps.
           </p>
 
-          {/* First Text - Second in order */}
           <p
-            className="font-['TASA_Orbiter'] text-[#4B4B4B] mx-auto text-center text-lg sm:text-xl lg:text-2xl mb-12 sm:mb-16 lg:mb-[80px]"
+            className="font-['TASA_Orbiter'] text-[#4B4B4B] mx-auto text-center mb-6 sm:mb-8 lg:mb-[40px] text-sm sm:text-base md:text-lg lg:text-xl"
             style={{
               fontWeight: 500,
               lineHeight: "1.32",
@@ -335,24 +319,133 @@ export default function Service1Page() {
             productivity, security, and growth
           </p>
 
-          {/* Get In Touch Button - Above images */}
-          <div className="flex justify-center mb-12 sm:mb-16 lg:mb-[80px]">
+          <div className="flex justify-center mb-6 sm:mb-8 lg:mb-[50px]">
             <Link
               href="#contact"
-              className="inline-flex h-[45px] w-[155px] items-center justify-between rounded-[75px] border border-white/30 bg-black transition-all hover:bg-black/90"
-              style={{
-                paddingLeft: "25px",
-                paddingRight: "17px",
-                paddingTop: "12px",
-                paddingBottom: "11px",
-                borderColor: "rgba(255, 255, 255, 0.3)",
-                borderWidth: "1px",
-              }}
+              className="inline-flex items-center justify-center gap-2 sm:gap-3 rounded-[75px] border border-white/30 bg-black transition-all hover:bg-black/90 px-4 py-2.5 sm:px-6 sm:py-3"
             >
               <span
-                className="font-['Manrope'] text-white whitespace-nowrap"
+                className="font-['Manrope'] text-white whitespace-nowrap text-sm sm:text-[15px]"
                 style={{
-                  fontSize: "15px",
+                  fontWeight: 600,
+                  lineHeight: "1.366em",
+                  letterSpacing: "0.02em",
+                }}
+              >
+                Get In Touch
+              </span>
+              <svg
+                width="5"
+                height="8"
+                viewBox="0 0 5 8"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="flex-shrink-0"
+              >
+                <path
+                  d="M1 1L4 4L1 7"
+                  stroke="#E11E24"
+                  strokeWidth="1"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </Link>
+          </div>
+
+          {/* Three Image Cards */}
+          <div className="mx-auto w-full max-w-[1201px]">
+            <div className="grid gap-4 sm:gap-6 grid-cols-1 lg:grid-cols-2">
+              <div className="relative rounded-[18px] overflow-hidden w-full aspect-[549/400] sm:aspect-[549/500] lg:aspect-[549/595]">
+                <Image
+                  src="/service-1-cta-1.png"
+                  alt="IT Infrastructure Consulting"
+                  fill
+                  className="object-cover"
+                  sizes="(min-width: 1024px) 549px, 100vw"
+                  loading="lazy"
+                />
+              </div>
+
+              <div className="grid gap-4 sm:gap-6">
+                <div className="relative rounded-[18px] overflow-hidden w-full aspect-[16/9] lg:aspect-[635/298]">
+                  <Image
+                    src="/service-1-cta-2.png"
+                    alt="System Integration"
+                    fill
+                    className="object-cover"
+                    sizes="(min-width: 1024px) 635px, 100vw"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="relative rounded-[18px] overflow-hidden w-full aspect-[16/9] lg:aspect-[635/271]">
+                  <Image
+                    src="/service-1-cta-3.png"
+                    alt="Infrastructure Deployment"
+                    fill
+                    className="object-cover"
+                    sizes="(min-width: 1024px) 635px, 100vw"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why IT Infrastructure Consulting Matters */}
+      <section className="bg-[#F8F8F8] py-8 sm:py-10 md:py-14 lg:py-[80px] xl:py-[120px]">
+        <div className="mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-[78px]">
+          <h2
+            className="font-['TASA_Orbiter'] text-black mb-4 sm:mb-6 lg:mb-[30px] text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[64px]"
+            style={{
+              fontWeight: 600,
+              lineHeight: "1.22",
+              maxWidth: "1139px",
+            }}
+          >
+            Why IT Infrastructure Consulting & System Integration Matters
+          </h2>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-[40px] mb-6 sm:mb-8 lg:mb-[40px]">
+            <p
+              className="font-['TASA_Orbiter'] text-black text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl"
+              style={{
+                fontWeight: 500,
+                lineHeight: "1.32",
+              }}
+            >
+              As technology evolves, enterprises face the dual challenge of
+              managing complex systems while ensuring seamless interoperability
+              and scalability. Strategic consulting and expert integration
+              transform IT infrastructure into a business enabler — ensuring
+              every component, from networks to data centers, works together
+              efficiently.
+            </p>
+            <p
+              className="font-['TASA_Orbiter'] text-black text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl"
+              style={{
+                fontWeight: 500,
+                lineHeight: "1.32",
+              }}
+            >
+              With Nexobots as your technology partner, you gain deep expertise
+              across multi-vendor environments and a structured roadmap that
+              simplifies modernization. We bridge the gap between design and
+              deployment — ensuring your IT ecosystem is not just functional,
+              but future-proof.
+            </p>
+          </div>
+
+          <div>
+            <Link
+              href="#contact"
+              className="inline-flex items-center justify-center gap-2 sm:gap-3 rounded-[75px] border border-white/30 bg-black transition-all hover:bg-black/90 px-4 py-2.5 sm:px-6 sm:py-3"
+            >
+              <span
+                className="font-['Manrope'] text-white whitespace-nowrap text-sm sm:text-[15px]"
+                style={{
                   fontWeight: 600,
                   lineHeight: "1.366",
                   letterSpacing: "0.02em",
@@ -366,160 +459,7 @@ export default function Service1Page() {
                 viewBox="0 0 5 8"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                style={{
-                  flexShrink: 0,
-                }}
-              >
-                <path
-                  d="M1 1L4 4L1 7"
-                  stroke="#E11E24"
-                  strokeWidth="1"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </Link>
-          </div>
-
-          {/* Three Image Cards - Below button (y: 518, which is 148px below button) */}
-          <div
-            className="mx-auto flex flex-col lg:flex-row gap-4 lg:gap-[17px] w-full lg:w-[1201px]"
-          >
-            {/* Left Large Image */}
-            <div
-              className="relative rounded-[18px] overflow-hidden flex-shrink-0 w-full lg:w-[549px] h-[300px] sm:h-[400px] lg:h-[595px]"
-            >
-              <Image
-                src="/service-1-cta-1.png"
-                alt="IT Infrastructure Consulting"
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 549px"
-                loading="lazy"
-              />
-            </div>
-
-            {/* Right Two Images Stacked */}
-            <div className="flex flex-col gap-4 lg:gap-[26.17px] flex-shrink-0 w-full lg:w-auto">
-              {/* Top Right Image */}
-              <div
-                className="relative rounded-[18px] overflow-hidden w-full lg:w-[635px] h-[200px] sm:h-[250px] lg:h-[298.18px]"
-              >
-                <Image
-                  src="/service-1-cta-2.png"
-                  alt="System Integration"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 635px"
-                  loading="lazy"
-                />
-                </div>
-
-              {/* Bottom Right Image */}
-              <div
-                className="relative rounded-[18px] overflow-hidden w-full lg:w-[635px] h-[200px] sm:h-[230px] lg:h-[270.83px]"
-              >
-                <Image
-                  src="/service-1-cta-3.png"
-                  alt="Infrastructure Deployment"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 635px"
-                  loading="lazy"
-                />
-              </div>
-          </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Why IT Infrastructure Consulting & System Integration Matters Section - Exact from Figma (node-id=1-4501) */}
-      <section
-        className="py-16 sm:py-20 lg:py-[120px]"
-        style={{
-          backgroundColor: "#F8F8F8",
-        }}
-      >
-        <div className="mx-auto w-full max-w-[1440px] px-6 sm:px-10 lg:px-[78px]">
-          {/* Heading */}
-          <h2
-            className="font-['TASA_Orbiter'] text-black mb-8 sm:mb-12 lg:mb-[60px] text-3xl sm:text-4xl md:text-5xl lg:text-[64px]"
-            style={{
-              fontWeight: 600,
-              lineHeight: "1.22",
-              maxWidth: "1139px",
-            }}
-          >
-            Why IT Infrastructure Consulting & System Integration Matters
-          </h2>
-
-          {/* Two Column Text Layout */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 lg:gap-[60px]">
-            <p
-              className="font-['TASA_Orbiter'] text-black text-base sm:text-lg md:text-xl lg:text-2xl"
-              style={{
-                fontWeight: 500,
-                lineHeight: "1.32",
-                maxWidth: "576px",
-              }}
-            >
-              As technology evolves, enterprises face the dual challenge of
-              managing complex systems while ensuring seamless interoperability
-              and scalability. Strategic consulting and expert integration
-              transform IT infrastructure into a business enabler — ensuring
-              every component, from networks to data centers, works together
-              efficiently.
-            </p>
-            <p
-              className="font-['TASA_Orbiter'] text-black text-base sm:text-lg md:text-xl lg:text-2xl"
-              style={{
-                fontWeight: 500,
-                lineHeight: "1.32",
-                maxWidth: "573px",
-              }}
-            >
-              With Nexobots as your technology partner, you gain deep expertise
-              across multi-vendor environments and a structured roadmap that
-              simplifies modernization. We bridge the gap between design and
-              deployment — ensuring your IT ecosystem is not just functional,
-              but future-proof.
-            </p>
-          </div>
-
-          {/* Get In Touch Button - Left aligned below text */}
-          <div className="mt-[60px]">
-            <Link
-              href="#contact"
-              className="inline-flex h-[45px] w-[155px] items-center justify-between rounded-[75px] border border-white/30 bg-black transition-all hover:bg-black/90"
-              style={{
-                paddingLeft: "25px",
-                paddingRight: "17px",
-                paddingTop: "12px",
-                paddingBottom: "11px",
-                borderColor: "rgba(255, 255, 255, 0.3)",
-                borderWidth: "1px",
-              }}
-            >
-              <span
-                className="font-['Manrope'] text-white whitespace-nowrap"
-                style={{
-                  fontSize: "15px",
-                  fontWeight: 600,
-                  lineHeight: "1.366",
-                  letterSpacing: "0.02em",
-                }}
-            >
-              Get In Touch
-              </span>
-              <svg
-                width="5"
-                height="8"
-                viewBox="0 0 5 8"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                style={{
-                  flexShrink: 0,
-                }}
+                className="flex-shrink-0"
               >
                 <path
                   d="M1 1L4 4L1 7"
@@ -534,279 +474,39 @@ export default function Service1Page() {
         </div>
       </section>
 
-      {/* Our Core Offerings Heading - Exact from Figma */}
-      {/* <section
-        className="py-16 sm:py-20 lg:py-[120px]"
-        style={{
-          backgroundColor: "#F8F8F8",
-        }}
-      >
-        <div className="mx-auto w-full max-w-[1440px] px-6 sm:px-10 lg:px-[78px]">
-          <h2
-            className="font-['TASA_Orbiter'] text-black text-3xl sm:text-4xl md:text-5xl lg:text-[64px]"
-            style={{
-              fontWeight: 600,
-              lineHeight: "1.494",
-              maxWidth: "678px",
-            }}
-          >
-            Our Core Offerings
-          </h2>
-        </div>
-      </section> */}
-
-      {/* IT Infrastructure Consulting Section - Exact from Figma (node-id=1-4509) */}
-      <section
-        className="py-10 sm:py-12 lg:py-[60px] px-6 sm:px-10 lg:px-[78px]"
-        style={{
-          backgroundColor: "#F8F8F8",
-        }}
-      >
+      {/* IT Infrastructure Consulting Section */}
+      <section className="bg-[#F8F8F8] px-4 sm:px-6 lg:px-[78px] py-4 sm:py-6 lg:py-[40px]">
         <div className="mx-auto w-full max-w-[1440px]">
-          <div
-            className="rounded-[21px] p-0 lg:p-[60px_78px]"
-            style={{
-              backgroundColor: "#F8F8F8",
-            }}
-          >
-            {/* Title */}
-            <h2
-              className="font-['TASA_Orbiter'] text-black mb-6 sm:mb-8 lg:mb-[40px] text-2xl sm:text-3xl md:text-4xl lg:text-[64px]"
-              style={{
-                fontWeight: 600,
-                lineHeight: "1.22",
-                maxWidth: "1172px",
-              }}
-            >
+          <div className="rounded-[21px] bg-[#F8F8F8] py-4 sm:py-6 lg:py-[40px]">
+            <h2 className="font-['TASA_Orbiter'] text-black mb-3 sm:mb-4 lg:mb-[30px] text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-[64px]" style={{ fontWeight: 600, lineHeight: "1.22" }}>
               IT Infrastructure Consulting
             </h2>
 
-            {/* Description */}
-            <p
-              className="font-['TASA_Orbiter'] text-black mb-8 sm:mb-10 lg:mb-[50px] text-base sm:text-lg md:text-xl lg:text-2xl"
-              style={{
-                fontWeight: 500,
-                lineHeight: "1.32",
-                maxWidth: "1284px",
-              }}
-            >
+            <p className="font-['TASA_Orbiter'] text-black mb-4 sm:mb-6 lg:mb-[30px] text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl" style={{ fontWeight: 600, lineHeight: "1.26" }}>
               A strategic approach to infrastructure planning that ensures
               scalability, performance, and alignment with business objectives.
               We assess your existing environment, identify gaps, and design
               architecture that supports digital transformation.
             </p>
 
-            {/* Image and Key Services Row */}
-            <div className="flex flex-col lg:flex-row lg:relative mb-8 sm:mb-10 lg:mb-[50px] gap-8 lg:gap-0">
-              {/* Image */}
-              <div
-                className="relative rounded-[13px] overflow-hidden w-full lg:w-[640px] h-[280px] sm:h-[350px] md:h-[400px] lg:h-[481px] flex-shrink-0"
-              >
+            <div className="mb-6 sm:mb-8 lg:mb-[30px] grid gap-4 sm:gap-6 lg:gap-8 grid-cols-1 lg:grid-cols-2">
+              <div className="relative rounded-[13px] overflow-hidden w-full aspect-[4/3] lg:aspect-[640/481]">
                 <Image
                   src="/service-1-infrastructure-consulting.png"
                   alt="IT Infrastructure Consulting"
                   fill
                   className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 640px"
+                  sizes="(min-width: 1024px) 640px, 100vw"
                 />
               </div>
 
-              {/* Key Services with Progress Bar - Right side */}
-              <div
-                className="lg:absolute lg:top-0 w-full lg:w-[640.5px]"
-                style={{
-                  left: "673.5px",
-                }}
-              >
-                <h3
-                  className="font-['TASA_Orbiter'] text-black mb-6 sm:mb-8 lg:mb-[50px] text-2xl sm:text-3xl lg:text-[40px]"
-                  style={{
-                    fontWeight: 600,
-                    lineHeight: "1.08",
-                  }}
-                >
-                Key Services
-              </h3>
+              <div className="w-full">
+                <h3 className="font-['TASA_Orbiter'] text-black mb-4 sm:mb-6 lg:mb-[40px] text-xl sm:text-2xl md:text-3xl lg:text-[40px]" style={{ fontWeight: 600, lineHeight: "1.08" }}>Key Services</h3>
 
-                <div className="relative lg:w-[640.5px] lg:h-[365px]">
-                  {/* Background line - hidden on mobile */}
+                {/* Desktop: Animated progress - EXACT COPY from solution-2 */}
+                <div className="hidden lg:block relative w-full max-w-[719px]" style={{ height: "365px" }}>
                   <div
-                    className="absolute left-0 top-0 hidden lg:block"
-                    style={{
-                      width: "8.02px",
-                      height: "365px",
-                      borderRadius: "55px",
-                      backgroundColor: "#D9D9D9",
-                    }}
-                  />
-                  {/* Red progress line - Animated - hidden on mobile */}
-                  <div
-                    className="absolute left-0 hidden lg:block"
-                    style={{
-                      width: "7.66px",
-                      height: `${redBarHeight}px`,
-                      top: `${redBarTop3}px`,
-                      borderRadius: "55px",
-                      backgroundColor: "#E11E24",
-                    }}
-                  />
-                  {/* Services */}
-                  <div
-                    className="space-y-4 sm:space-y-6 lg:space-y-[54px] pl-0 lg:pl-[46.32px] pt-0 lg:pt-[10px]"
-                  >
-                    {consultingServices.map((service, i) => (
-                      <p
-                        key={i}
-                        className="font-['TASA_Orbiter'] text-black text-base sm:text-lg lg:text-xl relative pl-4 lg:pl-0 before:content-[''] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-2 before:h-2 before:bg-[#E11E24] before:rounded-full lg:before:hidden"
-                        style={{
-                          fontSize: undefined,
-                          fontWeight: activeIndex3 === i ? 700 : 600,
-                          lineHeight: "1.08",
-                          transition: "font-weight 0.2s ease-in-out",
-                        }}
-                      >
-                      {service}
-                    </p>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Outcome */}
-            <div
-              className="w-full lg:w-[1169px] mt-8 sm:mt-10 lg:mt-[50px]"
-            >
-              <div className="mb-6 sm:mb-8 lg:mb-[40px]">
-                <h3
-                  className="font-['TASA_Orbiter'] text-black mb-4 sm:mb-5 lg:mb-[20px] text-2xl sm:text-3xl lg:text-[40px]"
-                  style={{
-                    fontWeight: 600,
-                    lineHeight: "1.08",
-                  }}
-                >
-                Outcome
-                </h3>
-                <p
-                  className="font-['TASA_Orbiter'] text-black text-xl sm:text-2xl lg:text-[32px]"
-                  style={{
-                    fontWeight: 600,
-                    lineHeight: "1.38",
-                    maxWidth: "1169px",
-                  }}
-                >
-                Smarter IT investments, enhanced reliability, and future-ready
-                scalability.
-              </p>
-              </div>
-              <Link
-                href="#contact"
-                className="inline-flex h-[45px] w-[225px] items-center justify-center gap-3 rounded-[75px] border border-white/30 bg-black transition-all hover:bg-black/90"
-                style={{
-                  padding: "12px 25px",
-                }}
-              >
-                <span
-                  className="font-['Manrope'] text-white"
-                  style={{
-                    fontSize: "15px",
-                    fontWeight: 600,
-                    lineHeight: "1.366",
-                    letterSpacing: "0.02em",
-                  }}
-              >
-                  Let's Discuss Needs
-                </span>
-                <Image
-                  src="/find-out-more-arrow.svg"
-                  alt=""
-                  width={12}
-                  height={12}
-                  className="h-3 w-3"
-                  />
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* System Integration Services Section - Exact from Figma (node-id=1-4533) */}
-      <section
-        className="py-10 sm:py-12 lg:py-[60px] px-6 sm:px-10 lg:px-[78px]"
-        style={{
-          backgroundColor: "#F8F8F8",
-        }}
-      >
-        <div className="mx-auto w-full max-w-[1440px]">
-          <div
-            className="rounded-[21px] p-0 lg:p-[60px_78px]"
-            style={{
-              backgroundColor: "#F8F8F8",
-            }}
-          >
-            {/* Title */}
-            <h2
-              className="font-['TASA_Orbiter'] text-black mb-6 sm:mb-8 lg:mb-[40px] text-2xl sm:text-3xl md:text-4xl lg:text-[64px]"
-              style={{
-                fontWeight: 600,
-                lineHeight: "1.22",
-                maxWidth: "1151px",
-              }}
-            >
-              System Integration Services
-            </h2>
-
-            {/* Description */}
-            <p
-              className="font-['TASA_Orbiter'] text-black mb-8 sm:mb-10 lg:mb-[50px] text-base sm:text-lg md:text-xl lg:text-2xl"
-              style={{
-                fontWeight: 500,
-                lineHeight: "1.32",
-                maxWidth: "1029px",
-              }}
-            >
-              Seamlessly connect hardware, software, and network systems into
-              one unified, intelligent ecosystem. Our certified engineers
-              integrate multi-vendor technologies to deliver interoperable and
-              optimized infrastructure.
-            </p>
-
-            {/* Image and Key Services Row */}
-            <div className="flex flex-col lg:flex-row lg:relative mb-8 sm:mb-10 lg:mb-[50px] gap-8 lg:gap-0">
-              {/* Image */}
-              <div
-                className="relative rounded-[13px] overflow-hidden w-full lg:w-[640px] h-[280px] sm:h-[350px] md:h-[400px] lg:h-[468px] flex-shrink-0"
-              >
-                <Image
-                  src="/service-1-system-integration-section.png"
-                  alt="System Integration Services"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 640px"
-                />
-              </div>
-
-              {/* Key Services with Progress Bar - Right side */}
-              <div
-                className="lg:absolute lg:top-0 w-full lg:w-[719px]"
-                style={{
-                  left: "703.5px",
-                }}
-              >
-                <h3
-                  className="font-['TASA_Orbiter'] text-black mb-6 sm:mb-8 lg:mb-[50px] text-2xl sm:text-3xl lg:text-[40px]"
-                  style={{
-                    fontWeight: 600,
-                    lineHeight: "1.08",
-                  }}
-                >
-                Key Services
-              </h3>
-
-                <div className="relative lg:w-[719px] lg:h-[365px]">
-                  {/* Background line - hidden on mobile */}
-                  <div
-                    className="absolute left-0 top-0 hidden lg:block"
+                    className="absolute left-0 top-0"
                     style={{
                       width: "9px",
                       height: "365px",
@@ -814,208 +514,29 @@ export default function Service1Page() {
                       backgroundColor: "#D9D9D9",
                     }}
                   />
-                  {/* Red progress line - Animated - hidden on mobile */}
                   <div
-                    className="absolute left-0 hidden lg:block"
+                    className="absolute left-0"
                     style={{
                       width: "8.6px",
                       height: `${redBarHeight}px`,
-                      top: `${redBarTop1}px`,
+                      top: `${redBarTop3}px`,
                       borderRadius: "55px",
                       backgroundColor: "#E11E24",
                     }}
                   />
-                  {/* Services */}
                   <div
-                    className="space-y-4 sm:space-y-6 lg:space-y-[54px] pl-0 lg:pl-[52px] pt-0 lg:pt-[10px]"
+                    className="space-y-[54px]"
+                    style={{ paddingLeft: "52px", paddingTop: "10px" }}
                   >
-                    {systemIntegrationServices.map((service, i) => (
+                    {consultingServices.map((service, i) => (
                       <p
                         key={i}
-                        className="font-['TASA_Orbiter'] text-black text-base sm:text-lg lg:text-xl relative pl-4 lg:pl-0 before:content-[''] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-2 before:h-2 before:bg-[#E11E24] before:rounded-full lg:before:hidden"
+                        className="font-['TASA_Orbiter'] text-black"
                         style={{
-                          fontWeight: activeIndex1 === i ? 700 : 600,
+                          fontSize: activeIndex3 === i ? "24px" : "20px",
+                          fontWeight: activeIndex3 === i ? 700 : 600,
                           lineHeight: "1.08",
-                          transition: "font-weight 0.2s ease-in-out",
-                        }}
-                      >
-                      {service}
-                    </p>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Outcome */}
-            <div
-              style={{
-                width: "1222px",
-                marginTop: "50px",
-              }}
-            >
-              <div className="mb-[40px]">
-                <h3
-                  className="font-['TASA_Orbiter'] text-black mb-[20px]"
-                  style={{
-                    fontSize: "40px",
-                    fontWeight: 600,
-                    lineHeight: "1.08",
-                  }}
-                >
-                Outcome
-                </h3>
-                <p
-                  className="font-['TASA_Orbiter'] text-black"
-                  style={{
-                    fontSize: "32px",
-                    fontWeight: 600,
-                    lineHeight: "1.38",
-                    maxWidth: "1222px",
-                  }}
-                >
-                  Simplified operations, improved efficiency, and seamless
-                  interconnectivity.
-              </p>
-              </div>
-              <Link
-                href="#contact"
-                className="inline-flex h-[45px] w-[225px] items-center justify-center gap-3 rounded-[75px] border border-white/30 bg-black transition-all hover:bg-black/90"
-                style={{
-                  padding: "12px 25px",
-                }}
-              >
-                <span
-                  className="font-['Manrope'] text-white"
-                  style={{
-                    fontSize: "15px",
-                    fontWeight: 600,
-                    lineHeight: "1.366",
-                    letterSpacing: "0.02em",
-                  }}
-                >
-                  Let's Discuss Needs
-                </span>
-                <Image
-                  src="/find-out-more-arrow.svg"
-                  alt=""
-                  width={12}
-                  height={12}
-                  className="h-3 w-3"
-                />
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Infrastructure Deployment & Modernization Section - Exact from Figma (node-id=1-4557) */}
-      <section
-        className="py-10 sm:py-12 lg:py-[60px] px-6 sm:px-10 lg:px-[78px]"
-        style={{
-          backgroundColor: "#F8F8F8",
-        }}
-      >
-        <div className="mx-auto w-full max-w-[1440px]">
-          <div
-            className="rounded-[21px] p-0 lg:p-[60px_78px]"
-            style={{
-              backgroundColor: "#F8F8F8",
-            }}
-          >
-            {/* Title */}
-            <h2
-              className="font-['TASA_Orbiter'] text-black mb-6 sm:mb-8 lg:mb-[40px] text-2xl sm:text-3xl md:text-4xl lg:text-[64px]"
-              style={{
-                fontWeight: 600,
-                lineHeight: "1.22",
-                maxWidth: "1151px",
-              }}
-            >
-              Infrastructure Deployment & Modernization
-            </h2>
-
-            {/* Description */}
-            <p
-              className="font-['TASA_Orbiter'] text-black mb-8 sm:mb-10 lg:mb-[50px] text-base sm:text-lg md:text-xl lg:text-2xl"
-              style={{
-                fontWeight: 500,
-                lineHeight: "1.32",
-                maxWidth: "1284px",
-              }}
-            >
-              Accelerate digital transformation through secure, scalable
-              infrastructure deployment. We handle everything from structured
-              cabling and rack setup to virtualization and network rollout —
-              ensuring a smooth transition from legacy to modern systems.
-            </p>
-
-            {/* Image and Key Services Row */}
-            <div className="flex flex-col lg:flex-row lg:relative mb-8 sm:mb-10 lg:mb-[50px] gap-8 lg:gap-0">
-              {/* Image */}
-              <div
-                className="relative rounded-[13px] overflow-hidden w-full lg:w-[640px] h-[280px] sm:h-[350px] md:h-[400px] lg:h-[482px] flex-shrink-0"
-              >
-                <Image
-                  src="/service-1-infrastructure-deployment-section.png"
-                  alt="Infrastructure Deployment & Modernization"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 640px"
-                />
-              </div>
-
-              {/* Key Services with Progress Bar - Right side */}
-              <div
-                className="lg:absolute lg:top-0 w-full lg:w-[640.5px]"
-                style={{
-                  left: "703.5px",
-                }}
-              >
-                <h3
-                  className="font-['TASA_Orbiter'] text-black mb-6 sm:mb-8 lg:mb-[50px] text-2xl sm:text-3xl lg:text-[40px]"
-                  style={{
-                    fontWeight: 600,
-                    lineHeight: "1.08",
-                  }}
-                >
-                  Key Services
-                </h3>
-
-                <div className="relative lg:w-[640.5px] lg:h-[365px]">
-                  {/* Background line - hidden on mobile */}
-                  <div
-                    className="absolute left-0 top-0 hidden lg:block"
-                    style={{
-                      width: "8.02px",
-                      height: "365px",
-                      borderRadius: "55px",
-                      backgroundColor: "#D9D9D9",
-                    }}
-                  />
-                  {/* Red progress line - Animated - hidden on mobile */}
-                  <div
-                    className="absolute left-0 hidden lg:block"
-                    style={{
-                      width: "7.66px",
-                      height: `${redBarHeight}px`,
-                      top: `${redBarTop2}px`,
-                      borderRadius: "55px",
-                      backgroundColor: "#E11E24",
-                    }}
-                  />
-                  {/* Services */}
-                  <div
-                    className="space-y-4 sm:space-y-6 lg:space-y-[55px] pl-0 lg:pl-[46.32px] pt-0 lg:pt-[10px]"
-                  >
-                    {infrastructureDeploymentServices.map((service, i) => (
-                      <p
-                        key={i}
-                        className="font-['TASA_Orbiter'] text-black text-base sm:text-lg lg:text-xl relative pl-4 lg:pl-0 before:content-[''] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-2 before:h-2 before:bg-[#E11E24] before:rounded-full lg:before:hidden"
-                        style={{
-                          fontWeight: activeIndex2 === i ? 700 : 600,
-                          lineHeight: "1.08",
-                          transition: "font-weight 0.2s ease-in-out",
+                          transition: "font-weight 0.2s ease-in-out, font-size 0.2s ease-in-out",
                         }}
                       >
                         {service}
@@ -1023,124 +544,193 @@ export default function Service1Page() {
                     ))}
                   </div>
                 </div>
+
+                {/* Mobile list */}
+                <ul className="lg:hidden space-y-3 sm:space-y-4">
+                  {consultingServices.map((service, i) => (
+                    <li
+                      key={i}
+                      className="font-['TASA_Orbiter'] text-black text-sm sm:text-base flex items-start gap-2"
+                      style={{ fontWeight: 600, lineHeight: "1.3" }}
+                    >
+                      <span className="text-[#E11E24] mt-1">•</span>
+                      {service}
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
 
-            {/* Outcome */}
-            <div
-              className="w-full lg:w-[1003px] mt-8 sm:mt-10 lg:mt-[50px]"
-            >
-              <div className="mb-6 sm:mb-8 lg:mb-[40px]">
-                <h3
-                  className="font-['TASA_Orbiter'] text-black mb-4 sm:mb-5 lg:mb-[20px] text-2xl sm:text-3xl lg:text-[40px]"
-                  style={{
-                    fontWeight: 600,
-                    lineHeight: "1.08",
-                  }}
-                >
-                  Outcome
-                </h3>
-                <p
-                  className="font-['TASA_Orbiter'] text-black text-xl sm:text-2xl lg:text-[32px]"
-                  style={{
-                    fontWeight: 600,
-                    lineHeight: "1.38",
-                    maxWidth: "1003px",
-                  }}
-                >
-                  Optimized infrastructure, faster implementation, and minimal
-                  business disruption.
+            <div className="w-full">
+              <div className="mb-3 sm:mb-4 lg:mb-[20px]">
+                <h3 className="font-['TASA_Orbiter'] text-black mb-1.5 sm:mb-2 lg:mb-[10px] text-xl sm:text-2xl md:text-3xl lg:text-[40px]" style={{ fontWeight: 600, lineHeight: "1.08" }}>Outcome</h3>
+                <p className="font-['TASA_Orbiter'] text-black text-base sm:text-lg md:text-xl lg:text-2xl xl:text-[32px]" style={{ fontWeight: 600, lineHeight: "1.38" }}>
+                  Smarter IT investments, enhanced reliability, and future-ready
+                  scalability.
                 </p>
               </div>
-              <Link
-                href="#contact"
-                className="inline-flex h-[45px] w-[225px] items-center justify-center gap-3 rounded-[75px] border border-white/30 bg-black transition-all hover:bg-black/90"
-                style={{
-                  padding: "12px 25px",
-                }}
-              >
-                <span
-                  className="font-['Manrope'] text-white"
-                  style={{
-                    fontSize: "15px",
-                    fontWeight: 600,
-                    lineHeight: "1.366",
-                    letterSpacing: "0.02em",
-                  }}
-                >
-                  Let's Discuss Needs
-                </span>
-                <Image
-                  src="/find-out-more-arrow.svg"
-                  alt=""
-                  width={12}
-                  height={12}
-                  className="h-3 w-3"
-                />
+              <Link href="#contact" className="inline-flex items-center justify-center gap-2 sm:gap-3 rounded-[75px] border border-white/30 bg-black transition-all hover:bg-black/90 px-4 py-2.5 sm:px-6 sm:py-3">
+                <span className="font-['Manrope'] text-white text-xs sm:text-sm lg:text-[15px]" style={{ fontWeight: 600, lineHeight: "1.366", letterSpacing: "0.02em" }}>Let's Discuss Needs</span>
+                <svg width="5" height="8" viewBox="0 0 5 8" fill="none" xmlns="http://www.w3.org/2000/svg" className="flex-shrink-0"><path d="M1 1L4 4L1 7" stroke="#E11E24" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
               </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Why Choose Nexobots Section - Exact from Figma (node-id=1-4459) */}
-      <section
-        className="py-16 sm:py-20 lg:py-[120px]"
-        style={{
-          backgroundColor: "#F8F8F8",
-        }}
-      >
-        <div className="mx-auto w-full max-w-[1440px] px-6 sm:px-10 lg:px-[69px]">
+      {/* System Integration Services Section */}
+      <section className="bg-[#F8F8F8] px-4 sm:px-6 lg:px-[78px] py-4 sm:py-6 lg:py-[40px]">
+        <div className="mx-auto w-full max-w-[1440px]">
+          <div className="rounded-[21px] bg-[#F8F8F8] py-4 sm:py-6 lg:py-[40px]">
+            <h2 className="font-['TASA_Orbiter'] text-black mb-3 sm:mb-4 lg:mb-[30px] text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-[64px]" style={{ fontWeight: 600, lineHeight: "1.22" }}>
+              System Integration Services
+            </h2>
+
+            <p className="font-['TASA_Orbiter'] text-black mb-4 sm:mb-6 lg:mb-[30px] text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl" style={{ fontWeight: 600, lineHeight: "1.26" }}>
+              Seamlessly connect hardware, software, and network systems into
+              one unified, intelligent ecosystem. Our certified engineers
+              integrate multi-vendor technologies to deliver interoperable and
+              optimized infrastructure.
+            </p>
+
+            <div className="mb-6 sm:mb-8 lg:mb-[30px] grid gap-4 sm:gap-6 lg:gap-8 grid-cols-1 lg:grid-cols-2">
+              <div className="relative rounded-[13px] overflow-hidden w-full aspect-[4/3] lg:aspect-[640/468]">
+                <Image src="/service-1-system-integration-section.png" alt="System Integration Services" fill className="object-cover" sizes="(min-width: 1024px) 640px, 100vw" />
+              </div>
+
+              <div className="w-full">
+                <h3 className="font-['TASA_Orbiter'] text-black mb-4 sm:mb-6 lg:mb-[40px] text-xl sm:text-2xl md:text-3xl lg:text-[40px]" style={{ fontWeight: 600, lineHeight: "1.08" }}>Key Services</h3>
+
+                {/* Desktop: Animated progress - EXACT COPY from solution-2 */}
+                <div className="hidden lg:block relative w-full max-w-[719px]" style={{ height: "365px" }}>
+                  <div className="absolute left-0 top-0" style={{ width: "9px", height: "365px", borderRadius: "55px", backgroundColor: "#D9D9D9" }} />
+                  <div className="absolute left-0" style={{ width: "8.6px", height: `${redBarHeight}px`, top: `${redBarTop1}px`, borderRadius: "55px", backgroundColor: "#E11E24" }} />
+                  <div className="space-y-[54px]" style={{ paddingLeft: "52px", paddingTop: "10px" }}>
+                    {systemIntegrationServices.map((service, i) => (
+                      <p key={i} className="font-['TASA_Orbiter'] text-black" style={{ fontSize: activeIndex1 === i ? "24px" : "20px", fontWeight: activeIndex1 === i ? 700 : 600, lineHeight: "1.08", transition: "font-weight 0.2s ease-in-out, font-size 0.2s ease-in-out" }}>{service}</p>
+                    ))}
+                  </div>
+                </div>
+
+                <ul className="lg:hidden space-y-3 sm:space-y-4">
+                  {systemIntegrationServices.map((service, i) => (
+                    <li key={i} className="font-['TASA_Orbiter'] text-black text-sm sm:text-base flex items-start gap-2" style={{ fontWeight: 600, lineHeight: "1.3" }}><span className="text-[#E11E24] mt-1">•</span>{service}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            <div className="w-full">
+              <div className="mb-3 sm:mb-4 lg:mb-[20px]">
+                <h3 className="font-['TASA_Orbiter'] text-black mb-1.5 sm:mb-2 lg:mb-[10px] text-xl sm:text-2xl md:text-3xl lg:text-[40px]" style={{ fontWeight: 600, lineHeight: "1.08" }}>Outcome</h3>
+                <p className="font-['TASA_Orbiter'] text-black text-base sm:text-lg md:text-xl lg:text-2xl xl:text-[32px]" style={{ fontWeight: 600, lineHeight: "1.38" }}>
+                  Simplified operations, improved efficiency, and seamless
+                  interconnectivity.
+                </p>
+              </div>
+              <Link href="#contact" className="inline-flex items-center justify-center gap-2 sm:gap-3 rounded-[75px] border border-white/30 bg-black transition-all hover:bg-black/90 px-4 py-2.5 sm:px-6 sm:py-3">
+                <span className="font-['Manrope'] text-white text-xs sm:text-sm lg:text-[15px]" style={{ fontWeight: 600, lineHeight: "1.366", letterSpacing: "0.02em" }}>Let's Discuss Needs</span>
+                <svg width="5" height="8" viewBox="0 0 5 8" fill="none" xmlns="http://www.w3.org/2000/svg" className="flex-shrink-0"><path d="M1 1L4 4L1 7" stroke="#E11E24" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Infrastructure Deployment & Modernization Section */}
+      <section className="bg-[#F8F8F8] px-4 sm:px-6 lg:px-[78px] py-4 sm:py-6 lg:py-[40px]">
+        <div className="mx-auto w-full max-w-[1440px]">
+          <div className="rounded-[21px] bg-[#F8F8F8] py-4 sm:py-6 lg:py-[40px]">
+            <h2 className="font-['TASA_Orbiter'] text-black mb-3 sm:mb-4 lg:mb-[30px] text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-[64px]" style={{ fontWeight: 600, lineHeight: "1.22" }}>
+              Infrastructure Deployment & Modernization
+            </h2>
+
+            <p className="font-['TASA_Orbiter'] text-black mb-4 sm:mb-6 lg:mb-[30px] text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl" style={{ fontWeight: 600, lineHeight: "1.26" }}>
+              Accelerate digital transformation through secure, scalable
+              infrastructure deployment. We handle everything from structured
+              cabling and rack setup to virtualization and network rollout —
+              ensuring a smooth transition from legacy to modern systems.
+            </p>
+
+            <div className="mb-6 sm:mb-8 lg:mb-[30px] grid gap-4 sm:gap-6 lg:gap-8 grid-cols-1 lg:grid-cols-2">
+              <div className="relative rounded-[13px] overflow-hidden w-full aspect-[4/3] lg:aspect-[640/482]">
+                <Image src="/service-1-infrastructure-deployment-section.png" alt="Infrastructure Deployment & Modernization" fill className="object-cover" sizes="(min-width: 1024px) 640px, 100vw" />
+              </div>
+
+              <div className="w-full">
+                <h3 className="font-['TASA_Orbiter'] text-black mb-4 sm:mb-6 lg:mb-[40px] text-xl sm:text-2xl md:text-3xl lg:text-[40px]" style={{ fontWeight: 600, lineHeight: "1.08" }}>Key Services</h3>
+
+                {/* Desktop: Animated progress - EXACT COPY from solution-2 */}
+                <div className="hidden lg:block relative w-full max-w-[719px]" style={{ height: "365px" }}>
+                  <div className="absolute left-0 top-0" style={{ width: "9px", height: "365px", borderRadius: "55px", backgroundColor: "#D9D9D9" }} />
+                  <div className="absolute left-0" style={{ width: "8.6px", height: `${redBarHeight}px`, top: `${redBarTop2}px`, borderRadius: "55px", backgroundColor: "#E11E24" }} />
+                  <div className="space-y-[54px]" style={{ paddingLeft: "52px", paddingTop: "10px" }}>
+                    {infrastructureDeploymentServices.map((service, i) => (
+                      <p key={i} className="font-['TASA_Orbiter'] text-black" style={{ fontSize: activeIndex2 === i ? "24px" : "20px", fontWeight: activeIndex2 === i ? 700 : 600, lineHeight: "1.08", transition: "font-weight 0.2s ease-in-out, font-size 0.2s ease-in-out" }}>{service}</p>
+                    ))}
+                  </div>
+                </div>
+
+                <ul className="lg:hidden space-y-3 sm:space-y-4">
+                  {infrastructureDeploymentServices.map((service, i) => (
+                    <li key={i} className="font-['TASA_Orbiter'] text-black text-sm sm:text-base flex items-start gap-2" style={{ fontWeight: 600, lineHeight: "1.3" }}><span className="text-[#E11E24] mt-1">•</span>{service}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            <div className="w-full">
+              <div className="mb-3 sm:mb-4 lg:mb-[20px]">
+                <h3 className="font-['TASA_Orbiter'] text-black mb-1.5 sm:mb-2 lg:mb-[10px] text-xl sm:text-2xl md:text-3xl lg:text-[40px]" style={{ fontWeight: 600, lineHeight: "1.08" }}>Outcome</h3>
+                <p className="font-['TASA_Orbiter'] text-black text-base sm:text-lg md:text-xl lg:text-2xl xl:text-[32px]" style={{ fontWeight: 600, lineHeight: "1.38" }}>
+                  Optimized infrastructure, faster implementation, and minimal
+                  business disruption.
+                </p>
+              </div>
+              <Link href="#contact" className="inline-flex items-center justify-center gap-2 sm:gap-3 rounded-[75px] border border-white/30 bg-black transition-all hover:bg-black/90 px-4 py-2.5 sm:px-6 sm:py-3">
+                <span className="font-['Manrope'] text-white text-xs sm:text-sm lg:text-[15px]" style={{ fontWeight: 600, lineHeight: "1.366", letterSpacing: "0.02em" }}>Let's Discuss Needs</span>
+                <svg width="5" height="8" viewBox="0 0 5 8" fill="none" xmlns="http://www.w3.org/2000/svg" className="flex-shrink-0"><path d="M1 1L4 4L1 7" stroke="#E11E24" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Nexobots */}
+      <section className="bg-[#F8F8F8] py-8 sm:py-10 md:py-14 lg:py-[80px]">
+        <div className="mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-[78px]">
           <h2
-            className="font-['TASA_Orbiter'] text-black text-center text-2xl sm:text-3xl lg:text-[40px] mb-10 sm:mb-12 lg:mb-[60px]"
-            style={{
-              fontWeight: 600,
-              lineHeight: "1.494",
-              maxWidth: "860px",
-              marginLeft: "auto",
-              marginRight: "auto",
-            }}
+            className="font-['TASA_Orbiter'] text-black text-center mb-6 sm:mb-8 lg:mb-[50px] text-xl sm:text-2xl md:text-3xl lg:text-[40px]"
+            style={{ fontWeight: 600, lineHeight: "1.494" }}
           >
-            Why Choose Nexobots for IT Infrastructure Consulting & System
-            Integration
+            Why Choose Nexobots for IT Infrastructure Consulting & System Integration
           </h2>
 
-          {/* Benefit Cards Grid - 5 cards in a row on desktop, responsive grid on mobile */}
-          <div
-            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-5 lg:gap-6 justify-items-center"
-          >
+          {/* Benefit Cards - Responsive Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 sm:gap-6">
             {benefitCards.map((card, index) => (
               <div
                 key={index}
-                className="rounded-[21px] w-full sm:w-[241px] h-auto sm:h-[242px] p-5 flex flex-col gap-4 sm:gap-5 bg-white"
+                className="bg-white rounded-[21px] p-4 sm:p-5 flex flex-col gap-3 sm:gap-4"
               >
-                {/* Icon - Exact from Figma */}
-                <div
-                  className="flex-shrink-0 w-[51px] h-[51px]"
-                >
+                <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12">
                   <Image
                     src="/cpu-icon-service-1.svg"
                     alt=""
                     width={51}
                     height={51}
-                    className="w-[51px] h-[51px]"
+                    className="w-full h-full"
                   />
                 </div>
                 <h3
-                  className="font-['Manrope'] text-black text-base lg:text-[16px]"
-                  style={{
-                    fontWeight: 700,
-                    lineHeight: "1.25",
-                  }}
+                  className="font-['Manrope'] text-black text-sm sm:text-base"
+                  style={{ fontWeight: 700, lineHeight: "1.25" }}
                 >
                   {card.title}
                 </h3>
                 <p
-                  className="font-['Manrope'] text-[#A4A4A4] text-sm lg:text-[13px]"
-                  style={{
-                    fontWeight: 700,
-                    lineHeight: "1.462",
-                  }}
+                  className="font-['Manrope'] text-[#A4A4A4] text-xs sm:text-sm"
+                  style={{ fontWeight: 700, lineHeight: "1.462" }}
                 >
                   {card.description}
                 </p>
@@ -1150,68 +740,47 @@ export default function Service1Page() {
         </div>
       </section>
 
-      {/* FAQs Section - Exact from Figma */}
-      <section
-        className="py-16 sm:py-20 lg:py-[120px]"
-        style={{
-          backgroundColor: "#F8F8F8",
-        }}
-      >
-        <div className="mx-auto w-full max-w-[1440px] px-6 sm:px-10 lg:px-[78px]">
+      {/* FAQs */}
+      <section className="py-8 sm:py-10 md:py-14 lg:py-[80px] bg-[#F8F8F8]">
+        <div className="mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-[78px]">
           <h2
-            className="font-['TASA_Orbiter'] text-black text-center mb-10 sm:mb-14 lg:mb-[80px] text-2xl sm:text-3xl md:text-4xl lg:text-[64px]"
-            style={{
-              fontWeight: 600,
-              lineHeight: "1.494",
-              maxWidth: "1148px",
-              marginLeft: "auto",
-              marginRight: "auto",
-            }}
+            className="font-['TASA_Orbiter'] text-black text-center mb-6 sm:mb-8 lg:mb-[50px] text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-[64px]"
+            style={{ fontWeight: 600, lineHeight: "1.494" }}
           >
             FAQs – IT Infrastructure Consulting & System Integration
           </h2>
 
-          <div className="space-y-4 sm:space-y-6 lg:space-y-[40px]">
+          <div className="space-y-2 sm:space-y-3 lg:space-y-4 max-w-[1225px] mx-auto">
             {faqs.map((faq, index) => (
               <div
                 key={index}
-                className="bg-[#D7D7D7] rounded-[15px] w-full lg:w-[1225px] p-4 sm:p-5"
-                style={{
-                  minHeight: faq.answer ? "auto" : "64px",
-                }}
+                className="bg-[#EFEFEF] rounded-[15px] w-full p-4 sm:p-5"
               >
-                <div className="flex items-start justify-between">
+                <div className="flex items-start justify-between gap-3">
                   <div className="flex-1">
                     <h3
-                      className="font-['Manrope'] text-[#333333] mb-2 sm:mb-3 lg:mb-[16px] text-base sm:text-lg lg:text-xl"
-                      style={{
-                        fontWeight: 600,
-                        lineHeight: "1.2",
-                      }}
+                      className="font-['Manrope'] text-[#333333] mb-2 sm:mb-3 text-sm sm:text-base lg:text-xl"
+                      style={{ fontWeight: 500, lineHeight: "1.2" }}
                     >
                       {faq.question}
                     </h3>
                     {faq.answer && (
                       <p
-                        className="font-['Manrope'] text-[#333333] text-sm sm:text-base"
-                        style={{
-                          fontWeight: 400,
-                          lineHeight: "1.4375",
-                        }}
+                        className="font-['Manrope'] text-[#333333] text-xs sm:text-sm lg:text-base"
+                        style={{ fontWeight: 400, lineHeight: "1.4375" }}
                       >
                         {faq.answer}
                       </p>
                     )}
                   </div>
-                  <button
-                    className="flex-shrink-0 ml-4 w-6 h-6"
-                  >
+                  <button className="flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6">
                     <svg
                       width="24"
                       height="24"
                       viewBox="0 0 24 24"
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
+                      className="w-full h-full"
                     >
                       <path
                         d="M7.64 8.73L12 13.09L16.36 8.73"
@@ -1229,15 +798,12 @@ export default function Service1Page() {
         </div>
       </section>
 
-      {/* Our Partners Section */}
       <Partners />
 
-      {/* Contact Form */}
       <div id="contact">
-      <ContactForm />
+        <ContactForm />
       </div>
 
-      {/* Footer */}
       <Footer />
     </div>
   );
