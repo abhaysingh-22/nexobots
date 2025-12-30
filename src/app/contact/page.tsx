@@ -409,19 +409,30 @@ export default function ContactPage() {
             )}
 
             {/* Submit Button */}
-            <div className="flex justify-center sm:justify-end pt-2 sm:pt-4">
+            <div className="flex justify-start sm:justify-end pt-2 sm:pt-4">
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="inline-flex items-center justify-center gap-2 sm:gap-3 rounded-[75px] border border-[rgba(70,70,70,0.3)] bg-black transition-all hover:bg-gray-800 disabled:opacity-50 disabled:cursor-not-allowed w-full sm:w-auto px-6 sm:px-8 h-[45px] sm:h-[49px]"
-                style={{ minWidth: "140px" }}
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-black transition-all hover:bg-gray-800 disabled:opacity-50 disabled:cursor-not-allowed px-6 py-3"
               >
-                <span
-                  className="font-['Manrope'] text-white text-base sm:text-lg lg:text-xl"
-                  style={{ fontWeight: 300, lineHeight: "0.78", letterSpacing: "0.02em" }}
-                >
+                <span className="font-['Manrope'] text-white text-[14px] sm:text-[15px] font-medium">
                   {isSubmitting ? "Submitting..." : "Submit"}
                 </span>
+                {!isSubmitting && (
+                  <svg
+                    viewBox="0 0 6 10"
+                    fill="none"
+                    className="h-3 w-2"
+                  >
+                    <path
+                      d="M1 1L5 5L1 9"
+                      stroke="#E11E24"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                )}
               </button>
             </div>
           </form>
