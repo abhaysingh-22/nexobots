@@ -7,7 +7,7 @@ import { NavDropdown } from "./NavDropdown";
 
 const navLinks = [
   { label: "Industries", href: "/industries", isHighlighted: false },
-  { label: "Company", href: "/about", isHighlighted: false },
+  // { label: "Company", href: "/about", isHighlighted: false },
   { label: "Contact us", href: "/contact", isHighlighted: false },
 ] as const;
 
@@ -25,10 +25,16 @@ const SolutionDropDownLinks = [
   { label: "Biometric & Access Control Solutions", href: "/solution-4" },
 ] as const;
 
+const CompanyDropDownLinks = [
+  { label: "About Us", href: "/about" },
+  { label: "Blog", href: "/blog" },
+] as const;
+
 export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMobileSolutionsOpen, setIsMobileSolutionsOpen] = useState(false);
   const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
+  const [isMobileCompanyOpen, setIsMobileCompanyOpen] = useState(false);
 
   const handleToggle = () => {
     setIsMenuOpen((prev) => {
@@ -36,6 +42,7 @@ export function Navbar() {
       if (!next) {
         setIsMobileSolutionsOpen(false);
         setIsMobileServicesOpen(false);
+        setIsMobileCompanyOpen(false);
       }
       return next;
     });
@@ -45,6 +52,7 @@ export function Navbar() {
     setIsMenuOpen(false);
     setIsMobileSolutionsOpen(false);
     setIsMobileServicesOpen(false);
+    setIsMobileCompanyOpen(false);
   };
 
   return (
@@ -68,29 +76,38 @@ export function Navbar() {
         <nav className="hidden items-center gap-[40px] lg:flex absolute left-1/2 -translate-x-1/2" aria-label="Primary navigation">
           <NavDropdown
             label="Solutions"
+            primaryLink="/solutions"
             links={SolutionDropDownLinks}
             isHighlighted={true}
             onNavigate={handleNavigate}
           />
           <NavDropdown
             label="Services"
+            primaryLink="/services"
             links={ServiceDropDownLinks}
             onNavigate={handleNavigate}
           />
-          {navLinks.map((link) => (
-            <Link
-              key={link.label}
-              href={link.href}
-              onClick={handleNavigate}
-              className={`px-[6px] py-[10px] font-display text-[18px] font-bold capitalize break-words transition-colors duration-200 whitespace-nowrap ${
-                link.isHighlighted
-                  ? "text-[#333333]"
-                  : "text-black opacity-80 hover:opacity-100"
-              }`}
-            >
-              {link.label}
-            </Link>
-          ))}
+          <Link
+            href='/industries'
+            onClick={handleNavigate}
+            className={`px-[6px] py-[10px] font-display text-[18px] font-bold capitalize break-words transition-colors duration-200 whitespace-nowrap `}
+          >
+            Industries
+          </Link>
+          <NavDropdown
+            label="Company"
+            primaryLink="/about"
+            links={CompanyDropDownLinks}
+            onNavigate={handleNavigate}
+          />
+          <Link
+            href='/contact'
+            onClick={handleNavigate}
+            className={`px-[6px] py-[10px] font-display text-[18px] font-bold capitalize break-words transition-colors duration-200 whitespace-nowrap `}
+          >
+            Contact us
+          </Link>
+
         </nav>
 
         <div className="flex items-center gap-3 flex-shrink-0">
@@ -125,9 +142,8 @@ export function Navbar() {
             <div className="flex flex-col">
               <div className="flex flex-col">
                 <div
-                  className={`flex w-full items-center justify-between gap-3 rounded-[10px] px-3 py-3 transition hover:bg-[#F7F7F7] ${
-                    isMobileSolutionsOpen ? "bg-[#F7F7F7]" : ""
-                  }`}
+                  className={`flex w-full items-center justify-between gap-3 rounded-[10px] px-3 py-3 transition hover:bg-[#F7F7F7] ${isMobileSolutionsOpen ? "bg-[#F7F7F7]" : ""
+                    }`}
                 >
                   <Link
                     href="/solutions"
@@ -186,9 +202,8 @@ export function Navbar() {
             <div className="flex flex-col">
               <div className="flex flex-col">
                 <div
-                  className={`flex w-full items-center justify-between gap-3 rounded-[10px] px-3 py-3 transition hover:bg-[#F7F7F7] ${
-                    isMobileServicesOpen ? "bg-[#F7F7F7]" : ""
-                  }`}
+                  className={`flex w-full items-center justify-between gap-3 rounded-[10px] px-3 py-3 transition hover:bg-[#F7F7F7] ${isMobileServicesOpen ? "bg-[#F7F7F7]" : ""
+                    }`}
                 >
                   <Link
                     href="/services"
@@ -230,6 +245,66 @@ export function Navbar() {
                     className="mt-2 flex flex-col gap-1 rounded-[10px] border border-[#E5E5E5] bg-[#F7F7F7] p-2"
                   >
                     {ServiceDropDownLinks.map((item) => (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        onClick={handleNavigate}
+                        className="flex items-start rounded-lg px-3 py-2.5 font-sans text-[14px] font-medium leading-snug text-ink-soft transition hover:bg-white"
+                      >
+                        {item.label}
+                      </Link>
+                    ))}
+                  </div>
+                ) : null}
+              </div>
+            </div>
+
+            <div className="flex flex-col">
+              <div className="flex flex-col">
+                <div
+                  className={`flex w-full items-center justify-between gap-3 rounded-[10px] px-3 py-3 transition hover:bg-[#F7F7F7] ${isMobileCompanyOpen ? "bg-[#F7F7F7]" : ""
+                    }`}
+                >
+                  <Link
+                    href="/about"
+                    onClick={handleNavigate}
+                    className="flex-1 font-display text-ink-soft text-[18px] font-bold capitalize wrap-break-word"
+                  >
+                    Company
+                  </Link>
+                  <button
+                    type="button"
+                    onClick={() => setIsMobileCompanyOpen((prev) => !prev)}
+                    className="inline-flex h-10 w-10 items-center justify-center rounded-[10px] transition hover:bg-white"
+                    aria-expanded={isMobileCompanyOpen}
+                    aria-controls="mobile-company"
+                    aria-label="Toggle Company menu"
+                  >
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      className={`transition-transform duration-200 ${isMobileCompanyOpen ? "rotate-180" : ""}`}
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M4 6L8 10L12 6"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </button>
+                </div>
+
+                {isMobileCompanyOpen ? (
+                  <div
+                    id="mobile-company"
+                    className="mt-2 flex flex-col gap-1 rounded-[10px] border border-[#E5E5E5] bg-[#F7F7F7] p-2"
+                  >
+                    {CompanyDropDownLinks.map((item) => (
                       <Link
                         key={item.href}
                         href={item.href}
