@@ -7,12 +7,12 @@ import Partners from "@/components/Partners";
 import Testimonials from "@/components/Testimonials";
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, type ReactNode } from "react";
 
 const stats = [
   { value: "400+", label: "Projects Completed" },
   { value: "100+", label: "Enterprise Clients" },
-  { value: "30+", label: "Technology Partnerships" },
+  { value: "30+", label: "Technology Partnership" },
   { value: "99%", label: "Retention Rate" },
 ] as const;
 
@@ -290,11 +290,11 @@ export default function Home() {
         />
         <div className="absolute inset-0 bg-black/70" aria-hidden="true" />
         <div 
-          className="relative z-10 mx-auto flex min-h-[500px] md:min-h-[600px] lg:min-h-[800px] max-w-[1440px] flex-col items-center justify-center px-4 sm:px-8 md:px-12 lg:px-[72px] py-16 md:py-20 lg:py-24 text-center"
+          className="relative z-10 mx-auto flex min-h-[500px] md:min-h-[600px] lg:min-h-[800px] max-w-[1440px] flex-col items-center justify-end px-4 sm:px-8 md:px-12 lg:px-[72px] pb-20 md:pb-28 lg:pb-36 text-center"
           style={{ gap: "24px" }}
         >
           <h1 
-            className="font-['TASA_Orbiter'] text-[24px] sm:text-[28px] md:text-[32px] lg:text-[40px] font-bold leading-[1.4] sm:leading-[1.6] lg:leading-[1.8] tracking-[0.02em] text-white"
+            className="font-['TASA_Orbiter'] text-[24px] sm:text-[28px] md:text-[32px] lg:text-[40px] font-bold leading-[1.4] sm:leading-[1.6] lg:leading-[1.8] tracking-[0.02em] text-white text-center"
             style={{ 
               maxWidth: "1120px"
             }}
@@ -302,7 +302,7 @@ export default function Home() {
             Empowering Enterprises With End-To-End IT Solutions
           </h1>
           <p 
-            className="font-['Manrope'] text-[14px] md:text-[15px] font-normal leading-[1.366] tracking-[0.02em] text-white px-4 sm:px-0"
+            className="font-['Manrope'] text-[14px] md:text-[15px] font-normal leading-[1.366] tracking-[0.02em] text-white text-center px-4 sm:px-0"
             style={{ 
               maxWidth: "480px"
             }}
@@ -320,68 +320,125 @@ export default function Home() {
               <p className="font-['TASA_Orbiter'] text-[16px] md:text-[18px] font-medium text-[#050505]">
                 Our Solutions
               </p>
-              <h2 className="font-display text-[24px] sm:text-[28px] md:text-[32px] lg:text-[36px] font-bold leading-[1.22] text-ink mx-auto" style={{ maxWidth: "1003px" }}>
+              <h2 className="font-display text-lg  md:text-[32px] lg:text-[36px] font-bold leading-[1.22] text-ink mx-auto" style={{ maxWidth: "1003px" }}>
                 Comprehensive IT and security infrastructure solutions designed for
                 performance, reliability, and scalability.
               </h2>
             </div>
-            <div className="flex flex-col sm:flex-row sm:flex-wrap lg:flex-nowrap justify-center items-center gap-6 sm:gap-4 lg:gap-[18px]">
+            {/* Mobile View - Original order: Smart Cabling, CCTV, Biometric, IT Infrastructure */}
+            <div className="flex flex-col lg:hidden justify-center items-center gap-6">
               {solutions.map((solution, index) => {
-                // Map solutions to routes: 
-                // Index 0: Smart Structured Cabling -> /solution-4 (Smart Network Infrastructure)
-                // Index 1: CCTV & Intelligent Surveillance -> /solution-1
-                // Index 2: Biometric & Access Control -> /solution-3
-                // Index 3: IT Infrastructure & Managed Services -> /solution-2
                 const solutionRoutes = ["/solution-4", "/solution-1", "/solution-3", "/solution-2"];
                 const solutionRoute = solutionRoutes[index];
+                
+                // Format title with line breaks for multi-word titles
+                const formatTitle = (title: string) => {
+                  const titleMap: Record<string, ReactNode> = {
+                    "Smart Structured Cabling Solutions": (
+                      <>SMART STRUCTURED<br />CABLING SOLUTIONS</>
+                    ),
+                    "CCTV & Intelligent Surveillance Solutions": (
+                      <>CCTV & INTELLIGENT<br />SURVEILLANCE SOLUTIONS</>
+                    ),
+                    "Biometric & Access Control Solutions": (
+                      <>BIOMETRIC & ACCESS<br />CONTROL SOLUTIONS</>
+                    ),
+                    "IT Infrastructure & Managed Services": (
+                      <>IT INFRASTRUCTURE &<br />MANAGED SERVICES</>
+                    ),
+                  };
+                  return titleMap[title] || title;
+                };
+                
                 return (
-                <div key={solution.title} className="flex justify-center flex-shrink-0 w-full sm:w-auto">
+                  <div key={solution.title} className="flex justify-center w-full">
                     <Link href={solutionRoute}>
-                  <article
-                        className="relative h-[350px] sm:h-[400px] lg:h-[442px] overflow-hidden rounded-[10px] shadow-[0_25px_60px_rgba(15,18,23,0.25)] transition-transform hover:scale-105 cursor-pointer w-full sm:w-[300px] lg:w-[340px] max-w-[340px]"
-                  >
-                    <Image
-                      src={solution.image}
-                      alt={solution.title}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width:768px) 100vw, (max-width:1280px) 50vw, 25vw"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/55 to-black/95" />
-                    <div className="relative z-10 flex h-full flex-col justify-start p-8 text-left">
-                      {index === 0 ? (
-                        <div 
-                          style={{
-                            width: '100%',
-                            color: 'white',
-                            fontSize: 24,
-                            fontFamily: 'Manrope',
-                            fontWeight: '700',
-                            textTransform: 'uppercase',
-                            letterSpacing: 0.48,
-                            wordWrap: 'break-word',
-                            textShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
-                            textAlign: 'left'
-                          }}
-                        >
-                          <span>SMART STRUCTURED</span>
-                          <br />
-                          <span>CABLING SOLUTIONS</span>
+                      <article className="relative h-[300px] sm:h-[400px]  overflow-hidden rounded-[10px] shadow-[0_25px_60px_rgba(15,18,23,0.25)] transition-transform hover:scale-105 cursor-pointer w-[283px]">
+                        <Image
+                          src={solution.image}
+                          alt={solution.title}
+                          fill
+                          className="object-cover "
+                          
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/55 to-black/95" />
+                        <div className="relative z-10 flex h-full flex-col justify-start p-8 text-left">
+                          <h3 className="text-white uppercase text-md md:text-xl font-Manrope font-bold ">
+                            {formatTitle(solution.title)}
+                          </h3>
+                          {solution.blurb && (
+                            <p className="mt-4 text-sm md:text-lg text-white/80 leading-relaxed" style={{ maxWidth: '90%' }}>
+                              {solution.blurb}
+                            </p>
+                          )}
                         </div>
-                      ) : (
-                      <h3 className="font-display text-[24px] font-bold uppercase tracking-[0.08em] text-white">
-                        {solution.title}
-                      </h3>
-                      )}
-                      {solution.blurb ? (
-                        <p className={`mt-4 font-medium leading-[1.4] text-white/80 ${index === 1 ? 'text-[20px] text-left mx-auto' : 'text-[15px]'}`} style={index === 1 ? { maxWidth: '90%' } : {}}>
-                          {solution.blurb}
-                        </p>
-                      ) : null}
-                    </div>
-                  </article>
+                      </article>
                     </Link>
-                </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Desktop View - Order: Smart Cabling, CCTV, IT Infrastructure, Biometric */}
+            <div className="hidden lg:flex flex-nowrap justify-center items-center gap-[18px]">
+              {[solutions[0], solutions[1], solutions[3], solutions[2]].map((solution, displayIndex) => {
+                // Map display index back to original routes
+                const routeMap = ["/solution-4", "/solution-1", "/solution-2", "/solution-3"];
+                const solutionRoute = routeMap[displayIndex];
+                
+                // Format title with line breaks for desktop
+                const formatTitle = (title: string) => {
+                  const titleMap: Record<string, ReactNode> = {
+                    "Smart Structured Cabling Solutions": (
+                      <>SMART STRUCTURED<br />CABLING<br />SOLUTIONS</>
+                    ),
+                    "CCTV & Intelligent Surveillance Solutions": (
+                      <>CCTV &<br />INTELLIGENT<br />SURVEILLANCE<br />SOLUTIONS</>
+                    ),
+                    "Biometric & Access Control Solutions": (
+                      <>BIOMETRIC &<br />ACCESS CONTROL<br />SOLUTIONS</>
+                    ),
+                    "IT Infrastructure & Managed Services": (
+                      <>IT INFRASTRUCTURE<br />&  MANAGED<br />SERVICES</>
+                    ),
+                  };
+                  return titleMap[title] || title;
+                };
+                
+                return (
+                  <div key={solution.title} className="flex justify-center flex-shrink-0">
+                    <Link href={solutionRoute}>
+                      <article className="relative h-[442px] overflow-hidden rounded-[10px] shadow-[0_25px_60px_rgba(15,18,23,0.25)] transition-transform hover:scale-105 cursor-pointer w-[340px]">
+                        <Image
+                          src={solution.image}
+                          alt={solution.title}
+                          fill
+                          className="object-cover"
+                          sizes="25vw"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/55 to-black/95" />
+                        <div className="relative z-10 flex h-full flex-col justify-start p-8 text-left">
+                          <h3 
+                            className="text-white uppercase"
+                            style={{
+                              fontSize: 24,
+                              fontFamily: 'Manrope',
+                              fontWeight: '700',
+                              letterSpacing: 0.48,
+                              textShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
+                            }}
+                          >
+                            {formatTitle(solution.title)}
+                          </h3>
+                          {solution.blurb && (
+                            <p className="mt-4 text-[18px] text-white/80 leading-relaxed" style={{ maxWidth: '90%' }}>
+                              {solution.blurb}
+                            </p>
+                          )}
+                        </div>
+                      </article>
+                    </Link>
+                  </div>
                 );
               })}
             </div>
@@ -389,21 +446,31 @@ export default function Home() {
         </section>
 
         <section id="metrics" className="px-0 pb-0">
-          <div className="w-full border-y border-white/10 bg-gradient-to-r from-[#050505] via-[#0c0c0c] to-[#050505] px-4 sm:px-8 md:px-12 lg:pl-[72px] lg:pr-[70px] py-8 md:py-10 lg:py-[50px] text-white">
-            <div className="grid grid-cols-2 gap-4 md:gap-0 lg:grid-cols-4">
-              {stats.map((stat) => (
-                <div
-                  key={stat.label}
-                  className="flex flex-col items-center justify-center border-white/10 py-4 md:py-8 text-center lg:border-l first:lg:border-l-0"
-                >
-                  <p className="font-['TASA_Orbiter'] text-[32px] sm:text-[40px] md:text-[48px] lg:text-[55px] font-semibold leading-none">
-                    {stat.value}
-                  </p>
-                  <p className="mt-2 md:mt-3 text-[11px] sm:text-[12px] md:text-[14px] uppercase tracking-[0.2em] sm:tracking-[0.3em] text-white/70">
-                    {stat.label}
-                  </p>
-                </div>
-              ))}
+          <div className="w-full bg-black px-4 sm:px-8 md:px-12 lg:px-[72px] py-6 text-white">
+            <div className="mx-auto w-full max-w-[1440px]">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-0">
+                {stats.map((stat, index) => (
+                  <div
+                    key={stat.label}
+                    className={`flex flex-col items-center justify-center py-2 md:py-4 text-center ${
+                      // Mobile (2x2): divider between columns + rows
+                      index === 1 || index === 3 ? 'border-l border-white/20' : ''
+                    } ${
+                      index === 2 || index === 3 ? 'border-t border-white/20' : ''
+                    } ${
+                      // Desktop (4 in a row): only vertical dividers
+                      index !== 0 ? 'md:border-l md:border-white/20' : ''
+                    } md:border-t-0`}
+                  >
+                    <p className="font-['TASA_Orbiter'] text-[32px] md:text-[46px] lg:text-[56px] font-semibold leading-none">
+                      {stat.value}
+                    </p>
+                    <p className="mt-3 md:mt-4 text-[10px]  md:text-[12px] text-white/60">
+                      {stat.label}
+                    </p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </section>
@@ -414,7 +481,7 @@ export default function Home() {
               <p className="font-['TASA_Orbiter'] text-[16px] md:text-[18px] font-medium text-black">
                 Who We Are
               </p>
-              <h2 className="mt-4 font-['TASA_Orbiter'] text-[24px] sm:text-[28px] md:text-[32px] lg:text-[36px] font-semibold leading-[1.35] text-black">
+              <h2 className="mt-4 font-['TASA_Orbiter'] text-[20px]  md:text-[36px] font-semibold text-black">
                 Empowering Enterprises Through Intelligent Connectivity and Secure Infrastructure
               </h2>
             </div>
@@ -428,8 +495,8 @@ export default function Home() {
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 45vw"
                 />
               </div>
-              <div className="space-y-6 md:space-y-8 px-0 lg:px-6 text-left">
-                <p className="font-['TASA_Orbiter'] text-[20px] sm:text-[22px] md:text-[24px] lg:text-[28px] font-medium leading-[1.4] text-black">
+              <div className="space-y-6 text-center md:text-left md:space-y-8 px-0 lg:px-6 ">
+                <p className="font-['TASA_Orbiter'] text-[16px]  md:text-[24px] lg:text-[28px] font-medium leading-[1.4] text-black">
                   <span className="hidden lg:inline">Nexobots Technologies is a trusted IT<br />
                   and security infrastructure solutions<br />
                   provider delivering intelligent, scalable,<br />
@@ -437,7 +504,7 @@ export default function Home() {
                   enterprises.</span>
                   <span className="lg:hidden">Nexobots Technologies is a trusted IT and security infrastructure solutions provider delivering intelligent, scalable, and secure systems for modern enterprises.</span>
                 </p>
-                <p className="font-['Manrope'] text-[14px] md:text-[15px] lg:text-[16px] leading-[1.875] text-[#4C4C4C]">
+                <p className="font-['Manrope'] text-[10px] md:text-[15px] lg:text-[16px] leading-[1.875] text-[#4C4C4C]">
                   <span className="hidden lg:inline">We specialize in structured cabling, network integration,<br />
                   surveillance, biometric access control, and managed IT services —<br />
                   helping organizations achieve seamless connectivity, operational<br />
@@ -448,7 +515,7 @@ export default function Home() {
                   <span className="lg:hidden">We specialize in structured cabling, network integration, surveillance, biometric access control, and managed IT services — helping organizations achieve seamless connectivity, operational resilience, and long-term scalability. Partnering with global leaders like Cisco, Fortinet, D-Link, and Palo Alto, we combine cutting-edge technology with expert implementation to build infrastructures that drive business excellence.</span>
                 </p>
                 <div
-                  className="inline-flex items-center gap-3 rounded-[75px] border border-white/30 bg-black px-6 py-3 text-[15px] font-semibold uppercase tracking-[0.02em] text-white"
+                  className="inline-flex items-center gap-3 rounded-[75px] border border-white/30 bg-black px-3 py-1 md:px-6 py-3 text-[12px] md:text-[16px] font-semibold uppercase tracking-[0.02em] text-white"
                 >
                   About Us
                   <Image
@@ -477,7 +544,7 @@ export default function Home() {
               <p className="font-['TASA_Orbiter'] text-[16px] md:text-[18px] font-medium text-white">
                 Our Services
               </p>
-              <h2 className="font-['TASA_Orbiter'] text-[24px] sm:text-[28px] md:text-[32px] lg:text-[36px] font-bold leading-[1.22] text-white">
+              <h2 className="font-['TASA_Orbiter'] text-[18px] md:text-[32px] lg:text-[36px] font-bold leading-[1.22] text-white">
                 Your Aspiration, Our Expertise: Tailored Services for Unmatched Excellence.
               </h2>
             </div>
@@ -514,20 +581,20 @@ export default function Home() {
                           />
                         </div>
                       </div>
-                        <div className="flex flex-col items-end gap-[12px] pb-[24px]">
+                        <div className="flex flex-col  items-end gap-[12px] pb-[24px]">
                           <div className="flex w-full flex-col gap-[10px] px-4 md:px-[24px] pb-[10px] pt-[10px]">
                             <div className="flex gap-4">
                               <div className="h-auto w-[2px] rounded-[42px] bg-[#E11E24]" />
-                              <p className="font-['Manrope'] text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] font-semibold leading-[1.4] tracking-[0.02em] text-white">
+                              <p className="font-['Manrope'] text-[10px] md:text-[18px] lg:text-[20px] font-semibold leading-[1.4] tracking-[0.02em] text-white">
                                 {service.description}
                               </p>
                             </div>
                           </div>
-                          <div className="grid w-full grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-[24px] px-4 md:px-[24px]" style={{ maxWidth: "1296px" }}>
+                          <div className="grid w-full grid-cols-3 gap-4 md:gap-5 px-4 " style={{ maxWidth: "1296px" }}>
                             {service.bullets.map((bullet, bulletIndex) => (
                               <div
                                 key={bullet}
-                                className="relative flex h-[200px] sm:h-[240px] lg:h-[274px] items-center justify-center overflow-hidden rounded-lg"
+                                className="relative flex h-[120px] md:h-[300px] items-center justify-center overflow-hidden rounded-lg"
                               >
                                 <Image
                                   src={service.images[bulletIndex]}
@@ -537,7 +604,7 @@ export default function Home() {
                                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 408px"
                                 />
                                 <div className="absolute inset-0 bg-black/42" />
-                                <p className="relative z-10 px-4 sm:px-8 md:px-12 lg:px-[66px] text-center font-['Manrope'] text-[18px] sm:text-[22px] md:text-[26px] lg:text-[32px] font-bold leading-[1.0625] tracking-[0.02em] text-white">
+                                <p className="relative z-10 px-4  md:px-16  text-center font-['Manrope'] text-[10px]  md:text-[26px] lg:text-[32px] font-bold leading-[1.0625] tracking-[0.02em] text-white">
                                   {bullet}
                                 </p>
                               </div>
@@ -694,7 +761,7 @@ export default function Home() {
             {/* Blog Cards - Horizontal Scroll with 2 visible, right card touches right edge */}
             <div 
               ref={blogScrollRef}
-              className="absolute blog-container overflow-x-auto overflow-y-visible"
+              className="absolute  blog-container overflow-x-auto overflow-y-visible"
               style={{ 
                 left: "72px",
                 right: "72px",
@@ -779,7 +846,7 @@ export default function Home() {
               <p className="font-['Manrope'] text-[16px] md:text-[18px] font-medium text-black">
                 Industries We Serve
               </p>
-              <h2 className="font-['TASA_Orbiter'] text-[24px] sm:text-[28px] md:text-[32px] font-bold leading-[1.222] text-black text-center">
+              <h2 className="font-['TASA_Orbiter'] text-[22px] md:text-[32px] font-semibold leading-[1.222] text-black text-center">
                 Empowering Every Industry with Intelligent, Secure, and Scalable IT Solutions
               </h2>
             </div>
