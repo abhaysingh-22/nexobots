@@ -472,58 +472,76 @@ export default function AboutPage() {
       <Navbar />
 
       {/* Hero Section - Responsive */}
-      <section className="relative h-[500px] sm:h-[600px] md:h-[750px] lg:h-[911px] w-full overflow-hidden">
+      <section className="relative h-[550px] sm:h-[600px] md:h-[750px] lg:h-[911px] w-full overflow-hidden bg-black">
         <div className="absolute inset-0">
           <Image
             src="/about-hero-grid.png"
             alt="About Hero - Futuristic Technology Grid"
             fill
             priority
-            className="object-cover"
+            className="object-cover object-bottom sm:object-center"
             sizes="100vw"
           />
         </div>
-        <div className="absolute inset-0 bg-black/30" />
-        <div className="relative z-10 flex h-full items-center px-4 sm:px-6 md:px-12 lg:px-[72px] xl:px-32">
-          <div className="max-w-full lg:max-w-[1027px]">
-            <h1 className="font-['TASA_Orbiter'] text-white text-[28px] sm:text-[36px] md:text-[48px] lg:text-[56px] xl:text-[64px] font-semibold leading-[1.3] sm:leading-[1.4] lg:leading-[1.494] mb-8 sm:mb-12 lg:mb-[67px]">
+        {/* Gradient overlay - Heavy black at top on mobile */}
+        <div 
+          className="absolute inset-0"
+          style={{
+            background: "linear-gradient(to bottom, rgba(0,0,0,0.98) 0%, rgba(0,0,0,0.95) 25%, rgba(0,0,0,0.85) 45%, rgba(0,0,0,0.5) 70%, rgba(0,0,0,0.2) 100%)",
+          }}
+        />
+        {/* Desktop overlay - different style */}
+        <div className="hidden lg:block absolute inset-0 bg-black/30" />
+        
+        <div className="relative z-10 flex h-full flex-col justify-start pt-12 sm:pt-16 lg:pt-0 lg:justify-center px-6 sm:px-8 md:px-12 lg:px-[72px] xl:px-32">
+          <div className="max-w-[340px] sm:max-w-[500px] lg:max-w-[1027px]">
+            <h1 className="font-['TASA_Orbiter'] text-white text-[28px] sm:text-[36px] md:text-[48px] lg:text-[56px] xl:text-[64px] font-semibold leading-[1.2] sm:leading-[1.3] lg:leading-[1.494] mb-8 sm:mb-12 lg:mb-[67px]">
               Empowering Every Industry with Smart, Secure, and Scalable
               Technology
             </h1>
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-2 sm:gap-3 rounded-[75px] border border-white/30 bg-black transition-all hover:bg-black/90 h-[50px] sm:h-[58px] lg:h-[67px] px-5 sm:px-6 lg:px-[29px] w-full sm:w-auto sm:max-w-[253px]"
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-white/40 bg-transparent transition-all hover:bg-white/10 h-[44px] sm:h-[52px] lg:h-[67px] px-5 sm:px-6 lg:px-[29px] w-fit"
             >
-              <span className="font-['Manrope'] text-white whitespace-nowrap text-[16px] sm:text-[18px] lg:text-[20px] font-semibold leading-[1.366] tracking-[0.02em]">
+              <span className="font-['Manrope'] text-white whitespace-nowrap text-[14px] sm:text-[16px] lg:text-[20px] font-medium leading-[1.366] tracking-[0.02em]">
                 Talk to an Expert
               </span>
-              <Image
-                src="/find-out-more-arrow.svg"
-                alt=""
-                width={41}
-                height={41}
-                className="h-[30px] w-[30px] sm:h-[35px] sm:w-[35px] lg:h-[41px] lg:w-[41px]"
-              />
+              <svg
+                width="6"
+                height="10"
+                viewBox="0 0 6 10"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="ml-1"
+              >
+                <path
+                  d="M1 1L5 5L1 9"
+                  stroke="#E11E24"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
             </Link>
           </div>
         </div>
       </section>
 
       {/* We Are Nexobots Section - Responsive */}
-      <section className="bg-white px-4 sm:px-6 md:px-12 lg:px-[72px] xl:px-[107px] py-16 sm:py-20 lg:py-24">
+      <section className="bg-white px-6 sm:px-8 md:px-12 lg:px-[72px] xl:px-[107px] py-10 sm:py-16 lg:py-24">
         <div className="mx-auto max-w-[1440px]">
-          <h2 className="font-['TASA_Orbiter'] text-black text-[48px] sm:text-[64px] md:text-[80px] lg:text-[96px] font-semibold leading-[1.2] sm:leading-[1.494] mb-8 sm:mb-12 lg:mb-16">
+          <h2 className="font-['TASA_Orbiter'] text-black text-[28px] sm:text-[48px] md:text-[64px] lg:text-[80px] xl:text-[96px] font-bold leading-[1.1] sm:leading-[1.2] lg:leading-[1.494] mb-6 sm:mb-10 lg:mb-16">
             We are nexobots
           </h2>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 xl:gap-12 mb-8 sm:mb-[26px]">
-            <p className="font-['TASA_Orbiter'] text-black text-[18px] sm:text-[20px] lg:text-[24px] font-medium leading-[1.4] sm:leading-[1.32]">
+          <div className="flex flex-col gap-4 sm:gap-6 lg:grid lg:grid-cols-2 lg:gap-8 xl:gap-12 mb-6 sm:mb-8 lg:mb-[26px]">
+            <p className="font-['TASA_Orbiter'] text-black text-[15px] sm:text-[18px] lg:text-[22px] xl:text-[24px] font-medium leading-[1.5] sm:leading-[1.4] lg:leading-[1.32]">
               Nexobots Technologies is one of India&apos;s leading IT and
               security infrastructure companies, with a strong presence across
               180+ cities. We deliver end-to-end technology solutions that
               power seamless connectivity, intelligent security, and scalable
               digital ecosystems for enterprises nationwide.
             </p>
-            <p className="font-['TASA_Orbiter'] text-black text-[18px] sm:text-[20px] lg:text-[24px] font-medium leading-[1.4] sm:leading-[1.32]">
+            <p className="font-['TASA_Orbiter'] text-black text-[15px] sm:text-[18px] lg:text-[22px] xl:text-[24px] font-medium leading-[1.5] sm:leading-[1.4] lg:leading-[1.32]">
               With a commitment to innovation and reliability, we design,
               implement, and manage infrastructure that enables organizations to
               thrive in the digital era. Our solutions blend cutting-edge
@@ -533,57 +551,147 @@ export default function AboutPage() {
           </div>
           <Link
             href="/contact"
-            className="inline-flex items-center justify-center gap-2 sm:gap-3 rounded-[75px] border border-white/30 bg-black transition-all hover:bg-black/90 h-[50px] sm:h-[58px] lg:h-[67px] px-5 sm:px-6 lg:px-[29px] w-full sm:w-auto sm:max-w-[253px]"
+            className="inline-flex items-center gap-2 rounded-full bg-black transition-all hover:bg-black/90 h-[44px] sm:h-[52px] lg:h-[60px] px-5 sm:px-6 lg:px-7 w-fit"
           >
-            <span className="font-['Manrope'] text-white whitespace-nowrap text-[16px] sm:text-[18px] lg:text-[20px] font-semibold leading-[1.366] tracking-[0.02em]">
-              Get In Touch
+            <span className="font-['Manrope'] text-white whitespace-nowrap text-[14px] sm:text-[16px] lg:text-[18px] font-medium leading-[1.366] tracking-[0.02em]">
+              Find out More
             </span>
-            <Image
-              src="/find-out-more-arrow.svg"
-              alt=""
-              width={41}
-              height={41}
-              className="h-[30px] w-[30px] sm:h-[35px] sm:w-[35px] lg:h-[41px] lg:w-[41px]"
-            />
+            <svg
+              width="6"
+              height="10"
+              viewBox="0 0 6 10"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M1 1L5 5L1 9"
+                stroke="#E11E24"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
           </Link>
         </div>
       </section>
 
       {/* Data Pointers Section - Responsive */}
-      <section className="bg-black px-4 sm:px-6 md:px-12 lg:px-[72px] py-8 sm:py-10 lg:py-[50px]">
-        <div className="mx-auto flex max-w-[1440px] flex-wrap items-center justify-center gap-4 sm:gap-6 lg:gap-3">
-          {dataPointers.map((pointer, index) => (
-            <div key={pointer.label} className="flex flex-col sm:flex-row items-center gap-4 sm:gap-3">
-              <div className="flex flex-col items-center justify-center gap-1 sm:gap-1.5 py-4 sm:py-5 px-4 sm:px-8 lg:px-[62px] w-full sm:w-auto">
-                <p className="font-['Manrope'] text-white text-[36px] sm:text-[45px] lg:text-[55px] font-bold leading-[1.366] uppercase text-center">
+      <section className="bg-black px-6 sm:px-8 md:px-12 lg:px-[72px] py-10 sm:py-12 lg:py-[50px]">
+        <div className="mx-auto max-w-[1440px]">
+          {/* Mobile: 2x2 Grid */}
+          <div className="grid grid-cols-2 gap-x-4 gap-y-6 sm:hidden">
+            {dataPointers.map((pointer) => (
+              <div key={pointer.label} className="flex flex-col items-center justify-center">
+                <p className="font-['Manrope'] text-white text-[32px] font-bold leading-[1.2] uppercase text-center mb-1">
                   {pointer.value}
                 </p>
-                <p className="font-['Manrope'] text-[#CACACA] text-[14px] sm:text-[16px] lg:text-[20px] font-normal leading-[1.366] text-center">
+                <p className="font-['Manrope'] text-[#CACACA] text-[13px] font-normal leading-[1.3] text-center">
                   {pointer.label}
                 </p>
               </div>
-              {index < dataPointers.length - 1 && (
-                <div className="hidden sm:block h-[50px] lg:h-[75px] w-px bg-white" />
-              )}
-            </div>
-          ))}
+            ))}
+          </div>
+
+          {/* Tablet & Desktop: Horizontal with dividers */}
+          <div className="hidden sm:flex flex-wrap items-center justify-center gap-4 lg:gap-3">
+            {dataPointers.map((pointer, index) => (
+              <div key={pointer.label} className="flex flex-row items-center gap-4 lg:gap-3">
+                <div className="flex flex-col items-center justify-center gap-1 lg:gap-1.5 py-5 px-8 lg:px-[62px]">
+                  <p className="font-['Manrope'] text-white text-[45px] lg:text-[55px] font-bold leading-[1.366] uppercase text-center">
+                    {pointer.value}
+                  </p>
+                  <p className="font-['Manrope'] text-[#CACACA] text-[16px] lg:text-[20px] font-normal leading-[1.366] text-center">
+                    {pointer.label}
+                  </p>
+                </div>
+                {index < dataPointers.length - 1 && (
+                  <div className="h-[50px] lg:h-[75px] w-px bg-white" />
+                )}
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* Our Vision Section - Responsive */}
+<<<<<<< HEAD
       <VisionMissionSection />
+=======
+      <section className="relative bg-black sm:bg-transparent overflow-hidden">
+        {/* Desktop background image */}
+        <div className="absolute inset-0 hidden sm:block">
+          <Image
+            src="/about-vision-bg.png"
+            alt="Our Vision Background"
+            fill
+            className="object-cover"
+            sizes="100vw"
+          />
+        </div>
+        <div className="absolute inset-0 hidden sm:block bg-black/68" />
+        
+        <div className="relative z-10 px-6 sm:px-8 md:px-12 lg:px-[72px] xl:px-[106px] py-12 sm:py-16 md:py-20 lg:py-24">
+          {/* Mobile: Full width with red bar */}
+          <div className="sm:hidden">
+            <div className="relative pl-6">
+              <div className="absolute left-0 top-0 bg-[#E11E24] w-[4px] h-full rounded-r" />
+              <div className="space-y-8">
+                <h2 className="font-['TASA_Orbiter'] text-white text-[32px] font-bold leading-[1.1]">
+                  Our Vision
+                </h2>
+                <div>
+                  <p className="font-['TASA_Orbiter'] text-white text-[15px] font-normal leading-[1.5] mb-2">
+                    To be India's most trusted technology partner —
+                  </p>
+                  <p className="font-['TASA_Orbiter'] text-white text-[15px] font-normal leading-[1.5]">
+                    Empowering organizations to build intelligent, secure, and future-ready IT infrastructures that drive business excellence and positive change.
+                  </p>
+                </div>
+                <h3 className="font-['TASA_Orbiter'] text-white text-[24px] font-bold leading-[1.2]">
+                  Mission
+                </h3>
+                <h3 className="font-['TASA_Orbiter'] text-white text-[24px] font-bold leading-[1.2]">
+                  Our Purpose
+                </h3>
+              </div>
+            </div>
+          </div>
+
+          {/* Tablet & Desktop: Original layout */}
+          <div className="hidden sm:flex h-[500px] md:h-[600px] lg:h-[669px] items-center">
+            <div className="relative space-y-6 md:space-y-8 rounded-[22px] p-6 md:p-8 lg:p-12 max-w-[542px]">
+              <div className="absolute left-0 top-0 rounded-[22px] bg-[#E11E24] w-[7px] h-[95px]" />
+              <div className="space-y-4 md:space-y-6 lg:space-y-8 pl-8 lg:pl-[37px]">
+                <h2 className="font-['TASA_Orbiter'] text-white text-[48px] lg:text-[64px] font-semibold leading-[0.93]">
+                  Our Vision
+                </h2>
+                <h3 className="font-['TASA_Orbiter'] text-white text-[30px] lg:text-[36px] font-bold leading-[1.494]">
+                  Mission
+                </h3>
+                <h3 className="font-['TASA_Orbiter'] text-white text-[30px] lg:text-[36px] font-bold leading-[1.494]">
+                  Our Purpose
+                </h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+>>>>>>> 79b5cb8 (done about page)
 
       {/* Content Block Section - Responsive */}
-      <section className="bg-white px-4 sm:px-6 md:px-12 lg:px-[72px] xl:px-[136px] py-16 sm:py-20 lg:py-24">
+      <section className="bg-white px-6 sm:px-8 md:px-12 lg:px-[72px] xl:px-[136px] py-0 sm:py-16 lg:py-24">
         <div className="mx-auto max-w-[1440px]">
-          <h2 className="font-['TASA_Orbiter'] text-black text-[28px] sm:text-[36px] md:text-[42px] lg:text-[48px] font-semibold leading-[1.3] sm:leading-[1.26] mb-4 sm:mb-6">
-            To be India&apos;s most trusted technology partner —
-          </h2>
-          <p className="font-['TASA_Orbiter'] text-black text-[24px] sm:text-[30px] md:text-[36px] lg:text-[40px] font-semibold leading-[1.3] sm:leading-[1.26]">
-            Empowering organizations to build intelligent, secure, and
-            future-ready IT infrastructures that drive business excellence and
-            positive change.
-          </p>
+          {/* Hidden on mobile - content moved to Vision section */}
+          <div className="hidden sm:block">
+            <h2 className="font-['TASA_Orbiter'] text-black text-[36px] md:text-[42px] lg:text-[48px] font-semibold leading-[1.3] sm:leading-[1.26] mb-4 sm:mb-6">
+              To be India&apos;s most trusted technology partner —
+            </h2>
+            <p className="font-['TASA_Orbiter'] text-black text-[30px] md:text-[36px] lg:text-[40px] font-semibold leading-[1.3] sm:leading-[1.26]">
+              Empowering organizations to build intelligent, secure, and
+              future-ready IT infrastructures that drive business excellence and
+              positive change.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -591,7 +699,7 @@ export default function AboutPage() {
       <PointersCarousel />
 
       {/* Why Nexobots Section - Responsive */}
-      <section className="relative overflow-hidden bg-white px-4 sm:px-6 md:px-12 lg:px-[71px] py-16 sm:py-20 lg:py-24">
+      <section className="relative overflow-hidden bg-white px-6 sm:px-8 md:px-12 lg:px-[71px] py-12 sm:py-16 lg:py-20">
         {/* Gradient Background */}
         <div
           className="absolute left-[-50px] sm:left-[-65px] top-[50px] sm:top-[98px] w-full max-w-[1570px] h-[600px] sm:h-[800px] lg:h-[928px]"
@@ -602,72 +710,74 @@ export default function AboutPage() {
           }}
         />
         <div className="relative z-10 mx-auto max-w-[1303px]">
-          <div className="mb-10 sm:mb-12 lg:mb-16 text-center">
-            <p className="font-['TASA_Orbiter'] text-black text-[14px] sm:text-[16px] lg:text-[18px] font-medium leading-[1.2] mb-3 sm:mb-4">
+          <div className="mb-6 sm:mb-8 lg:mb-10 text-center">
+            <p className="font-['TASA_Orbiter'] text-black text-[14px] sm:text-[16px] lg:text-[18px] font-medium leading-[1.2] mb-2 sm:mb-3">
               Why nexobots
             </p>
-            <h2 className="font-['TASA_Orbiter'] text-black text-[28px] sm:text-[34px] lg:text-[40px] font-semibold leading-[1.3] sm:leading-[1.494]">
+            <h2 className="font-['TASA_Orbiter'] text-black text-[22px] sm:text-[28px] md:text-[34px] lg:text-[40px] font-semibold leading-[1.25] sm:leading-[1.3]">
               The Critical Smart IT Infrastructure for the AI Era
             </h2>
           </div>
-          <p className="font-['TASA_Orbiter'] text-black text-[16px] sm:text-[18px] lg:text-[22px] font-semibold leading-normal sm:leading-[1.494] text-center mx-auto mb-6 sm:mb-8 max-w-full lg:max-w-[862px]">
-            In a world driven by automation, data, and intelligent systems, your
-            technology infrastructure must do more than connect—it must enable.
-            At Nexobots Technologies, we deliver the backbone of enterprise
-            transformation: high-performance networks, secure systems, and
-            scalable architectures designed for tomorrow&apos;s demands. Whether
-            you&apos;re powering AI workloads, distributed offices, or smart
-            campuses, our solutions give you the agility, security, and insight
-            you need to thrive.
+          <p className="font-['TASA_Orbiter'] text-black text-[15px] sm:text-[17px] md:text-[19px] lg:text-[22px] font-medium leading-[1.6] sm:leading-[1.5] text-center mx-auto mb-8 sm:mb-10 max-w-full lg:max-w-[900px]">
+            In a world driven by automation, data, and intelligent systems, your technology infrastructure must do more than connect—it must enable.
+          </p>
+          <p className="font-['TASA_Orbiter'] text-black text-[15px] sm:text-[17px] md:text-[19px] lg:text-[22px] font-medium leading-[1.6] sm:leading-[1.5] text-center mx-auto mb-8 sm:mb-10 lg:mb-12 max-w-full lg:max-w-[900px]">
+            At Nexobots Technologies, we deliver the backbone of enterprise transformation: high-performance networks, secure systems, and scalable architectures designed for tomorrow's demands. Whether you're powering AI workloads, distributed offices, or smart campuses, our solutions give you the agility, security, and insight you need to thrive.
           </p>
           <div className="text-center">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-2 sm:gap-3 rounded-[75px] border border-white/30 bg-black transition-all hover:bg-black/90 h-[50px] sm:h-[58px] lg:h-[67px] px-5 sm:px-6 lg:px-[29px] w-full sm:w-auto sm:max-w-[253px]"
+              className="inline-flex items-center gap-2 rounded-full bg-black transition-all hover:bg-black/90 h-[44px] sm:h-[50px] lg:h-[56px] px-6 sm:px-7 lg:px-8 w-fit"
             >
-              <span className="font-['Manrope'] text-white whitespace-nowrap text-[16px] sm:text-[18px] lg:text-[20px] font-semibold leading-[1.366] tracking-[0.02em]">
+              <span className="font-['Manrope'] text-white whitespace-nowrap text-[14px] sm:text-[15px] lg:text-[16px] font-medium leading-[1.366] tracking-[0.02em]">
                 Get In Touch
               </span>
-              <Image
-                src="/find-out-more-arrow.svg"
-                alt=""
-                width={41}
-                height={41}
-                className="h-[30px] w-[30px] sm:h-[35px] sm:w-[35px] lg:h-[41px] lg:w-[41px]"
-              />
+              <svg
+                width="6"
+                height="10"
+                viewBox="0 0 6 10"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M1 1L5 5L1 9"
+                  stroke="#E11E24"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
             </Link>
           </div>
         </div>
       </section>
 
       {/* Outcomes Section - Responsive */}
-      <section className="bg-white px-4 sm:px-6 md:px-12 lg:px-[72px] xl:px-[95px] py-16 sm:py-20 lg:py-24">
+      <section className="bg-white px-6 sm:px-8 md:px-12 lg:px-[72px] xl:px-[95px] py-16 sm:py-20 lg:py-24">
         <div className="mx-auto max-w-[1440px]">
-          <h2 className="font-['TASA_Orbiter'] text-black text-[28px] sm:text-[34px] lg:text-[40px] font-semibold leading-[1.3] sm:leading-[1.494] text-center mb-3 sm:mb-4">
+          <h2 className="font-['TASA_Orbiter'] text-black text-[24px] sm:text-[30px] lg:text-[36px] font-semibold leading-[1.2] text-center mb-4 sm:mb-5">
             Delivering Outcomes That Matter
           </h2>
-          <p className="font-['Manrope'] text-black text-[18px] sm:text-[20px] lg:text-[24px] font-bold leading-normal sm:leading-[1.75] text-center mx-auto mb-3 sm:mb-4 max-w-full lg:max-w-[748px]">
-            We focus on real results—so your infrastructure doesn&apos;t just
-            work, it delivers value.
+          <p className="font-['Manrope'] text-black text-[15px] sm:text-[16px] lg:text-[17px] font-normal leading-[1.5] text-center mx-auto mb-3 max-w-full lg:max-w-[720px]">
+            We focus on real results—so your infrastructure doesn&apos;t just work, it delivers value.
           </p>
-          <p className="font-['Manrope'] text-black text-[18px] sm:text-[20px] lg:text-[24px] font-bold leading-normal sm:leading-[1.75] text-center mx-auto mb-10 sm:mb-12 lg:mb-16 max-w-full lg:max-w-[748px]">
-            From reducing risk and ensuring uptime to enabling growth and
-            innovation, Nexobots&apos; services exceed expectation and transform
-            operations.
+          <p className="font-['Manrope'] text-black text-[15px] sm:text-[16px] lg:text-[17px] font-normal leading-[1.5] text-center mx-auto mb-10 sm:mb-12 lg:mb-14 max-w-full lg:max-w-[720px]">
+            From reducing risk and ensuring uptime to enabling growth and innovation, Nexobots&apos; services exceed expectation and transform operations.
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 justify-items-center">
-            {outcomes.map((outcome, index) => (
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 sm:gap-7 lg:gap-8 max-w-[1200px] mx-auto">
+            {outcomes.map((outcome) => (
               <div
                 key={outcome.title}
-                className="rounded-[21px] bg-white shadow-sm p-6 sm:p-8 lg:p-9 w-full max-w-[400px] min-h-80 sm:min-h-[360px] lg:min-h-[396px] flex flex-col gap-5 sm:gap-6 lg:gap-[30px]"
+                className="flex flex-col items-center text-center rounded-[16px] border border-[#F0F0F0] bg-white p-6 sm:p-7 lg:p-8 shadow-[0_2px_8px_rgba(0,0,0,0.04)] hover:shadow-[0_4px_16px_rgba(0,0,0,0.08)] transition-shadow"
               >
-                <div className="flex items-center justify-center rounded-[15px] border border-[#E9E9E9] w-[60px] h-[60px] sm:w-[70px] sm:h-[70px] lg:w-[76px] lg:h-[76px]">
-                  {getIconComponent(outcome.icon, "70")}
+                <div className="flex items-center justify-center rounded-[12px] bg-[#FAFAFA] w-[64px] h-[64px] sm:w-[70px] sm:h-[70px] lg:w-[76px] lg:h-[76px] mb-5 sm:mb-6">
+                  {getIconComponent(outcome.icon, "48")}
                 </div>
-                <h3 className="font-['Manrope'] text-black text-[18px] sm:text-[20px] lg:text-[24px] font-bold leading-tight sm:leading-[1.208]">
+                <h3 className="font-['Manrope'] text-black text-[16px] sm:text-[17px] lg:text-[18px] font-bold leading-[1.3] mb-3 sm:mb-4">
                   {outcome.title}
                 </h3>
-                <p className="font-['Manrope'] text-[#A4A4A4] text-[16px] sm:text-[18px] lg:text-[20px] font-bold leading-[1.3] sm:leading-[1.05]">
+                <p className="font-['Manrope'] text-[#666666] text-[14px] sm:text-[14.5px] lg:text-[15px] font-normal leading-[1.6]">
                   {outcome.description}
                 </p>
               </div>
@@ -742,36 +852,39 @@ export default function AboutPage() {
       <Testimonials testimonials={testimonials} />
 
       {/* Closing CTA Section - Responsive */}
-      <section className="bg-white px-4 sm:px-6 md:px-12 lg:px-[72px] xl:px-[146px] py-16 sm:py-20 lg:py-24">
+      <section className="bg-[#F5F5F5] px-6 sm:px-8 md:px-12 lg:px-[72px] xl:px-[146px] py-16 sm:py-20 lg:py-28">
         <div className="mx-auto max-w-[1148px] text-center">
-          <h2 className="font-['TASA_Orbiter'] text-black text-[28px] sm:text-[40px] md:text-[52px] lg:text-[64px] font-semibold leading-[1.3] sm:leading-[1.494] mb-6 sm:mb-8">
+          <h2 className="font-['TASA_Orbiter'] text-black text-[32px] sm:text-[44px] md:text-[56px] lg:text-[64px] font-semibold leading-[1.15] sm:leading-[1.2] mb-8 sm:mb-10 lg:mb-12">
             Partner with nexobots to Transform Your Industry with Smarter IT
           </h2>
-          <p className="font-['Manrope'] text-black text-[16px] sm:text-[18px] lg:text-[20px] font-normal leading-normal sm:leading-[1.4] mx-auto mb-4 max-w-full lg:max-w-[854px]">
-            Every industry faces unique challenges — but the right technology
-            turns those challenges into opportunities. At Nexobots Technologies,
-            we combine innovation, integration, and intelligence to help
-            organizations build connected, secure, and future-ready
-            environments.
+          <p className="font-['Manrope'] text-black text-[16px] sm:text-[17px] lg:text-[18px] font-normal leading-[1.7] sm:leading-[1.65] mx-auto mb-6 sm:mb-7 max-w-full lg:max-w-[900px]">
+            Every industry faces unique challenges — but the right technology turns those challenges into opportunities. At Nexobots Technologies, we combine innovation, integration, and intelligence to help organizations build connected, secure, and future-ready environments.
           </p>
-          <p className="font-['Manrope'] text-black text-[16px] sm:text-[18px] lg:text-[20px] font-normal leading-normal sm:leading-[1.4] mx-auto mb-6 sm:mb-8 max-w-full lg:max-w-[854px]">
-            Let&apos;s collaborate to design technology solutions that empower
-            your business and industry to thrive in the digital era.
+          <p className="font-['Manrope'] text-black text-[16px] sm:text-[17px] lg:text-[18px] font-bold leading-[1.7] sm:leading-[1.65] mx-auto mb-10 sm:mb-12 lg:mb-14 max-w-full lg:max-w-[900px]">
+            Let&apos;s collaborate to design technology solutions that empower your business and industry to thrive in the digital era.
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center justify-center gap-2 sm:gap-3 rounded-[75px] border border-black/30 bg-black transition-all hover:bg-gray-800 h-[45px] px-4 sm:px-6 w-full sm:w-auto sm:max-w-[155px]"
+            className="inline-flex items-center gap-2 sm:gap-2.5 rounded-full bg-black transition-all hover:bg-gray-900 h-[48px] sm:h-[52px] lg:h-[56px] px-7 sm:px-8 lg:px-9 w-fit mx-auto"
           >
-            <span className="font-['Manrope'] text-white text-[14px] sm:text-[15px] font-semibold leading-[1.366] tracking-[0.02em]">
+            <span className="font-['Manrope'] text-white text-[14px] sm:text-[15px] lg:text-[16px] font-medium leading-[1.366] tracking-[0.02em]">
               Get In Touch
             </span>
-            <Image
-              src="/find-out-more-arrow.svg"
-              alt=""
-              width={20}
-              height={20}
-              className="h-[18px] w-[18px] sm:h-5 sm:w-5"
-            />
+            <svg
+              width="6"
+              height="10"
+              viewBox="0 0 6 10"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M1 1L5 5L1 9"
+                stroke="#E11E24"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
           </Link>
         </div>
       </section>
