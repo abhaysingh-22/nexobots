@@ -614,69 +614,7 @@ export default function AboutPage() {
       </section>
 
       {/* Our Vision Section - Responsive */}
-<<<<<<< HEAD
       <VisionMissionSection />
-=======
-      <section className="relative bg-black sm:bg-transparent overflow-hidden">
-        {/* Desktop background image */}
-        <div className="absolute inset-0 hidden sm:block">
-          <Image
-            src="/about-vision-bg.png"
-            alt="Our Vision Background"
-            fill
-            className="object-cover"
-            sizes="100vw"
-          />
-        </div>
-        <div className="absolute inset-0 hidden sm:block bg-black/68" />
-        
-        <div className="relative z-10 px-6 sm:px-8 md:px-12 lg:px-[72px] xl:px-[106px] py-12 sm:py-16 md:py-20 lg:py-24">
-          {/* Mobile: Full width with red bar */}
-          <div className="sm:hidden">
-            <div className="relative pl-6">
-              <div className="absolute left-0 top-0 bg-[#E11E24] w-[4px] h-full rounded-r" />
-              <div className="space-y-8">
-                <h2 className="font-['TASA_Orbiter'] text-white text-[32px] font-bold leading-[1.1]">
-                  Our Vision
-                </h2>
-                <div>
-                  <p className="font-['TASA_Orbiter'] text-white text-[15px] font-normal leading-[1.5] mb-2">
-                    To be India's most trusted technology partner —
-                  </p>
-                  <p className="font-['TASA_Orbiter'] text-white text-[15px] font-normal leading-[1.5]">
-                    Empowering organizations to build intelligent, secure, and future-ready IT infrastructures that drive business excellence and positive change.
-                  </p>
-                </div>
-                <h3 className="font-['TASA_Orbiter'] text-white text-[24px] font-bold leading-[1.2]">
-                  Mission
-                </h3>
-                <h3 className="font-['TASA_Orbiter'] text-white text-[24px] font-bold leading-[1.2]">
-                  Our Purpose
-                </h3>
-              </div>
-            </div>
-          </div>
-
-          {/* Tablet & Desktop: Original layout */}
-          <div className="hidden sm:flex h-[500px] md:h-[600px] lg:h-[669px] items-center">
-            <div className="relative space-y-6 md:space-y-8 rounded-[22px] p-6 md:p-8 lg:p-12 max-w-[542px]">
-              <div className="absolute left-0 top-0 rounded-[22px] bg-[#E11E24] w-[7px] h-[95px]" />
-              <div className="space-y-4 md:space-y-6 lg:space-y-8 pl-8 lg:pl-[37px]">
-                <h2 className="font-['TASA_Orbiter'] text-white text-[48px] lg:text-[64px] font-semibold leading-[0.93]">
-                  Our Vision
-                </h2>
-                <h3 className="font-['TASA_Orbiter'] text-white text-[30px] lg:text-[36px] font-bold leading-[1.494]">
-                  Mission
-                </h3>
-                <h3 className="font-['TASA_Orbiter'] text-white text-[30px] lg:text-[36px] font-bold leading-[1.494]">
-                  Our Purpose
-                </h3>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
->>>>>>> 79b5cb8 (done about page)
 
       {/* Content Block Section - Responsive */}
       <section className="bg-white px-6 sm:px-8 md:px-12 lg:px-[72px] xl:px-[136px] py-0 sm:py-16 lg:py-24">
