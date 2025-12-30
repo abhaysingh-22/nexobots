@@ -4,11 +4,9 @@ import Image from "next/image";
 import { useState } from "react";
 
 const labelClasses =
-  "font-['Manrope'] text-sm sm:text-base lg:text-lg xl:text-[20px] font-semibold leading-[1.5] text-[#707070]";
+  "font-['Manrope'] text-[14px] lg:text-[15px] font-medium leading-[1.4] text-[#666666]";
 const inputClasses =
-  "w-full rounded-[6px] border border-[#CECECE] bg-[#F2F2F2] px-3 sm:px-4 py-2.5 sm:py-3 lg:py-4 text-sm sm:text-[14px] font-medium text-[#4C4C4C] placeholder:text-[#4C4C4C] focus:border-[#E11E24] focus:outline-none";
-const descriptionCopy =
-  "Our experts are just a message away. Let's connect and create technology that powers your tomorrow.";
+  "w-full rounded-[6px] border-none bg-[#E8E8E8] px-4 py-3 text-[14px] font-normal text-[#333333] placeholder:text-[#666666] focus:outline-none focus:ring-1 focus:ring-[#E11E24]";
 
 interface FormErrors {
   firstName?: string;
@@ -40,37 +38,27 @@ export function ContactForm() {
     return emailRegex.test(email);
   };
 
-  const validatePhone = (phone: string): boolean => {
-    // Remove all non-digit characters and check if it's 10 digits
-    const cleanedPhone = phone.replace(/\D/g, "");
-    return cleanedPhone.length === 10;
-  };
-
   const validateForm = (): boolean => {
     const newErrors: FormErrors = {};
 
-    // First Name validation
     if (!formData.firstName.trim()) {
       newErrors.firstName = "First name is required";
     } else if (formData.firstName.trim().length < 2) {
       newErrors.firstName = "First name must be at least 2 characters";
     }
 
-    // Last Name validation
     if (!formData.lastName.trim()) {
       newErrors.lastName = "Last name is required";
     } else if (formData.lastName.trim().length < 2) {
       newErrors.lastName = "Last name must be at least 2 characters";
     }
 
-    // Email validation
     if (!formData.email.trim()) {
       newErrors.email = "Email is required";
     } else if (!validateEmail(formData.email)) {
       newErrors.email = "Please enter a valid email address";
     }
 
-    // Phone validation
     const cleanedPhone = formData.phone.replace(/\D/g, "");
     if (!formData.phone.trim()) {
       newErrors.phone = "Phone number is required";
@@ -78,14 +66,12 @@ export function ContactForm() {
       newErrors.phone = "Please enter a valid 10-digit phone number";
     }
 
-    // Message validation
     if (!formData.message.trim()) {
       newErrors.message = "Message is required";
     } else if (formData.message.trim().length < 10) {
       newErrors.message = "Message must be at least 10 characters";
     }
 
-    // Terms validation
     if (!formData.terms) {
       newErrors.terms = "You must agree to the Terms of Use and Privacy Policy";
     }
@@ -105,7 +91,6 @@ export function ContactForm() {
       [name]: type === "checkbox" ? checked : (value || ""),
     }));
 
-    // Clear error when user starts typing
     if (errors[name as keyof FormErrors]) {
       setErrors((prev) => {
         const newErrors = { ...prev };
@@ -118,7 +103,6 @@ export function ContactForm() {
   const handleBlur = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
 
-    // Real-time validation for email and phone on blur
     if (name === "email" && value.trim()) {
       if (!validateEmail(value)) {
         setErrors((prev) => ({
@@ -150,7 +134,6 @@ export function ContactForm() {
     setSubmitStatus({ type: null, message: "" });
 
     try {
-      // Combine firstName and lastName for the name field, and also send separately
       const fullName = `${formData.firstName} ${formData.lastName}`.trim();
 
       const response = await fetch("https://api.web3forms.com/submit", {
@@ -178,7 +161,6 @@ export function ContactForm() {
           type: "success",
           message: "Form submitted successfully! We'll get back to you soon.",
         });
-        // Reset form
         setFormData({
           firstName: "",
           lastName: "",
@@ -203,241 +185,259 @@ export function ContactForm() {
       setIsSubmitting(false);
     }
   };
+
   return (
     <section
       id="contact"
-      className="bg-[#D9D9D9] px-4 sm:px-6 md:px-10 lg:px-12 xl:px-[72px] py-8 sm:py-10 md:py-12 lg:py-16 xl:py-[80px]"
+      className="bg-[#D4D4D4] px-6 sm:px-8 md:px-12 lg:px-16 xl:px-20 py-10 sm:py-12 md:py-14 lg:py-16"
     >
-      <div className="mx-auto w-full max-w-[1392px]">
-        <div className="grid gap-6 sm:gap-8 lg:gap-10 xl:gap-[50px] lg:grid-cols-[260px_minmax(0,1fr)] xl:grid-cols-[300px_minmax(0,1fr)] 2xl:grid-cols-[360px_minmax(0,1fr)]">
-          {/* Left Section - Image & Description */}
-          <div className="space-y-3 sm:space-y-4 lg:space-y-6 text-center lg:text-left">
-            <Image
-              src="/contact-form-icon.svg"
-              alt="Contact icon"
-              width={317}
-              height={145}
-              className="h-auto w-full max-w-[180px] sm:max-w-[220px] md:max-w-[250px] lg:max-w-[280px] xl:max-w-[317px] mx-auto lg:mx-0"
-            />
-            <p className="font-['Manrope'] text-xs sm:text-sm md:text-base lg:text-[16px] xl:text-[18px] font-medium leading-[1.4] sm:leading-[1.366] text-black max-w-xs sm:max-w-sm md:max-w-md mx-auto lg:mx-0">
-              {descriptionCopy}
+      <div className="mx-auto w-full max-w-[1200px]">
+        {/* Desktop: Two column layout, Mobile: Single column */}
+        <div className="flex flex-col lg:flex-row lg:gap-16 xl:gap-20">
+          
+          {/* Header Section - Left side on desktop */}
+          <div className="lg:w-[280px] xl:w-[300px] lg:flex-shrink-0 mb-8 lg:mb-0">
+            <p className="font-['TASA_Orbiter'] text-[15px] sm:text-[16px] lg:text-[14px] font-bold leading-[1.3] text-black mb-1">
+              Empowering Every Industry with
+            </p>
+            <h2 className="font-['TASA_Orbiter'] text-[28px] sm:text-[32px] lg:text-[28px] xl:text-[32px] font-bold leading-[1.1] tracking-[-0.01em] text-black mb-4 lg:mb-5">
+              Intelligent, Secure, and Scalable IT Solutions
+            </h2>
+            <p className="font-['Manrope'] text-[14px] sm:text-[15px] lg:text-[13px] xl:text-[14px] font-normal leading-[1.5] text-black">
+              Our experts are just a message away. Let's connect and create technology that powers your tomorrow.
             </p>
           </div>
 
-          {/* Form */}
-          <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5 md:space-y-6 lg:space-y-8 xl:space-y-[40px]">
-            {/* Submit Status Message */}
-            {submitStatus.type && (
-              <div
-                className={`rounded-lg p-3 sm:p-4 ${
-                  submitStatus.type === "success"
-                    ? "bg-green-50 text-green-800 border border-green-200"
-                    : "bg-red-50 text-red-800 border border-red-200"
-                }`}
-              >
-                <p className="font-['Manrope'] text-xs sm:text-sm md:text-[16px] font-medium">
-                  {submitStatus.message}
-                </p>
-              </div>
-            )}
+          {/* Form - Right side on desktop */}
+          <div className="flex-1">
+            <form onSubmit={handleSubmit}>
+              {/* Submit Status Message */}
+              {submitStatus.type && (
+                <div
+                  className={`rounded-lg p-3 mb-4 ${
+                    submitStatus.type === "success"
+                      ? "bg-green-50 text-green-800 border border-green-200"
+                      : "bg-red-50 text-red-800 border border-red-200"
+                  }`}
+                >
+                  <p className="font-['Manrope'] text-[13px] font-medium">
+                    {submitStatus.message}
+                  </p>
+                </div>
+              )}
 
-            {/* First Name & Last Name */}
-            <div className="grid grid-cols-1 gap-4 sm:gap-5 md:gap-6 lg:gap-8 xl:gap-[40px] sm:grid-cols-2">
-              <div className="space-y-1.5 sm:space-y-2">
-                <label htmlFor="first-name" className={labelClasses}>
-                  First Name
-                </label>
-                <input
-                  id="first-name"
-                  name="firstName"
-                  type="text"
-                  placeholder="Enter First Name"
-                  value={formData.firstName || ""}
-                  onChange={handleChange}
-                  className={`${inputClasses} ${
-                    errors.firstName ? "border-[#E11E24]" : ""
-                  }`}
-                />
-                {errors.firstName && (
-                  <p className="text-[#E11E24] text-[10px] sm:text-[11px] md:text-[12px] font-medium">
-                    {errors.firstName}
-                  </p>
-                )}
-              </div>
-              <div className="space-y-1.5 sm:space-y-2">
-                <label htmlFor="last-name" className={labelClasses}>
-                  Last Name
-                </label>
-                <input
-                  id="last-name"
-                  name="lastName"
-                  type="text"
-                  placeholder="Enter Last Name"
-                  value={formData.lastName || ""}
-                  onChange={handleChange}
-                  className={`${inputClasses} ${
-                    errors.lastName ? "border-[#E11E24]" : ""
-                  }`}
-                />
-                {errors.lastName && (
-                  <p className="text-[#E11E24] text-[10px] sm:text-[11px] md:text-[12px] font-medium">
-                    {errors.lastName}
-                  </p>
-                )}
-              </div>
-            </div>
+              {/* First Name & Last Name - 2 columns on desktop */}
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-6 mb-5 lg:mb-5">
+                {/* First Name */}
+                <div>
+                  <label htmlFor="first-name" className={labelClasses}>
+                    First Name
+                  </label>
+                  <input
+                    id="first-name"
+                    name="firstName"
+                    type="text"
+                    placeholder="Enter First Name"
+                    value={formData.firstName || ""}
+                    onChange={handleChange}
+                    className={`${inputClasses} mt-2 ${
+                      errors.firstName ? "ring-1 ring-[#E11E24]" : ""
+                    }`}
+                  />
+                  {errors.firstName && (
+                    <p className="text-[#E11E24] text-[11px] font-medium mt-1">
+                      {errors.firstName}
+                    </p>
+                  )}
+                </div>
 
-            {/* Email & Phone */}
-            <div className="grid grid-cols-1 gap-4 sm:gap-5 md:gap-6 lg:gap-8 xl:gap-[40px] sm:grid-cols-2">
-              <div className="space-y-1.5 sm:space-y-2">
-                <label htmlFor="email" className={labelClasses}>
-                  Email
-                </label>
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  placeholder="Enter your Email"
-                  value={formData.email || ""}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  className={`${inputClasses} ${
-                    errors.email ? "border-[#E11E24]" : ""
-                  }`}
-                />
-                {errors.email && (
-                  <p className="text-[#E11E24] text-[10px] sm:text-[11px] md:text-[12px] font-medium">
-                    {errors.email}
-                  </p>
-                )}
+                {/* Last Name */}
+                <div>
+                  <label htmlFor="last-name" className={labelClasses}>
+                    Last Name
+                  </label>
+                  <input
+                    id="last-name"
+                    name="lastName"
+                    type="text"
+                    placeholder="Enter Last Name"
+                    value={formData.lastName || ""}
+                    onChange={handleChange}
+                    className={`${inputClasses} mt-2 ${
+                      errors.lastName ? "ring-1 ring-[#E11E24]" : ""
+                    }`}
+                  />
+                  {errors.lastName && (
+                    <p className="text-[#E11E24] text-[11px] font-medium mt-1">
+                      {errors.lastName}
+                    </p>
+                  )}
+                </div>
               </div>
-              <div className="space-y-1.5 sm:space-y-2">
-                <label htmlFor="phone" className={labelClasses}>
-                  Phone Number
-                </label>
-                <div className="flex items-stretch gap-2">
-                  <button
-                    type="button"
-                    className="flex items-center justify-center gap-1 rounded-[6px] border border-[#CECECE] bg-[#F2F2F2] px-2 sm:px-3 flex-shrink-0 min-w-[48px] sm:min-w-[56px]"
-                    aria-label="Country code selector"
-                  >
-                    <div className="relative w-5 h-5 sm:w-[21px] sm:h-[21px] rounded-full overflow-hidden flex-shrink-0">
-                      <Image
-                        src="/indian-flag.png"
-                        alt="Indian flag"
-                        fill
-                        className="object-cover"
+
+              {/* Email & Phone - 2 columns on desktop */}
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-6 mb-5 lg:mb-5">
+                {/* Email */}
+                <div>
+                  <label htmlFor="email" className={labelClasses}>
+                    Email
+                  </label>
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    placeholder="Enter your Email"
+                    value={formData.email || ""}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    className={`${inputClasses} mt-2 ${
+                      errors.email ? "ring-1 ring-[#E11E24]" : ""
+                    }`}
+                  />
+                  {errors.email && (
+                    <p className="text-[#E11E24] text-[11px] font-medium mt-1">
+                      {errors.email}
+                    </p>
+                  )}
+                </div>
+
+                {/* Phone Number */}
+                <div>
+                  <label htmlFor="phone" className={labelClasses}>
+                    Phone Number
+                  </label>
+                  <div className="flex items-stretch gap-2 mt-2">
+                    <button
+                      type="button"
+                      className="flex items-center justify-center gap-1.5 rounded-[6px] bg-[#E8E8E8] px-3 py-3 flex-shrink-0"
+                      aria-label="Country code selector"
+                    >
+                      <div className="relative w-5 h-5 rounded-full overflow-hidden flex-shrink-0">
+                        <Image
+                          src="/indian-flag.png"
+                          alt="Indian flag"
+                          fill
+                          className="object-cover"
+                          aria-hidden="true"
+                        />
+                      </div>
+                      <svg
+                        viewBox="0 0 12 7"
+                        className="h-[4px] w-[8px] text-[#666666] flex-shrink-0"
+                        fill="none"
                         aria-hidden="true"
+                      >
+                        <path
+                          d="M1 1L6 6L11 1"
+                          stroke="currentColor"
+                          strokeWidth="1.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </button>
+                    <div className="flex-1 min-w-0">
+                      <input
+                        id="phone"
+                        name="phone"
+                        type="tel"
+                        placeholder="Enter Phone Number"
+                        value={formData.phone || ""}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        className={`${inputClasses} ${
+                          errors.phone ? "ring-1 ring-[#E11E24]" : ""
+                        }`}
                       />
                     </div>
+                  </div>
+                  {errors.phone && (
+                    <p className="text-[#E11E24] text-[11px] font-medium mt-1">
+                      {errors.phone}
+                    </p>
+                  )}
+                </div>
+              </div>
+
+              {/* Message - Full width */}
+              <div className="mb-5 lg:mb-6">
+                <label htmlFor="message" className={labelClasses}>
+                  Message
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  placeholder="Enter your Message"
+                  rows={5}
+                  value={formData.message || ""}
+                  onChange={handleChange}
+                  className={`${inputClasses} mt-2 min-h-[120px] lg:min-h-[140px] resize-y ${
+                    errors.message ? "ring-1 ring-[#E11E24]" : ""
+                  }`}
+                />
+                {errors.message && (
+                  <p className="text-[#E11E24] text-[11px] font-medium mt-1">
+                    {errors.message}
+                  </p>
+                )}
+              </div>
+
+              {/* Terms & Submit - Row on desktop, stacked on mobile */}
+              <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 lg:gap-6">
+                {/* Terms Checkbox */}
+                <div>
+                  <label
+                    htmlFor="terms"
+                    className="flex items-center gap-2 cursor-pointer"
+                  >
+                    <input
+                      type="checkbox"
+                      id="terms"
+                      name="terms"
+                      checked={formData.terms}
+                      onChange={handleChange}
+                      className="h-4 w-4 rounded-[3px] border-[#AAAAAA] bg-[#CCCCCC] text-[#E11E24] focus:ring-[#E11E24] flex-shrink-0 accent-[#E11E24]"
+                    />
+                    <span className="font-['Manrope'] text-[13px] lg:text-[14px] font-normal text-[#555555] leading-normal">
+                      I agree with Terms of Use and Privacy Policy
+                    </span>
+                  </label>
+                  {errors.terms && (
+                    <p className="text-[#E11E24] text-[11px] font-medium mt-1 ml-6">
+                      {errors.terms}
+                    </p>
+                  )}
+                </div>
+
+                {/* Submit Button */}
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-black text-white transition hover:bg-black/90 disabled:opacity-50 disabled:cursor-not-allowed px-5 py-2.5 w-fit"
+                >
+                  <span className="whitespace-nowrap font-['Manrope'] text-[13px] lg:text-[14px] font-medium">
+                    {isSubmitting ? "Submitting..." : "Submit"}
+                  </span>
+                  {!isSubmitting && (
                     <svg
-                      viewBox="0 0 12 7"
-                      className="h-[4px] w-[8px] text-[#4C4C4C] flex-shrink-0"
+                      viewBox="0 0 16 16"
                       fill="none"
+                      className="h-3 w-3"
                       aria-hidden="true"
                     >
                       <path
-                        d="M1 1L6 6L11 1"
+                        d="M3 8h10M9 4l4 4-4 4"
                         stroke="currentColor"
-                        strokeWidth="1"
+                        strokeWidth="1.5"
                         strokeLinecap="round"
                         strokeLinejoin="round"
                       />
                     </svg>
-                  </button>
-                  <div className="flex-1 min-w-0">
-                    <input
-                      id="phone"
-                      name="phone"
-                      type="tel"
-                      placeholder="Enter Phone Number"
-                      value={formData.phone || ""}
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                      className={`w-full rounded-[6px] border border-[#CECECE] bg-[#F2F2F2] px-3 sm:px-4 py-2.5 sm:py-3 lg:py-4 text-sm sm:text-[14px] font-medium text-[#4C4C4C] placeholder:text-[#4C4C4C] focus:border-[#E11E24] focus:outline-none ${
-                        errors.phone ? "border-[#E11E24]" : ""
-                      }`}
-                    />
-                    {errors.phone && (
-                      <p className="text-[#E11E24] text-[10px] sm:text-[11px] md:text-[12px] font-medium mt-1">
-                        {errors.phone}
-                      </p>
-                    )}
-                  </div>
-                </div>
+                  )}
+                </button>
               </div>
-            </div>
-
-            {/* Message */}
-            <div className="space-y-1.5 sm:space-y-2">
-              <label htmlFor="message" className={labelClasses}>
-                Message
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                placeholder="Enter your Message"
-                rows={3}
-                value={formData.message || ""}
-                onChange={handleChange}
-                className={`${inputClasses} min-h-[80px] sm:min-h-[100px] lg:min-h-[120px] resize-y ${
-                  errors.message ? "border-[#E11E24]" : ""
-                }`}
-              />
-              {errors.message && (
-                <p className="text-[#E11E24] text-[10px] sm:text-[11px] md:text-[12px] font-medium">
-                  {errors.message}
-                </p>
-              )}
-            </div>
-
-            {/* Terms & Submit */}
-            <div className="flex flex-col gap-3 sm:gap-4 lg:flex-row lg:items-center lg:justify-between">
-              <div className="space-y-1">
-                <label
-                  htmlFor="terms"
-                  className="flex items-start sm:items-center gap-2 sm:gap-3 font-['Manrope'] text-xs sm:text-sm md:text-base lg:text-lg xl:text-[20px] font-semibold text-[#707070] cursor-pointer"
-                >
-                  <input
-                    type="checkbox"
-                    id="terms"
-                    name="terms"
-                    checked={formData.terms}
-                    onChange={handleChange}
-                    className="h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6 rounded border-[#CECECE] bg-[#C9C9C9] text-[#E11E24] focus:ring-[#E11E24] mt-0.5 sm:mt-0 flex-shrink-0"
-                  />
-                  <span className="leading-tight sm:leading-normal">
-                    I agree with Terms of Use and Privacy Policy
-                  </span>
-                </label>
-                {errors.terms && (
-                  <p className="text-[#E11E24] text-[10px] sm:text-[11px] md:text-[12px] font-medium ml-6 sm:ml-8 lg:ml-9">
-                    {errors.terms}
-                  </p>
-                )}
-              </div>
-
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="inline-flex items-center justify-center gap-2 rounded-[75px] border border-[rgba(70,70,70,0.3)] bg-black text-white transition hover:bg-black/90 disabled:opacity-50 disabled:cursor-not-allowed px-4 sm:px-5 lg:px-6 py-2.5 sm:py-3 w-full sm:w-auto min-w-[120px] sm:min-w-[130px] lg:min-w-[143px]"
-              >
-                <span className="whitespace-nowrap font-['Manrope'] text-sm sm:text-base lg:text-lg xl:text-[20px] font-light tracking-[0.02em]">
-                  {isSubmitting ? "Submitting..." : "Submit"}
-                </span>
-                {!isSubmitting && (
-                  <Image
-                    src="/find-out-more-arrow.svg"
-                    alt=""
-                    width={20}
-                    height={20}
-                    className="h-3.5 w-3.5 sm:h-4 sm:w-4 lg:h-5 lg:w-5"
-                    aria-hidden="true"
-                  />
-                )}
-              </button>
-            </div>
-          </form>
+            </form>
+          </div>
         </div>
       </div>
     </section>
