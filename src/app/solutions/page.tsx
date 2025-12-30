@@ -10,9 +10,7 @@ const solutions = [
 	{
 		id: "smart-network",
 		title: "Smart Network Infrastructure",
-		description: `Build the backbone of your enterprise network with high-performance copper and fiber-optic cabling systems.
-
-Our structured cabling solutions ensure seamless connectivity, scalability, and compliance with global standards.`,
+		description: `Build the backbone of your enterprise network with high-performance copper and fiber-optic cabling systems. Our structured cabling solutions ensure seamless connectivity, scalability, and compliance with global standards.`,
 		image: "/solution-network-355263.png",
 		features: [
 			"Firewall Solutions",
@@ -23,13 +21,12 @@ Our structured cabling solutions ensure seamless connectivity, scalability, and 
 		],
 		buttonText: "Explore Structured Cabling Solutions",
 		imagePosition: "left",
+		href: "/solution-4",
 	},
 	{
 		id: "cctv-surveillance",
 		title: "CCTV & Intelligent Surveillance Solutions",
-		description: `Secure your assets with intelligent, AI-enabled surveillance systems.
-
-We provide IP cameras, NVRs, and remote monitoring solutions for 24/7 visibility, proactive threat detection, and operational safety.ANPR Solution, PTZ Cameras.`,
+		description: `Secure your assets with intelligent, AI-enabled surveillance systems. We provide IP cameras, NVRs, and remote monitoring solutions for 24/7 visibility, proactive threat detection, and operational safety. ANPR Solution, PTZ Cameras.`,
 		image: "/solution-cctv-7702d8.png",
 		features: [
 			"IP CCTV Solutions",
@@ -40,14 +37,13 @@ We provide IP cameras, NVRs, and remote monitoring solutions for 24/7 visibility
 		],
 		buttonText: "Explore Structured Cabling Solutions",
 		imagePosition: "right",
+		href: "/solution-1",
 	},
 	{
 		id: "biometric-access",
 		title: "Secure Biometric & Access Control Solutions",
-		description: `Enhance workplace security with advanced biometric and RFID-based access systems.
-
-Our integrated attendance and access control solutions enable seamless authentication, compliance, and centralized management.`,
-		image: "/solution-network-355263.png", // Placeholder
+		description: `Enhance workplace security with advanced biometric and RFID-based access systems. Our integrated attendance and access control solutions enable seamless authentication, compliance, and centralized management.`,
+		image: "/solution-network-355263.png",
 		features: [
 			"Biometric Attendance Systems",
 			"Access Control Solutions",
@@ -57,13 +53,12 @@ Our integrated attendance and access control solutions enable seamless authentic
 		],
 		buttonText: "Explore Structured Cabling Solutions",
 		imagePosition: "left",
+		href: "/solution-3",
 	},
 	{
 		id: "it-infrastructure",
-		title: "IT Infrastructure &  Managed Services",
-		description: `Empower your business with resilient, scalable IT infrastructure and expert managed services.
-
-From data centers and cloud solutions to backup and disaster recovery, we ensure continuity, performance, and growth.`,
+		title: "IT Infrastructure & Managed Services",
+		description: `Empower your business with resilient, scalable IT infrastructure and expert managed services. From data centers and cloud solutions to backup and disaster recovery, we ensure continuity, performance, and growth.`,
 		image: "/solution-itinfra-355263.png",
 		features: [
 			"IT Consulting & System Design",
@@ -74,6 +69,7 @@ From data centers and cloud solutions to backup and disaster recovery, we ensure
 		],
 		buttonText: "Explore Structured Cabling Solutions",
 		imagePosition: "right",
+		href: "/solution-2",
 	},
 ] as const;
 
@@ -83,345 +79,225 @@ export default function SolutionsPage() {
 			<Navbar />
 
 			{/* Hero Section */}
-			<section className="bg-[#F8F8F8] px-4 sm:px-6 relative overflow-hidden">
+			<section className="bg-[#F8F8F8] px-6 sm:px-8 md:px-12 lg:px-16 xl:px-20 relative overflow-hidden">
 				{/* Background Image */}
 				<div className="absolute inset-0 z-0">
 					<Image
 						src="/solution-hero-image.png"
 						alt="Network pattern background"
 						fill
-						className="object-cover object-left opacity-80"
+						className="object-cover object-center opacity-90"
 						priority
 					/>
 				</div>
-				<div className="mx-auto w-full max-w-[1440px] py-10 sm:py-12 lg:py-16 relative z-10">
-					{/* Replace absolute layout with responsive grid */}
-					<div className="flex w-full  gap-10 flex-col ">
-						{/* Title */}
-						<div className="max-w-[784px]">
-							<h1
-								className="font-display text-black text-2xl sm:text-3xl md:text-4xl lg:text-[50px]"
-								style={{
-									fontFamily: "TASA Orbiter",
-									fontWeight: 600,
-									lineHeight: "1.32em",
-									textAlign: "left",
-									color: "#000000",
-								}}
+				<div className="mx-auto w-full max-w-[1440px] py-12 sm:py-16 lg:py-20 xl:py-24 relative z-10 min-h-[500px] lg:min-h-[600px]">
+					{/* Title - Top Left */}
+					<div className="max-w-[500px] lg:max-w-[520px] xl:max-w-[550px]">
+						<h1 className="font-['TASA_Orbiter'] text-black text-[28px] sm:text-[34px] md:text-[40px] lg:text-[44px] xl:text-[48px] font-semibold leading-[1.15] tracking-[-0.02em]">
+							Comprehensive IT & Security Solutions for a Connected, Intelligent, and Secure Enterprise
+						</h1>
+					</div>
+
+					{/* Description + Button - Bottom Right */}
+					<div className="mt-16 sm:mt-20 lg:mt-0 lg:absolute lg:bottom-20 xl:bottom-24 lg:right-16 xl:right-20 lg:max-w-[480px] xl:max-w-[500px]">
+						<p className="font-['Manrope'] text-black text-[14px] sm:text-[15px] lg:text-[15px] xl:text-[16px] font-normal leading-[1.7]">
+							At Nexobots Technologies, we deliver end-to-end IT and security
+							infrastructure solutions that empower,organizations to operate
+							smarter, safer, and more efficiently.
+						</p>
+						<p className="font-['Manrope'] text-black text-[14px] sm:text-[15px] lg:text-[15px] xl:text-[16px] font-normal leading-[1.7] mt-2">
+							From high-performance network cabling and intelligent surveillance
+							systems to biometric access and managed IT services — our
+							integrated solutions are engineered to enhance connectivity,
+							strengthen security, and enable scalable digital growth.
+						</p>
+
+						<div className="mt-8 lg:mt-6">
+							<Link
+								href="/contact"
+								className="inline-flex items-center gap-3 rounded-full bg-black px-7 py-3.5 transition-all hover:bg-gray-900"
 							>
-								Comprehensive IT & Security Solutions for a Connected,
-								Intelligent, and Secure Enterprise
-							</h1>
-						</div>
-
-						{/* Description + Button */}
-						<div className="md:self-end max-w-[646px] md:pr-20">
-							<p
-								className="font-display text-black whitespace-pre-line text-sm sm:text-base md:text-lg lg:text-[20px]"
-								style={{
-									fontFamily: "TASA Orbiter",
-									fontWeight: 600,
-									lineHeight: "1.32em",
-									textAlign: "left",
-									color: "#000000",
-								}}
-							>
-								At Nexobots Technologies, we deliver end-to-end IT and security
-								infrastructure solutions that empower organizations to operate
-								smarter, safer, and more efficiently.
-
-								From high-performance network cabling and intelligent surveillance
-								systems to biometric access and managed IT services — our
-								integrated solutions are engineered to enhance connectivity,
-								strengthen security, and enable scalable digital growth.
-							</p>
-
-							<div className="mt-6">
-								<Link
-									href="/contact"
-									className="inline-flex items-center justify-center gap-3 rounded-[75px] border border-white/30 bg-black transition-all hover:bg-gray-900 px-6 py-4 sm:px-8"
-									style={{
-										minWidth: "200px",
-										maxWidth: "253px",
-										height: "auto",
-										minHeight: "50px",
-									}}
+								<span className="font-['Manrope'] text-white text-[15px] font-medium">
+									Find Out More
+								</span>
+								<svg
+									width="6"
+									height="10"
+									viewBox="0 0 6 10"
+									fill="none"
+									xmlns="http://www.w3.org/2000/svg"
+									className="flex-shrink-0"
 								>
-									<span
-										className="font-['Manrope'] text-white whitespace-nowrap text-base sm:text-lg lg:text-[20px]"
-										style={{
-											fontWeight: 600,
-											lineHeight: "1.366em",
-											letterSpacing: "0.02em",
-										}}
-									>
-										Find Out More
-									</span>
-									<svg
-										width="5"
-										height="8"
-										viewBox="0 0 5 8"
-										fill="none"
-										xmlns="http://www.w3.org/2000/svg"
-										className="ml-2 flex-shrink-0"
-									>
-										<path
-											d="M1 1L4 4L1 7"
-											stroke="#E11E24"
-											strokeWidth="1.5"
-											strokeLinecap="round"
-											strokeLinejoin="round"
-										/>
-									</svg>
-								</Link>
-							</div>
+									<path
+										d="M1 1L5 5L1 9"
+										stroke="#E11E24"
+										strokeWidth="1.5"
+										strokeLinecap="round"
+										strokeLinejoin="round"
+									/>
+								</svg>
+							</Link>
 						</div>
 					</div>
 				</div>
 			</section>
 
-			{/* Solutions Sections */}
-			<div className="mx-auto max-w-[1440px] space-y-8 sm:space-y-12 px-4 sm:px-6 py-8 sm:py-12 md:px-12">
-				{solutions.map((solution) => (
-					<section
-						key={solution.id}
-						className="rounded-[21px] bg-white p-4 sm:p-6 md:p-8 lg:p-12"
-					>
-						{/* Title */}
-						<h2
-							className="font-['TASA_Orbiter'] text-black text-xl sm:text-2xl md:text-3xl lg:text-[40px] xl:text-[48px] mb-6 sm:mb-8 text-center"
-							style={{
-								fontWeight: 700,
-								lineHeight: "1.366",
-								letterSpacing: "0.02em",
-							}}
-						>
-							{solution.title}
-						</h2>
-
-						{/* Content Grid */}
-						<div className="flex justify-center">
-							<div
-								className={`grid gap-6 lg:gap-8 w-full max-w-[1200px] ${
-									solution.imagePosition === "right"
-										? "lg:grid-cols-[1fr_1.3fr]"
-										: "lg:grid-cols-[1.3fr_1fr]"
-								}`}
+			{/* Solutions Sections - Continuous white background */}
+			<div className="bg-white lg:bg-[#F8F8F8]">
+				<div className="mx-auto max-w-[1440px] px-6 sm:px-8 md:px-12 lg:px-16 xl:px-20 py-10 sm:py-12 lg:py-16 xl:py-20">
+					<div className="space-y-14 sm:space-y-16 lg:space-y-12 xl:space-y-14">
+						{solutions.map((solution) => (
+							<section
+								key={solution.id}
+								className="lg:bg-white lg:rounded-[24px] lg:p-8 xl:p-10 lg:shadow-[0_2px_20px_rgba(0,0,0,0.04)]"
 							>
-								{/* Image with Description Overlay */}
-								<div
-									className={`relative w-full ${
-										solution.imagePosition === "right" ? "lg:order-2" : ""
-									}`}
-									style={{
-										aspectRatio: "636/513",
-										minHeight: "280px",
-										maxHeight: "513px",
-									}}
-								>
-									<Image
-										src={solution.image}
-										alt={solution.title}
-										fill
-										className="object-cover rounded-[20px]"
-									/>
-									<div
-										className="absolute inset-0 rounded-[20px]"
-										style={{
-											background:
-												solution.id === "cctv-surveillance"
-													? "rgba(0, 0, 0, 0.65)"
-													: solution.id === "it-infrastructure"
-													? "rgba(0, 0, 0, 0.53)"
-													: "rgba(0, 0, 0, 0.5)",
-										}}
-									/>
-									{/* Description Text Over Image */}
-									<div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 rounded-b-[20px]">
-										<p
-											className="font-['Manrope'] text-white whitespace-normal text-left text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl"
-											style={{
-												fontWeight: 700,
-												lineHeight: "1.208",
-												letterSpacing: "0.02em",
-											}}
-										>
-											{solution.description.replace(/\n/g, " ")}
-										</p>
-									</div>
-								</div>
+								{/* Title - Left aligned */}
+								<h2 className="font-['TASA_Orbiter'] text-black text-[22px] sm:text-[26px] md:text-[30px] lg:text-[32px] xl:text-[36px] font-bold leading-[1.2] tracking-[0.01em] mb-6 sm:mb-8 lg:mb-8">
+									{solution.title}
+								</h2>
 
-								{/* Features & Button */}
+								{/* Content - Stacked on mobile, side by side on desktop */}
 								<div
-									className={`flex flex-col items-start justify-between gap-6 ${
-										solution.imagePosition === "right" ? "lg:order-1" : ""
+									className={`flex flex-col gap-6 sm:gap-8 lg:flex-row lg:gap-8 xl:gap-12 ${
+										solution.imagePosition === "right" ? "lg:flex-row-reverse" : ""
 									}`}
 								>
-									{/* Features List */}
-									<div className="space-y-3 sm:space-y-4 lg:space-y-5 w-full flex flex-col items-start">
-										{solution.features.map((feature, i) => (
+									{/* Image with Description Overlay */}
+									<div className="lg:w-[48%] xl:w-[45%] flex-shrink-0">
+										<div
+											className="relative w-full rounded-[12px] sm:rounded-[16px] lg:rounded-[16px] overflow-hidden"
+											style={{ aspectRatio: "4/3" }}
+										>
+											<Image
+												src={solution.image}
+												alt={solution.title}
+												fill
+												className="object-cover"
+											/>
 											<div
-												key={i}
-												className="relative flex items-center rounded-[67px] border border-[#DADADA] bg-white pl-10 sm:pl-12 pr-4 sm:pr-6 py-3 sm:py-4 w-full max-w-[486px]"
+												className="absolute inset-0"
 												style={{
-													minHeight: "50px",
+													background:
+														"linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.5) 30%, rgba(0, 0, 0, 0.3) 60%, rgba(0, 0, 0, 0.2) 100%)",
 												}}
-											>
-												{/* Star Icon */}
-												<div className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 flex-shrink-0 z-10">
+											/>
+											{/* Description Text Over Image */}
+											<div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5 lg:p-5">
+												<p className="font-['Manrope'] text-white text-[12px] sm:text-[13px] lg:text-[14px] xl:text-[15px] font-medium leading-[1.6]">
+													{solution.description}
+												</p>
+											</div>
+										</div>
+									</div>
+
+									{/* Features & Button */}
+									<div className="flex-1 flex flex-col justify-between">
+										{/* Features List */}
+										<div className="space-y-2.5 lg:space-y-3">
+											{solution.features.map((feature, i) => (
+												<div
+													key={i}
+													className="flex items-center gap-3 rounded-full border border-[#E8E8E8] bg-white px-4 sm:px-5 py-2.5 sm:py-3 w-full"
+												>
+													{/* Star Icon */}
 													<svg
-														width="17"
-														height="18"
+														width="14"
+														height="14"
 														viewBox="0 0 17 18"
 														fill="none"
 														xmlns="http://www.w3.org/2000/svg"
-														className="h-4 w-4 sm:h-[18px] sm:w-[17px]"
+														className="flex-shrink-0"
 													>
 														<path
 															d="M8.5 0L10.4 6.5H17L11.3 10.5L13.2 17L8.5 13L3.8 17L5.7 10.5L0 6.5H6.6L8.5 0Z"
 															fill="#E11E24"
 														/>
 													</svg>
+													<span className="font-['Manrope'] text-black text-[13px] sm:text-[14px] lg:text-[14px] font-medium">
+														{feature}
+													</span>
 												</div>
-												<p
-													className="font-['Manrope'] text-black text-left text-xs sm:text-sm lg:text-base"
-													style={{
-														fontWeight: 600,
-														lineHeight: "1.5",
-														letterSpacing: "0.02em",
-														width: "100%",
-													}}
-												>
-													{feature}
-												</p>
-											</div>
-										))}
-									</div>
+											))}
+										</div>
 
-									{/* Button */}
-									<Link
-										href={
-											solution.id === "cctv-surveillance"
-												? "/solution-1"
-												: solution.id === "it-infrastructure"
-												? "/solution-2"
-												: solution.id === "biometric-access"
-												? "/solution-3"
-												: solution.id === "smart-network"
-												? "/solution-4"
-												: "#"
-										}
-										className="inline-flex items-center justify-start gap-2 sm:gap-3 rounded-[75px] border border-white/30 bg-black px-4 sm:px-6 py-3 transition-all hover:bg-gray-900 w-full sm:w-auto max-w-[348px]"
-										style={{
-											minHeight: "45px",
-										}}
-									>
-										<span
-											className="font-['Manrope'] text-white text-xs sm:text-sm lg:text-[15px]"
-											style={{
-												fontWeight: 600,
-												lineHeight: "1.366",
-												letterSpacing: "0.02em",
-											}}
-										>
-											{solution.buttonText}
-										</span>
-										<svg
-											width="5"
-											height="8"
-											viewBox="0 0 5 8"
-											fill="none"
-											xmlns="http://www.w3.org/2000/svg"
-											className="ml-1 sm:ml-2 flex-shrink-0"
-										>
-											<path
-												d="M1 1L4 4L1 7"
-												stroke="#E11E24"
-												strokeWidth="1.5"
-												strokeLinecap="round"
-												strokeLinejoin="round"
-											/>
-										</svg>
-									</Link>
+										{/* Button - Left aligned on desktop */}
+										<div className="mt-6 lg:mt-6">
+											<Link
+												href={solution.href}
+												className="inline-flex items-center gap-2.5 rounded-full bg-black px-6 py-3 transition-all hover:bg-gray-900"
+											>
+												<span className="font-['Manrope'] text-white text-[13px] sm:text-[14px] font-medium">
+													{solution.buttonText}
+												</span>
+												<svg
+													width="6"
+													height="10"
+													viewBox="0 0 6 10"
+													fill="none"
+													xmlns="http://www.w3.org/2000/svg"
+													className="flex-shrink-0"
+												>
+													<path
+														d="M1 1L5 5L1 9"
+														stroke="#E11E24"
+														strokeWidth="1.5"
+														strokeLinecap="round"
+														strokeLinejoin="round"
+													/>
+												</svg>
+											</Link>
+										</div>
+									</div>
 								</div>
-							</div>
-						</div>
-					</section>
-				))}
+							</section>
+						))}
+					</div>
+				</div>
 			</div>
 
 			{/* Closing CTA */}
-			<section
-				className="flex items-center justify-center px-4 sm:px-6 py-12 sm:py-16 md:py-24 md:px-12"
-				style={{
-					backgroundColor: "#F8F8F8",
-				}}
-			>
+			<section className="bg-[#F8F8F8] px-6 sm:px-8 md:px-12 lg:px-16 xl:px-20 py-16 sm:py-20 lg:py-28 xl:py-36">
 				<div className="mx-auto w-full max-w-[1440px] text-center">
-					<h2
-						className="font-['TASA_Orbiter'] text-black text-2xl sm:text-3xl md:text-4xl lg:text-[52px] xl:text-[64px]"
-						style={{
-							fontWeight: 600,
-							lineHeight: "1.494",
-							maxWidth: "1148px",
-							margin: "0 auto",
-						}}
-					>
+					<h2 className="font-['TASA_Orbiter'] text-black text-[24px] sm:text-[30px] md:text-[38px] lg:text-[48px] xl:text-[56px] font-bold leading-[1.1] whitespace-normal lg:whitespace-nowrap">
 						Let&apos;s Build Your Next-Gen IT Infrastructure
 					</h2>
 
-					<p
-						className="mt-6 sm:mt-8 font-['Manrope'] text-black text-sm sm:text-base md:text-lg lg:text-[20px] px-2"
-						style={{
-							fontWeight: 400,
-							lineHeight: "1.4",
-							maxWidth: "900px",
-							margin: "0 auto",
-							marginTop: "24px",
-						}}
-					>
-						At Nexobots Technologies, we don&apos;t just deliver solutions — we design
-						connected, intelligent, and secure ecosystems that power business
-						growth.
-						<br />
-						<br />
-						Whether you&apos;re upgrading your network, enhancing security, or
-						modernizing your IT environment, our experts are ready to help you
-						build future-ready infrastructure tailored to your goals.
-						<br />
-						<br />
-						<strong>Let&apos;s collaborate to transform your technology foundation into a
-						strategic advantage.</strong>
-					</p>
+					<div className="mt-10 sm:mt-12 lg:mt-16 max-w-[1000px] mx-auto">
+						<p className="font-['Manrope'] text-black text-[14px] sm:text-[15px] md:text-[17px] lg:text-[19px] xl:text-[20px] font-normal leading-[1.7]">
+							At Nexobots Technologies, we don&apos;t just deliver solutions — we design connected, intelligent, and
+						</p>
+						<p className="font-['Manrope'] text-black text-[14px] sm:text-[15px] md:text-[17px] lg:text-[19px] xl:text-[20px] font-normal leading-[1.7]">
+							secure ecosystems that power business growth.
+						</p>
+						<p className="font-['Manrope'] text-black text-[14px] sm:text-[15px] md:text-[17px] lg:text-[19px] xl:text-[20px] font-normal leading-[1.7] mt-1">
+							Whether you&apos;re upgrading your network, enhancing security, or modernizing your IT environment,
+						</p>
+						<p className="font-['Manrope'] text-black text-[14px] sm:text-[15px] md:text-[17px] lg:text-[19px] xl:text-[20px] font-normal leading-[1.7]">
+							our experts are ready to help you build future-ready infrastructure tailored to your goals.
+						</p>
+						
+						<p className="mt-8 lg:mt-10 font-['Manrope'] text-black text-[14px] sm:text-[15px] md:text-[17px] lg:text-[19px] xl:text-[20px] font-bold leading-[1.7]">
+							Let&apos;s collaborate to transform your technology foundation into a strategic advantage.
+						</p>
+					</div>
 
 					<Link
 						href="/contact"
-						className="mx-auto mt-8 sm:mt-12 inline-flex items-center justify-center rounded-[75px] border border-white/30 bg-black transition-all hover:bg-gray-900 px-6 py-3"
-						style={{
-							minWidth: "155px",
-							minHeight: "45px",
-						}}
+						className="mt-10 sm:mt-12 lg:mt-14 inline-flex items-center gap-3 rounded-full bg-black px-8 py-4 transition-all hover:bg-gray-900"
 					>
-						<span
-							className="font-['Manrope'] text-white whitespace-nowrap text-sm sm:text-[15px]"
-							style={{
-								fontWeight: 600,
-								lineHeight: "1.366",
-								letterSpacing: "0.02em",
-							}}
-						>
+						<span className="font-['Manrope'] text-white text-[15px] lg:text-[16px] font-medium">
 							Get In Touch
 						</span>
 						<svg
-							width="5"
-							height="8"
-							viewBox="0 0 5 8"
+							width="6"
+							height="10"
+							viewBox="0 0 6 10"
 							fill="none"
 							xmlns="http://www.w3.org/2000/svg"
-							className="ml-3"
+							className="flex-shrink-0"
 						>
 							<path
-								d="M1 1L4 4L1 7"
+								d="M1 1L5 5L1 9"
 								stroke="#E11E24"
 								strokeWidth="1.5"
 								strokeLinecap="round"
