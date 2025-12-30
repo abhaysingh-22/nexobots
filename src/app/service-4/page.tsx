@@ -92,7 +92,7 @@ const faqs = [
   },
 ] as const;
 
-// Helper function to calculate service points based on number of items
+// Helper function to calculate service points based on number of items - EXACT COPY from solution-2
 const calculateServicePoints = (itemCount: number, paddingTop: number = 10, itemHeight: number = 30, spacing: number = 54) => {
   const points = [];
   let currentTop = paddingTop;
@@ -120,7 +120,7 @@ export default function Service4Page() {
   const virtualizationPoints = calculateServicePoints(virtualizationServices.length);
   const backupDraasPoints = calculateServicePoints(backupDraasServices.length);
 
-  // Animation function factory
+  // Animation function factory - EXACT COPY from solution-2
   const createAnimation = (
     setRedBarTop: (value: number) => void,
     setActiveIndex: (value: number) => void,
@@ -136,8 +136,14 @@ export default function Service4Page() {
       const elapsed = currentTime - startTime;
       const progress = (elapsed % animationDuration) / animationDuration;
 
+      const lastPointIndex = servicePoints.length - 1;
+      const lastPoint = servicePoints[lastPointIndex];
+      const thirdPoint = servicePoints[servicePoints.length - 2];
+      const thirdPointBottom = thirdPoint ? thirdPoint.top + thirdPoint.height : 0;
+
       const maxTop = totalHeight - redBarHeight;
       const currentTop = progress * maxTop;
+
       const barCenter = currentTop + redBarHeight / 2;
       const barBottom = currentTop + redBarHeight;
       const barTop = currentTop;
@@ -189,7 +195,7 @@ export default function Service4Page() {
     };
   };
 
-  // Set up animations for all sections
+  // Set up animations for all sections - EXACT COPY from solution-2
   useEffect(() => createAnimation(setRedBarTop1, setActiveIndex1, cloudInfrastructurePoints, 365, 0), []);
   useEffect(() => createAnimation(setRedBarTop2, setActiveIndex2, virtualizationPoints, 365, 800), []);
   useEffect(() => createAnimation(setRedBarTop3, setActiveIndex3, backupDraasPoints, 365, 1600), []);
@@ -544,27 +550,6 @@ export default function Service4Page() {
         </div>
       </section>
 
-      {/* Our Core Offerings Heading - Exact from Figma */}
-      {/* <section
-        className="py-16 sm:py-20 md:py-24 lg:py-[120px]"
-        style={{
-          backgroundColor: "#F8F8F8",
-        }}
-      >
-        <div className="mx-auto w-full max-w-[1440px] px-6 sm:px-8 md:px-12 lg:px-[78px]">
-          <h2
-            className="font-['TASA_Orbiter'] text-black text-3xl sm:text-4xl md:text-5xl lg:text-[64px]"
-            style={{
-              fontWeight: 600,
-              lineHeight: "1.494",
-              maxWidth: "678px",
-            }}
-          >
-            Our Core Offerings
-          </h2>
-        </div>
-      </section> */}
-
       {/* Cloud Infrastructure Deployment & Management Section - Exact from Figma (node-id=1-1978) */}
       <section
         className="py-8 px-6 sm:py-10 sm:px-8 md:py-12 md:px-12 lg:py-[60px] lg:px-[78px]"
@@ -635,10 +620,11 @@ export default function Service4Page() {
                   Key Services
                 </h3>
 
-                <div className="relative w-full lg:w-[719px] h-auto lg:h-[365px]">
-                  {/* Background line - Hidden on mobile/tablet */}
+                {/* Desktop: Animated progress bar - EXACT COPY from solution-2 */}
+                <div className="hidden lg:block relative w-full lg:w-[719px]" style={{ height: "365px" }}>
+                  {/* Background line */}
                   <div
-                    className="hidden lg:block absolute left-0 top-0"
+                    className="absolute left-0 top-0"
                     style={{
                       width: "9px",
                       height: "365px",
@@ -646,9 +632,9 @@ export default function Service4Page() {
                       backgroundColor: "#D9D9D9",
                     }}
                   />
-                  {/* Red progress line - Animated - Hidden on mobile/tablet */}
+                  {/* Red progress line - Animated */}
                   <div
-                    className="hidden lg:block absolute left-0"
+                    className="absolute left-0"
                     style={{
                       width: "8.6px",
                       height: `${redBarHeight}px`,
@@ -659,23 +645,41 @@ export default function Service4Page() {
                   />
                   {/* Services */}
                   <div
-                    className="space-y-4 sm:space-y-6 lg:space-y-[54px] lg:pl-[52px] lg:pt-[10px]"
+                    className="space-y-[54px]"
+                    style={{ paddingLeft: "52px", paddingTop: "10px" }}
                   >
                     {cloudInfrastructureServices.map((service, i) => (
                       <p
                         key={i}
-                        className="font-['TASA_Orbiter'] text-black text-base sm:text-lg md:text-xl lg:text-xl w-full lg:w-[596px]"
+                        className="font-['TASA_Orbiter'] text-black"
                         style={{
                           fontSize: activeIndex1 === i ? "24px" : "20px",
                           fontWeight: activeIndex1 === i ? 700 : 600,
                           lineHeight: "1.08",
                           transition: "font-weight 0.2s ease-in-out, font-size 0.2s ease-in-out",
+                          width: "596px",
                         }}
                       >
                         {service}
                       </p>
                     ))}
                   </div>
+                </div>
+
+                {/* Mobile/Tablet: Simple list */}
+                <div className="lg:hidden space-y-4 sm:space-y-6">
+                  {cloudInfrastructureServices.map((service, i) => (
+                    <p
+                      key={i}
+                      className="font-['TASA_Orbiter'] text-black text-base sm:text-lg md:text-xl"
+                      style={{
+                        fontWeight: 600,
+                        lineHeight: "1.4",
+                      }}
+                    >
+                      {service}
+                    </p>
+                  ))}
                 </div>
               </div>
             </div>
@@ -817,10 +821,11 @@ export default function Service4Page() {
                   Key Services
                 </h3>
 
-                <div className="relative w-full lg:w-[719px] h-auto lg:h-[365px]">
-                  {/* Background line - Hidden on mobile/tablet */}
+                {/* Desktop: Animated progress bar - EXACT COPY from solution-2 */}
+                <div className="hidden lg:block relative w-full lg:w-[719px]" style={{ height: "365px" }}>
+                  {/* Background line */}
                   <div
-                    className="hidden lg:block absolute left-0 top-0"
+                    className="absolute left-0 top-0"
                     style={{
                       width: "9px",
                       height: "365px",
@@ -828,9 +833,9 @@ export default function Service4Page() {
                       backgroundColor: "#D9D9D9",
                     }}
                   />
-                  {/* Red progress line - Animated - Hidden on mobile/tablet */}
+                  {/* Red progress line - Animated */}
                   <div
-                    className="hidden lg:block absolute left-0"
+                    className="absolute left-0"
                     style={{
                       width: "8.6px",
                       height: `${redBarHeight}px`,
@@ -841,23 +846,41 @@ export default function Service4Page() {
                   />
                   {/* Services */}
                   <div
-                    className="space-y-4 sm:space-y-6 lg:space-y-[54px] lg:pl-[52px] lg:pt-[10px]"
+                    className="space-y-[54px]"
+                    style={{ paddingLeft: "52px", paddingTop: "10px" }}
                   >
                     {virtualizationServices.map((service, i) => (
                       <p
                         key={i}
-                        className="font-['TASA_Orbiter'] text-black text-base sm:text-lg md:text-xl lg:text-xl w-full lg:w-[596px]"
+                        className="font-['TASA_Orbiter'] text-black"
                         style={{
                           fontSize: activeIndex2 === i ? "24px" : "20px",
                           fontWeight: activeIndex2 === i ? 700 : 600,
                           lineHeight: "1.08",
                           transition: "font-weight 0.2s ease-in-out, font-size 0.2s ease-in-out",
+                          width: "596px",
                         }}
                       >
                         {service}
                       </p>
                     ))}
                   </div>
+                </div>
+
+                {/* Mobile/Tablet: Simple list */}
+                <div className="lg:hidden space-y-4 sm:space-y-6">
+                  {virtualizationServices.map((service, i) => (
+                    <p
+                      key={i}
+                      className="font-['TASA_Orbiter'] text-black text-base sm:text-lg md:text-xl"
+                      style={{
+                        fontWeight: 600,
+                        lineHeight: "1.4",
+                      }}
+                    >
+                      {service}
+                    </p>
+                  ))}
                 </div>
               </div>
             </div>
@@ -999,10 +1022,11 @@ export default function Service4Page() {
                   Key Services
                 </h3>
 
-                <div className="relative w-full lg:w-[719px] h-auto lg:h-[365px]">
-                  {/* Background line - Hidden on mobile/tablet */}
+                {/* Desktop: Animated progress bar - EXACT COPY from solution-2 */}
+                <div className="hidden lg:block relative w-full lg:w-[719px]" style={{ height: "365px" }}>
+                  {/* Background line */}
                   <div
-                    className="hidden lg:block absolute left-0 top-0"
+                    className="absolute left-0 top-0"
                     style={{
                       width: "9px",
                       height: "365px",
@@ -1010,9 +1034,9 @@ export default function Service4Page() {
                       backgroundColor: "#D9D9D9",
                     }}
                   />
-                  {/* Red progress line - Animated - Hidden on mobile/tablet */}
+                  {/* Red progress line - Animated */}
                   <div
-                    className="hidden lg:block absolute left-0"
+                    className="absolute left-0"
                     style={{
                       width: "8.6px",
                       height: `${redBarHeight}px`,
@@ -1023,23 +1047,41 @@ export default function Service4Page() {
                   />
                   {/* Services */}
                   <div
-                    className="space-y-4 sm:space-y-6 lg:space-y-[54px] lg:pl-[52px] lg:pt-[10px]"
+                    className="space-y-[54px]"
+                    style={{ paddingLeft: "52px", paddingTop: "10px" }}
                   >
                     {backupDraasServices.map((service, i) => (
                       <p
                         key={i}
-                        className="font-['TASA_Orbiter'] text-black text-base sm:text-lg md:text-xl lg:text-xl w-full lg:w-[596px]"
+                        className="font-['TASA_Orbiter'] text-black"
                         style={{
                           fontSize: activeIndex3 === i ? "24px" : "20px",
                           fontWeight: activeIndex3 === i ? 700 : 600,
                           lineHeight: "1.08",
                           transition: "font-weight 0.2s ease-in-out, font-size 0.2s ease-in-out",
+                          width: "596px",
                         }}
                       >
                         {service}
                       </p>
                     ))}
                   </div>
+                </div>
+
+                {/* Mobile/Tablet: Simple list */}
+                <div className="lg:hidden space-y-4 sm:space-y-6">
+                  {backupDraasServices.map((service, i) => (
+                    <p
+                      key={i}
+                      className="font-['TASA_Orbiter'] text-black text-base sm:text-lg md:text-xl"
+                      style={{
+                        fontWeight: 600,
+                        lineHeight: "1.4",
+                      }}
+                    >
+                      {service}
+                    </p>
+                  ))}
                 </div>
               </div>
             </div>
