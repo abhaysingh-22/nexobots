@@ -70,14 +70,14 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
       <Navbar />
 
       {/* Our Blog Heading - Exact from Figma */}
-      <section className="bg-white" style={{ padding: "120px 72px 0", marginBottom: "40px" }}>
+      <section className="bg-white px-4 pt-12 sm:px-6 md:px-12 lg:px-[72px] lg:pt-[120px]" style={{ marginBottom: "40px" }}>
         <div className="mx-auto max-w-[1440px]">
-          <div className="flex items-center gap-4">
+          <div className="flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:gap-4">
             {/* Our Blog Text */}
             <span
-              className="font-['TASA_Orbiter'] text-black"
+              className="font-['TASA_Orbiter'] text-black text-2xl sm:text-[28px] lg:text-[32px]"
               style={{
-                fontSize: "32px",
+
                 fontWeight: 600,
                 lineHeight: "1.32",
               }}
@@ -87,6 +87,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
 
             {/* Red Arrow */}
             <svg
+              className="hidden sm:block"
               width="24"
               height="24"
               viewBox="0 0 24 24"
@@ -104,6 +105,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
 
             {/* Dotted Line */}
             <div
+              className="hidden sm:block"
               style={{
                 flex: "1",
                 height: "2px",
@@ -114,11 +116,9 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
 
             {/* Blog Title */}
             <div
-              className="font-['TASA_Orbiter']"
+              className="font-['TASA_Orbiter'] text-lg leading-7 sm:text-xl sm:leading-8 lg:text-2xl lg:leading-10"
               style={{
-                fontSize: "24px",
                 fontWeight: 600,
-                lineHeight: "40px",
                 color: "#E11E24",
                 wordWrap: "break-word",
               }}
@@ -130,11 +130,11 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
       </section>
 
       {/* Blog Article Section - Exact from Figma */}
-      <section className="bg-white" style={{ padding: "32px 72px 120px" }}>
+      <section className="bg-white px-4 py-8 sm:px-6 md:px-12 lg:px-[72px] lg:pb-[120px] lg:pt-8">
         <div className="mx-auto max-w-[1440px]">
-          <div className="flex gap-8">
+          <div className="flex flex-col gap-8 lg:flex-row">
             {/* Main Article Content */}
-            <article className="flex-1" style={{ maxWidth: "840px" }}>
+            <article className="flex-1 lg:max-w-[840px]">
               {/* Blog Info Header */}
               <div className="mb-8">
                 <div className="mb-5">
@@ -150,9 +150,9 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                       />
                     </div>
                     <h1
-                      className="font-['TASA_Orbiter'] text-[#181A2A]"
+                      className="font-['TASA_Orbiter'] text-[#181A2A] text-2xl sm:text-3xl lg:text-[36px]"
                       style={{
-                        fontSize: "36px",
+
                         fontWeight: 600,
                         lineHeight: "1.111",
                       }}
@@ -162,11 +162,10 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   </div>
 
                   {/* Author and Date */}
-                  <div className="flex items-center gap-6">
+                  <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:gap-6">
                     <span
-                      className="font-['TASA_Orbiter'] text-[#696A75]"
+                      className="font-['TASA_Orbiter'] text-[#696A75] text-base sm:text-lg lg:text-xl"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 600,
                         lineHeight: "2",
                       }}
@@ -174,9 +173,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                       B Mohana Kumara
                     </span>
                     <span
-                      className="font-['TASA_Orbiter'] text-[#696A75]"
+                      className="font-['TASA_Orbiter'] text-[#696A75] text-base sm:text-lg lg:text-xl"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 600,
                         lineHeight: "2",
                       }}
@@ -189,15 +187,14 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
 
               {/* Hero Image */}
               <div
-                className="relative mb-8 overflow-hidden rounded-[12px]"
-                style={{ height: "462px" }}
+                className="relative mb-8 overflow-hidden rounded-[12px] h-48 sm:h-64 md:h-80 lg:h-[462px]"
               >
                 <Image
                   src={isBlog1 ? "/data-center-close-up-colorful-server-rack-network-cable-details-generative-ai (2).jpg" : isBlog2 ? "/IT-Networking-Hardware-1.png" : isBlog3 ? "/detailed-view-network-servers-with-cables-flashing-lights-data-center.jpg" : isBlog4 ? "/b1.jpg" : isBlog5 ? "/server-datacenter-cloud-computing-data-storage.jpg" : isBlog6 ? "/nexobots 6.jpg" : isBlog7 ? "/The Hybrid Reality.jpg" : isBlog8 ? "/The Shift Video as Data.jpg" : isBlog9 ? "/The End of the Proxy The Biometric Advantage.jpg" : isBlog10 ? "/Copper vs Glass.jpg" : isBlog11 ? "/The Economics of Reliability Understanding Total Cost of Ownership (TCO).jpg" : isBlog12 ? "/Accidental Architecture.jpg" : "/blog-detail-hero.png"}
                   alt={isBlog1 ? "Structured Cabling Data Center" : isBlog2 ? "IT Networking Hardware" : isBlog3 ? "Network Servers with Cables in Data Center" : isBlog4 ? "SD-WAN Network Infrastructure" : isBlog5 ? "Server Datacenter Cloud Computing" : isBlog6 ? "Zero Trust Security Framework" : isBlog7 ? "Hybrid Cloud and Virtualization" : isBlog8 ? "AI Transformation of Enterprise Surveillance" : isBlog9 ? "Biometric Intelligence" : isBlog10 ? "Structured Cabling Infrastructure" : isBlog11 ? "Asset Lifecycle Management" : isBlog12 ? "IT Infrastructure Consulting" : "The Impact of Technology on the Workplace"}
                   fill
                   className="object-cover"
-                  sizes="840px"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 840px"
                 />
               </div>
 
@@ -206,9 +203,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                 {isBlog1 ? (
                   <>
                     <p
-                      className="font-['Manrope'] text-[#3B3C4A]"
+                      className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -219,9 +215,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                 ) : isBlog2 ? (
                   <>
                     <p
-                      className="font-['Manrope'] text-[#3B3C4A]"
+                      className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -232,9 +227,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                 ) : isBlog3 ? (
                   <>
                     <p
-                      className="font-['Manrope'] text-[#3B3C4A]"
+                      className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -242,9 +236,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                       Structured cabling has become a critical element of IT and facility infrastructure in Indian organisations. It underpins LAN connectivity, Wi-Fi, IP telephony, video conferencing, CCTV, access control, PoE lighting, and data centre operations. When designed and implemented correctly, it functions as a long-lived asset that supports multiple generations of active equipment with minimal rework.
                     </p>
                     <p
-                      className="font-['Manrope'] text-[#3B3C4A]"
+                      className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -255,9 +248,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                 ) : isBlog4 ? (
                   <>
                     <p
-                      className="font-['Manrope'] text-[#3B3C4A]"
+                      className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -265,9 +257,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                       In the contemporary enterprise landscape, the network has ceased to be merely a utility; it is the fundamental nervous system of digital business. For IT leaders in mid-to-large scale enterprises, the challenge is no longer just about maintaining connectivity—it is about orchestrating a resilient, agile, and secure infrastructure that can keep pace with cloud adoption and distributed workforce demands.
                     </p>
                     <p
-                      className="font-['Manrope'] text-[#3B3C4A]"
+                      className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -275,9 +266,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                       Traditional MPLS (Multiprotocol Label Switching) architectures, while reliable, often lack the flexibility and cost-efficiency required for today's cloud-first applications. This has driven the rapid adoption of Software-Defined Wide Area Networking (SD-WAN). However, transitioning from a legacy architecture to a software-defined model is a complex undertaking, particularly given the geographical and logistical diversities of the Indian market.
                     </p>
                     <p
-                      className="font-['Manrope'] text-[#3B3C4A]"
+                      className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -288,9 +278,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                 ) : isBlog5 ? (
                   <>
                     <p
-                      className="font-['Manrope'] text-[#3B3C4A]"
+                      className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -298,9 +287,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                       In the high-stakes environment of modern enterprise IT, the metric that matters most is availability. For CIOs and IT Directors managing distributed infrastructure across India, the cost of downtime is no longer measured just in lost hours—it is measured in reputational damage, lost revenue, and eroded customer trust.
                     </p>
                     <p
-                      className="font-['Manrope'] text-[#3B3C4A]"
+                      className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -308,9 +296,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                       Yet, a surprising number of large-scale enterprises still operate on a "break-fix" methodology: a component fails, an alert is triggered, and remediation begins. In an era where digital transactions happen in milliseconds, this reactive approach is obsolete. The latency between failure and resolution is where business value is lost.
                     </p>
                     <p
-                      className="font-['Manrope'] text-[#3B3C4A]"
+                      className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -321,9 +308,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                 ) : isBlog6 ? (
                   <>
                     <p
-                      className="font-['Manrope'] text-[#3B3C4A]"
+                      className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -331,9 +317,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                       For decades, enterprise security relied on a simple analogy: the castle and the moat. All critical data, applications, and users resided safely inside the corporate headquarters (the castle), protected by a robust perimeter firewall (the moat). If you were inside, you were trusted. If you were outside, you were blocked.
                     </p>
                     <p
-                      className="font-['Manrope'] text-[#3B3C4A]"
+                      className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -341,9 +326,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                       In 2025, that castle no longer exists.
                     </p>
                     <p
-                      className="font-['Manrope'] text-[#3B3C4A]"
+                      className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -351,9 +335,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                       The rapid acceleration of hybrid work, the migration of workloads to multi-cloud environments, and the proliferation of IoT devices have dissolved the traditional network perimeter. Today, your users are everywhere, and your applications are hosted anywhere. In this distributed landscape, the assumption of "implied trust" is a critical vulnerability.
                     </p>
                     <p
-                      className="font-['Manrope'] text-[#3B3C4A]"
+                      className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -364,9 +347,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                 ) : isBlog7 ? (
                   <>
                     <p
-                      className="font-['Manrope'] text-[#3B3C4A]"
+                      className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -374,9 +356,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                       In the traditional IT model, business growth was inextricably linked to physical procurement. If an enterprise wanted to launch a new application or expand into a new region, it meant purchasing servers, waiting for delivery, configuring racks, and managing power and cooling. This linear dependency on hardware is the antithesis of agility.
                     </p>
                     <p
-                      className="font-['Manrope'] text-[#3B3C4A]"
+                      className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -384,9 +365,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                       In today's fast-evolving business landscape, agility and uptime define competitive advantage. The ability to provision resources instantly—and scale them down just as quickly—is what separates market leaders from laggards. For Indian enterprises, the question is no longer "Should we move to the cloud?" but rather "How do we balance the agility of the cloud with the control of on-premise infrastructure?"
                     </p>
                     <p
-                      className="font-['Manrope'] text-[#3B3C4A]"
+                      className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -397,9 +377,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                 ) : isBlog8 ? (
                   <>
                     <p
-                      className="font-['Manrope'] text-[#3B3C4A]"
+                      className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -407,9 +386,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                       For decades, the concept of physical security in the Indian enterprise was defined by "after-the-fact" investigation. CCTV cameras were passive observers, recording terabytes of grainy footage that was only reviewed after an incident occurred—a theft, a safety breach, or an unauthorized entry. In this legacy model, security was reactive, dependent entirely on human vigilance and hindsight.
                     </p>
                     <p
-                      className="font-['Manrope'] text-[#3B3C4A]"
+                      className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -417,9 +395,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                       As businesses digitize, this passive approach is a liability. Security today goes beyond visibility—it is about intelligence, responsiveness, and control. The modern enterprise demands a surveillance ecosystem that does not just "see" but "understands."
                     </p>
                     <p
-                      className="font-['Manrope'] text-[#3B3C4A]"
+                      className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -430,9 +407,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                 ) : isBlog9 ? (
                   <>
                     <p
-                      className="font-['Manrope'] text-[#3B3C4A]"
+                      className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -440,9 +416,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                       In the digital transformation narrative, physical access control is often an afterthought—relegated to a plastic keycard or a manual register at the front desk. Yet, for the modern enterprise, the "gate" is the first line of defense and the first step in data integrity.
                     </p>
                     <p
-                      className="font-['Manrope'] text-[#3B3C4A]"
+                      className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -450,9 +425,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                       Reliance on legacy RFID cards or PIN codes presents a dual risk: Security (cards can be lost, stolen, or shared) and Efficiency (manual attendance reconciliation is prone to error and "buddy punching"). In a corporate landscape where identity is the new perimeter, the physical key must be as secure as the digital password.
                     </p>
                     <p
-                      className="font-['Manrope'] text-[#3B3C4A]"
+                      className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -463,9 +437,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                 ) : isBlog10 ? (
                   <>
                     <p
-                      className="font-['Manrope'] text-[#3B3C4A]"
+                      className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -473,9 +446,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                       In the boardroom, discussions about Digital Transformation often revolve around the cloud, AI, and software scalability. These are the visible drivers of innovation. However, in the server room, the reality is starkly physical.
                     </p>
                     <p
-                      className="font-['Manrope'] text-[#3B3C4A]"
+                      className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -483,9 +455,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                       No matter how sophisticated your SD-WAN architecture is, or how fast your cloud instances spin up, your entire digital enterprise ultimately travels through a strand of copper or a beam of light.
                     </p>
                     <p
-                      className="font-['Manrope'] text-[#3B3C4A]"
+                      className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -493,9 +464,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                       The Physical Layer (Layer 1) is the foundation upon which all other technologies rest. Yet, it is frequently the most undervalued component of IT strategy. A network is only as fast as its weakest link, and often, that link is unstructured, non-certified cabling.
                     </p>
                     <p
-                      className="font-['Manrope'] text-[#3B3C4A]"
+                      className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -506,9 +476,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                 ) : isBlog11 ? (
                   <>
                     <p
-                      className="font-['Manrope'] text-[#3B3C4A]"
+                      className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -516,9 +485,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                       In the lifecycle of any major enterprise technology initiative, there is a disproportionate amount of energy focused on "Day 1." The procurement of high-performance servers, the deployment of next-generation firewalls, and the rollout of campus-wide Wi-Fi 6 architectures are celebrated milestones. They represent innovation, capability, and the future state of the business.
                     </p>
                     <p
-                      className="font-['Manrope'] text-[#3B3C4A]"
+                      className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -526,9 +494,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                       However, for the Chief Information Officer (CIO) and the IT Infrastructure Manager, the real challenge does not end at deployment—it begins on "Day 2."
                     </p>
                     <p
-                      className="font-['Manrope'] text-[#3B3C4A]"
+                      className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -536,9 +503,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                       IT infrastructure is, by its very nature, a depreciating asset. From the moment a switch is racked or a server is powered on, it begins a slow, inevitable journey toward obsolescence. Fans accumulate dust, thermal paste degrades, firmware exposes new vulnerabilities, and storage sectors wear out. Without a strategic intervention, sophisticated hardware devolves into a liability.
                     </p>
                     <p
-                      className="font-['Manrope'] text-[#3B3C4A]"
+                      className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -546,9 +512,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                       Despite this reality, a surprising number of mid-to-large enterprises in India still operate on a "Run-to-Fail" methodology. This approach—characterized by fixing equipment only after it has broken down—is arguably the most expensive way to manage IT. It converts predictable operational expenses (OpEx) into chaotic, emergency capital expenses (CapEx), often at a premium cost during a crisis.
                     </p>
                     <p
-                      className="font-['Manrope'] text-[#3B3C4A]"
+                      className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -559,9 +524,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                 ) : isBlog12 ? (
                   <>
                     <p
-                      className="font-['Manrope'] text-[#3B3C4A]"
+                      className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -569,9 +533,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                       In the lifecycle of a growing enterprise, IT infrastructure often evolves out of necessity rather than strategy. A server is bought to host a new application; a firewall is added to meet a compliance audit; a cloud instance is spun up for a specific project. Over time, these isolated decisions accumulate into what industry experts call "Accidental Architecture."
                     </p>
                     <p
-                      className="font-['Manrope'] text-[#3B3C4A]"
+                      className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -579,9 +542,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                       The result is a fragmented ecosystem: legacy systems that do not talk to modern applications, security gaps hidden in the seams between vendors, and a rigid infrastructure that stifles innovation.
                     </p>
                     <p
-                      className="font-['Manrope'] text-[#3B3C4A]"
+                      className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -589,9 +551,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                       For the modern CIO, the challenge is not just keeping the lights on; it is untangling this complexity. Success hinges on how efficiently your IT systems communicate, scale, and perform.
                     </p>
                     <p
-                      className="font-['Manrope'] text-[#3B3C4A]"
+                      className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -602,9 +563,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                 ) : (
                   <>
                     <p
-                      className="font-['Manrope'] text-[#3B3C4A]"
+                      className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -617,9 +577,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     </p>
                     <br />
                     <p
-                      className="font-['Manrope'] text-[#3B3C4A]"
+                      className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -639,6 +598,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <h2
                     className="mb-4 font-['Manrope'] text-[#181A2A]"
                     style={{
+
                       fontSize: "24px",
                       fontWeight: 700,
                       lineHeight: "1.6",
@@ -647,9 +607,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     1. Introduction: Why Structured Cabling Still Matters
                   </h2>
                   <p
-                    className="font-['Manrope'] text-[#3B3C4A]"
+                    className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -658,9 +617,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   </p>
                   <br />
                   <p
-                    className="font-['Manrope'] text-[#3B3C4A]"
+                    className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -669,9 +627,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   </p>
                   <br />
                   <p
-                    className="font-['Manrope'] text-[#3B3C4A]"
+                    className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -680,9 +637,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   </p>
                   <br />
                   <p
-                    className="font-['Manrope'] text-[#3B3C4A]"
+                    className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -691,9 +647,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   </p>
                   <br />
                   <p
-                    className="font-['Manrope'] text-[#3B3C4A]"
+                    className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -709,6 +664,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <h2
                     className="mb-4 font-['Manrope'] text-[#181A2A]"
                     style={{
+
                       fontSize: "24px",
                       fontWeight: 700,
                       lineHeight: "1.6",
@@ -717,9 +673,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     2. What Is Structured Cabling?
                   </h2>
                   <p
-                    className="font-['Manrope'] text-[#3B3C4A]"
+                    className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -728,9 +683,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   </p>
                   <br />
                   <p
-                    className="font-['Manrope'] text-[#3B3C4A]"
+                    className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -739,9 +693,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   </p>
                   <br />
                   <p
-                    className="font-['Manrope'] text-[#3B3C4A]"
+                    className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -750,9 +703,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   </p>
                   <br />
                   <p
-                    className="font-['Manrope'] text-[#3B3C4A]"
+                    className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -768,6 +720,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <h2
                     className="mb-4 font-['Manrope'] text-[#181A2A]"
                     style={{
+
                       fontSize: "24px",
                       fontWeight: 700,
                       lineHeight: "1.6",
@@ -778,7 +731,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -788,7 +740,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -798,7 +749,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -806,15 +756,14 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     For CIOs, heads of infrastructure, and facility leaders, this means the structured cabling design is not an implementation detail. It is a strategic decision that affects:
                   </p>
                   <ul className="list-disc pl-6 mb-4 space-y-2">
-                    <li className="font-['Manrope'] text-[#3B3C4A]" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}>How quickly you can adapt space and technology to business change.</li>
-                    <li className="font-['Manrope'] text-[#3B3C4A]" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}>How much downtime you tolerate from physical faults.</li>
-                    <li className="font-['Manrope'] text-[#3B3C4A]" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}>How much you spend over ten years on moves, adds, changes, and re-cabling.</li>
-                    <li className="font-['Manrope'] text-[#3B3C4A]" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}>How ready you are for smart-building and campus requirements.</li>
+                    <li className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}>How quickly you can adapt space and technology to business change.</li>
+                    <li className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}>How much downtime you tolerate from physical faults.</li>
+                    <li className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}>How much you spend over ten years on moves, adds, changes, and re-cabling.</li>
+                    <li className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}>How ready you are for smart-building and campus requirements.</li>
                   </ul>
                   <p
-                    className="font-['Manrope'] text-[#3B3C4A]"
+                    className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -830,6 +779,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <h2
                     className="mb-4 font-['Manrope'] text-[#181A2A]"
                     style={{
+
                       fontSize: "24px",
                       fontWeight: 700,
                       lineHeight: "1.6",
@@ -840,7 +790,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -850,7 +799,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -860,7 +808,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -868,14 +815,13 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     Three concepts distinguish a structured system from ad-hoc wiring:
                   </p>
                   <ul className="list-disc pl-6 mb-4 space-y-2">
-                    <li className="font-['Manrope'] text-[#3B3C4A]" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}>It uses standard media types and topologies for backbone and horizontal cabling instead of custom runs for each system.</li>
-                    <li className="font-['Manrope'] text-[#3B3C4A]" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}>It uses standard physical interfaces and connector types so that devices from different vendors can be swapped without infrastructure changes.</li>
-                    <li className="font-['Manrope'] text-[#3B3C4A]" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}>It is designed and installed as a single, coherent system rather than piecemeal projects.</li>
+                    <li className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}>It uses standard media types and topologies for backbone and horizontal cabling instead of custom runs for each system.</li>
+                    <li className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}>It uses standard physical interfaces and connector types so that devices from different vendors can be swapped without infrastructure changes.</li>
+                    <li className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}>It is designed and installed as a single, coherent system rather than piecemeal projects.</li>
                   </ul>
                   <p
-                    className="font-['Manrope'] text-[#3B3C4A]"
+                    className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -891,7 +837,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <h2
                     className="mb-4 font-['Manrope'] text-[#181A2A]"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 700,
                       lineHeight: "1.6",
                     }}
@@ -899,9 +844,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     Research Your Destination
                   </h2>
                   <p
-                    className="font-['Manrope'] text-[#3B3C4A]"
+                    className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -913,9 +857,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   </p>
                   <br />
                   <p
-                    className="font-['Manrope'] text-[#3B3C4A]"
+                    className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -935,7 +878,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <h2
                     className="mb-4 font-['Manrope'] text-[#181A2A]"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 700,
                       lineHeight: "1.6",
                     }}
@@ -943,9 +885,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     Plan Your Itinerary
                   </h2>
                   <p
-                    className="font-['Manrope'] text-[#3B3C4A]"
+                    className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -958,9 +899,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   </p>
                   <br />
                   <p
-                    className="font-['Manrope'] text-[#3B3C4A]"
+                    className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -978,6 +918,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <h2
                     className="mb-4 font-['Manrope'] text-[#181A2A]"
                     style={{
+
                       fontSize: "24px",
                       fontWeight: 700,
                       lineHeight: "1.6",
@@ -988,7 +929,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -998,7 +938,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -1006,15 +945,14 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     In the 1980s, Bell Labs' building distribution system (PDS) and later SYSTIMAX SCS pioneered a vendor-neutral, star-shaped cabling architecture for voice, data, and video. This concept was codified into generic cabling standards like ISO/IEC 11801 and TIA-568 during the 1990s and 2000s, which defined:
                   </p>
                   <ul className="list-disc pl-6 mb-4 space-y-2">
-                    <li className="font-['Manrope'] text-[#3B3C4A]" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}>Performance categories for copper and optical fibre.</li>
-                    <li className="font-['Manrope'] text-[#3B3C4A]" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}>Subsystems such as campus, backbone, and horizontal cabling.</li>
-                    <li className="font-['Manrope'] text-[#3B3C4A]" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}>Maximum distances and topologies.</li>
-                    <li className="font-['Manrope'] text-[#3B3C4A]" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}>Design and testing guidelines for commercial, campus, data centre, and industrial environments.</li>
+                    <li className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}>Performance categories for copper and optical fibre.</li>
+                    <li className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}>Subsystems such as campus, backbone, and horizontal cabling.</li>
+                    <li className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}>Maximum distances and topologies.</li>
+                    <li className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}>Design and testing guidelines for commercial, campus, data centre, and industrial environments.</li>
                   </ul>
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -1022,9 +960,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     Today, the same principles are applied far beyond desktop Ethernet. They underpin smart buildings, smart campuses, industrial automation, and converged audio-visual systems that rely on structured cabling for both connectivity and power.
                   </p>
                   <p
-                    className="font-['Manrope'] text-[#3B3C4A]"
+                    className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -1040,6 +977,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <h2
                     className="mb-4 font-['Manrope'] text-[#181A2A]"
                     style={{
+
                       fontSize: "24px",
                       fontWeight: 700,
                       lineHeight: "1.6",
@@ -1050,7 +988,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -1058,16 +995,15 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     CommScope's fact file highlights that SCS has been so successful precisely because of its standardisation and open-architecture nature. Building on those principles, a high-quality system in 2025 should be:
                   </p>
                   <ul className="list-disc pl-6 mb-4 space-y-2">
-                    <li className="font-['Manrope'] text-[#3B3C4A]" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}><strong>Multi-application:</strong> supporting IT networks, building automation, physical security, AV, and IoT over the same plant.</li>
-                    <li className="font-['Manrope'] text-[#3B3C4A]" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}><strong>Vendor-agnostic:</strong> not tied to a single equipment manufacturer, allowing procurement and lifecycle flexibility.</li>
-                    <li className="font-['Manrope'] text-[#3B3C4A]" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}><strong>Performance-graded:</strong> using clear classes (e.g., Class EA/Cat 6A, OS2, OM4) that map to known application support and distance.</li>
-                    <li className="font-['Manrope'] text-[#3B3C4A]" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}><strong>Deterministic:</strong> predictable insertion loss, crosstalk, and latency characteristics, verified by field testing.</li>
-                    <li className="font-['Manrope'] text-[#3B3C4A]" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}><strong>Documented and manageable:</strong> addressable and traceable from the network interface down to each outlet, increasingly with support for automated infrastructure management (AIM) systems.</li>
+                    <li className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}><strong>Multi-application:</strong> supporting IT networks, building automation, physical security, AV, and IoT over the same plant.</li>
+                    <li className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}><strong>Vendor-agnostic:</strong> not tied to a single equipment manufacturer, allowing procurement and lifecycle flexibility.</li>
+                    <li className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}><strong>Performance-graded:</strong> using clear classes (e.g., Class EA/Cat 6A, OS2, OM4) that map to known application support and distance.</li>
+                    <li className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}><strong>Deterministic:</strong> predictable insertion loss, crosstalk, and latency characteristics, verified by field testing.</li>
+                    <li className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}><strong>Documented and manageable:</strong> addressable and traceable from the network interface down to each outlet, increasingly with support for automated infrastructure management (AIM) systems.</li>
                   </ul>
                   <p
-                    className="font-['Manrope'] text-[#3B3C4A]"
+                    className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -1083,6 +1019,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <h2
                     className="mb-4 font-['Manrope'] text-[#181A2A]"
                     style={{
+
                       fontSize: "24px",
                       fontWeight: 700,
                       lineHeight: "1.6",
@@ -1094,7 +1031,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <h3
                     className="mb-3 font-['Manrope'] text-[#181A2A]"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 700,
                       lineHeight: "1.6",
                     }}
@@ -1104,7 +1040,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -1115,7 +1050,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <h3
                     className="mb-3 font-['Manrope'] text-[#181A2A]"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 700,
                       lineHeight: "1.6",
                     }}
@@ -1125,7 +1059,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -1136,7 +1069,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <h3
                     className="mb-3 font-['Manrope'] text-[#181A2A]"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 700,
                       lineHeight: "1.6",
                     }}
@@ -1146,7 +1078,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -1157,7 +1088,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <h3
                     className="mb-3 font-['Manrope'] text-[#181A2A]"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 700,
                       lineHeight: "1.6",
                     }}
@@ -1165,9 +1095,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     3.4 Better Total Cost of Ownership
                   </h3>
                   <p
-                    className="font-['Manrope'] text-[#3B3C4A]"
+                    className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -1180,7 +1109,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
               {/* Image 1 */}
               <div
                 className="relative mb-8 overflow-hidden rounded-[12px]"
-                style={{ height: "303px" }}
+                style={{
+ height: "303px" }}
               >
                 <Image
                   src={isBlog1 ? "/data-center-network-cables-server-connections-highperformance-technology.jpg" : isBlog2 ? "/network_solution.jpg" : isBlog3 ? "/data-transfer-via-network-cables-connected-switch-digital-world-concept-data-transfer-network-cables-switch-digital-world-connectivity (1).jpg" : isBlog4 ? "/b2.jpg" : isBlog5 ? "/images (1) (1).jpg" : isBlog6 ? "/nexobots 5.jpg" : isBlog7 ? "/Virtualization.jpg" : isBlog8 ? "/Specialized Eyes ANPR and Thermal Imaging.jpg" : isBlog9 ? "/The Efficiency Engine Integrating Access with HRMS.jpg" : isBlog10 ? "/art of the rack.jpg" : isBlog11 ? "/The Science of Lifecycle Management From Discovery to Disposal.jpg" : isBlog12 ? "/The Strategic Blueprint Technology Roadmap Development.jpg" : "/blog-detail-image-1.png"}
@@ -1192,145 +1122,130 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                 />
               </div>
 
-              {/* Contact Form Embedded in Article - Exact from Figma */}
+              {/* Contact Form Embedded in Article - Responsive */}
               <div
-                className="relative mb-8 overflow-hidden rounded-[22px] bg-[#F7F7F7]"
-                style={{ height: "447px", padding: "35px" }}
+                className="relative mb-8 overflow-hidden rounded-[22px] bg-[#F7F7F7] p-5 sm:p-6 lg:p-[35px]"
               >
-                {/* Left side text */}
-                <div className="absolute" style={{ left: "35px", top: "54px", width: "403px" }}>
-                  <p
-                    className="font-['Manrope'] text-[#696969] mb-6"
-                    style={{
-                      fontSize: "32px",
-                      fontWeight: 400,
-                      lineHeight: "1.366",
-                    }}
-                  >
-                    Need IT network support? Let's connect Our team will get back to you with the
-                    right options.
-                  </p>
-                  <h3
-                    className="font-['TASA_Orbiter'] text-[#707070] mb-6"
-                    style={{
-                      fontSize: "20px",
-                      fontWeight: 500,
-                      lineHeight: "1.3",
-                      letterSpacing: "-0.03em",
-                    }}
-                  >
-                    Connect with Us
-                  </h3>
-                  {/* Social Icons */}
-                  <div className="flex gap-2">
-                    <button className="flex h-[37px] w-[41px] items-center justify-center rounded-md border border-[#98989A]">
-                      <span className="text-[#98989A]">f</span>
-                    </button>
-                    <button className="flex h-[37px] w-[39px] items-center justify-center rounded-md border border-[#98989A]">
-                      <span className="text-[#98989A]">t</span>
-                    </button>
-                    <button className="flex h-[37px] w-[40px] items-center justify-center rounded-md border border-[#98989A]">
-                      <span className="text-[#98989A]">in</span>
-                    </button>
-                  </div>
-                </div>
-
-                {/* Right side form */}
-                <div className="absolute" style={{ right: "35px", top: "58px", width: "258px" }}>
-                  <div className="mb-3">
-                    <label
-                      className="font-['Manrope'] text-[#707070] mb-3 block"
+                {/* Desktop: Two columns, Mobile: Single column stacked */}
+                <div className="flex flex-col lg:flex-row lg:gap-8">
+                  {/* Left side text */}
+                  <div className="lg:w-1/2 mb-6 lg:mb-0">
+                    <p
+                      className="font-['Manrope'] text-[#696969] mb-4 lg:mb-6 text-xl sm:text-2xl lg:text-[32px]"
                       style={{
-                        fontSize: "15px",
-                        fontWeight: 600,
-                        lineHeight: "1.5",
+                        fontWeight: 400,
+                        lineHeight: "1.366",
                       }}
                     >
-                      First Name
-                    </label>
-                    <input
-                      type="text"
-                      placeholder="Enter First Name"
-                      className="w-full rounded-md border border-[#CECECE] bg-[#F2F2F2] px-4 py-4"
+                      Need IT network support? Let's connect Our team will get back to you with the
+                      right options.
+                    </p>
+                    <h3
+                      className="font-['TASA_Orbiter'] text-[#707070] mb-4 lg:mb-6 text-lg sm:text-xl"
                       style={{
-                        fontSize: "14px",
                         fontWeight: 500,
-                      }}
-                    />
-                  </div>
-
-                  <div className="mb-3">
-                    <label
-                      className="font-['Manrope'] text-[#707070] mb-3 block"
-                      style={{
-                        fontSize: "15px",
-                        fontWeight: 600,
-                        lineHeight: "1.5",
+                        lineHeight: "1.3",
+                        letterSpacing: "-0.03em",
                       }}
                     >
-                      Email Address
-                    </label>
-                    <input
-                      type="email"
-                      placeholder="Enter Email"
-                      className="w-full rounded-md border border-[#CECECE] bg-[#F2F2F2] px-4 py-4"
-                      style={{
-                        fontSize: "14px",
-                        fontWeight: 500,
-                      }}
-                    />
-                  </div>
-
-                  <div className="mb-3">
-                    <label
-                      className="font-['Manrope'] text-[#707070] mb-3 block"
-                      style={{
-                        fontSize: "15px",
-                        fontWeight: 600,
-                        lineHeight: "1.5",
-                      }}
-                    >
-                      Phone Number
-                    </label>
-                    <div className="flex gap-3">
-                      <div className="flex h-[56px] w-[80px] items-center justify-center gap-1 rounded-md border border-[#CECECE] bg-[#F2F2F2] px-3 py-2">
-                        <Image
-                          src="/globe.svg"
-                          alt=""
-                          width={21}
-                          height={21}
-                          className="h-[21px] w-[21px]"
-                        />
-                      </div>
-                      <input
-                        type="tel"
-                        placeholder="Enter Phone Number"
-                        className="flex-1 rounded-md border border-[#CECECE] bg-[#F2F2F2] px-4 py-4"
-                        style={{
-                          fontSize: "14px",
-                          fontWeight: 500,
-                        }}
-                      />
+                      Connect with Us
+                    </h3>
+                    {/* Social Icons */}
+                    <div className="flex gap-2">
+                      <button className="flex h-[37px] w-[41px] items-center justify-center rounded-md border border-[#98989A]">
+                        <span className="text-[#98989A]">f</span>
+                      </button>
+                      <button className="flex h-[37px] w-[39px] items-center justify-center rounded-md border border-[#98989A]">
+                        <span className="text-[#98989A]">t</span>
+                      </button>
+                      <button className="flex h-[37px] w-[40px] items-center justify-center rounded-md border border-[#98989A]">
+                        <span className="text-[#98989A]">in</span>
+                      </button>
                     </div>
                   </div>
 
-                  <button
-                    className="mt-4 inline-flex h-8 w-[107px] items-center justify-center gap-2 rounded-[75px] border border-[rgba(70,70,70,0.3)] bg-black"
-                    style={{
-                      fontSize: "15px",
-                      fontWeight: 500,
-                      letterSpacing: "0.02em",
-                    }}
-                  >
-                    <span className="text-white">Submit</span>
-                    <Image
-                      src="/find-out-more-arrow.svg"
-                      alt=""
-                      width={12}
-                      height={12}
-                      className="h-3 w-3"
-                    />
-                  </button>
+                  {/* Right side form */}
+                  <div className="lg:w-1/2">
+                    <div className="mb-3">
+                      <label
+                        className="font-['Manrope'] text-[#707070] mb-2 block text-sm lg:text-[15px]"
+                        style={{
+                          fontWeight: 600,
+                          lineHeight: "1.5",
+                        }}
+                      >
+                        First Name
+                      </label>
+                      <input
+                        type="text"
+                        placeholder="Enter First Name"
+                        className="w-full rounded-md border border-[#CECECE] bg-[#F2F2F2] px-3 py-3 lg:px-4 lg:py-4 text-sm"
+                      />
+                    </div>
+
+                    <div className="mb-3">
+                      <label
+                        className="font-['Manrope'] text-[#707070] mb-2 block text-sm lg:text-[15px]"
+                        style={{
+                          fontWeight: 600,
+                          lineHeight: "1.5",
+                        }}
+                      >
+                        Email Address
+                      </label>
+                      <input
+                        type="email"
+                        placeholder="Enter Email"
+                        className="w-full rounded-md border border-[#CECECE] bg-[#F2F2F2] px-3 py-3 lg:px-4 lg:py-4 text-sm"
+                      />
+                    </div>
+
+                    <div className="mb-3">
+                      <label
+                        className="font-['Manrope'] text-[#707070] mb-2 block text-sm lg:text-[15px]"
+                        style={{
+                          fontWeight: 600,
+                          lineHeight: "1.5",
+                        }}
+                      >
+                        Phone Number
+                      </label>
+                      <div className="flex gap-2 lg:gap-3">
+                        <div className="flex h-[44px] lg:h-[56px] w-[60px] lg:w-[80px] items-center justify-center rounded-md border border-[#CECECE] bg-[#F2F2F2]">
+                          <Image
+                            src="/globe.svg"
+                            alt=""
+                            width={21}
+                            height={21}
+                            className="h-4 w-4 lg:h-[21px] lg:w-[21px]"
+                          />
+                        </div>
+                        <input
+                          type="tel"
+                          placeholder="Enter Phone Number"
+                          className="flex-1 min-w-0 rounded-md border border-[#CECECE] bg-[#F2F2F2] px-3 py-3 lg:px-4 lg:py-4 text-sm"
+                        />
+                      </div>
+                    </div>
+
+                    <button
+                      className="mt-4 inline-flex h-8 items-center justify-center gap-2 rounded-[75px] border border-[rgba(70,70,70,0.3)] bg-black px-4 lg:px-5"
+                      style={{
+                        fontSize: "14px",
+                        fontWeight: 500,
+                        letterSpacing: "0.02em",
+                      }}
+                    >
+                      <span className="text-white">Submit</span>
+                      <Image
+                        src="/find-out-more-arrow.svg"
+                        alt=""
+                        width={12}
+                        height={12}
+                        className="h-3 w-3"
+                      />
+                    </button>
+                  </div>
                 </div>
               </div>
 
@@ -1340,6 +1255,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <h2
                     className="mb-4 font-['Manrope'] text-[#181A2A]"
                     style={{
+
                       fontSize: "24px",
                       fontWeight: 700,
                       lineHeight: "1.6",
@@ -1350,7 +1266,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -1358,17 +1273,16 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     Standards organise SCS into subsystems such as campus backbone, building backbone, horizontal cabling, and work areas. For decision-makers, it is more useful to think in terms of operational zones:
                   </p>
                   <ul className="list-disc pl-6 mb-4 space-y-2">
-                    <li className="font-['Manrope'] text-[#3B3C4A]" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}>The entrance facility where service providers hand off to your infrastructure.</li>
-                    <li className="font-['Manrope'] text-[#3B3C4A]" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}>The equipment room housing core and distribution equipment.</li>
-                    <li className="font-['Manrope'] text-[#3B3C4A]" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}>The backbone network that ties buildings and floors together.</li>
-                    <li className="font-['Manrope'] text-[#3B3C4A]" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}>The telecommunications rooms on each floor where access switches and patch panels live.</li>
-                    <li className="font-['Manrope'] text-[#3B3C4A]" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}>The horizontal cabling reaching from those rooms to workspaces, ceilings, and devices.</li>
-                    <li className="font-['Manrope'] text-[#3B3C4A]" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}>The work and coverage areas where end devices connect.</li>
+                    <li className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}>The entrance facility where service providers hand off to your infrastructure.</li>
+                    <li className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}>The equipment room housing core and distribution equipment.</li>
+                    <li className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}>The backbone network that ties buildings and floors together.</li>
+                    <li className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}>The telecommunications rooms on each floor where access switches and patch panels live.</li>
+                    <li className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}>The horizontal cabling reaching from those rooms to workspaces, ceilings, and devices.</li>
+                    <li className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}>The work and coverage areas where end devices connect.</li>
                   </ul>
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -1376,9 +1290,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     Each of these zones has its own design constraints. For example, the backbone must anticipate future speeds and redundancy needs because changes are disruptive. Horizontal cabling must respect strict distance and installation rules because this is where user experience is most directly affected. Telecommunications rooms must be positioned and sized to support reconfiguration without extensive re-wiring.
                   </p>
                   <p
-                    className="font-['Manrope'] text-[#3B3C4A]"
+                    className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -1394,6 +1307,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <h2
                     className="mb-4 font-['Manrope'] text-[#181A2A]"
                     style={{
+
                       fontSize: "24px",
                       fontWeight: 700,
                       lineHeight: "1.6",
@@ -1404,7 +1318,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -1415,7 +1328,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <h3
                     className="mb-3 font-['Manrope'] text-[#181A2A]"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 700,
                       lineHeight: "1.6",
                     }}
@@ -1425,7 +1337,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -1436,7 +1347,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <h3
                     className="mb-3 font-['Manrope'] text-[#181A2A]"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 700,
                       lineHeight: "1.6",
                     }}
@@ -1446,7 +1356,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -1457,7 +1366,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <h3
                     className="mb-3 font-['Manrope'] text-[#181A2A]"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 700,
                       lineHeight: "1.6",
                     }}
@@ -1467,7 +1375,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -1478,7 +1385,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <h3
                     className="mb-3 font-['Manrope'] text-[#181A2A]"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 700,
                       lineHeight: "1.6",
                     }}
@@ -1486,9 +1392,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     Industrial and IIoT environments
                   </h3>
                   <p
-                    className="font-['Manrope'] text-[#3B3C4A]"
+                    className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -1497,9 +1402,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   </p>
                   <br />
                   <p
-                    className="font-['Manrope'] text-[#3B3C4A]"
+                    className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -1515,6 +1419,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <h2
                     className="mb-4 font-['Manrope'] text-[#181A2A]"
                     style={{
+
                       fontSize: "24px",
                       fontWeight: 700,
                       lineHeight: "1.6",
@@ -1525,7 +1430,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-6"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -1533,18 +1437,17 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     Structured cabling standards divide the system into six main components or subsystems. Understanding each is essential to designing a robust and maintainable solution:
                   </p>
                   <ul className="list-disc pl-6 mb-6 space-y-2">
-                    <li className="font-['Manrope'] text-[#3B3C4A]" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}>Entrance Facilities (EF)</li>
-                    <li className="font-['Manrope'] text-[#3B3C4A]" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}>Equipment Room (ER)</li>
-                    <li className="font-['Manrope'] text-[#3B3C4A]" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}>Backbone Cabling</li>
-                    <li className="font-['Manrope'] text-[#3B3C4A]" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}>Telecommunications Room (TR)</li>
-                    <li className="font-['Manrope'] text-[#3B3C4A]" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}>Horizontal Cabling</li>
-                    <li className="font-['Manrope'] text-[#3B3C4A]" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}>Work Area (WA)</li>
+                    <li className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}>Entrance Facilities (EF)</li>
+                    <li className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}>Equipment Room (ER)</li>
+                    <li className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}>Backbone Cabling</li>
+                    <li className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}>Telecommunications Room (TR)</li>
+                    <li className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}>Horizontal Cabling</li>
+                    <li className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}>Work Area (WA)</li>
                   </ul>
 
                   <h3
                     className="mb-3 font-['Manrope'] text-[#181A2A]"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 700,
                       lineHeight: "1.6",
                     }}
@@ -1554,7 +1457,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -1564,7 +1466,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -1575,7 +1476,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <h3
                     className="mb-3 font-['Manrope'] text-[#181A2A]"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 700,
                       lineHeight: "1.6",
                     }}
@@ -1585,7 +1485,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -1595,7 +1494,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -1606,7 +1504,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <h3
                     className="mb-3 font-['Manrope'] text-[#181A2A]"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 700,
                       lineHeight: "1.6",
                     }}
@@ -1616,7 +1513,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -1626,7 +1522,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -1637,7 +1532,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <h3
                     className="mb-3 font-['Manrope'] text-[#181A2A]"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 700,
                       lineHeight: "1.6",
                     }}
@@ -1647,7 +1541,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -1657,7 +1550,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -1667,7 +1559,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -1678,7 +1569,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <h3
                     className="mb-3 font-['Manrope'] text-[#181A2A]"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 700,
                       lineHeight: "1.6",
                     }}
@@ -1688,7 +1578,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -1698,7 +1587,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -1708,7 +1596,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -1719,7 +1606,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <h3
                     className="mb-3 font-['Manrope'] text-[#181A2A]"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 700,
                       lineHeight: "1.6",
                     }}
@@ -1727,9 +1613,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     4.6 Work Area (WA)
                   </h3>
                   <p
-                    className="font-['Manrope'] text-[#3B3C4A]"
+                    className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -1738,9 +1623,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   </p>
                   <br />
                   <p
-                    className="font-['Manrope'] text-[#3B3C4A]"
+                    className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -1756,6 +1640,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <h2
                     className="mb-4 font-['Manrope'] text-[#181A2A]"
                     style={{
+
                       fontSize: "24px",
                       fontWeight: 600,
                       lineHeight: "1.167",
@@ -1764,9 +1649,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     Pack Lightly and Smartly
                   </h2>
                   <p
-                    className="font-['Manrope'] text-[#3B3C4A]"
+                    className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -1786,6 +1670,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <h2
                     className="mb-4 font-['Manrope'] text-[#181A2A]"
                     style={{
+
                       fontSize: "24px",
                       fontWeight: 600,
                       lineHeight: "1.167",
@@ -1794,9 +1679,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     Stay Safe and Healthy
                   </h2>
                   <p
-                    className="font-['Manrope'] text-[#3B3C4A]"
+                    className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -1817,6 +1701,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <h2
                     className="mb-4 font-['Manrope'] text-[#181A2A]"
                     style={{
+
                       fontSize: "24px",
                       fontWeight: 600,
                       lineHeight: "1.167",
@@ -1825,9 +1710,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     Immerse Yourself in the Local Culture
                   </h2>
                   <p
-                    className="font-['Manrope'] text-[#3B3C4A]"
+                    className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -1843,7 +1727,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
               {/* Image 2 */}
               <div
                 className="relative mb-8 overflow-hidden rounded-[12px]"
-                style={{ height: "462px" }}
+                style={{
+ height: "462px" }}
               >
                 <Image
                   src={isBlog1 ? "/data-transfer-via-network-cables-connected-switch-digital-world-concept-data-transfer-network-cables-switch-digital-world-connectivity.jpg" : isBlog2 ? "/data-center-network-cables-server-connections-highperformance-technology.jpg" : isBlog3 ? "/modern-server-farm-showcasing-advanced-technology-efficient-layout.jpg" : isBlog4 ? "/b3.jpg" : isBlog5 ? "/2c.jpg" : isBlog6 ? "/nexo 7.jpg" : isBlog7 ? "/The Safety Net Disaster Recovery.jpg" : isBlog8 ? "/The Nervous System Centralized Video Management (VMS).jpg" : isBlog9 ? "/The Future is Mobile Digital Credentials.jpg" : isBlog10 ? "/Certification The Difference Between Connected and Compliant.jpg" : isBlog11 ? "/247 Network Operations Center NOC.jpg" : isBlog12 ? "/Chaos to Cohesion.jpg" : "/blog-detail-image-2.png"}
@@ -1860,6 +1745,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <h2
                     className="mb-4 font-['Manrope'] text-[#181A2A]"
                     style={{
+
                       fontSize: "24px",
                       fontWeight: 700,
                       lineHeight: "1.6",
@@ -1870,7 +1756,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -1880,7 +1765,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -1890,7 +1774,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -1898,14 +1781,13 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     This has non-trivial implications:
                   </p>
                   <ul className="list-disc pl-6 mb-4 space-y-2">
-                    <li className="font-['Manrope'] text-[#3B3C4A]" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}>Cable bundles must be sized and routed to avoid excessive temperature rise.</li>
-                    <li className="font-['Manrope'] text-[#3B3C4A]" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}>Connectors and patch panels must tolerate repeated high-power connect/disconnect cycles.</li>
-                    <li className="font-['Manrope'] text-[#3B3C4A]" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}>Horizontal cabling for PoE lighting and dense IoT deployments often requires Cat 6A to manage both power and bandwidth safely.</li>
+                    <li className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}>Cable bundles must be sized and routed to avoid excessive temperature rise.</li>
+                    <li className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}>Connectors and patch panels must tolerate repeated high-power connect/disconnect cycles.</li>
+                    <li className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}>Horizontal cabling for PoE lighting and dense IoT deployments often requires Cat 6A to manage both power and bandwidth safely.</li>
                   </ul>
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -1913,9 +1795,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     Wireless is equally dependent on the wired SCS. High-density Wi-Fi 6/6E/7 deployments require a grid of access points, typically connected over Cat 6A with PoE++, while in-building cellular and DAS solutions rely on fibre and hybrid cabling behind the scenes.
                   </p>
                   <p
-                    className="font-['Manrope'] text-[#3B3C4A]"
+                    className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -1931,6 +1812,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <h2
                     className="mb-4 font-['Manrope'] text-[#181A2A]"
                     style={{
+
                       fontSize: "24px",
                       fontWeight: 700,
                       lineHeight: "1.6",
@@ -1941,7 +1823,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -1951,7 +1832,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -1961,7 +1841,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -1971,7 +1850,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -1979,9 +1857,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     Automated Infrastructure Management (AIM) is moving SCS from a static, paper-documented system to a live, monitored one. Solutions such as imVision, which CommScope highlights for smart campuses and buildings, track patching status and physical connections in real time. Nexobots designs the physical layout, labelling, and patching policy to be AIM-ready even if you do not deploy such systems on day one.
                   </p>
                   <p
-                    className="font-['Manrope'] text-[#3B3C4A]"
+                    className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -1997,6 +1874,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <h2
                     className="mb-4 font-['Manrope'] text-[#181A2A]"
                     style={{
+
                       fontSize: "24px",
                       fontWeight: 700,
                       lineHeight: "1.6",
@@ -2007,7 +1885,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -2017,7 +1894,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -2027,7 +1903,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -2035,14 +1910,13 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     Standards such as ISO/IEC 11801 and TIA-568 guide the topology, performance classes, and maximum distances, but design choices are driven by the particular mix of applications and risk profile. For example:
                   </p>
                   <ul className="list-disc pl-6 mb-4 space-y-2">
-                    <li className="font-['Manrope'] text-[#3B3C4A]" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}>In a head office where employee experience and collaboration are critical, horizontal cabling may be Cat 6A everywhere, with dense AP and meeting-room coverage.</li>
-                    <li className="font-['Manrope'] text-[#3B3C4A]" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}>In a manufacturing site, a hybrid of ruggedised copper, fibre, and SPE may be used, with extra focus on EMC, physical protection, and separation of safety-critical networks.</li>
-                    <li className="font-['Manrope'] text-[#3B3C4A]" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}>In a data centre, pre-terminated fibre trunks and high-density panels are likely to dominate, with copper used only at the rack edge.</li>
+                    <li className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}>In a head office where employee experience and collaboration are critical, horizontal cabling may be Cat 6A everywhere, with dense AP and meeting-room coverage.</li>
+                    <li className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}>In a manufacturing site, a hybrid of ruggedised copper, fibre, and SPE may be used, with extra focus on EMC, physical protection, and separation of safety-critical networks.</li>
+                    <li className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}>In a data centre, pre-terminated fibre trunks and high-density panels are likely to dominate, with copper used only at the rack edge.</li>
                   </ul>
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -2050,9 +1924,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     Pathways are dimensioned with 30–40% spare capacity to avoid premature saturation and expensive rework. Labelling and documentation schemas are designed to be understandable to internal staff, not only to external installers. Testing criteria are specified up front, and acceptance is contingent on complete certification, not sample testing.
                   </p>
                   <p
-                    className="font-['Manrope'] text-[#3B3C4A]"
+                    className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -2068,6 +1941,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <h2
                     className="mb-4 font-['Manrope'] text-[#181A2A]"
                     style={{
+
                       fontSize: "24px",
                       fontWeight: 700,
                       lineHeight: "1.6",
@@ -2078,7 +1952,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -2088,7 +1961,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -2098,7 +1970,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -2106,9 +1977,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     Opex reduction comes from standardisation and documentation. When every outlet and patch port can be traced, moves and incident resolution become predictable tasks rather than investigations. This directly reduces engineer time and user downtime.
                   </p>
                   <p
-                    className="font-['Manrope'] text-[#3B3C4A]"
+                    className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -2124,6 +1994,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <h2
                     className="mb-4 font-['Manrope'] text-[#181A2A]"
                     style={{
+
                       fontSize: "24px",
                       fontWeight: 700,
                       lineHeight: "1.6",
@@ -2134,7 +2005,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -2144,7 +2014,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -2152,9 +2021,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     We commit to vendor-neutral design that aligns with ISO/IEC and TIA standards, ensuring your SCS is not locked into any one OEM. We integrate cabling, power feeding, and wireless from day one, rather than designing them in silos. We prioritise documentation and training so that your internal teams can operate and evolve the infrastructure confidently after handover.
                   </p>
                   <p
-                    className="font-['Manrope'] text-[#3B3C4A]"
+                    className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -2170,6 +2038,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <h2
                     className="mb-4 font-['Manrope'] text-[#181A2A]"
                     style={{
+
                       fontSize: "24px",
                       fontWeight: 700,
                       lineHeight: "1.6",
@@ -2180,7 +2049,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -2190,7 +2058,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -2198,9 +2065,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     By contrast, structured cabling with Nexobots provides clear separation of subsystems such as backbone, horizontal cabling, and work areas; documented patching from active equipment to outlets; and a framework that simplifies moves, adds, and changes. It also offers a physical foundation that is inherently more prepared for technology refreshes.
                   </p>
                   <p
-                    className="font-['Manrope'] text-[#3B3C4A]"
+                    className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -2216,6 +2082,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <h2
                     className="mb-4 font-['Manrope'] text-[#181A2A]"
                     style={{
+
                       fontSize: "24px",
                       fontWeight: 700,
                       lineHeight: "1.6",
@@ -2227,7 +2094,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <h3
                     className="mb-3 font-['Manrope'] text-[#181A2A]"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 700,
                       lineHeight: "1.6",
                     }}
@@ -2237,7 +2103,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -2247,7 +2112,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -2258,7 +2122,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <h3
                     className="mb-3 font-['Manrope'] text-[#181A2A]"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 700,
                       lineHeight: "1.6",
                     }}
@@ -2268,7 +2131,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -2278,7 +2140,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -2289,7 +2150,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <h3
                     className="mb-3 font-['Manrope'] text-[#181A2A]"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 700,
                       lineHeight: "1.6",
                     }}
@@ -2299,7 +2159,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -2310,7 +2169,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <h3
                     className="mb-3 font-['Manrope'] text-[#181A2A]"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 700,
                       lineHeight: "1.6",
                     }}
@@ -2320,7 +2178,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -2331,7 +2188,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <h3
                     className="mb-3 font-['Manrope'] text-[#181A2A]"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 700,
                       lineHeight: "1.6",
                     }}
@@ -2339,9 +2195,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     6.5 Testing and Certification
                   </h3>
                   <p
-                    className="font-['Manrope'] text-[#3B3C4A]"
+                    className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -2350,9 +2205,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   </p>
                   <br />
                   <p
-                    className="font-['Manrope'] text-[#3B3C4A]"
+                    className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -2368,6 +2222,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <h2
                     className="mb-4 font-['Manrope'] text-[#181A2A]"
                     style={{
+
                       fontSize: "24px",
                       fontWeight: 700,
                       lineHeight: "1.6",
@@ -2378,7 +2233,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -2389,7 +2243,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <h3
                     className="mb-3 font-['Manrope'] text-[#181A2A]"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 700,
                       lineHeight: "1.6",
                     }}
@@ -2399,7 +2252,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -2410,7 +2262,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <h3
                     className="mb-3 font-['Manrope'] text-[#181A2A]"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 700,
                       lineHeight: "1.6",
                     }}
@@ -2420,7 +2271,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -2431,7 +2281,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <h3
                     className="mb-3 font-['Manrope'] text-[#181A2A]"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 700,
                       lineHeight: "1.6",
                     }}
@@ -2439,9 +2288,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     7.3 Data Centres and Server Rooms
                   </h3>
                   <p
-                    className="font-['Manrope'] text-[#3B3C4A]"
+                    className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -2457,6 +2305,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <h2
                     className="mb-4 font-['Manrope'] text-[#181A2A]"
                     style={{
+
                       fontSize: "24px",
                       fontWeight: 700,
                       lineHeight: "1.6",
@@ -2467,7 +2316,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -2478,7 +2326,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <h3
                     className="mb-3 font-['Manrope'] text-[#181A2A]"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 700,
                       lineHeight: "1.6",
                     }}
@@ -2488,7 +2335,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -2499,7 +2345,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <h3
                     className="mb-3 font-['Manrope'] text-[#181A2A]"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 700,
                       lineHeight: "1.6",
                     }}
@@ -2509,7 +2354,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -2520,7 +2364,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <h3
                     className="mb-3 font-['Manrope'] text-[#181A2A]"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 700,
                       lineHeight: "1.6",
                     }}
@@ -2530,7 +2373,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -2541,7 +2383,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <h3
                     className="mb-3 font-['Manrope'] text-[#181A2A]"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 700,
                       lineHeight: "1.6",
                     }}
@@ -2549,9 +2390,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     8.4 Ongoing Support (Optional)
                   </h3>
                   <p
-                    className="font-['Manrope'] text-[#3B3C4A]"
+                    className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -2567,6 +2407,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <h2
                     className="mb-4 font-['Manrope'] text-[#181A2A]"
                     style={{
+
                       fontSize: "24px",
                       fontWeight: 700,
                       lineHeight: "1.6",
@@ -2577,7 +2418,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -2587,7 +2427,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -2597,7 +2436,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -2607,7 +2445,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -2617,7 +2454,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -2627,7 +2463,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -2637,7 +2472,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -2645,15 +2479,14 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <strong>Actual cost depends on:</strong>
                   </p>
                   <ul className="list-disc pl-6 mb-4 space-y-2">
-                    <li className="font-['Manrope'] text-[#3B3C4A]" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}>Metro vs Tier-2 location</li>
-                    <li className="font-['Manrope'] text-[#3B3C4A]" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}>Choice of brand (tier-1 global vs mid-range vs local)</li>
-                    <li className="font-['Manrope'] text-[#3B3C4A]" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}>Cabling category (Cat 6 vs Cat 6A, and use of fibre)</li>
-                    <li className="font-['Manrope'] text-[#3B3C4A]" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}>Site conditions (civil constraints, riser distance, ceiling access, security rules)</li>
+                    <li className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}>Metro vs Tier-2 location</li>
+                    <li className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}>Choice of brand (tier-1 global vs mid-range vs local)</li>
+                    <li className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}>Cabling category (Cat 6 vs Cat 6A, and use of fibre)</li>
+                    <li className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}>Site conditions (civil constraints, riser distance, ceiling access, security rules)</li>
                   </ul>
                   <p
-                    className="font-['Manrope'] text-[#3B3C4A]"
+                    className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -2669,6 +2502,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <h2
                     className="mb-4 font-['Manrope'] text-[#181A2A]"
                     style={{
+
                       fontSize: "24px",
                       fontWeight: 700,
                       lineHeight: "1.6",
@@ -2679,7 +2513,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -2689,7 +2522,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -2699,7 +2531,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <h3
                     className="mb-3 font-['Manrope'] text-[#181A2A]"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 700,
                       lineHeight: "1.6",
                     }}
@@ -2709,7 +2540,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -2719,7 +2549,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -2729,7 +2558,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -2739,7 +2567,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -2749,7 +2576,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <h3
                     className="mb-3 font-['Manrope'] text-[#181A2A]"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 700,
                       lineHeight: "1.6",
                     }}
@@ -2759,7 +2585,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -2769,7 +2594,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -2779,7 +2603,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <h3
                     className="mb-3 font-['Manrope'] text-[#181A2A]"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 700,
                       lineHeight: "1.6",
                     }}
@@ -2789,7 +2612,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -2797,13 +2619,12 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     Where inter-floor or campus connections are required, typical choices are:
                   </p>
                   <ul className="list-disc pl-6 mb-4 space-y-2">
-                    <li className="font-['Manrope'] text-[#3B3C4A]" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}>OS2 single-mode fibre for inter-building and longer intra-building runs.</li>
-                    <li className="font-['Manrope'] text-[#3B3C4A]" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}>OM3/OM4 multimode fibre for shorter, high-speed links inside buildings and data rooms.</li>
+                    <li className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}>OS2 single-mode fibre for inter-building and longer intra-building runs.</li>
+                    <li className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}>OM3/OM4 multimode fibre for shorter, high-speed links inside buildings and data rooms.</li>
                   </ul>
                   <h3
                     className="mb-3 font-['Manrope'] text-[#181A2A]"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 700,
                       lineHeight: "1.6",
                     }}
@@ -2813,7 +2634,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -2823,7 +2643,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -2833,7 +2652,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <h3
                     className="mb-3 font-['Manrope'] text-[#181A2A]"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 700,
                       lineHeight: "1.6",
                     }}
@@ -2843,7 +2661,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -2853,7 +2670,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -2861,9 +2677,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     Ensure jacket type and construction are appropriate for ceiling voids, risers, and any special conditions (e.g., high temperature zones, industrial areas).
                   </p>
                   <p
-                    className="font-['Manrope'] text-[#3B3C4A]"
+                    className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -2879,6 +2694,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <h2
                     className="mb-4 font-['Manrope'] text-[#181A2A]"
                     style={{
+
                       fontSize: "24px",
                       fontWeight: 700,
                       lineHeight: "1.6",
@@ -2889,7 +2705,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -2899,7 +2714,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -2909,7 +2723,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <h3
                     className="mb-3 font-['Manrope'] text-[#181A2A]"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 700,
                       lineHeight: "1.6",
                     }}
@@ -2919,7 +2732,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -2929,7 +2741,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -2939,7 +2750,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -2949,7 +2759,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -2959,7 +2768,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <h3
                     className="mb-3 font-['Manrope'] text-[#181A2A]"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 700,
                       lineHeight: "1.6",
                     }}
@@ -2969,7 +2777,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -2979,7 +2786,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -2989,7 +2795,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -2999,7 +2804,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -3009,7 +2813,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <h3
                     className="mb-3 font-['Manrope'] text-[#181A2A]"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 700,
                       lineHeight: "1.6",
                     }}
@@ -3019,7 +2822,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -3027,9 +2829,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     Most designs follow spine–leaf or variants. Structured cabling must support consistent, documented fibre counts between leaves and spines, with provision for expansion.
                   </p>
                   <p
-                    className="font-['Manrope'] text-[#3B3C4A]"
+                    className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -3039,7 +2840,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mt-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -3055,6 +2855,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <h2
                     className="mb-4 font-['Manrope'] text-[#181A2A]"
                     style={{
+
                       fontSize: "24px",
                       fontWeight: 700,
                       lineHeight: "1.6",
@@ -3065,7 +2866,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <h3
                     className="mb-3 font-['Manrope'] text-[#181A2A]"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 700,
                       lineHeight: "1.6",
                     }}
@@ -3075,7 +2875,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -3085,7 +2884,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -3095,7 +2893,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -3105,7 +2902,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -3115,7 +2911,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -3125,7 +2920,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -3135,7 +2929,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -3145,7 +2938,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -3153,14 +2945,13 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <strong>Advantages of copper:</strong>
                   </p>
                   <ul className="list-disc pl-6 mb-4 space-y-2">
-                    <li className="font-['Manrope'] text-[#3B3C4A]" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}>Provides both data and power via PoE on a single cable.</li>
-                    <li className="font-['Manrope'] text-[#3B3C4A]" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}>Mature, widely understood installation and termination practices.</li>
-                    <li className="font-['Manrope'] text-[#3B3C4A]" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}>Cost-effective for horizontal runs up to 100 m.</li>
+                    <li className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}>Provides both data and power via PoE on a single cable.</li>
+                    <li className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}>Mature, widely understood installation and termination practices.</li>
+                    <li className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}>Cost-effective for horizontal runs up to 100 m.</li>
                   </ul>
                   <h3
                     className="mb-3 font-['Manrope'] text-[#181A2A]"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 700,
                       lineHeight: "1.6",
                     }}
@@ -3170,7 +2961,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -3180,7 +2970,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -3190,7 +2979,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -3200,7 +2988,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -3210,7 +2997,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -3220,7 +3006,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -3228,14 +3013,13 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <strong>Advantages of fibre:</strong>
                   </p>
                   <ul className="list-disc pl-6 mb-4 space-y-2">
-                    <li className="font-['Manrope'] text-[#3B3C4A]" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}>Extremely high bandwidth, low attenuation, and low latency over long distances.</li>
-                    <li className="font-['Manrope'] text-[#3B3C4A]" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}>Immunity to electromagnetic interference.</li>
-                    <li className="font-['Manrope'] text-[#3B3C4A]" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}>Compact cable diameter and high possible port density.</li>
+                    <li className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}>Extremely high bandwidth, low attenuation, and low latency over long distances.</li>
+                    <li className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}>Immunity to electromagnetic interference.</li>
+                    <li className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}>Compact cable diameter and high possible port density.</li>
                   </ul>
                   <p
-                    className="font-['Manrope'] text-[#3B3C4A]"
+                    className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -3251,6 +3035,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <h2
                     className="mb-4 font-['Manrope'] text-[#181A2A]"
                     style={{
+
                       fontSize: "24px",
                       fontWeight: 700,
                       lineHeight: "1.6",
@@ -3261,7 +3046,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -3271,7 +3055,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -3279,13 +3062,12 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     The primary reference standards adopted by Nexobots are:
                   </p>
                   <ul className="list-disc pl-6 mb-4 space-y-2">
-                    <li className="font-['Manrope'] text-[#3B3C4A]" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}><strong>ISO/IEC 11801</strong> – Generic cabling for customer premises, covering office, industrial, residential, data centre, and distributed building services.</li>
-                    <li className="font-['Manrope'] text-[#3B3C4A]" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}><strong>ANSI/TIA-568</strong> – Commercial building telecommunications cabling standard, defining performance and topologies for balanced copper and fibre cabling.</li>
+                    <li className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}><strong>ISO/IEC 11801</strong> – Generic cabling for customer premises, covering office, industrial, residential, data centre, and distributed building services.</li>
+                    <li className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}><strong>ANSI/TIA-568</strong> – Commercial building telecommunications cabling standard, defining performance and topologies for balanced copper and fibre cabling.</li>
                   </ul>
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -3293,9 +3075,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     Indian technical guidelines (for example, those used by telecom carriers and certain public-sector projects) typically reference these standards as benchmarks.
                   </p>
                   <p
-                    className="font-['Manrope'] text-[#3B3C4A]"
+                    className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -3303,8 +3084,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     In Nexobots projects, this translates to:
                   </p>
                   <ul className="list-disc pl-6 mb-4 space-y-2">
-                    <li className="font-['Manrope'] text-[#3B3C4A]" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}>Using ISO/IEC 11801 classes (e.g., Class E, Class EA) to define performance targets.</li>
-                    <li className="font-['Manrope'] text-[#3B3C4A]" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}>Ensuring cabling layouts and maximum distances align with standard topologies and limits.</li>
+                    <li className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}>Using ISO/IEC 11801 classes (e.g., Class E, Class EA) to define performance targets.</li>
+                    <li className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}>Ensuring cabling layouts and maximum distances align with standard topologies and limits.</li>
                   </ul>
                 </div>
               )}
@@ -3315,6 +3096,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <h2
                     className="mb-4 font-['Manrope'] text-[#181A2A]"
                     style={{
+
                       fontSize: "24px",
                       fontWeight: 700,
                       lineHeight: "1.6",
@@ -3325,7 +3107,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -3335,7 +3116,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <h3
                     className="mb-3 font-['Manrope'] text-[#181A2A]"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 700,
                       lineHeight: "1.6",
                     }}
@@ -3345,7 +3125,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -3355,7 +3134,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <h3
                     className="mb-3 font-['Manrope'] text-[#181A2A]"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 700,
                       lineHeight: "1.6",
                     }}
@@ -3363,9 +3141,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     1.2 Physical Infrastructure Readiness
                   </h3>
                   <p
-                    className="font-['Manrope'] text-[#3B3C4A]"
+                    className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -3381,6 +3158,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <h2
                     className="mb-4 font-['Manrope'] text-[#181A2A]"
                     style={{
+
                       fontSize: "24px",
                       fontWeight: 700,
                       lineHeight: "1.6",
@@ -3391,7 +3169,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -3401,7 +3178,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <h3
                     className="mb-3 font-['Manrope'] text-[#181A2A]"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 700,
                       lineHeight: "1.6",
                     }}
@@ -3411,7 +3187,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -3421,7 +3196,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -3431,7 +3205,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <h3
                     className="mb-3 font-['Manrope'] text-[#181A2A]"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 700,
                       lineHeight: "1.6",
                     }}
@@ -3439,9 +3212,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     2.2 Security at the Edge (SASE Readiness)
                   </h3>
                   <p
-                    className="font-['Manrope'] text-[#3B3C4A]"
+                    className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -3451,7 +3223,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mt-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -3467,6 +3238,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <h2
                     className="mb-4 font-['Manrope'] text-[#181A2A]"
                     style={{
+
                       fontSize: "24px",
                       fontWeight: 700,
                       lineHeight: "1.6",
@@ -3477,7 +3249,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -3487,7 +3258,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <h3
                     className="mb-3 font-['Manrope'] text-[#181A2A]"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 700,
                       lineHeight: "1.6",
                     }}
@@ -3497,7 +3267,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -3507,7 +3276,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -3517,7 +3285,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <h3
                     className="mb-3 font-['Manrope'] text-[#181A2A]"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 700,
                       lineHeight: "1.6",
                     }}
@@ -3527,7 +3294,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -3535,14 +3301,13 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     Replacing a WAN is akin to changing the engine of an aircraft while in flight. To mitigate operational risk, a phased migration strategy is essential.
                   </p>
                   <ul className="list-disc pl-6 mb-4 space-y-2">
-                    <li className="font-['Manrope'] text-[#3B3C4A]" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}><strong>Pilot Phase:</strong> Deploying to a select group of non-critical sites to validate policies and application performance.</li>
-                    <li className="font-['Manrope'] text-[#3B3C4A]" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}><strong>Parallel Run:</strong> Running the new SD-WAN overlay alongside the existing legacy network to ensure stability.</li>
-                    <li className="font-['Manrope'] text-[#3B3C4A]" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}><strong>Full Cutover:</strong> Transitioning all traffic once stability is confirmed.</li>
+                    <li className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}><strong>Pilot Phase:</strong> Deploying to a select group of non-critical sites to validate policies and application performance.</li>
+                    <li className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}><strong>Parallel Run:</strong> Running the new SD-WAN overlay alongside the existing legacy network to ensure stability.</li>
+                    <li className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}><strong>Full Cutover:</strong> Transitioning all traffic once stability is confirmed.</li>
                   </ul>
                   <p
-                    className="font-['Manrope'] text-[#3B3C4A]"
+                    className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -3558,6 +3323,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <h2
                     className="mb-4 font-['Manrope'] text-[#181A2A]"
                     style={{
+
                       fontSize: "24px",
                       fontWeight: 700,
                       lineHeight: "1.6",
@@ -3568,7 +3334,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -3578,7 +3343,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <h3
                     className="mb-3 font-['Manrope'] text-[#181A2A]"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 700,
                       lineHeight: "1.6",
                     }}
@@ -3588,7 +3352,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -3598,7 +3361,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <h3
                     className="mb-3 font-['Manrope'] text-[#181A2A]"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 700,
                       lineHeight: "1.6",
                     }}
@@ -3606,9 +3368,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     4.2 Continuous Capacity Planning
                   </h3>
                   <p
-                    className="font-['Manrope'] text-[#3B3C4A]"
+                    className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -3624,6 +3385,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <h2
                     className="mb-4 font-['Manrope'] text-[#181A2A]"
                     style={{
+
                       fontSize: "24px",
                       fontWeight: 700,
                       lineHeight: "1.6",
@@ -3634,7 +3396,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -3644,7 +3405,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <h3
                     className="mb-3 font-['Manrope'] text-[#181A2A]"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 700,
                       lineHeight: "1.6",
                     }}
@@ -3654,7 +3414,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -3664,7 +3423,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -3672,14 +3430,13 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     Effective NOC support goes beyond simple "up/down" monitoring. It involves:
                   </p>
                   <ul className="list-disc pl-6 mb-4 space-y-2">
-                    <li className="font-['Manrope'] text-[#3B3C4A]" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}><strong>Event Correlation:</strong> Filtering noise to identify genuine incidents.</li>
-                    <li className="font-['Manrope'] text-[#3B3C4A]" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}><strong>Root-Cause Analysis:</strong> Diagnosing whether a slowdown is due to the ISP, the hardware, or the application.</li>
-                    <li className="font-['Manrope'] text-[#3B3C4A]" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}><strong>Proactive Alerting:</strong> Identifying anomalies before they result in an outage.</li>
+                    <li className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}><strong>Event Correlation:</strong> Filtering noise to identify genuine incidents.</li>
+                    <li className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}><strong>Root-Cause Analysis:</strong> Diagnosing whether a slowdown is due to the ISP, the hardware, or the application.</li>
+                    <li className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}><strong>Proactive Alerting:</strong> Identifying anomalies before they result in an outage.</li>
                   </ul>
                   <h3
                     className="mb-3 font-['Manrope'] text-[#181A2A]"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 700,
                       lineHeight: "1.6",
                     }}
@@ -3687,9 +3444,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     5.2 SLA-Driven Accountability
                   </h3>
                   <p
-                    className="font-['Manrope'] text-[#3B3C4A]"
+                    className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -3699,7 +3455,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mt-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -3715,6 +3470,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <h2
                     className="mb-4 font-['Manrope'] text-[#181A2A]"
                     style={{
+
                       fontSize: "24px",
                       fontWeight: 700,
                       lineHeight: "1.6",
@@ -3725,7 +3481,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -3735,7 +3490,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -3745,7 +3499,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -3753,9 +3506,9 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     This shift allows IT leaders to evolve their strategy:
                   </p>
                   <ul className="list-disc pl-6 mb-4 space-y-2">
-                    <li className="font-['Manrope'] text-[#3B3C4A]" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}><strong>Reactive:</strong> "The link is down. Call the ISP."</li>
-                    <li className="font-['Manrope'] text-[#3B3C4A]" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}><strong>Proactive:</strong> "Latency on the secondary link has increased by 15% over the last hour. Reroute traffic before packet loss occurs."</li>
-                    <li className="font-['Manrope'] text-[#3B3C4A]" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}><strong>Predictive:</strong> "Based on usage trends, this switch will reach capacity limits in 14 days. Schedule an upgrade window now."</li>
+                    <li className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}><strong>Reactive:</strong> "The link is down. Call the ISP."</li>
+                    <li className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}><strong>Proactive:</strong> "Latency on the secondary link has increased by 15% over the last hour. Reroute traffic before packet loss occurs."</li>
+                    <li className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}><strong>Predictive:</strong> "Based on usage trends, this switch will reach capacity limits in 14 days. Schedule an upgrade window now."</li>
                   </ul>
                 </div>
               )}
@@ -3766,6 +3519,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <h2
                     className="mb-4 font-['Manrope'] text-[#181A2A]"
                     style={{
+
                       fontSize: "24px",
                       fontWeight: 700,
                       lineHeight: "1.6",
@@ -3776,7 +3530,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -3786,7 +3539,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <h3
                     className="mb-3 font-['Manrope'] text-[#181A2A]"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 700,
                       lineHeight: "1.6",
                     }}
@@ -3796,7 +3548,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -3806,7 +3557,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <h3
                     className="mb-3 font-['Manrope'] text-[#181A2A]"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 700,
                       lineHeight: "1.6",
                     }}
@@ -3816,7 +3566,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -3826,7 +3575,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <h3
                     className="mb-3 font-['Manrope'] text-[#181A2A]"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 700,
                       lineHeight: "1.6",
                     }}
@@ -3834,9 +3582,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     3. Multi-Vendor Correlation
                   </h3>
                   <p
-                    className="font-['Manrope'] text-[#3B3C4A]"
+                    className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -3852,6 +3599,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <h2
                     className="mb-4 font-['Manrope'] text-[#181A2A]"
                     style={{
+
                       fontSize: "24px",
                       fontWeight: 700,
                       lineHeight: "1.6",
@@ -3862,7 +3610,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -3872,7 +3619,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -3882,7 +3628,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -3892,7 +3637,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -3900,9 +3644,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <strong>Capacity Planning:</strong> Using historical trend analysis to forecast hardware lifecycle requirements, ensuring budgets are allocated efficiently rather than reactively.
                   </p>
                   <p
-                    className="font-['Manrope'] text-[#3B3C4A]"
+                    className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -3912,7 +3655,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mt-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -3928,6 +3670,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <h2
                     className="mb-4 font-['Manrope'] text-[#181A2A]"
                     style={{
+
                       fontSize: "24px",
                       fontWeight: 700,
                       lineHeight: "1.6",
@@ -3938,7 +3681,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -3948,7 +3690,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mb-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -3956,14 +3697,13 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     An SLA is not just a contract clause; it is a mathematical commitment to business continuity. It defines:
                   </p>
                   <ul className="list-disc pl-6 mb-4 space-y-2">
-                    <li className="font-['Manrope'] text-[#3B3C4A]" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}><strong>Response Time Guarantees:</strong> The maximum time allowed for an engineer to acknowledge and begin working on a critical ticket (often as low as 15-60 minutes).</li>
-                    <li className="font-['Manrope'] text-[#3B3C4A]" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}><strong>Resolution Time Metrics:</strong> Defined benchmarks for fixing issues based on severity.</li>
-                    <li className="font-['Manrope'] text-[#3B3C4A]" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}><strong>Uptime Commitments:</strong> Percentage-based guarantees (e.g., 99.9% uptime) that align IT performance with business revenue goals.</li>
+                    <li className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}><strong>Response Time Guarantees:</strong> The maximum time allowed for an engineer to acknowledge and begin working on a critical ticket (often as low as 15-60 minutes).</li>
+                    <li className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}><strong>Resolution Time Metrics:</strong> Defined benchmarks for fixing issues based on severity.</li>
+                    <li className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl" style={{ fontSize: "20px", fontWeight: 500, lineHeight: "1.6" }}><strong>Uptime Commitments:</strong> Percentage-based guarantees (e.g., 99.9% uptime) that align IT performance with business revenue goals.</li>
                   </ul>
                   <p
-                    className="font-['Manrope'] text-[#3B3C4A]"
+                    className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -3979,6 +3719,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <h2
                     className="mb-4 font-['Manrope'] text-[#181A2A]"
                     style={{
+
                       fontSize: "24px",
                       fontWeight: 700,
                       lineHeight: "1.6",
@@ -3987,9 +3728,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     Strategic Advantage: The Pan-India Support Layer
                   </h2>
                   <p
-                    className="font-['Manrope'] text-[#3B3C4A]"
+                    className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -3999,7 +3739,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <p
                     className="font-['Manrope'] text-[#3B3C4A] mt-4"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -4017,6 +3756,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h2
                       className="mb-4 font-['Manrope'] text-[#181A2A]"
                       style={{
+
                         fontSize: "24px",
                         fontWeight: 700,
                         lineHeight: "1.6",
@@ -4027,7 +3767,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -4037,7 +3776,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -4047,7 +3785,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h3
                       className="mb-3 mt-6 font-['Manrope'] text-[#181A2A]"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 700,
                         lineHeight: "1.6",
                       }}
@@ -4057,7 +3794,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -4078,7 +3814,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h3
                       className="mb-3 mt-6 font-['Manrope'] text-[#181A2A]"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 700,
                         lineHeight: "1.6",
                       }}
@@ -4088,7 +3823,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -4102,6 +3836,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h2
                       className="mb-4 font-['Manrope'] text-[#181A2A]"
                       style={{
+
                         fontSize: "24px",
                         fontWeight: 700,
                         lineHeight: "1.6",
@@ -4112,7 +3847,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -4122,7 +3856,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -4132,7 +3865,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h3
                       className="mb-3 mt-6 font-['Manrope'] text-[#181A2A]"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 700,
                         lineHeight: "1.6",
                       }}
@@ -4142,7 +3874,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -4152,7 +3883,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h3
                       className="mb-3 mt-6 font-['Manrope'] text-[#181A2A]"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 700,
                         lineHeight: "1.6",
                       }}
@@ -4162,7 +3892,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -4172,7 +3901,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h3
                       className="mb-3 mt-6 font-['Manrope'] text-[#181A2A]"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 700,
                         lineHeight: "1.6",
                       }}
@@ -4182,7 +3910,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -4196,6 +3923,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h2
                       className="mb-4 font-['Manrope'] text-[#181A2A]"
                       style={{
+
                         fontSize: "24px",
                         fontWeight: 700,
                         lineHeight: "1.6",
@@ -4206,7 +3934,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -4216,7 +3943,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -4226,7 +3952,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h3
                       className="mb-3 mt-6 font-['Manrope'] text-[#181A2A]"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 700,
                         lineHeight: "1.6",
                       }}
@@ -4236,7 +3961,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -4246,7 +3970,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h3
                       className="mb-3 mt-6 font-['Manrope'] text-[#181A2A]"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 700,
                         lineHeight: "1.6",
                       }}
@@ -4256,7 +3979,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -4270,6 +3992,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h2
                       className="mb-4 font-['Manrope'] text-[#181A2A]"
                       style={{
+
                         fontSize: "24px",
                         fontWeight: 700,
                         lineHeight: "1.6",
@@ -4280,7 +4003,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -4290,7 +4012,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -4304,6 +4025,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h2
                       className="mb-4 font-['Manrope'] text-[#181A2A]"
                       style={{
+
                         fontSize: "24px",
                         fontWeight: 700,
                         lineHeight: "1.6",
@@ -4314,7 +4036,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -4324,7 +4045,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -4334,7 +4054,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h3
                       className="mb-3 mt-6 font-['Manrope'] text-[#181A2A]"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 700,
                         lineHeight: "1.6",
                       }}
@@ -4344,7 +4063,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -4354,7 +4072,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h3
                       className="mb-3 mt-6 font-['Manrope'] text-[#181A2A]"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 700,
                         lineHeight: "1.6",
                       }}
@@ -4364,7 +4081,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -4383,6 +4099,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h2
                       className="mb-4 font-['Manrope'] text-[#181A2A]"
                       style={{
+
                         fontSize: "24px",
                         fontWeight: 700,
                         lineHeight: "1.6",
@@ -4393,7 +4110,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -4403,7 +4119,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -4413,7 +4128,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -4427,6 +4141,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h2
                       className="mb-4 font-['Manrope'] text-[#181A2A]"
                       style={{
+
                         fontSize: "24px",
                         fontWeight: 700,
                         lineHeight: "1.6",
@@ -4437,7 +4152,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -4447,7 +4161,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -4457,7 +4170,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -4467,7 +4179,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h3
                       className="mb-3 mt-6 font-['Manrope'] text-[#181A2A]"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 700,
                         lineHeight: "1.6",
                       }}
@@ -4477,7 +4188,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -4487,7 +4197,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h3
                       className="mb-3 mt-6 font-['Manrope'] text-[#181A2A]"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 700,
                         lineHeight: "1.6",
                       }}
@@ -4497,7 +4206,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -4507,7 +4215,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h3
                       className="mb-3 mt-6 font-['Manrope'] text-[#181A2A]"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 700,
                         lineHeight: "1.6",
                       }}
@@ -4517,7 +4224,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -4531,6 +4237,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h2
                       className="mb-4 font-['Manrope'] text-[#181A2A]"
                       style={{
+
                         fontSize: "24px",
                         fontWeight: 700,
                         lineHeight: "1.6",
@@ -4541,7 +4248,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -4551,7 +4257,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -4561,7 +4266,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -4571,7 +4275,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h3
                       className="mb-3 mt-6 font-['Manrope'] text-[#181A2A]"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 700,
                         lineHeight: "1.6",
                       }}
@@ -4581,7 +4284,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -4591,7 +4293,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h3
                       className="mb-3 mt-6 font-['Manrope'] text-[#181A2A]"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 700,
                         lineHeight: "1.6",
                       }}
@@ -4601,7 +4302,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -4611,7 +4311,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h3
                       className="mb-3 mt-6 font-['Manrope'] text-[#181A2A]"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 700,
                         lineHeight: "1.6",
                       }}
@@ -4621,7 +4320,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -4635,6 +4333,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h2
                       className="mb-4 font-['Manrope'] text-[#181A2A]"
                       style={{
+
                         fontSize: "24px",
                         fontWeight: 700,
                         lineHeight: "1.6",
@@ -4645,7 +4344,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -4655,7 +4353,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -4669,6 +4366,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h2
                       className="mb-4 font-['Manrope'] text-[#181A2A]"
                       style={{
+
                         fontSize: "24px",
                         fontWeight: 700,
                         lineHeight: "1.6",
@@ -4679,7 +4377,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -4689,7 +4386,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -4699,7 +4395,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h3
                       className="mb-3 mt-6 font-['Manrope'] text-[#181A2A]"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 700,
                         lineHeight: "1.6",
                       }}
@@ -4709,7 +4404,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -4719,7 +4413,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h3
                       className="mb-3 mt-6 font-['Manrope'] text-[#181A2A]"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 700,
                         lineHeight: "1.6",
                       }}
@@ -4729,7 +4422,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -4739,7 +4431,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h3
                       className="mb-3 mt-6 font-['Manrope'] text-[#181A2A]"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 700,
                         lineHeight: "1.6",
                       }}
@@ -4749,7 +4440,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -4768,6 +4458,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h2
                       className="mb-4 font-['Manrope'] text-[#181A2A]"
                       style={{
+
                         fontSize: "24px",
                         fontWeight: 700,
                         lineHeight: "1.6",
@@ -4778,7 +4469,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -4788,7 +4478,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -4798,7 +4487,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h3
                       className="mb-3 mt-6 font-['Manrope'] text-[#181A2A]"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 700,
                         lineHeight: "1.6",
                       }}
@@ -4808,7 +4496,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -4818,7 +4505,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h3
                       className="mb-3 mt-6 font-['Manrope'] text-[#181A2A]"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 700,
                         lineHeight: "1.6",
                       }}
@@ -4828,7 +4514,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -4838,7 +4523,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h3
                       className="mb-3 mt-6 font-['Manrope'] text-[#181A2A]"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 700,
                         lineHeight: "1.6",
                       }}
@@ -4848,7 +4532,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -4862,6 +4545,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h2
                       className="mb-4 font-['Manrope'] text-[#181A2A]"
                       style={{
+
                         fontSize: "24px",
                         fontWeight: 700,
                         lineHeight: "1.6",
@@ -4872,7 +4556,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -4882,7 +4565,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -4892,7 +4574,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -4906,6 +4587,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h2
                       className="mb-4 font-['Manrope'] text-[#181A2A]"
                       style={{
+
                         fontSize: "24px",
                         fontWeight: 700,
                         lineHeight: "1.6",
@@ -4916,7 +4598,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -4926,7 +4607,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -4936,7 +4616,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h3
                       className="mb-3 mt-6 font-['Manrope'] text-[#181A2A]"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 700,
                         lineHeight: "1.6",
                       }}
@@ -4946,7 +4625,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -4956,7 +4634,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h3
                       className="mb-3 mt-6 font-['Manrope'] text-[#181A2A]"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 700,
                         lineHeight: "1.6",
                       }}
@@ -4966,7 +4643,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -4976,7 +4652,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h3
                       className="mb-3 mt-6 font-['Manrope'] text-[#181A2A]"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 700,
                         lineHeight: "1.6",
                       }}
@@ -4986,7 +4661,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -5000,6 +4674,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h2
                       className="mb-4 font-['Manrope'] text-[#181A2A]"
                       style={{
+
                         fontSize: "24px",
                         fontWeight: 700,
                         lineHeight: "1.6",
@@ -5010,7 +4685,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -5020,7 +4694,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -5030,7 +4703,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h3
                       className="mb-3 mt-6 font-['Manrope'] text-[#181A2A]"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 700,
                         lineHeight: "1.6",
                       }}
@@ -5040,7 +4712,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -5050,7 +4721,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h3
                       className="mb-3 mt-6 font-['Manrope'] text-[#181A2A]"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 700,
                         lineHeight: "1.6",
                       }}
@@ -5060,7 +4730,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -5079,6 +4748,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h2
                       className="mb-4 font-['Manrope'] text-[#181A2A]"
                       style={{
+
                         fontSize: "24px",
                         fontWeight: 700,
                         lineHeight: "1.6",
@@ -5089,7 +4759,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -5099,7 +4768,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -5109,7 +4777,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h3
                       className="mb-3 mt-6 font-['Manrope'] text-[#181A2A]"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 700,
                         lineHeight: "1.6",
                       }}
@@ -5119,7 +4786,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -5129,7 +4795,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h3
                       className="mb-3 mt-6 font-['Manrope'] text-[#181A2A]"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 700,
                         lineHeight: "1.6",
                       }}
@@ -5139,7 +4804,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -5153,6 +4817,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h2
                       className="mb-4 font-['Manrope'] text-[#181A2A]"
                       style={{
+
                         fontSize: "24px",
                         fontWeight: 700,
                         lineHeight: "1.6",
@@ -5163,7 +4828,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -5173,7 +4837,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -5183,7 +4846,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h3
                       className="mb-3 mt-6 font-['Manrope'] text-[#181A2A]"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 700,
                         lineHeight: "1.6",
                       }}
@@ -5193,7 +4855,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -5203,7 +4864,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h3
                       className="mb-3 mt-6 font-['Manrope'] text-[#181A2A]"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 700,
                         lineHeight: "1.6",
                       }}
@@ -5213,7 +4873,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -5227,6 +4886,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h2
                       className="mb-4 font-['Manrope'] text-[#181A2A]"
                       style={{
+
                         fontSize: "24px",
                         fontWeight: 700,
                         lineHeight: "1.6",
@@ -5237,7 +4897,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -5247,7 +4906,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -5257,7 +4915,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h3
                       className="mb-3 mt-6 font-['Manrope'] text-[#181A2A]"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 700,
                         lineHeight: "1.6",
                       }}
@@ -5267,7 +4924,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -5277,7 +4933,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h3
                       className="mb-3 mt-6 font-['Manrope'] text-[#181A2A]"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 700,
                         lineHeight: "1.6",
                       }}
@@ -5287,7 +4942,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -5301,6 +4955,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h2
                       className="mb-4 font-['Manrope'] text-[#181A2A]"
                       style={{
+
                         fontSize: "24px",
                         fontWeight: 700,
                         lineHeight: "1.6",
@@ -5311,7 +4966,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -5321,7 +4975,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -5340,6 +4993,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h2
                       className="mb-4 font-['Manrope'] text-[#181A2A]"
                       style={{
+
                         fontSize: "24px",
                         fontWeight: 700,
                         lineHeight: "1.6",
@@ -5350,7 +5004,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -5360,7 +5013,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -5370,7 +5022,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -5384,6 +5035,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h2
                       className="mb-4 font-['Manrope'] text-[#181A2A]"
                       style={{
+
                         fontSize: "24px",
                         fontWeight: 700,
                         lineHeight: "1.6",
@@ -5394,7 +5046,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -5404,7 +5055,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h3
                       className="mb-3 mt-6 font-['Manrope'] text-[#181A2A]"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 700,
                         lineHeight: "1.6",
                       }}
@@ -5414,7 +5064,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -5424,7 +5073,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h3
                       className="mb-3 mt-6 font-['Manrope'] text-[#181A2A]"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 700,
                         lineHeight: "1.6",
                       }}
@@ -5434,7 +5082,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -5448,6 +5095,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h2
                       className="mb-4 font-['Manrope'] text-[#181A2A]"
                       style={{
+
                         fontSize: "24px",
                         fontWeight: 700,
                         lineHeight: "1.6",
@@ -5458,7 +5106,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -5468,7 +5115,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -5478,7 +5124,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h3
                       className="mb-3 mt-6 font-['Manrope'] text-[#181A2A]"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 700,
                         lineHeight: "1.6",
                       }}
@@ -5488,7 +5133,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -5498,7 +5142,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h3
                       className="mb-3 mt-6 font-['Manrope'] text-[#181A2A]"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 700,
                         lineHeight: "1.6",
                       }}
@@ -5508,7 +5151,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -5522,6 +5164,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h2
                       className="mb-4 font-['Manrope'] text-[#181A2A]"
                       style={{
+
                         fontSize: "24px",
                         fontWeight: 700,
                         lineHeight: "1.6",
@@ -5532,7 +5175,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -5542,7 +5184,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -5552,7 +5193,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h3
                       className="mb-3 mt-6 font-['Manrope'] text-[#181A2A]"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 700,
                         lineHeight: "1.6",
                       }}
@@ -5562,7 +5202,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -5581,6 +5220,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h2
                       className="mb-4 font-['Manrope'] text-[#181A2A]"
                       style={{
+
                         fontSize: "24px",
                         fontWeight: 700,
                         lineHeight: "1.6",
@@ -5591,7 +5231,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -5601,7 +5240,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -5611,7 +5249,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h3
                       className="mb-3 mt-6 font-['Manrope'] text-[#181A2A]"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 700,
                         lineHeight: "1.6",
                       }}
@@ -5621,7 +5258,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -5631,7 +5267,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h3
                       className="mb-3 mt-6 font-['Manrope'] text-[#181A2A]"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 700,
                         lineHeight: "1.6",
                       }}
@@ -5641,7 +5276,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -5651,7 +5285,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h3
                       className="mb-3 mt-6 font-['Manrope'] text-[#181A2A]"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 700,
                         lineHeight: "1.6",
                       }}
@@ -5661,7 +5294,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -5671,7 +5303,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -5685,6 +5316,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h2
                       className="mb-4 font-['Manrope'] text-[#181A2A]"
                       style={{
+
                         fontSize: "24px",
                         fontWeight: 700,
                         lineHeight: "1.6",
@@ -5695,7 +5327,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -5705,7 +5336,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -5715,7 +5345,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -5725,7 +5354,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h3
                       className="mb-3 mt-6 font-['Manrope'] text-[#181A2A]"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 700,
                         lineHeight: "1.6",
                       }}
@@ -5735,7 +5363,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -5745,7 +5372,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h3
                       className="mb-3 mt-6 font-['Manrope'] text-[#181A2A]"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 700,
                         lineHeight: "1.6",
                       }}
@@ -5755,7 +5381,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -5765,7 +5390,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h3
                       className="mb-3 mt-6 font-['Manrope'] text-[#181A2A]"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 700,
                         lineHeight: "1.6",
                       }}
@@ -5775,7 +5399,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -5789,6 +5412,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h2
                       className="mb-4 font-['Manrope'] text-[#181A2A]"
                       style={{
+
                         fontSize: "24px",
                         fontWeight: 700,
                         lineHeight: "1.6",
@@ -5799,7 +5423,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -5809,7 +5432,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -5819,7 +5441,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h3
                       className="mb-3 mt-6 font-['Manrope'] text-[#181A2A]"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 700,
                         lineHeight: "1.6",
                       }}
@@ -5829,7 +5450,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -5839,7 +5459,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h3
                       className="mb-3 mt-6 font-['Manrope'] text-[#181A2A]"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 700,
                         lineHeight: "1.6",
                       }}
@@ -5849,7 +5468,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -5859,6 +5477,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h4
                       className="mb-2 mt-4 font-['Manrope'] text-[#181A2A]"
                       style={{
+
                         fontSize: "18px",
                         fontWeight: 700,
                         lineHeight: "1.6",
@@ -5869,7 +5488,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -5879,6 +5497,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h4
                       className="mb-2 mt-4 font-['Manrope'] text-[#181A2A]"
                       style={{
+
                         fontSize: "18px",
                         fontWeight: 700,
                         lineHeight: "1.6",
@@ -5889,7 +5508,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -5899,7 +5517,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h3
                       className="mb-3 mt-6 font-['Manrope'] text-[#181A2A]"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 700,
                         lineHeight: "1.6",
                       }}
@@ -5909,7 +5526,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -5919,7 +5535,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h3
                       className="mb-3 mt-6 font-['Manrope'] text-[#181A2A]"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 700,
                         lineHeight: "1.6",
                       }}
@@ -5929,7 +5544,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -5943,6 +5557,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h2
                       className="mb-4 font-['Manrope'] text-[#181A2A]"
                       style={{
+
                         fontSize: "24px",
                         fontWeight: 700,
                         lineHeight: "1.6",
@@ -5953,7 +5568,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -5963,7 +5577,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -5973,7 +5586,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h3
                       className="mb-3 mt-6 font-['Manrope'] text-[#181A2A]"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 700,
                         lineHeight: "1.6",
                       }}
@@ -5983,7 +5595,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -5993,7 +5604,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h3
                       className="mb-3 mt-6 font-['Manrope'] text-[#181A2A]"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 700,
                         lineHeight: "1.6",
                       }}
@@ -6003,7 +5613,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -6013,7 +5622,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h3
                       className="mb-3 mt-6 font-['Manrope'] text-[#181A2A]"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 700,
                         lineHeight: "1.6",
                       }}
@@ -6023,7 +5631,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -6033,7 +5640,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -6047,6 +5653,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h2
                       className="mb-4 font-['Manrope'] text-[#181A2A]"
                       style={{
+
                         fontSize: "24px",
                         fontWeight: 700,
                         lineHeight: "1.6",
@@ -6057,7 +5664,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -6067,7 +5673,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -6077,7 +5682,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h3
                       className="mb-3 mt-6 font-['Manrope'] text-[#181A2A]"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 700,
                         lineHeight: "1.6",
                       }}
@@ -6087,7 +5691,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -6097,7 +5700,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h3
                       className="mb-3 mt-6 font-['Manrope'] text-[#181A2A]"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 700,
                         lineHeight: "1.6",
                       }}
@@ -6107,7 +5709,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -6126,6 +5727,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h2
                       className="mb-4 font-['Manrope'] text-[#181A2A]"
                       style={{
+
                         fontSize: "24px",
                         fontWeight: 700,
                         lineHeight: "1.6",
@@ -6136,7 +5738,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -6146,7 +5747,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -6156,7 +5756,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h3
                       className="mb-3 mt-6 font-['Manrope'] text-[#181A2A]"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 700,
                         lineHeight: "1.6",
                       }}
@@ -6166,7 +5765,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -6176,7 +5774,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h3
                       className="mb-3 mt-6 font-['Manrope'] text-[#181A2A]"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 700,
                         lineHeight: "1.6",
                       }}
@@ -6186,7 +5783,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -6196,7 +5792,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h3
                       className="mb-3 mt-6 font-['Manrope'] text-[#181A2A]"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 700,
                         lineHeight: "1.6",
                       }}
@@ -6206,7 +5801,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -6220,6 +5814,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h2
                       className="mb-4 font-['Manrope'] text-[#181A2A]"
                       style={{
+
                         fontSize: "24px",
                         fontWeight: 700,
                         lineHeight: "1.6",
@@ -6230,7 +5825,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -6240,7 +5834,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -6258,7 +5851,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -6272,6 +5864,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h2
                       className="mb-4 font-['Manrope'] text-[#181A2A]"
                       style={{
+
                         fontSize: "24px",
                         fontWeight: 700,
                         lineHeight: "1.6",
@@ -6282,7 +5875,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -6292,7 +5884,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -6302,7 +5893,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h3
                       className="mb-3 mt-6 font-['Manrope'] text-[#181A2A]"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 700,
                         lineHeight: "1.6",
                       }}
@@ -6312,7 +5902,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -6322,7 +5911,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h3
                       className="mb-3 mt-6 font-['Manrope'] text-[#181A2A]"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 700,
                         lineHeight: "1.6",
                       }}
@@ -6332,7 +5920,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -6346,6 +5933,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h2
                       className="mb-4 font-['Manrope'] text-[#181A2A]"
                       style={{
+
                         fontSize: "24px",
                         fontWeight: 700,
                         lineHeight: "1.6",
@@ -6356,7 +5944,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -6366,7 +5953,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -6376,7 +5962,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h3
                       className="mb-3 mt-6 font-['Manrope'] text-[#181A2A]"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 700,
                         lineHeight: "1.6",
                       }}
@@ -6386,7 +5971,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -6396,7 +5980,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h3
                       className="mb-3 mt-6 font-['Manrope'] text-[#181A2A]"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 700,
                         lineHeight: "1.6",
                       }}
@@ -6406,7 +5989,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -6416,7 +5998,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h3
                       className="mb-3 mt-6 font-['Manrope'] text-[#181A2A]"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 700,
                         lineHeight: "1.6",
                       }}
@@ -6426,7 +6007,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -6443,6 +6023,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   <h2
                     className="mb-4 font-['Manrope'] text-[#181A2A]"
                     style={{
+
                       fontSize: "24px",
                       fontWeight: 600,
                       lineHeight: "1.167",
@@ -6451,9 +6032,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     Capture Memories
                   </h2>
                   <p
-                    className="font-['Manrope'] text-[#3B3C4A]"
+                    className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -6472,6 +6052,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                 <h2
                   className="mb-4 font-['Manrope'] text-[#181A2A]"
                   style={{
+
                       fontSize: isBlog1 || isBlog2 || isBlog3 || isBlog4 || isBlog5 ? "24px" : "20px",
                     fontWeight: 600,
                     lineHeight: "1.4",
@@ -6484,7 +6065,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -6494,7 +6074,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -6502,9 +6081,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                       Nexobots structured cabling solutions are built on global standards, proven field practices, and a clear focus on reliability and scalability for Indian enterprises.
                     </p>
                     <p
-                      className="font-['Manrope'] text-[#3B3C4A]"
+                      className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -6517,7 +6095,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -6525,9 +6102,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                       Structured Cabling Systems have evolved from a technical convenience to a strategic enabler of smart buildings, smart campuses, high-density data centres, and converged IT/OT environments. The benefits of standardisation, open architecture, and multi-application support are well documented in industry resources such as CommScope's fact file; the challenge is to turn those principles into a concrete, future-proof design for your specific context.
                     </p>
                     <p
-                      className="font-['Manrope'] text-[#3B3C4A]"
+                      className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -6540,7 +6116,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -6548,9 +6123,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                       Structured cabling in India requires careful consideration of costs, standards, product selection, and procurement strategies. By understanding the cost models, choosing appropriate products, comparing data centre solutions, selecting the right cable types, and adhering to international standards, Indian businesses can build robust, future-ready network infrastructure.
                     </p>
                     <p
-                      className="font-['Manrope'] text-[#3B3C4A]"
+                      className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -6563,7 +6137,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -6573,7 +6146,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -6583,7 +6155,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -6593,7 +6164,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h3
                       className="mb-3 mt-6 font-['Manrope'] text-[#181A2A]"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 700,
                         lineHeight: "1.6",
                       }}
@@ -6601,9 +6171,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                       About Nexobots Technologies
                     </h3>
                     <p
-                      className="font-['Manrope'] text-[#3B3C4A]"
+                      className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -6616,7 +6185,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -6626,7 +6194,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -6636,7 +6203,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -6646,7 +6212,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h3
                       className="mb-3 mt-6 font-['Manrope'] text-[#181A2A]"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 700,
                         lineHeight: "1.6",
                       }}
@@ -6654,9 +6219,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                       About Nexobots Technologies
                     </h3>
                     <p
-                      className="font-['Manrope'] text-[#3B3C4A]"
+                      className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -6669,7 +6233,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -6679,7 +6242,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -6689,7 +6251,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -6699,7 +6260,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h3
                       className="mb-3 mt-6 font-['Manrope'] text-[#181A2A]"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 700,
                         lineHeight: "1.6",
                       }}
@@ -6707,9 +6267,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                       About Nexobots Technologies
                     </h3>
                     <p
-                      className="font-['Manrope'] text-[#3B3C4A]"
+                      className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -6722,7 +6281,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -6732,7 +6290,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -6742,7 +6299,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -6752,7 +6308,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h3
                       className="mb-3 mt-6 font-['Manrope'] text-[#181A2A]"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 700,
                         lineHeight: "1.6",
                       }}
@@ -6760,9 +6315,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                       About Nexobots Technologies
                     </h3>
                     <p
-                      className="font-['Manrope'] text-[#3B3C4A]"
+                      className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -6775,7 +6329,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -6785,7 +6338,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -6795,7 +6347,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -6805,7 +6356,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h3
                       className="mb-3 mt-6 font-['Manrope'] text-[#181A2A]"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 700,
                         lineHeight: "1.6",
                       }}
@@ -6813,9 +6363,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                       About Nexobots Technologies
                     </h3>
                     <p
-                      className="font-['Manrope'] text-[#3B3C4A]"
+                      className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -6828,7 +6377,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -6838,7 +6386,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -6848,7 +6395,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h3
                       className="mb-3 mt-6 font-['Manrope'] text-[#181A2A]"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 700,
                         lineHeight: "1.6",
                       }}
@@ -6856,9 +6402,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                       About Nexobots Technologies
                     </h3>
                     <p
-                      className="font-['Manrope'] text-[#3B3C4A]"
+                      className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -6871,7 +6416,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -6881,7 +6425,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -6891,7 +6434,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -6901,7 +6443,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h3
                       className="mb-3 mt-6 font-['Manrope'] text-[#181A2A]"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 700,
                         lineHeight: "1.6",
                       }}
@@ -6909,9 +6450,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                       About Nexobots Technologies
                     </h3>
                     <p
-                      className="font-['Manrope'] text-[#3B3C4A]"
+                      className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -6924,7 +6464,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -6934,7 +6473,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -6944,7 +6482,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -6954,7 +6491,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -6964,7 +6500,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h3
                       className="mb-3 mt-6 font-['Manrope'] text-[#181A2A]"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 700,
                         lineHeight: "1.6",
                       }}
@@ -6972,9 +6507,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                       About Nexobots Technologies
                     </h3>
                     <p
-                      className="font-['Manrope'] text-[#3B3C4A]"
+                      className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -6987,7 +6521,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -6997,7 +6530,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -7007,7 +6539,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <p
                       className="font-['Manrope'] text-[#3B3C4A] mb-4"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -7017,7 +6548,6 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                     <h3
                       className="mb-3 mt-6 font-['Manrope'] text-[#181A2A]"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 700,
                         lineHeight: "1.6",
                       }}
@@ -7025,9 +6555,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                       About Nexobots Technologies
                     </h3>
                     <p
-                      className="font-['Manrope'] text-[#3B3C4A]"
+                      className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -7037,9 +6566,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                   </>
                 ) : (
                   <p
-                    className="font-['Manrope'] text-[#3B3C4A]"
+                    className="font-['Manrope'] text-[#3B3C4A] text-base sm:text-lg lg:text-xl"
                     style={{
-                      fontSize: "20px",
                       fontWeight: 500,
                       lineHeight: "1.6",
                     }}
@@ -7054,21 +6582,18 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
 
               {/* Share this article Section - Exact from Figma */}
               <div
-                className="mb-8 rounded-[22px] bg-[#F7F7F7]"
-                style={{ height: "150px", padding: "35px" }}
+                className="mb-8 rounded-[22px] bg-[#F7F7F7] p-6 sm:p-8 lg:p-[35px]"
               >
                 <h3
-                  className="font-['Manrope'] text-black"
+                  className="font-['Manrope'] text-black text-2xl sm:text-3xl lg:text-[32px] mb-4 sm:mb-5 lg:mb-[22px]"
                   style={{
-                    fontSize: "32px",
                     fontWeight: 700,
                     lineHeight: "1.366",
-                    marginBottom: "22px",
                   }}
                 >
                   Share this article
                 </h3>
-                <div className="flex gap-[9px]">
+                <div className="flex flex-wrap gap-2 sm:gap-[9px]">
                   {/* Facebook Button - 41px × 37px */}
                   <button
                     className="flex h-[37px] w-[41px] items-center justify-center rounded-md border border-[#7D7D7D]"
@@ -7182,8 +6707,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
 
             {/* Sidebar - Table of Contents and Explore More */}
             <aside
-              className="flex-shrink-0 rounded-lg bg-[#F9F9F9] p-6"
-              style={{ width: "400px", position: "sticky", top: "120px", alignSelf: "flex-start" }}
+              className="w-full rounded-lg bg-[#F9F9F9] p-4 sm:p-6 lg:w-[400px] lg:flex-shrink-0 lg:sticky lg:top-[120px] lg:self-start"
             >
               <nav className="space-y-4">
                 {isBlog1 ? (
@@ -7196,9 +6720,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                         <span className="text-sm font-medium">1</span>
                       </div>
                       <span
-                        className="font-['Manrope']"
+                        className="font-['Manrope'] text-base sm:text-lg lg:text-xl"
                         style={{
-                          fontSize: "20px",
                           fontWeight: 700,
                           lineHeight: "1.6",
                         }}
@@ -7214,9 +6737,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                         <span className="text-sm font-medium">2</span>
                       </div>
                       <span
-                        className="font-['Manrope']"
+                        className="font-['Manrope'] text-base sm:text-lg lg:text-xl"
                         style={{
-                          fontSize: "20px",
                           fontWeight: 700,
                           lineHeight: "1.6",
                         }}
@@ -7232,9 +6754,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                         <span className="text-sm font-medium">3</span>
                       </div>
                       <span
-                        className="font-['Manrope']"
+                        className="font-['Manrope'] text-base sm:text-lg lg:text-xl"
                         style={{
-                          fontSize: "20px",
                           fontWeight: 700,
                           lineHeight: "1.6",
                         }}
@@ -7250,9 +6771,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                         <span className="text-sm font-medium">4</span>
                       </div>
                       <span
-                        className="font-['Manrope']"
+                        className="font-['Manrope'] text-base sm:text-lg lg:text-xl"
                         style={{
-                          fontSize: "20px",
                           fontWeight: 700,
                           lineHeight: "1.6",
                         }}
@@ -7268,9 +6788,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                         <span className="text-sm font-medium">5</span>
                       </div>
                       <span
-                        className="font-['Manrope']"
+                        className="font-['Manrope'] text-base sm:text-lg lg:text-xl"
                         style={{
-                          fontSize: "20px",
                           fontWeight: 700,
                           lineHeight: "1.6",
                         }}
@@ -7286,9 +6805,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                         <span className="text-sm font-medium">6</span>
                       </div>
                       <span
-                        className="font-['Manrope']"
+                        className="font-['Manrope'] text-base sm:text-lg lg:text-xl"
                         style={{
-                          fontSize: "20px",
                           fontWeight: 700,
                           lineHeight: "1.6",
                         }}
@@ -7304,9 +6822,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                         <span className="text-sm font-medium">7</span>
                       </div>
                       <span
-                        className="font-['Manrope']"
+                        className="font-['Manrope'] text-base sm:text-lg lg:text-xl"
                         style={{
-                          fontSize: "20px",
                           fontWeight: 700,
                           lineHeight: "1.6",
                         }}
@@ -7322,9 +6839,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                         <span className="text-sm font-medium">8</span>
                       </div>
                       <span
-                        className="font-['Manrope']"
+                        className="font-['Manrope'] text-base sm:text-lg lg:text-xl"
                         style={{
-                          fontSize: "20px",
                           fontWeight: 700,
                           lineHeight: "1.6",
                         }}
@@ -7337,9 +6853,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                         <span className="text-sm font-medium">9</span>
                       </div>
                       <span
-                        className="font-['Manrope'] text-[#181A2A]"
+                        className="font-['Manrope'] text-[#181A2A] text-sm sm:text-base lg:text-base"
                         style={{
-                          fontSize: "20px",
                           fontWeight: 600,
                           lineHeight: "1.4",
                         }}
@@ -7358,9 +6873,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                         <span className="text-sm font-medium">1</span>
                       </div>
                       <span
-                        className="font-['Manrope']"
+                        className="font-['Manrope'] text-base sm:text-lg lg:text-xl"
                         style={{
-                          fontSize: "20px",
                           fontWeight: 700,
                           lineHeight: "1.6",
                         }}
@@ -7376,9 +6890,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                         <span className="text-sm font-medium">2</span>
                       </div>
                       <span
-                        className="font-['Manrope']"
+                        className="font-['Manrope'] text-base sm:text-lg lg:text-xl"
                         style={{
-                          fontSize: "20px",
                           fontWeight: 700,
                           lineHeight: "1.6",
                         }}
@@ -7394,9 +6907,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                         <span className="text-sm font-medium">3</span>
                       </div>
                       <span
-                        className="font-['Manrope']"
+                        className="font-['Manrope'] text-base sm:text-lg lg:text-xl"
                         style={{
-                          fontSize: "20px",
                           fontWeight: 700,
                           lineHeight: "1.6",
                         }}
@@ -7412,9 +6924,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                         <span className="text-sm font-medium">4</span>
                       </div>
                       <span
-                        className="font-['Manrope']"
+                        className="font-['Manrope'] text-base sm:text-lg lg:text-xl"
                         style={{
-                          fontSize: "20px",
                           fontWeight: 700,
                           lineHeight: "1.6",
                         }}
@@ -7430,9 +6941,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                         <span className="text-sm font-medium">5</span>
                       </div>
                       <span
-                        className="font-['Manrope']"
+                        className="font-['Manrope'] text-base sm:text-lg lg:text-xl"
                         style={{
-                          fontSize: "20px",
                           fontWeight: 700,
                           lineHeight: "1.6",
                         }}
@@ -7448,9 +6958,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                         <span className="text-sm font-medium">6</span>
                       </div>
                       <span
-                        className="font-['Manrope']"
+                        className="font-['Manrope'] text-base sm:text-lg lg:text-xl"
                         style={{
-                          fontSize: "20px",
                           fontWeight: 700,
                           lineHeight: "1.6",
                         }}
@@ -7466,9 +6975,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                         <span className="text-sm font-medium">7</span>
                       </div>
                       <span
-                        className="font-['Manrope']"
+                        className="font-['Manrope'] text-base sm:text-lg lg:text-xl"
                         style={{
-                          fontSize: "20px",
                           fontWeight: 700,
                           lineHeight: "1.6",
                         }}
@@ -7484,9 +6992,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                         <span className="text-sm font-medium">8</span>
                       </div>
                       <span
-                        className="font-['Manrope']"
+                        className="font-['Manrope'] text-base sm:text-lg lg:text-xl"
                         style={{
-                          fontSize: "20px",
                           fontWeight: 700,
                           lineHeight: "1.6",
                         }}
@@ -7502,9 +7009,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                         <span className="text-sm font-medium">9</span>
                       </div>
                       <span
-                        className="font-['Manrope']"
+                        className="font-['Manrope'] text-base sm:text-lg lg:text-xl"
                         style={{
-                          fontSize: "20px",
                           fontWeight: 700,
                           lineHeight: "1.6",
                         }}
@@ -7520,9 +7026,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                         <span className="text-sm font-medium">10</span>
                       </div>
                       <span
-                        className="font-['Manrope']"
+                        className="font-['Manrope'] text-base sm:text-lg lg:text-xl"
                         style={{
-                          fontSize: "20px",
                           fontWeight: 700,
                           lineHeight: "1.6",
                         }}
@@ -7538,9 +7043,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                         <span className="text-sm font-medium">11</span>
                       </div>
                       <span
-                        className="font-['Manrope']"
+                        className="font-['Manrope'] text-base sm:text-lg lg:text-xl"
                         style={{
-                          fontSize: "20px",
                           fontWeight: 700,
                           lineHeight: "1.6",
                         }}
@@ -7553,9 +7057,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                         <span className="text-sm font-medium">12</span>
                       </div>
                       <span
-                        className="font-['Manrope'] text-[#181A2A]"
+                        className="font-['Manrope'] text-[#181A2A] text-sm sm:text-base lg:text-base"
                         style={{
-                          fontSize: "20px",
                           fontWeight: 600,
                           lineHeight: "1.4",
                         }}
@@ -7574,9 +7077,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                         <span className="text-sm font-medium">1</span>
                       </div>
                       <span
-                        className="font-['Manrope']"
+                        className="font-['Manrope'] text-base sm:text-lg lg:text-xl"
                         style={{
-                          fontSize: "20px",
                           fontWeight: 700,
                           lineHeight: "1.6",
                         }}
@@ -7592,9 +7094,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                         <span className="text-sm font-medium">2</span>
                       </div>
                       <span
-                        className="font-['Manrope']"
+                        className="font-['Manrope'] text-base sm:text-lg lg:text-xl"
                         style={{
-                          fontSize: "20px",
                           fontWeight: 700,
                           lineHeight: "1.6",
                         }}
@@ -7610,9 +7111,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                         <span className="text-sm font-medium">3</span>
                       </div>
                       <span
-                        className="font-['Manrope']"
+                        className="font-['Manrope'] text-base sm:text-lg lg:text-xl"
                         style={{
-                          fontSize: "20px",
                           fontWeight: 700,
                           lineHeight: "1.6",
                         }}
@@ -7628,9 +7128,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                         <span className="text-sm font-medium">4</span>
                       </div>
                       <span
-                        className="font-['Manrope']"
+                        className="font-['Manrope'] text-base sm:text-lg lg:text-xl"
                         style={{
-                          fontSize: "20px",
                           fontWeight: 700,
                           lineHeight: "1.6",
                         }}
@@ -7643,9 +7142,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                         <span className="text-sm font-medium">5</span>
                       </div>
                       <span
-                        className="font-['Manrope'] text-[#181A2A]"
+                        className="font-['Manrope'] text-[#181A2A] text-sm sm:text-base lg:text-base"
                         style={{
-                          fontSize: "20px",
                           fontWeight: 600,
                           lineHeight: "1.4",
                         }}
@@ -7664,9 +7162,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                         <span className="text-sm font-medium">1</span>
                       </div>
                       <span
-                        className="font-['Manrope']"
+                        className="font-['Manrope'] text-base sm:text-lg lg:text-xl"
                         style={{
-                          fontSize: "20px",
                           fontWeight: 700,
                           lineHeight: "1.6",
                         }}
@@ -7682,9 +7179,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                         <span className="text-sm font-medium">2</span>
                       </div>
                       <span
-                        className="font-['Manrope']"
+                        className="font-['Manrope'] text-base sm:text-lg lg:text-xl"
                         style={{
-                          fontSize: "20px",
                           fontWeight: 700,
                           lineHeight: "1.6",
                         }}
@@ -7700,9 +7196,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                         <span className="text-sm font-medium">3</span>
                       </div>
                       <span
-                        className="font-['Manrope']"
+                        className="font-['Manrope'] text-base sm:text-lg lg:text-xl"
                         style={{
-                          fontSize: "20px",
                           fontWeight: 700,
                           lineHeight: "1.6",
                         }}
@@ -7718,9 +7213,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                         <span className="text-sm font-medium">4</span>
                       </div>
                       <span
-                        className="font-['Manrope']"
+                        className="font-['Manrope'] text-base sm:text-lg lg:text-xl"
                         style={{
-                          fontSize: "20px",
                           fontWeight: 700,
                           lineHeight: "1.6",
                         }}
@@ -7736,9 +7230,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                         <span className="text-sm font-medium">5</span>
                       </div>
                       <span
-                        className="font-['Manrope']"
+                        className="font-['Manrope'] text-base sm:text-lg lg:text-xl"
                         style={{
-                          fontSize: "20px",
                           fontWeight: 700,
                           lineHeight: "1.6",
                         }}
@@ -7751,9 +7244,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                         <span className="text-sm font-medium">6</span>
                       </div>
                       <span
-                        className="font-['Manrope'] text-[#181A2A]"
+                        className="font-['Manrope'] text-[#181A2A] text-sm sm:text-base lg:text-base"
                         style={{
-                          fontSize: "20px",
                           fontWeight: 600,
                           lineHeight: "1.4",
                         }}
@@ -7772,9 +7264,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                         <span className="text-sm font-medium">1</span>
                       </div>
                       <span
-                        className="font-['Manrope']"
+                        className="font-['Manrope'] text-base sm:text-lg lg:text-xl"
                         style={{
-                          fontSize: "20px",
                           fontWeight: 700,
                           lineHeight: "1.6",
                         }}
@@ -7790,9 +7281,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                         <span className="text-sm font-medium">2</span>
                       </div>
                       <span
-                        className="font-['Manrope']"
+                        className="font-['Manrope'] text-base sm:text-lg lg:text-xl"
                         style={{
-                          fontSize: "20px",
                           fontWeight: 700,
                           lineHeight: "1.6",
                         }}
@@ -7808,9 +7298,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                         <span className="text-sm font-medium">3</span>
                       </div>
                       <span
-                        className="font-['Manrope']"
+                        className="font-['Manrope'] text-base sm:text-lg lg:text-xl"
                         style={{
-                          fontSize: "20px",
                           fontWeight: 700,
                           lineHeight: "1.6",
                         }}
@@ -7826,9 +7315,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                         <span className="text-sm font-medium">4</span>
                       </div>
                       <span
-                        className="font-['Manrope']"
+                        className="font-['Manrope'] text-base sm:text-lg lg:text-xl"
                         style={{
-                          fontSize: "20px",
                           fontWeight: 700,
                           lineHeight: "1.6",
                         }}
@@ -7844,9 +7332,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                         <span className="text-sm font-medium">5</span>
                       </div>
                       <span
-                        className="font-['Manrope']"
+                        className="font-['Manrope'] text-base sm:text-lg lg:text-xl"
                         style={{
-                          fontSize: "20px",
                           fontWeight: 700,
                           lineHeight: "1.6",
                         }}
@@ -7859,9 +7346,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                         <span className="text-sm font-medium">6</span>
                       </div>
                       <span
-                        className="font-['Manrope'] text-[#181A2A]"
+                        className="font-['Manrope'] text-[#181A2A] text-sm sm:text-base lg:text-base"
                         style={{
-                          fontSize: "20px",
                           fontWeight: 600,
                           lineHeight: "1.4",
                         }}
@@ -7880,9 +7366,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                         <span className="text-sm font-medium">1</span>
                       </div>
                       <span
-                        className="font-['Manrope']"
+                        className="font-['Manrope'] text-base sm:text-lg lg:text-xl"
                         style={{
-                          fontSize: "20px",
                           fontWeight: 700,
                           lineHeight: "1.6",
                         }}
@@ -7898,9 +7383,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                         <span className="text-sm font-medium">2</span>
                       </div>
                       <span
-                        className="font-['Manrope']"
+                        className="font-['Manrope'] text-base sm:text-lg lg:text-xl"
                         style={{
-                          fontSize: "20px",
                           fontWeight: 700,
                           lineHeight: "1.6",
                         }}
@@ -7916,9 +7400,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                         <span className="text-sm font-medium">3</span>
                       </div>
                       <span
-                        className="font-['Manrope']"
+                        className="font-['Manrope'] text-base sm:text-lg lg:text-xl"
                         style={{
-                          fontSize: "20px",
                           fontWeight: 700,
                           lineHeight: "1.6",
                         }}
@@ -7934,9 +7417,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                         <span className="text-sm font-medium">4</span>
                       </div>
                       <span
-                        className="font-['Manrope']"
+                        className="font-['Manrope'] text-base sm:text-lg lg:text-xl"
                         style={{
-                          fontSize: "20px",
                           fontWeight: 700,
                           lineHeight: "1.6",
                         }}
@@ -7952,9 +7434,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                         <span className="text-sm font-medium">5</span>
                       </div>
                       <span
-                        className="font-['Manrope']"
+                        className="font-['Manrope'] text-base sm:text-lg lg:text-xl"
                         style={{
-                          fontSize: "20px",
                           fontWeight: 700,
                           lineHeight: "1.6",
                         }}
@@ -7967,9 +7448,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                         <span className="text-sm font-medium">6</span>
                       </div>
                       <span
-                        className="font-['Manrope'] text-[#181A2A]"
+                        className="font-['Manrope'] text-[#181A2A] text-sm sm:text-base lg:text-base"
                         style={{
-                          fontSize: "20px",
                           fontWeight: 600,
                           lineHeight: "1.4",
                         }}
@@ -7988,9 +7468,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                         <span className="text-sm font-medium">1</span>
                       </div>
                       <span
-                        className="font-['Manrope']"
+                        className="font-['Manrope'] text-base sm:text-lg lg:text-xl"
                         style={{
-                          fontSize: "20px",
                           fontWeight: 700,
                           lineHeight: "1.6",
                         }}
@@ -8006,9 +7485,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                         <span className="text-sm font-medium">2</span>
                       </div>
                       <span
-                        className="font-['Manrope']"
+                        className="font-['Manrope'] text-base sm:text-lg lg:text-xl"
                         style={{
-                          fontSize: "20px",
                           fontWeight: 700,
                           lineHeight: "1.6",
                         }}
@@ -8024,9 +7502,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                         <span className="text-sm font-medium">3</span>
                       </div>
                       <span
-                        className="font-['Manrope']"
+                        className="font-['Manrope'] text-base sm:text-lg lg:text-xl"
                         style={{
-                          fontSize: "20px",
                           fontWeight: 700,
                           lineHeight: "1.6",
                         }}
@@ -8042,9 +7519,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                         <span className="text-sm font-medium">4</span>
                       </div>
                       <span
-                        className="font-['Manrope']"
+                        className="font-['Manrope'] text-base sm:text-lg lg:text-xl"
                         style={{
-                          fontSize: "20px",
                           fontWeight: 700,
                           lineHeight: "1.6",
                         }}
@@ -8060,9 +7536,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                         <span className="text-sm font-medium">5</span>
                       </div>
                       <span
-                        className="font-['Manrope']"
+                        className="font-['Manrope'] text-base sm:text-lg lg:text-xl"
                         style={{
-                          fontSize: "20px",
                           fontWeight: 700,
                           lineHeight: "1.6",
                         }}
@@ -8075,9 +7550,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                         <span className="text-sm font-medium">6</span>
                       </div>
                       <span
-                        className="font-['Manrope'] text-[#181A2A]"
+                        className="font-['Manrope'] text-[#181A2A] text-sm sm:text-base lg:text-base"
                         style={{
-                          fontSize: "20px",
                           fontWeight: 600,
                           lineHeight: "1.4",
                         }}
@@ -8096,9 +7570,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                         <span className="text-sm font-medium">1</span>
                       </div>
                       <span
-                        className="font-['Manrope']"
+                        className="font-['Manrope'] text-base sm:text-lg lg:text-xl"
                         style={{
-                          fontSize: "20px",
                           fontWeight: 700,
                           lineHeight: "1.6",
                         }}
@@ -8114,9 +7587,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                         <span className="text-sm font-medium">2</span>
                       </div>
                       <span
-                        className="font-['Manrope']"
+                        className="font-['Manrope'] text-base sm:text-lg lg:text-xl"
                         style={{
-                          fontSize: "20px",
                           fontWeight: 700,
                           lineHeight: "1.6",
                         }}
@@ -8132,9 +7604,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                         <span className="text-sm font-medium">3</span>
                       </div>
                       <span
-                        className="font-['Manrope']"
+                        className="font-['Manrope'] text-base sm:text-lg lg:text-xl"
                         style={{
-                          fontSize: "20px",
                           fontWeight: 700,
                           lineHeight: "1.6",
                         }}
@@ -8150,9 +7621,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                         <span className="text-sm font-medium">4</span>
                       </div>
                       <span
-                        className="font-['Manrope']"
+                        className="font-['Manrope'] text-base sm:text-lg lg:text-xl"
                         style={{
-                          fontSize: "20px",
                           fontWeight: 700,
                           lineHeight: "1.6",
                         }}
@@ -8165,9 +7635,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                         <span className="text-sm font-medium">5</span>
                       </div>
                       <span
-                        className="font-['Manrope'] text-[#181A2A]"
+                        className="font-['Manrope'] text-[#181A2A] text-sm sm:text-base lg:text-base"
                         style={{
-                          fontSize: "20px",
                           fontWeight: 600,
                           lineHeight: "1.4",
                         }}
@@ -8186,9 +7655,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                         <span className="text-sm font-medium">1</span>
                       </div>
                       <span
-                        className="font-['Manrope']"
+                        className="font-['Manrope'] text-base sm:text-lg lg:text-xl"
                         style={{
-                          fontSize: "20px",
                           fontWeight: 700,
                           lineHeight: "1.6",
                         }}
@@ -8204,9 +7672,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                         <span className="text-sm font-medium">2</span>
                       </div>
                       <span
-                        className="font-['Manrope']"
+                        className="font-['Manrope'] text-base sm:text-lg lg:text-xl"
                         style={{
-                          fontSize: "20px",
                           fontWeight: 700,
                           lineHeight: "1.6",
                         }}
@@ -8222,9 +7689,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                         <span className="text-sm font-medium">3</span>
                       </div>
                       <span
-                        className="font-['Manrope']"
+                        className="font-['Manrope'] text-base sm:text-lg lg:text-xl"
                         style={{
-                          fontSize: "20px",
                           fontWeight: 700,
                           lineHeight: "1.6",
                         }}
@@ -8240,9 +7706,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                         <span className="text-sm font-medium">4</span>
                       </div>
                       <span
-                        className="font-['Manrope']"
+                        className="font-['Manrope'] text-base sm:text-lg lg:text-xl"
                         style={{
-                          fontSize: "20px",
                           fontWeight: 700,
                           lineHeight: "1.6",
                         }}
@@ -8255,9 +7720,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                         <span className="text-sm font-medium">5</span>
                       </div>
                       <span
-                        className="font-['Manrope'] text-[#181A2A]"
+                        className="font-['Manrope'] text-[#181A2A] text-sm sm:text-base lg:text-base"
                         style={{
-                          fontSize: "20px",
                           fontWeight: 600,
                           lineHeight: "1.4",
                         }}
@@ -8276,9 +7740,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                         <span className="text-sm font-medium">1</span>
                       </div>
                       <span
-                        className="font-['Manrope']"
+                        className="font-['Manrope'] text-base sm:text-lg lg:text-xl"
                         style={{
-                          fontSize: "20px",
                           fontWeight: 700,
                           lineHeight: "1.6",
                         }}
@@ -8294,9 +7757,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                         <span className="text-sm font-medium">2</span>
                       </div>
                       <span
-                        className="font-['Manrope']"
+                        className="font-['Manrope'] text-base sm:text-lg lg:text-xl"
                         style={{
-                          fontSize: "20px",
                           fontWeight: 700,
                           lineHeight: "1.6",
                         }}
@@ -8312,9 +7774,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                         <span className="text-sm font-medium">3</span>
                       </div>
                       <span
-                        className="font-['Manrope']"
+                        className="font-['Manrope'] text-base sm:text-lg lg:text-xl"
                         style={{
-                          fontSize: "20px",
                           fontWeight: 700,
                           lineHeight: "1.6",
                         }}
@@ -8330,9 +7791,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                         <span className="text-sm font-medium">4</span>
                       </div>
                       <span
-                        className="font-['Manrope']"
+                        className="font-['Manrope'] text-base sm:text-lg lg:text-xl"
                         style={{
-                          fontSize: "20px",
                           fontWeight: 700,
                           lineHeight: "1.6",
                         }}
@@ -8345,9 +7805,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                         <span className="text-sm font-medium">5</span>
                       </div>
                       <span
-                        className="font-['Manrope'] text-[#181A2A]"
+                        className="font-['Manrope'] text-[#181A2A] text-sm sm:text-base lg:text-base"
                         style={{
-                          fontSize: "20px",
                           fontWeight: 600,
                           lineHeight: "1.4",
                         }}
@@ -8366,9 +7825,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                         <span className="text-sm font-medium">1</span>
                       </div>
                       <span
-                        className="font-['Manrope']"
+                        className="font-['Manrope'] text-base sm:text-lg lg:text-xl"
                         style={{
-                          fontSize: "20px",
                           fontWeight: 700,
                           lineHeight: "1.6",
                         }}
@@ -8384,9 +7842,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                         <span className="text-sm font-medium">2</span>
                       </div>
                       <span
-                        className="font-['Manrope']"
+                        className="font-['Manrope'] text-base sm:text-lg lg:text-xl"
                         style={{
-                          fontSize: "20px",
                           fontWeight: 700,
                           lineHeight: "1.6",
                         }}
@@ -8402,9 +7859,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                         <span className="text-sm font-medium">3</span>
                       </div>
                       <span
-                        className="font-['Manrope']"
+                        className="font-['Manrope'] text-base sm:text-lg lg:text-xl"
                         style={{
-                          fontSize: "20px",
                           fontWeight: 700,
                           lineHeight: "1.6",
                         }}
@@ -8420,9 +7876,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                         <span className="text-sm font-medium">4</span>
                       </div>
                       <span
-                        className="font-['Manrope']"
+                        className="font-['Manrope'] text-base sm:text-lg lg:text-xl"
                         style={{
-                          fontSize: "20px",
                           fontWeight: 700,
                           lineHeight: "1.6",
                         }}
@@ -8438,9 +7893,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                         <span className="text-sm font-medium">5</span>
                       </div>
                       <span
-                        className="font-['Manrope']"
+                        className="font-['Manrope'] text-base sm:text-lg lg:text-xl"
                         style={{
-                          fontSize: "20px",
                           fontWeight: 700,
                           lineHeight: "1.6",
                         }}
@@ -8453,9 +7907,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                         <span className="text-sm font-medium">6</span>
                       </div>
                       <span
-                        className="font-['Manrope'] text-[#181A2A]"
+                        className="font-['Manrope'] text-[#181A2A] text-sm sm:text-base lg:text-base"
                         style={{
-                          fontSize: "20px",
                           fontWeight: 600,
                           lineHeight: "1.4",
                         }}
@@ -8474,9 +7927,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                         <span className="text-sm font-medium">1</span>
                       </div>
                       <span
-                        className="font-['Manrope']"
+                        className="font-['Manrope'] text-base sm:text-lg lg:text-xl"
                         style={{
-                          fontSize: "20px",
                           fontWeight: 700,
                           lineHeight: "1.6",
                         }}
@@ -8492,9 +7944,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                         <span className="text-sm font-medium">2</span>
                       </div>
                       <span
-                        className="font-['Manrope']"
+                        className="font-['Manrope'] text-base sm:text-lg lg:text-xl"
                         style={{
-                          fontSize: "20px",
                           fontWeight: 700,
                           lineHeight: "1.6",
                         }}
@@ -8510,9 +7961,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                         <span className="text-sm font-medium">3</span>
                       </div>
                       <span
-                        className="font-['Manrope']"
+                        className="font-['Manrope'] text-base sm:text-lg lg:text-xl"
                         style={{
-                          fontSize: "20px",
                           fontWeight: 700,
                           lineHeight: "1.6",
                         }}
@@ -8528,9 +7978,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                         <span className="text-sm font-medium">4</span>
                       </div>
                       <span
-                        className="font-['Manrope']"
+                        className="font-['Manrope'] text-base sm:text-lg lg:text-xl"
                         style={{
-                          fontSize: "20px",
                           fontWeight: 700,
                           lineHeight: "1.6",
                         }}
@@ -8543,9 +7992,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                         <span className="text-sm font-medium">5</span>
                       </div>
                       <span
-                        className="font-['Manrope'] text-[#181A2A]"
+                        className="font-['Manrope'] text-[#181A2A] text-sm sm:text-base lg:text-base"
                         style={{
-                          fontSize: "20px",
                           fontWeight: 600,
                           lineHeight: "1.4",
                         }}
@@ -8564,9 +8012,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                         <span className="text-sm font-medium">1</span>
                       </div>
                       <span
-                        className="font-['Manrope']"
+                        className="font-['Manrope'] text-base sm:text-lg lg:text-xl"
                         style={{
-                          fontSize: "20px",
                           fontWeight: 700,
                           lineHeight: "1.6",
                         }}
@@ -8582,9 +8029,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                         <span className="text-sm font-medium">2</span>
                       </div>
                       <span
-                        className="font-['Manrope']"
+                        className="font-['Manrope'] text-base sm:text-lg lg:text-xl"
                         style={{
-                          fontSize: "20px",
                           fontWeight: 700,
                           lineHeight: "1.6",
                         }}
@@ -8599,8 +8045,9 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                       >
                         <div className="h-[6px] w-[6px] rounded-full bg-[#CED4DA]" />
                         <span
-                          className="font-['Manrope']"
+                          className="font-['Manrope'] text-sm sm:text-base lg:text-base"
                           style={{
+
                             fontSize: "16px",
                             fontWeight: 600,
                             lineHeight: "1.75",
@@ -8615,8 +8062,9 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                       >
                         <div className="h-[6px] w-[6px] rounded-full bg-[#CED4DA]" />
                         <span
-                          className="font-['Manrope']"
+                          className="font-['Manrope'] text-sm sm:text-base lg:text-base"
                           style={{
+
                             fontSize: "16px",
                             fontWeight: 600,
                             lineHeight: "1.75",
@@ -8635,9 +8083,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                           <span className="text-sm font-medium">3</span>
                         </div>
                         <span
-                          className="font-['Manrope']"
+                          className="font-['Manrope'] text-sm sm:text-base lg:text-base"
                           style={{
-                            fontSize: "20px",
                             fontWeight: 600,
                             lineHeight: "1.4",
                           }}
@@ -8655,9 +8102,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                           <span className="text-sm font-medium">5</span>
                         </div>
                         <span
-                          className="font-['Manrope']"
+                          className="font-['Manrope'] text-sm sm:text-base lg:text-base"
                           style={{
-                            fontSize: "20px",
                             fontWeight: 600,
                             lineHeight: "1.4",
                           }}
@@ -8670,9 +8116,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                           <span className="text-sm font-medium">6</span>
                         </div>
                         <span
-                          className="font-['Manrope'] text-[#181A2A]"
+                          className="font-['Manrope'] text-[#181A2A] text-sm sm:text-base lg:text-base"
                           style={{
-                            fontSize: "20px",
                             fontWeight: 600,
                             lineHeight: "1.4",
                           }}
@@ -8686,36 +8131,32 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
               </nav>
 
               {/* Explore More Section - Below Table of Contents */}
-              <div style={{ marginTop: "32px" }}>
+              <div className="mt-8">
                 <h2
-                  className="mb-8 font-['Manrope'] text-[#212121]"
+                  className="mb-6 font-['Manrope'] text-[#212121] text-xl sm:text-2xl lg:text-[24px]"
                   style={{
-                    fontSize: "24px",
                     fontWeight: 600,
                     lineHeight: "1.333",
-                    marginBottom: "32px",
                   }}
                 >
                   Explore More
                 </h2>
                 <div className="flex flex-col gap-4 rounded-[12px] border border-[#E8E8EA] bg-white p-4">
                   <div
-                    className="relative overflow-hidden rounded-[12px]"
-                    style={{ width: "100%", height: "150px" }}
+                    className="relative overflow-hidden rounded-[12px] h-32 sm:h-36 lg:h-[150px]"
                   >
                     <Image
                       src="/blog-detail-related.png"
                       alt="Sustainable Travel Tips"
                       fill
                       className="object-cover"
-                      sizes="400px"
+                      sizes="(max-width: 640px) 100vw, 400px"
                     />
                   </div>
                   <div className="flex-1">
                     <p
-                      className="mb-2 font-['Manrope'] text-[#212121]"
+                      className="mb-2 font-['Manrope'] text-[#212121] text-xs sm:text-sm"
                       style={{
-                        fontSize: "14px",
                         fontWeight: 400,
                         lineHeight: "1.143",
                       }}
@@ -8723,9 +8164,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                       Nov 29, 2024
                     </p>
                     <h3
-                      className="mb-2 font-['Manrope'] text-[#212121]"
+                      className="mb-2 font-['Manrope'] text-[#212121] text-base sm:text-lg lg:text-xl"
                       style={{
-                        fontSize: "20px",
                         fontWeight: 500,
                         lineHeight: "1.6",
                       }}
@@ -8733,8 +8173,9 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
                       Sustainable Travel Tips: Reducing Your Carbon Footprint
                     </h3>
                     <p
-                      className="mb-4 font-['Manrope'] text-[#212121]"
+                      className="mb-4 font-['Manrope'] text-[#212121] text-xs sm:text-sm"
                       style={{
+
                         fontSize: "14px",
                         fontWeight: 400,
                         lineHeight: "1.429",
