@@ -92,7 +92,7 @@ const faqs = [
   },
 ] as const;
 
-// Helper function to calculate service points based on number of items
+// Helper function to calculate service points based on number of items - EXACT COPY from solution-2
 const calculateServicePoints = (itemCount: number, paddingTop: number = 10, itemHeight: number = 30, spacing: number = 54) => {
   const points = [];
   let currentTop = paddingTop;
@@ -120,7 +120,7 @@ export default function Service2Page() {
   const monitoringPoints = calculateServicePoints(monitoringServices.length);
   const optimizationPoints = calculateServicePoints(optimizationServices.length);
 
-  // Animation function factory
+  // Animation function factory - EXACT COPY from solution-2
   const createAnimation = (
     setRedBarTop: (value: number) => void,
     setActiveIndex: (value: number) => void,
@@ -136,8 +136,14 @@ export default function Service2Page() {
       const elapsed = currentTime - startTime;
       const progress = (elapsed % animationDuration) / animationDuration;
 
+      const lastPointIndex = servicePoints.length - 1;
+      const lastPoint = servicePoints[lastPointIndex];
+      const thirdPoint = servicePoints[servicePoints.length - 2];
+      const thirdPointBottom = thirdPoint ? thirdPoint.top + thirdPoint.height : 0;
+
       const maxTop = totalHeight - redBarHeight;
       const currentTop = progress * maxTop;
+
       const barCenter = currentTop + redBarHeight / 2;
       const barBottom = currentTop + redBarHeight;
       const barTop = currentTop;
@@ -189,7 +195,7 @@ export default function Service2Page() {
     };
   };
 
-  // Set up animations for all sections
+  // Set up animations for all sections - EXACT COPY from solution-2
   useEffect(() => createAnimation(setRedBarTop1, setActiveIndex1, itSupportPoints, 365, 0), []);
   useEffect(() => createAnimation(setRedBarTop2, setActiveIndex2, monitoringPoints, 365, 800), []);
   useEffect(() => createAnimation(setRedBarTop3, setActiveIndex3, optimizationPoints, 365, 1600), []);
@@ -406,20 +412,14 @@ export default function Service2Page() {
 
       {/* Why IT Support, Monitoring & Optimization Matters Section */}
       <section
-        className="py-12 sm:py-16 md:py-20 lg:py-28"
+        className="py-12 sm:py-16 md:py-20 lg:py-24"
         style={{
           backgroundColor: "#F8F8F8",
         }}
       >
-        <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 md:px-12 lg:px-[78px]">
-          {/* Heading */}
+        <div className="mx-auto w-full max-w-7xl px-4 sm:px-8 md:px-12 lg:px-16">
           <h2
-            className="font-['TASA_Orbiter'] text-black mb-6 sm:mb-8 md:mb-10 lg:mb-14 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[64px]"
-            style={{
-              fontWeight: 600,
-              lineHeight: "1.15",
-              maxWidth: "1139px",
-            }}
+            className="font-['TASA_Orbiter'] text-black text-center mb-8 sm:mb-10 md:mb-12 lg:mb-16 text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold leading-snug max-w-3xl mx-auto"
           >
             Why IT Support, Monitoring & Optimization Matter
           </h2>
@@ -486,26 +486,6 @@ export default function Service2Page() {
         </div>
       </section>
 
-      {/* Our Core Offerings Heading */}
-      {/* <section
-        className="py-10 sm:py-12 md:py-16 lg:py-20"
-        style={{
-          backgroundColor: "#F8F8F8",
-        }}
-      >
-        <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-8 md:px-12 lg:px-[78px]">
-          <h2
-            className="font-['TASA_Orbiter'] text-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[64px]"
-            style={{
-              fontWeight: 600,
-              lineHeight: "1.3",
-            }}
-          >
-            Our Core Offerings
-          </h2>
-        </div>
-      </section> */}
-
       {/* IT Support Services Section */}
       <section
         className="py-10 sm:py-12 md:py-14 lg:py-16 px-5 sm:px-8 md:px-12 lg:px-[78px]"
@@ -565,29 +545,40 @@ export default function Service2Page() {
                   Key Services
                 </h3>
 
-                <div className="relative w-full lg:w-[719px] h-auto lg:h-[365px]">
-                  {/* Background line - Hidden on mobile/tablet */}
+                {/* Desktop: Animated progress - EXACT COPY from solution-2 */}
+                <div className="hidden lg:block relative w-full lg:w-[719px]" style={{ height: "365px" }}>
                   <div
-                    className="absolute left-0 top-0 hidden lg:block w-2 h-[365px] rounded-full bg-gray-200"
-                  />
-                  {/* Red progress line - Animated - Hidden on mobile/tablet */}
-                  <div
-                    className="absolute left-0 hidden lg:block w-2 rounded-full bg-red-600"
+                    className="absolute left-0 top-0"
                     style={{
-                      height: `${redBarHeight}px`,
-                      top: `${redBarTop1}px`,
+                      width: "9px",
+                      height: "365px",
+                      borderRadius: "55px",
+                      backgroundColor: "#D9D9D9",
                     }}
                   />
-                  {/* Services */}
                   <div
-                    className="space-y-3 sm:space-y-4 md:space-y-5 lg:space-y-[54px] pl-0 lg:pl-[52px] pt-0 lg:pt-[10px]"
+                    className="absolute left-0"
+                    style={{
+                      width: "8.6px",
+                      height: `${redBarHeight}px`,
+                      top: `${redBarTop1}px`,
+                      borderRadius: "55px",
+                      backgroundColor: "#E11E24",
+                    }}
+                  />
+                  <div
+                    className="space-y-[54px]"
+                    style={{ paddingLeft: "52px", paddingTop: "10px" }}
                   >
                     {itSupportServices.map((service, i) => (
                       <p
                         key={i}
-                        className={`font-['TASA_Orbiter'] text-sm sm:text-base md:text-lg lg:text-xl transition-all duration-300 ${activeIndex1 === i ? 'text-black font-bold lg:text-[22px]' : 'text-gray-600 font-semibold'}`}
+                        className="font-['TASA_Orbiter'] text-black"
                         style={{
-                          lineHeight: "1.4",
+                          fontSize: activeIndex1 === i ? "24px" : "20px",
+                          fontWeight: activeIndex1 === i ? 700 : 600,
+                          lineHeight: "1.08",
+                          transition: "font-weight 0.2s ease-in-out, font-size 0.2s ease-in-out",
                         }}
                       >
                         {service}
@@ -595,6 +586,20 @@ export default function Service2Page() {
                     ))}
                   </div>
                 </div>
+
+                {/* Mobile list */}
+                <ul className="lg:hidden space-y-3 sm:space-y-4">
+                  {itSupportServices.map((service, i) => (
+                    <li
+                      key={i}
+                      className="font-['TASA_Orbiter'] text-black text-sm sm:text-base flex items-start gap-2"
+                      style={{ fontWeight: 600, lineHeight: "1.3" }}
+                    >
+                      <span className="text-[#E11E24] mt-1">•</span>
+                      {service}
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
 
@@ -697,29 +702,40 @@ export default function Service2Page() {
                   Key Services
                 </h3>
 
-                <div className="relative w-full lg:w-[719px] h-auto lg:h-[365px]">
-                  {/* Background line - Hidden on mobile/tablet */}
+                {/* Desktop: Animated progress - EXACT COPY from solution-2 */}
+                <div className="hidden lg:block relative w-full lg:w-[719px]" style={{ height: "365px" }}>
                   <div
-                    className="absolute left-0 top-0 hidden lg:block w-2 h-[365px] rounded-full bg-gray-200"
-                  />
-                  {/* Red progress line - Animated - Hidden on mobile/tablet */}
-                  <div
-                    className="absolute left-0 hidden lg:block w-2 rounded-full bg-red-600"
+                    className="absolute left-0 top-0"
                     style={{
-                      height: `${redBarHeight}px`,
-                      top: `${redBarTop2}px`,
+                      width: "9px",
+                      height: "365px",
+                      borderRadius: "55px",
+                      backgroundColor: "#D9D9D9",
                     }}
                   />
-                  {/* Services */}
                   <div
-                    className="space-y-3 sm:space-y-4 md:space-y-5 lg:space-y-[54px] pl-0 lg:pl-[52px] pt-0 lg:pt-[10px]"
+                    className="absolute left-0"
+                    style={{
+                      width: "8.6px",
+                      height: `${redBarHeight}px`,
+                      top: `${redBarTop2}px`,
+                      borderRadius: "55px",
+                      backgroundColor: "#E11E24",
+                    }}
+                  />
+                  <div
+                    className="space-y-[54px]"
+                    style={{ paddingLeft: "52px", paddingTop: "10px" }}
                   >
                     {monitoringServices.map((service, i) => (
                       <p
                         key={i}
-                        className={`font-['TASA_Orbiter'] text-sm sm:text-base md:text-lg lg:text-xl transition-all duration-300 ${activeIndex2 === i ? 'text-black font-bold lg:text-[22px]' : 'text-gray-600 font-semibold'}`}
+                        className="font-['TASA_Orbiter'] text-black"
                         style={{
-                          lineHeight: "1.4",
+                          fontSize: activeIndex2 === i ? "24px" : "20px",
+                          fontWeight: activeIndex2 === i ? 700 : 600,
+                          lineHeight: "1.08",
+                          transition: "font-weight 0.2s ease-in-out, font-size 0.2s ease-in-out",
                         }}
                       >
                         {service}
@@ -727,6 +743,20 @@ export default function Service2Page() {
                     ))}
                   </div>
                 </div>
+
+                {/* Mobile list */}
+                <ul className="lg:hidden space-y-3 sm:space-y-4">
+                  {monitoringServices.map((service, i) => (
+                    <li
+                      key={i}
+                      className="font-['TASA_Orbiter'] text-black text-sm sm:text-base flex items-start gap-2"
+                      style={{ fontWeight: 600, lineHeight: "1.3" }}
+                    >
+                      <span className="text-[#E11E24] mt-1">•</span>
+                      {service}
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
 
@@ -828,29 +858,40 @@ export default function Service2Page() {
                   Key Services
                 </h3>
 
-                <div className="relative w-full lg:w-[719px] h-auto lg:h-[365px]">
-                  {/* Background line - Hidden on mobile/tablet */}
+                {/* Desktop: Animated progress - EXACT COPY from solution-2 */}
+                <div className="hidden lg:block relative w-full lg:w-[719px]" style={{ height: "365px" }}>
                   <div
-                    className="absolute left-0 top-0 hidden lg:block w-2 h-[365px] rounded-full bg-gray-200"
-                  />
-                  {/* Red progress line - Animated - Hidden on mobile/tablet */}
-                  <div
-                    className="absolute left-0 hidden lg:block w-2 rounded-full bg-red-600"
+                    className="absolute left-0 top-0"
                     style={{
-                      height: `${redBarHeight}px`,
-                      top: `${redBarTop3}px`,
+                      width: "9px",
+                      height: "365px",
+                      borderRadius: "55px",
+                      backgroundColor: "#D9D9D9",
                     }}
                   />
-                  {/* Services */}
                   <div
-                    className="space-y-3 sm:space-y-4 md:space-y-5 lg:space-y-[55px] pl-0 lg:pl-[52px] pt-0 lg:pt-[10px]"
+                    className="absolute left-0"
+                    style={{
+                      width: "8.6px",
+                      height: `${redBarHeight}px`,
+                      top: `${redBarTop3}px`,
+                      borderRadius: "55px",
+                      backgroundColor: "#E11E24",
+                    }}
+                  />
+                  <div
+                    className="space-y-[54px]"
+                    style={{ paddingLeft: "52px", paddingTop: "10px" }}
                   >
                     {optimizationServices.map((service, i) => (
                       <p
                         key={i}
-                        className={`font-['TASA_Orbiter'] text-sm sm:text-base md:text-lg lg:text-xl transition-all duration-300 ${activeIndex3 === i ? 'text-black font-bold lg:text-[22px]' : 'text-gray-600 font-semibold'}`}
+                        className="font-['TASA_Orbiter'] text-black"
                         style={{
-                          lineHeight: "1.4",
+                          fontSize: activeIndex3 === i ? "24px" : "20px",
+                          fontWeight: activeIndex3 === i ? 700 : 600,
+                          lineHeight: "1.08",
+                          transition: "font-weight 0.2s ease-in-out, font-size 0.2s ease-in-out",
                         }}
                       >
                         {service}
@@ -858,6 +899,20 @@ export default function Service2Page() {
                     ))}
                   </div>
                 </div>
+
+                {/* Mobile list */}
+                <ul className="lg:hidden space-y-3 sm:space-y-4">
+                  {optimizationServices.map((service, i) => (
+                    <li
+                      key={i}
+                      className="font-['TASA_Orbiter'] text-black text-sm sm:text-base flex items-start gap-2"
+                      style={{ fontWeight: 600, lineHeight: "1.3" }}
+                    >
+                      <span className="text-[#E11E24] mt-1">•</span>
+                      {service}
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
 
