@@ -91,7 +91,7 @@ const faqs = [
   },
 ] as const;
 
-// Helper function to calculate service points based on number of items
+// Helper function to calculate service points based on number of items - EXACT COPY from solution-2
 const calculateServicePoints = (itemCount: number, paddingTop: number = 10, itemHeight: number = 30, spacing: number = 54) => {
   const points = [];
   let currentTop = paddingTop;
@@ -119,7 +119,7 @@ export default function Service3Page() {
   const managedPoints = calculateServicePoints(managedServices.length);
   const lifecyclePoints = calculateServicePoints(lifecycleServices.length);
 
-  // Animation function factory
+  // Animation function factory - EXACT COPY from solution-2
   const createAnimation = (
     setRedBarTop: (value: number) => void,
     setActiveIndex: (value: number) => void,
@@ -135,8 +135,14 @@ export default function Service3Page() {
       const elapsed = currentTime - startTime;
       const progress = (elapsed % animationDuration) / animationDuration;
 
+      const lastPointIndex = servicePoints.length - 1;
+      const lastPoint = servicePoints[lastPointIndex];
+      const thirdPoint = servicePoints[servicePoints.length - 2];
+      const thirdPointBottom = thirdPoint ? thirdPoint.top + thirdPoint.height : 0;
+
       const maxTop = totalHeight - redBarHeight;
       const currentTop = progress * maxTop;
+
       const barCenter = currentTop + redBarHeight / 2;
       const barBottom = currentTop + redBarHeight;
       const barTop = currentTop;
@@ -188,7 +194,7 @@ export default function Service3Page() {
     };
   };
 
-  // Set up animations for all sections
+  // Set up animations for all sections - EXACT COPY from solution-2
   useEffect(() => createAnimation(setRedBarTop1, setActiveIndex1, amcPoints, 365, 0), []);
   useEffect(() => createAnimation(setRedBarTop2, setActiveIndex2, managedPoints, 365, 800), []);
   useEffect(() => createAnimation(setRedBarTop3, setActiveIndex3, lifecyclePoints, 365, 1600), []);
@@ -624,25 +630,7 @@ export default function Service3Page() {
                   Key Services
                 </h3>
 
-                {/* Mobile/Tablet: Simple list without animation */}
-                <div className="lg:hidden space-y-4 sm:space-y-5">
-                  {amcServices.map((service, i) => (
-                    <div key={i} className="flex items-start gap-3">
-                      <div className="w-2 h-2 rounded-full bg-[#E11E24] mt-2 flex-shrink-0" />
-                      <p
-                        className="font-['TASA_Orbiter'] text-black text-base sm:text-lg"
-                        style={{
-                          fontWeight: 600,
-                          lineHeight: "1.4",
-                        }}
-                      >
-                        {service}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Desktop: Animated progress bar */}
+                {/* Desktop: Animated progress bar - EXACT COPY from solution-2 */}
                 <div className="hidden lg:block relative" style={{ width: "719px", height: "365px" }}>
                   {/* Background line */}
                   <div
@@ -686,6 +674,24 @@ export default function Service3Page() {
                       </p>
                     ))}
                   </div>
+                </div>
+
+                {/* Mobile/Tablet: Simple list without animation */}
+                <div className="lg:hidden space-y-4 sm:space-y-5">
+                  {amcServices.map((service, i) => (
+                    <div key={i} className="flex items-start gap-3">
+                      <div className="w-2 h-2 rounded-full bg-[#E11E24] mt-2 flex-shrink-0" />
+                      <p
+                        className="font-['TASA_Orbiter'] text-black text-base sm:text-lg"
+                        style={{
+                          fontWeight: 600,
+                          lineHeight: "1.4",
+                        }}
+                      >
+                        {service}
+                      </p>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
@@ -831,25 +837,7 @@ export default function Service3Page() {
                   Key Services
                 </h3>
 
-                {/* Mobile/Tablet: Simple list without animation */}
-                <div className="lg:hidden space-y-4 sm:space-y-5">
-                  {managedServices.map((service, i) => (
-                    <div key={i} className="flex items-start gap-3">
-                      <div className="w-2 h-2 rounded-full bg-[#E11E24] mt-2 flex-shrink-0" />
-                      <p
-                        className="font-['TASA_Orbiter'] text-black text-base sm:text-lg"
-                        style={{
-                          fontWeight: 600,
-                          lineHeight: "1.4",
-                        }}
-                      >
-                        {service}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Desktop: Animated progress bar */}
+                {/* Desktop: Animated progress bar - EXACT COPY from solution-2 */}
                 <div className="hidden lg:block relative" style={{ width: "719px", height: "365px" }}>
                   {/* Background line */}
                   <div
@@ -893,6 +881,24 @@ export default function Service3Page() {
                       </p>
                     ))}
                   </div>
+                </div>
+
+                {/* Mobile/Tablet: Simple list without animation */}
+                <div className="lg:hidden space-y-4 sm:space-y-5">
+                  {managedServices.map((service, i) => (
+                    <div key={i} className="flex items-start gap-3">
+                      <div className="w-2 h-2 rounded-full bg-[#E11E24] mt-2 flex-shrink-0" />
+                      <p
+                        className="font-['TASA_Orbiter'] text-black text-base sm:text-lg"
+                        style={{
+                          fontWeight: 600,
+                          lineHeight: "1.4",
+                        }}
+                      >
+                        {service}
+                      </p>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
@@ -1042,25 +1048,7 @@ export default function Service3Page() {
                   Key Services
                 </h3>
 
-                {/* Mobile/Tablet: Simple list without animation */}
-                <div className="lg:hidden space-y-4 sm:space-y-5">
-                  {lifecycleServices.map((service, i) => (
-                    <div key={i} className="flex items-start gap-3">
-                      <div className="w-2 h-2 rounded-full bg-[#E11E24] mt-2 flex-shrink-0" />
-                      <p
-                        className="font-['TASA_Orbiter'] text-black text-base sm:text-lg"
-                        style={{
-                          fontWeight: 600,
-                          lineHeight: "1.4",
-                        }}
-                      >
-                        {service}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Desktop: Animated progress bar */}
+                {/* Desktop: Animated progress bar - EXACT COPY from solution-2 */}
                 <div className="hidden lg:block relative" style={{ width: "719px", height: "365px" }}>
                   {/* Background line */}
                   <div
@@ -1104,6 +1092,24 @@ export default function Service3Page() {
                       </p>
                     ))}
                   </div>
+                </div>
+
+                {/* Mobile/Tablet: Simple list without animation */}
+                <div className="lg:hidden space-y-4 sm:space-y-5">
+                  {lifecycleServices.map((service, i) => (
+                    <div key={i} className="flex items-start gap-3">
+                      <div className="w-2 h-2 rounded-full bg-[#E11E24] mt-2 flex-shrink-0" />
+                      <p
+                        className="font-['TASA_Orbiter'] text-black text-base sm:text-lg"
+                        style={{
+                          fontWeight: 600,
+                          lineHeight: "1.4",
+                        }}
+                      >
+                        {service}
+                      </p>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
