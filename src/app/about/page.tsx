@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Navbar } from "@/components/Navbar";
@@ -32,6 +33,12 @@ const pointers = [
     description:
       "We deliver on our promises with consistency and accountability — providing dependable technology and support that businesses can trust.",
     icon: "reliability",
+  },
+  {
+    title: "Integrity",
+    description:
+      "We conduct our business with honesty, transparency, and respect — building trust through ethical practices and responsible actions.",
+    icon: "integrity",
   },
 ] as const;
 
@@ -142,18 +149,322 @@ const getIconComponent = (icon: string, size: string = "76") => {
   }
 };
 
-const getPointerIcon = (icon: string) => {
+const getPointerIcon = (icon: string, size: "sm" | "lg" = "lg") => {
+  const dimensions = size === "sm" ? { w: 32, h: 32 } : { w: 41, h: 41 };
   switch (icon) {
     case "customer":
-      return <Image src="/pointer-customer-icon.svg" alt="Customer Focus" width={41.15} height={41.15} />;
+      return <Image src="/pointer-customer-icon.svg" alt="Customer Focus" width={dimensions.w} height={dimensions.h} />;
     case "quality":
-      return <Image src="/pointer-quality-icon.svg" alt="Quality First" width={31.76} height={41.05} />;
+      return <Image src="/pointer-quality-icon.svg" alt="Quality First" width={dimensions.w} height={dimensions.h} />;
     case "reliability":
-      return <Image src="/pointer-reliability-icon.svg" alt="Reliability" width={35} height={41} />;
+      return <Image src="/pointer-reliability-icon.svg" alt="Reliability" width={dimensions.w} height={dimensions.h} />;
+    case "integrity":
+      return (
+        <svg width={dimensions.w} height={dimensions.h} viewBox="0 0 41 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="20.5" cy="14" r="8" stroke="#E11E24" strokeWidth="1.5" fill="none"/>
+          <path d="M20.5 6V8M20.5 20V22" stroke="#E11E24" strokeWidth="1.5"/>
+          <path d="M8 27C8 27 12 22 20.5 22C29 22 33 27 33 27V35C33 35 29 38 20.5 38C12 38 8 35 8 35V27Z" stroke="#E11E24" strokeWidth="1.5" fill="none"/>
+          <circle cx="20.5" cy="30" r="3" fill="#E11E24"/>
+        </svg>
+      );
     default:
       return null;
   }
 };
+
+// Vision/Mission/Purpose accordion data
+const visionMissionData = [
+  {
+    id: "vision",
+    title: "Our Vision",
+    content: "To be India's most trusted technology partner — delivering innovation that transforms businesses and creates lasting value.",
+  },
+  {
+    id: "mission",
+    title: "Mission",
+    content: "To be India's most trusted technology partner — Empowering organizations to build intelligent, secure, and future-ready IT infrastructures that drive business excellence and positive change.",
+  },
+  {
+    id: "purpose",
+    title: "Our Purpose",
+    content: "Empowering organizations to build intelligent, secure, and future-ready IT infrastructures that drive business excellence and positive change.",
+  },
+] as const;
+
+// Chevron Icon Component
+const ChevronIcon = ({ isOpen }: { isOpen: boolean }) => (
+  <svg
+    className={`w-5 h-5 sm:w-6 sm:h-6 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
+    fill="none"
+    stroke="currentColor"
+    viewBox="0 0 24 24"
+  >
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+  </svg>
+);
+
+// Vision Mission Section Component
+function VisionMissionSection() {
+  const [openItem, setOpenItem] = useState<string | null>("vision");
+
+  const toggleItem = (id: string) => {
+    setOpenItem(openItem === id ? null : id);
+  };
+
+  return (
+    <section className="relative min-h-[350px] sm:min-h-[400px] md:min-h-[450px] lg:min-h-[500px] overflow-hidden">
+      <div className="absolute inset-0">
+        <Image
+          src="/about-vision-bg.png"
+          alt="Our Vision Background"
+          fill
+          className="object-cover"
+          sizes="100vw"
+        />
+      </div>
+      <div className="absolute inset-0 bg-black/68" />
+      <div className="relative z-10 flex h-full items-center px-4 sm:px-6 md:px-12 lg:px-[72px] xl:px-[106px] py-12 sm:py-16 lg:py-20">
+        <div className="relative w-full max-w-full sm:max-w-[600px] lg:max-w-[700px]">
+          {/* Red accent bar - positioned to align with content */}
+          <div className="absolute left-0 top-0 bg-[#E11E24] w-[4px] sm:w-[5px] lg:w-[7px] h-full rounded-[22px]" />
+          
+          <div className="pl-5 sm:pl-7 lg:pl-10 space-y-3 sm:space-y-4">
+            {visionMissionData.map((item) => (
+              <div key={item.id} className="overflow-hidden">
+                <button
+                  onClick={() => toggleItem(item.id)}
+                  className="w-full flex items-center justify-between py-3 sm:py-4 text-left group transition-all duration-200 hover:opacity-80"
+                  aria-expanded={openItem === item.id}
+                >
+                  <h2
+                    className={`font-['TASA_Orbiter'] text-white font-semibold leading-tight transition-all duration-300 ${
+                      openItem === item.id
+                        ? "text-[28px] sm:text-[36px] lg:text-[48px]"
+                        : "text-[20px] sm:text-[24px] lg:text-[32px]"
+                    }`}
+                  >
+                    {item.title}
+                  </h2>
+                  <ChevronIcon isOpen={openItem === item.id} />
+                </button>
+                
+                <div
+                  className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                    openItem === item.id ? "max-h-[300px] opacity-100" : "max-h-0 opacity-0"
+                  }`}
+                >
+                  <div className="pb-4 sm:pb-6">
+                    <h3 className="font-['TASA_Orbiter'] text-white text-[16px] sm:text-[18px] lg:text-[22px] font-bold leading-[1.4] mb-2 sm:mb-3">
+                      To be India&apos;s most trusted technology partner —
+                    </h3>
+                    <p className="font-['TASA_Orbiter'] text-white/80 text-[14px] sm:text-[15px] lg:text-[16px] font-medium leading-[1.5]">
+                      {item.content}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// Pointers Carousel Component
+function PointersCarousel() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  
+  // Number of items to show per slide based on screen size
+  const itemsPerSlide = {
+    mobile: 1,
+    tablet: 2,
+    desktop: 3,
+  };
+
+  // Calculate total slides for desktop (showing 3 items)
+  const totalSlidesDesktop = Math.ceil(pointers.length / itemsPerSlide.desktop);
+  const totalSlidesTablet = Math.ceil(pointers.length / itemsPerSlide.tablet);
+  const totalSlidesMobile = pointers.length;
+
+  const nextSlide = useCallback(() => {
+    setCurrentSlide((prev) => (prev + 1) % totalSlidesMobile);
+  }, [totalSlidesMobile]);
+
+  const prevSlide = useCallback(() => {
+    setCurrentSlide((prev) => (prev - 1 + totalSlidesMobile) % totalSlidesMobile);
+  }, [totalSlidesMobile]);
+
+  const goToSlide = (index: number) => {
+    setCurrentSlide(index);
+  };
+
+  // Auto-play carousel
+  useEffect(() => {
+    if (isPaused) return;
+    const interval = setInterval(() => {
+      nextSlide();
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [isPaused, nextSlide]);
+
+  return (
+    <section 
+      className="bg-black px-4 sm:px-6 md:px-12 lg:px-[49px] py-16 sm:py-20 lg:py-[120px] overflow-hidden"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+    >
+      <div className="mx-auto max-w-[1341px]">
+        {/* Mobile Carousel (1 item) */}
+        <div className="block sm:hidden">
+          <div className="relative">
+            <div 
+              className="flex transition-transform duration-500 ease-in-out"
+              style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+            >
+              {pointers.map((pointer) => (
+                <div key={pointer.title} className="min-w-full px-4">
+                  <div className="flex flex-col items-center text-center">
+                    <div className="mb-6">
+                      {getPointerIcon(pointer.icon)}
+                    </div>
+                    <h3 className="font-['TASA_Orbiter'] text-white text-[20px] font-bold leading-[1.2] tracking-[0.02em] mb-4">
+                      {pointer.title}
+                    </h3>
+                    <p className="font-['TASA_Orbiter'] text-white text-[14px] font-medium leading-[1.5] max-w-[280px]">
+                      {pointer.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          
+          {/* Navigation Dots - Mobile */}
+          <div className="flex justify-center gap-2 mt-8">
+            {pointers.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => goToSlide(index)}
+                className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+                  currentSlide === index ? "bg-[#E11E24] w-6" : "bg-white/40 hover:bg-white/60"
+                }`}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* Tablet Carousel (2 items) */}
+        <div className="hidden sm:block lg:hidden">
+          <div className="relative">
+            <div 
+              className="flex transition-transform duration-500 ease-in-out"
+              style={{ transform: `translateX(-${Math.floor(currentSlide / 2) * 100}%)` }}
+            >
+              {Array.from({ length: totalSlidesTablet }).map((_, slideIndex) => (
+                <div key={slideIndex} className="min-w-full">
+                  <div className="grid grid-cols-2 gap-8">
+                    {pointers.slice(slideIndex * 2, slideIndex * 2 + 2).map((pointer) => (
+                      <div key={pointer.title} className="flex flex-col items-center text-center px-4">
+                        <div className="mb-6">
+                          {getPointerIcon(pointer.icon)}
+                        </div>
+                        <h3 className="font-['TASA_Orbiter'] text-white text-[20px] font-bold leading-[1.2] tracking-[0.02em] mb-4">
+                          {pointer.title}
+                        </h3>
+                        <p className="font-['TASA_Orbiter'] text-white text-[15px] font-medium leading-[1.5] max-w-[300px]">
+                          {pointer.description}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          
+          {/* Navigation Dots - Tablet */}
+          <div className="flex justify-center gap-2 mt-10">
+            {Array.from({ length: totalSlidesTablet }).map((_, index) => (
+              <button
+                key={index}
+                onClick={() => goToSlide(index * 2)}
+                className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+                  Math.floor(currentSlide / 2) === index ? "bg-[#E11E24] w-6" : "bg-white/40 hover:bg-white/60"
+                }`}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* Desktop Carousel (3 items) */}
+        <div className="hidden lg:block">
+          <div className="relative">
+            {/* Navigation Arrows */}
+            <button
+              onClick={prevSlide}
+              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 xl:-translate-x-8 z-10 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-all duration-300"
+              aria-label="Previous slide"
+            >
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15 18L9 12L15 6" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </button>
+            <button
+              onClick={nextSlide}
+              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 xl:translate-x-8 z-10 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-all duration-300"
+              aria-label="Next slide"
+            >
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 18L15 12L9 6" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </button>
+
+            <div className="overflow-hidden mx-8 xl:mx-12">
+              <div 
+                className="flex transition-transform duration-500 ease-in-out"
+                style={{ transform: `translateX(-${currentSlide * (100 / 3)}%)` }}
+              >
+                {pointers.map((pointer) => (
+                  <div key={pointer.title} className="min-w-[33.333%] px-6 xl:px-10">
+                    <div className="flex flex-col items-start">
+                      <div className="mb-6">
+                        {getPointerIcon(pointer.icon)}
+                      </div>
+                      <h3 className="font-['TASA_Orbiter'] text-white text-[20px] xl:text-[22px] font-bold leading-[1.2] tracking-[0.02em] mb-4">
+                        {pointer.title}
+                      </h3>
+                      <p className="font-['TASA_Orbiter'] text-white text-[15px] xl:text-[16px] font-medium leading-[1.5]">
+                        {pointer.description}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+          
+          {/* Navigation Dots - Desktop */}
+          <div className="flex justify-center gap-3 mt-12">
+            {pointers.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => goToSlide(index)}
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                  currentSlide === index ? "bg-[#E11E24] w-8" : "bg-white/40 hover:bg-white/60"
+                }`}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
 
 export default function AboutPage() {
   return (
@@ -260,34 +571,7 @@ export default function AboutPage() {
       </section>
 
       {/* Our Vision Section - Responsive */}
-      <section className="relative h-[400px] sm:h-[500px] md:h-[600px] lg:h-[669px] overflow-hidden">
-        <div className="absolute inset-0">
-          <Image
-            src="/about-vision-bg.png"
-            alt="Our Vision Background"
-            fill
-            className="object-cover"
-            sizes="100vw"
-          />
-        </div>
-        <div className="absolute inset-0 bg-black/68" />
-        <div className="relative z-10 flex h-full items-center px-4 sm:px-6 md:px-12 lg:px-[72px] xl:px-[106px]">
-          <div className="relative space-y-6 sm:space-y-8 rounded-[22px] p-6 sm:p-8 lg:p-12 max-w-full sm:max-w-[542px]">
-            <div className="absolute left-0 top-0 rounded-[22px] bg-[#E11E24] w-[5px] sm:w-[7px] h-[70px] sm:h-[95px]" />
-            <div className="space-y-4 sm:space-y-6 lg:space-y-8 pl-6 sm:pl-8 lg:pl-[37px]">
-              <h2 className="font-['TASA_Orbiter'] text-white text-[36px] sm:text-[48px] lg:text-[64px] font-semibold leading-none sm:leading-[0.93]">
-                Our Vision
-              </h2>
-              <h3 className="font-['TASA_Orbiter'] text-white text-[24px] sm:text-[30px] lg:text-[36px] font-bold leading-[1.494]">
-                Mission
-              </h3>
-              <h3 className="font-['TASA_Orbiter'] text-white text-[24px] sm:text-[30px] lg:text-[36px] font-bold leading-[1.494]">
-                Our Purpose
-              </h3>
-            </div>
-          </div>
-        </div>
-      </section>
+      <VisionMissionSection />
 
       {/* Content Block Section - Responsive */}
       <section className="bg-white px-4 sm:px-6 md:px-12 lg:px-[72px] xl:px-[136px] py-16 sm:py-20 lg:py-24">
@@ -303,52 +587,8 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Pointers Section - Responsive */}
-      <section className="bg-black px-4 sm:px-6 md:px-12 lg:px-[49px] py-16 sm:py-20 lg:py-[120px]">
-        <div className="mx-auto max-w-[1341px] flex flex-col items-center">
-          {/* Mobile/Tablet: Stacked layout */}
-          <div className="flex flex-col lg:hidden gap-10 sm:gap-12 w-full">
-            {pointers.map((pointer) => (
-              <div key={pointer.title} className="flex flex-col items-center text-center">
-                <div className="mb-4 sm:mb-6">
-                  {getPointerIcon(pointer.icon)}
-                </div>
-                <h3 className="font-['TASA_Orbiter'] text-white text-[18px] sm:text-[20px] font-bold leading-[1.2] tracking-[0.02em] mb-3">
-                  {pointer.title}
-                </h3>
-                <p className="font-['TASA_Orbiter'] text-white text-[14px] sm:text-[16px] font-medium leading-[1.4] max-w-[300px]">
-                  {pointer.description}
-                </p>
-              </div>
-            ))}
-          </div>
-          
-          {/* Desktop: Original layout */}
-          <div className="hidden lg:flex flex-col items-center w-full">
-            {/* Icons Row */}
-            <div className="flex flex-row gap-[200px] xl:gap-[352px] mb-6 items-center">
-              {pointers.map((pointer) => (
-                <div key={`icon-${pointer.title}`} className="flex items-center justify-center">
-                  {getPointerIcon(pointer.icon)}
-                </div>
-              ))}
-            </div>
-            
-            {/* Text Row */}
-            <div className="flex flex-row gap-12 xl:gap-[89px] items-start">
-              {pointers.map((pointer, index) => (
-                <div key={pointer.title} className="w-[250px] xl:w-[300px]">
-                  <p className="font-['TASA_Orbiter'] text-white text-[18px] xl:text-[20px] font-bold leading-[1.4] tracking-[0.02em]">
-                    {pointer.title}
-                    <br /><br />
-                    <span className="font-medium">{pointer.description}</span>
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Pointers Carousel Section - Responsive */}
+      <PointersCarousel />
 
       {/* Why Nexobots Section - Responsive */}
       <section className="relative overflow-hidden bg-white px-4 sm:px-6 md:px-12 lg:px-[71px] py-16 sm:py-20 lg:py-24">
