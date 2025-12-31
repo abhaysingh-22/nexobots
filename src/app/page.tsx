@@ -689,13 +689,13 @@ export default function Home() {
                 Read Our Latest Insights
               </h2>
             </div>
-            <div className="flex flex-col sm:flex-row sm:flex-wrap justify-center gap-6">
+            <div className="flex flex-col items-center sm:flex-row sm:flex-wrap justify-center gap-6">
               {blogs.map((blog, index) => (
                 <article
                   key={index}
-                  className="flex flex-col w-full sm:w-[calc(50%-12px)] md:max-w-[400px]"
+                  className="flex flex-col w-[90vw] p-6 border border-gray-300 rounded-3xl md:max-w-[400px]"
                 >
-                  <div className="relative h-[200px] sm:h-[240px] md:h-[280px] w-full overflow-hidden rounded-[20px]">
+                  <div className="relative h-[270px] sm:h-[240px] md:h-[280px] w-full overflow-hidden rounded-[20px]">
                     <Image
                       src={blog.image}
                       alt={blog.title}
@@ -704,7 +704,7 @@ export default function Home() {
                       sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 400px"
                     />
                     <div className="absolute inset-0 bg-black/60" />
-                    <h3 className="absolute bottom-4 left-4 right-4 font-['Manrope'] text-[18px] sm:text-[20px] md:text-[24px] font-extrabold leading-[1.366] text-white">
+                    <h3 className="absolute bottom-4 left-4 right-4 font-['Manrope'] text-[16px] sm:text-[20px] md:text-[24px] font-extrabold leading-[1.366] text-white">
                       {blog.title}
                     </h3>
                   </div>
@@ -784,7 +784,7 @@ export default function Home() {
                     key={index}
                     className="flex flex-shrink-0 flex-col"
                     style={{ 
-                      width: "674px", 
+                      width: "500px", 
                       height: "527px",
                       scrollSnapAlign: "start",
                       marginLeft: index === 0 ? "auto" : "0"
@@ -803,7 +803,7 @@ export default function Home() {
                       ) : (
                         <div className="absolute inset-0 bg-black/58" />
                       )}
-                      <h3 className="absolute bottom-[43.5px] left-[43px] right-[43px] font-['Manrope'] text-[32px] font-extrabold leading-[1.366] text-white">
+                      <h3 className="absolute bottom-[43.5px] left-[43px] right-[43px] font-['Manrope'] text-[24px] font-extrabold leading-[1.366] text-white">
                         {blog.title}
                       </h3>
                     </div>
@@ -867,7 +867,7 @@ export default function Home() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
               {industries.map((industry) => (
                 <div key={industry.title} className="flex flex-col">
-                  <div className="relative h-[180px] sm:h-[200px] md:h-[220px] w-full overflow-hidden rounded-lg">
+                  <div className="relative h-[270px] md:h-[300px] w-full overflow-hidden rounded-lg">
                     <Image
                       src={industry.image}
                       alt={industry.title}
@@ -879,10 +879,10 @@ export default function Home() {
                   <h3 className="mt-4 font-['TASA_Orbiter'] text-[18px] md:text-[20px] font-semibold text-black">
                     {industry.title}
                   </h3>
-                  <p className="mt-2 font-['Manrope'] text-[13px] md:text-[14px] text-[#A4A4A4] leading-[1.4]">
+                  <p className="mt-2 font-['Manrope'] text-[12px] md:text-[14px] text-[#A4A4A4] leading-[1.4]">
                     {industry.summary}
                   </p>
-                  <p className="mt-2 font-['Manrope'] text-[13px] md:text-[14px] text-[#A4A4A4] leading-[1.4]">
+                  <p className="mt-2 font-['Manrope'] text-[12px] md:text-[14px] text-[#A4A4A4] leading-[1.4]">
                     {industry.body}
                   </p>
                 </div>
