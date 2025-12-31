@@ -17,27 +17,27 @@ export default function Testimonials({ testimonials }: TestimonialsProps) {
       id="testimonials"
       className="relative bg-white py-16 sm:py-20 lg:py-24 xl:py-[120px] overflow-hidden"
     >
-      {/* Decorative Images - Desktop only, positioned relative to section */}
+      {/* Decorative Images - Responsive across all devices */}
       <div className="absolute inset-0 pointer-events-none">
         {/* Decorative Image 1 - Top Left */}
-        <div className="hidden xl:block absolute left-10 2xl:left-[82px] top-[100px]">
+        <div className="absolute left-2 sm:left-4 lg:left-10 2xl:left-[82px] top-8 sm:top-12 lg:top-[100px]">
           <Image
             src="/testimonials-decorative-1.svg"
             alt=""
             width={283}
             height={218}
-            className="w-[200px] h-auto 2xl:w-[283px]"
+            className="w-24 sm:w-32 md:w-40 lg:w-[200px] 2xl:w-[283px] h-auto opacity-60 sm:opacity-70 lg:opacity-100"
           />
         </div>
 
         {/* Decorative Image 2 - Bottom Center-Right */}
-        <div className="hidden xl:block absolute left-1/2 bottom-10 2xl:bottom-[60px]">
+        <div className="absolute left-1/2 -translate-x-1/2 sm:translate-x-0 bottom-6 sm:bottom-8 lg:bottom-10 2xl:bottom-[60px]">
           <Image
             src="/testimonials-decorative-2.svg"
             alt=""
             width={105}
             height={47}
-            className="w-20 h-auto 2xl:w-[105px]"
+            className="w-12 sm:w-16 md:w-20 2xl:w-[105px] h-auto opacity-60 sm:opacity-70 lg:opacity-100"
           />
         </div>
       </div>

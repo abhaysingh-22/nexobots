@@ -73,7 +73,7 @@ export function Navbar() {
           />
         </Link>
 
-        <nav className="hidden items-center gap-[40px] lg:flex absolute left-1/2 -translate-x-1/2" aria-label="Primary navigation">
+        <nav className="hidden items-center gap-[2vw] lg:flex absolute left-1/2 -translate-x-1/2" aria-label="Primary navigation">
           <NavDropdown
             label="Solutions"
             primaryLink="/solutions"
@@ -110,7 +110,7 @@ export function Navbar() {
 
         </nav>
 
-        <div className="flex items-center gap-3 flex-shrink-0">
+        <div className="flex items-center gap-3 shrink-0">
           <Link
             href="/contact"
             onClick={handleNavigate}

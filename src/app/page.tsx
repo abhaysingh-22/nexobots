@@ -380,7 +380,7 @@ export default function Home() {
             </div>
 
             {/* Desktop View - Order: Smart Cabling, CCTV, IT Infrastructure, Biometric */}
-            <div className="hidden lg:flex flex-nowrap justify-center items-center gap-[18px]">
+            <div className="hidden lg:flex flex-wrap justify-center items-center gap-4">
               {[solutions[0], solutions[1], solutions[3], solutions[2]].map((solution, displayIndex) => {
                 // Map display index back to original routes
                 const routeMap = ["/solution-4", "/solution-1", "/solution-2", "/solution-3"];
@@ -475,18 +475,18 @@ export default function Home() {
           </div>
         </section>
 
-        <Link href="/about" className="block bg-white px-4 sm:px-8 md:px-12 lg:px-[72px] py-16 md:py-20 lg:py-[120px] cursor-pointer">
-          <div className="mx-auto flex w-full max-w-[1440px] flex-col gap-10 md:gap-12 lg:gap-[64px] text-[#050505]">
+        <Link href="/about" className="block bg-white px-4 sm:px-8 md:px-10 lg:px-[72px] py-16 md:py-24 lg:py-[120px] cursor-pointer">
+          <div className="mx-auto flex w-full max-w-[1440px] flex-col gap-10 md:gap-14 lg:gap-[64px] text-[#050505]">
             <div className="mx-auto max-w-[821px] text-center px-4 sm:px-0">
-              <p className="font-['TASA_Orbiter'] text-[16px] md:text-[18px] font-medium text-black">
+              <p className="font-['TASA_Orbiter'] text-[16px] md:text-[17px] lg:text-[18px] font-medium text-black">
                 Who We Are
               </p>
-              <h2 className="mt-4 font-['TASA_Orbiter'] text-[20px]  md:text-[36px] font-semibold text-black">
+              <h2 className="mt-4 font-['TASA_Orbiter'] text-[20px] md:text-[28px] lg:text-[36px] font-semibold text-black leading-tight">
                 Empowering Enterprises Through Intelligent Connectivity and Secure Infrastructure
               </h2>
             </div>
-            <div className="grid gap-6 lg:grid-cols-2">
-              <div className="relative h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] overflow-hidden rounded-[20px]">
+            <div className="grid gap-6 md:gap-8 lg:grid-cols-2 lg:gap-10">
+              <div className="relative h-[300px] sm:h-[400px] md:h-[520px] lg:h-[600px] overflow-hidden rounded-[20px] md:rounded-[24px]">
                 <Image
                   src="/about-hero-1eb271.png"
                   alt="Nexobots team collaboration"
@@ -495,16 +495,17 @@ export default function Home() {
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 45vw"
                 />
               </div>
-              <div className="space-y-6 text-center md:text-left md:space-y-8 px-0 lg:px-6 ">
-                <p className="font-['TASA_Orbiter'] text-[16px]  md:text-[24px] lg:text-[28px] font-medium leading-[1.4] text-black">
+              <div className="space-y-5 text-center md:text-left md:space-y-7 lg:space-y-8 px-0 md:px-4 lg:px-6">
+                <p className="font-['TASA_Orbiter'] text-[16px] md:text-[22px] lg:text-[28px] font-medium leading-[1.4] text-black">
+                  <span className="hidden md:inline lg:hidden">Nexobots Technologies is a trusted IT and security infrastructure solutions provider delivering intelligent, scalable, and secure systems for modern enterprises.</span>
                   <span className="hidden lg:inline">Nexobots Technologies is a trusted IT<br />
                   and security infrastructure solutions<br />
                   provider delivering intelligent, scalable,<br />
                   and secure systems for modern<br />
                   enterprises.</span>
-                  <span className="lg:hidden">Nexobots Technologies is a trusted IT and security infrastructure solutions provider delivering intelligent, scalable, and secure systems for modern enterprises.</span>
+                  <span className="md:hidden">Nexobots Technologies is a trusted IT and security infrastructure solutions provider delivering intelligent, scalable, and secure systems for modern enterprises.</span>
                 </p>
-                <p className="font-['Manrope'] text-[10px] md:text-[15px] lg:text-[16px] leading-[1.875] text-[#4C4C4C]">
+                <p className="font-['Manrope'] text-[10px] md:text-[14px] lg:text-[16px] leading-[1.75] md:leading-[1.8] lg:leading-[1.875] text-[#4C4C4C]">
                   <span className="hidden lg:inline">We specialize in structured cabling, network integration,<br />
                   surveillance, biometric access control, and managed IT services —<br />
                   helping organizations achieve seamless connectivity, operational<br />
@@ -515,7 +516,7 @@ export default function Home() {
                   <span className="lg:hidden">We specialize in structured cabling, network integration, surveillance, biometric access control, and managed IT services — helping organizations achieve seamless connectivity, operational resilience, and long-term scalability. Partnering with global leaders like Cisco, Fortinet, D-Link, and Palo Alto, we combine cutting-edge technology with expert implementation to build infrastructures that drive business excellence.</span>
                 </p>
                 <div
-                  className="inline-flex items-center gap-3 rounded-[75px] border border-white/30 bg-black px-3 py-1 md:px-6 py-3 text-[12px] md:text-[16px] font-semibold uppercase tracking-[0.02em] text-white"
+                  className="inline-flex items-center gap-3 rounded-[75px] border border-white/30 bg-black px-4 py-2 md:px-7 md:py-3.5 text-[12px] md:text-[14px] lg:text-[16px] font-semibold uppercase tracking-[0.02em] text-white transition-transform hover:scale-105"
                 >
                   About Us
                   <Image
@@ -523,7 +524,7 @@ export default function Home() {
                     alt=""
                     width={20}
                     height={20}
-                    className="h-5 w-5"
+                    className="h-4 w-4 md:h-5 md:w-5"
                   />
                 </div>
               </div>
@@ -891,244 +892,66 @@ export default function Home() {
           </div>
           
           {/* Desktop Layout */}
-          <div className="relative mx-auto w-full max-w-[1440px] hidden lg:block" style={{ height: '987px' }}>
-            {/* Heading Section - positioned at x: 337, y: 120 */}
-            <div 
-              className="absolute flex flex-col items-center gap-4"
-              style={{
-                width: '100%',
-                maxWidth: '1296px',
-                left: '50%',
-                transform: 'translateX(-50%)',
-                top: 120,
-                paddingLeft: '72px',
-                paddingRight: '72px',
-              }}
-            >
+          <div className="hidden lg:block mx-auto w-full max-w-[1440px] px-[72px] py-[120px]">
+            {/* Heading Section */}
+            <div className="flex flex-col items-center gap-4 mb-[55px]">
               <p className="font-['Manrope'] text-[18px] font-medium text-black">
-                  Industries We Serve
-                </p>
-              <h2 className="font-['TASA_Orbiter'] text-[36px] font-bold leading-[1.222] text-black text-center">
-                  <div>Empowering Every Industry with Intelligent,</div>
-                  <div>Secure, and Scalable IT Solutions</div>
-                </h2>
+                Industries We Serve
+              </p>
+              <h2 className="font-['TASA_Orbiter'] text-[36px] font-bold leading-[1.222] text-black text-center max-w-[1296px]">
+                Empowering Every Industry with Intelligent,
+                <br />
+                Secure, and Scalable IT Solutions
+              </h2>
             </div>
 
-            {/* Find Out More Button - positioned at x: 636, y: 299 */}
-            <div
-              className="absolute inline-flex items-center justify-center gap-3 rounded-[75px] border border-white/30 bg-black"
-              style={{
-                width: "168px",
-                height: "45px",
-                left: "50%",
-                transform: "translateX(-50%)",
-                top: 299,
-                padding: "12px 25px",
-              }}
-            >
-              <span
-                className="font-['Manrope'] text-white whitespace-nowrap"
-                style={{
-                  fontSize: "15px",
-                  fontWeight: 600,
-                  lineHeight: "1.366",
-                  letterSpacing: "0.02em",
-                }}
-              >
-                Find Out More
-              </span>
-              <Image
-                src="/find-out-more-arrow.svg"
-                alt=""
-                width={20}
-                height={20}
-                className="h-5 w-5"
-              />
+            {/* Find Out More Button */}
+            <div className="flex justify-center mb-[95px]">
+              <button className="inline-flex items-center justify-center gap-3 rounded-[75px] border border-white/30 bg-black px-[25px] py-3 h-[45px] min-w-[168px]">
+                <span className="font-['Manrope'] text-white whitespace-nowrap text-[15px] font-semibold leading-[1.366] tracking-[0.02em]">
+                  Find Out More
+                </span>
+                <Image
+                  src="/find-out-more-arrow.svg"
+                  alt=""
+                  width={20}
+                  height={20}
+                  className="h-5 w-5"
+                />
+              </button>
             </div>
 
-            {/* Industry Cards Grid - positioned at x: 72, y: 394, gap: 36px */}
-            <div 
-              className="absolute flex justify-start items-start"
-              style={{
-                left: 72,
-                top: 394,
-                gap: 36,
-              }}
-            >
-              {industries.map((industry, index) => {
-                const cardConfigs = [
-                  {
-                    // Card 1: Corporate & Enterprises
-                    width: 297,
-                    imageHeight: 237,
-                    imageTop: 0,
-                    titleTop: 262,
-                    titleWidth: 297,
-                    titleHeight: 26,
-                    titleLineHeight: 26,
-                    summaryTop: 300, // 262 + 26 + 12
-                    summaryWidth: 297,
-                    summaryHeight: 65,
-                    summaryLineHeight: 20,
-                    bodyTop: 377, // 300 + 65 + 12
-                    bodyWidth: 297,
-                    bodyHeight: 79,
-                    bodyLineHeight: 20,
-                  },
-                  {
-                    // Card 2: Smart Infrastructure & Real Estate
-                    width: 320,
-                    imageHeight: 238,
-                    imageTop: 0,
-                    imageLeft: 0.74,
-                    imageWidth: 297.48,
-                    titleTop: 262,
-                    titleWidth: 320,
-                    titleHeight: 26,
-                    titleLineHeight: 26,
-                    summaryTop: 300, // 262 + 26 + 12
-                    summaryWidth: 320,
-                    summaryHeight: 69,
-                    summaryLineHeight: 20,
-                    bodyTop: 381, // 300 + 69 + 12
-                    bodyWidth: 320,
-                    bodyHeight: 96,
-                    bodyLineHeight: 20,
-                  },
-                  {
-                    // Card 3: Healthcare & Pharma
-                    width: 298,
-                    imageHeight: 237,
-                    imageTop: 0,
-                    titleTop: 262,
-                    titleWidth: 298,
-                    titleHeight: 26,
-                    titleLineHeight: 26,
-                    summaryTop: 300, // 262 + 26 + 12
-                    summaryWidth: 298,
-                    summaryHeight: 40,
-                    summaryLineHeight: 20,
-                    bodyTop: 352, // 300 + 40 + 12
-                    bodyWidth: 298,
-                    bodyHeight: 60,
-                    bodyLineHeight: 20,
-                  },
-                  {
-                    // Card 4: Retail & Hospitality
-                    width: 298,
-                    imageHeight: 236,
-                    imageTop: 0,
-                    titleTop: 262,
-                    titleWidth: 298,
-                    titleHeight: 26,
-                    titleLineHeight: 26,
-                    summaryTop: 300, // 262 + 26 + 12
-                    summaryWidth: 298,
-                    summaryHeight: 42,
-                    summaryLineHeight: 20,
-                    bodyTop: 354, // 300 + 42 + 12
-                    bodyWidth: 298,
-                    bodyHeight: 42,
-                    bodyLineHeight: 20,
-                  },
-                ];
-                const config = cardConfigs[index];
-                
-                return (
-                  <div
-                    key={industry.title}
-                    style={{
-                      width: config.width,
-                      position: 'relative',
-                      height: index === 0 ? 465 : index === 1 ? 465 : index === 2 ? 418 : 400
-                    }}
-                  >
-                    {/* Image */}
-                    <div
-                      style={{
-                        width: config.imageWidth || config.width,
-                        height: config.imageHeight,
-                        left: config.imageLeft || 0,
-                        top: config.imageTop,
-                        position: 'absolute',
-                        overflow: 'hidden'
-                      }}
-                    >
-                      <Image
-                        src={industry.image}
-                        alt={industry.title}
-                        fill
-                        className="object-cover"
-                        sizes={`${config.width}px`}
-                      />
-                    </div>
-
-                    {/* Title */}
-                    <h3
-                      style={{
-                        width: config.titleWidth,
-                        height: config.titleHeight,
-                        left: 0,
-                        top: config.titleTop,
-                        position: 'absolute',
-                        color: 'black',
-                        fontSize: 20,
-                        fontFamily: 'TASA Orbiter',
-                        fontWeight: 600,
-                        lineHeight: `${config.titleLineHeight}px`,
-                        wordWrap: 'normal',
-                        whiteSpace: 'nowrap',
-                        margin: 0,
-                        padding: 0
-                      }}
-                    >
-                      {industry.title}
-                    </h3>
-
-                    {/* Summary */}
-                    <p
-                      style={{
-                        width: config.summaryWidth,
-                        height: config.summaryHeight,
-                        left: 0,
-                        top: config.summaryTop,
-                        position: 'absolute',
-                        color: '#A4A4A4',
-                        fontSize: index === 1 ? 15 : 14,
-                        fontFamily: 'Manrope',
-                        fontWeight: index === 0 ? 500 : 400,
-                        lineHeight: `${config.summaryLineHeight}px`,
-                        wordWrap: 'break-word',
-                        margin: 0,
-                        padding: 0
-                      }}
-                    >
-                      {industry.summary}
-                    </p>
-
-                    {/* Body */}
-                    <p
-                      style={{
-                        width: config.bodyWidth,
-                        height: config.bodyHeight,
-                        left: 0,
-                        top: config.bodyTop,
-                        position: 'absolute',
-                        color: '#A4A4A4',
-                        fontSize: index === 1 ? 15 : 14,
-                        fontFamily: 'Manrope',
-                        fontWeight: 400,
-                        lineHeight: `${config.bodyLineHeight}px`,
-                        wordWrap: 'break-word',
-                        margin: 0,
-                        padding: 0
-                      }}
-                    >
-                      {industry.body}
-                    </p>
+            {/* Industry Cards Grid */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-9 max-w-[1296px] mx-auto">
+              {industries.map((industry, index) => (
+                <div key={industry.title} className="flex flex-col">
+                  {/* Image */}
+                  <div className="relative w-full h-[237px] mb-6 overflow-hidden">
+                    <Image
+                      src={industry.image}
+                      alt={industry.title}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 297px"
+                    />
                   </div>
-                );
-              })}
+
+                  {/* Title */}
+                  <h3 className="font-['TASA_Orbiter'] text-[20px] font-semibold text-black leading-[1.3] mb-3 whitespace-nowrap overflow-hidden text-ellipsis">
+                    {industry.title}
+                  </h3>
+
+                  {/* Summary */}
+                  <p className="font-['Manrope'] text-[14px] lg:text-[15px] font-normal text-[#A4A4A4] leading-[1.43] mb-3">
+                    {industry.summary}
+                  </p>
+
+                  {/* Body */}
+                  <p className="font-['Manrope'] text-[14px] lg:text-[15px] font-normal text-[#A4A4A4] leading-[1.43]">
+                    {industry.body}
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
         </Link>
