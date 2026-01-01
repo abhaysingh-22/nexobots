@@ -28,7 +28,7 @@ export default function Testimonials({ testimonials }: TestimonialsProps) {
               alt=""
               width={281}
               height={217}
-              className="w-[100px] h-[77px] sm:w-[140px] sm:h-[108px] md:w-[180px] md:h-[139px] lg:w-[220px] lg:h-[170px] xl:w-[281px] xl:h-[217px]"
+              className="w-[100px] h-[65px] sm:w-[140px] sm:h-[108px] md:w-[180px] md:h-[139px] lg:w-[220px] lg:h-[170px] xl:w-[281px] xl:h-[217px]"
             />
           </div>
 
