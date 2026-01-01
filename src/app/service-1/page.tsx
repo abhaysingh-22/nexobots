@@ -372,13 +372,13 @@ export default function Service1Page() {
                 />
               </div>
 
-              <div className="grid gap-4 sm:gap-6">
+              <div className="hidden lg:block grid gap-4 sm:gap-6">
                 <div className="relative rounded-[18px] overflow-hidden w-full aspect-[16/9] lg:aspect-[635/298]">
                   <Image
                     src="/service-1-cta-2.png"
                     alt="System Integration"
                     fill
-                    className="object-cover"
+                    className="  object-cover"
                     sizes="(min-width: 1024px) 635px, 100vw"
                     loading="lazy"
                   />
@@ -403,24 +403,13 @@ export default function Service1Page() {
       <section className="bg-[#F8F8F8] py-8 sm:py-10 md:py-14 lg:py-[80px] xl:py-[120px]">
         <div className="mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-[78px]">
           <h2
-            className="font-['TASA_Orbiter'] text-black mb-4 sm:mb-6 lg:mb-[30px] text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[64px]"
-            style={{
-              fontWeight: 600,
-              lineHeight: "1.22",
-              maxWidth: "1139px",
-            }}
-          >
+            className="font-['TASA_Orbiter'] text-black mb-4 sm:mb-6 lg:mb-[30px] text-xl font-bold sm:text-2xl md:text-3xl lg:text-4xl">
             Why IT Infrastructure Consulting & System Integration Matters
           </h2>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-[40px] mb-6 sm:mb-8 lg:mb-[40px]">
             <p
-              className="font-['TASA_Orbiter'] text-black text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl"
-              style={{
-                fontWeight: 500,
-                lineHeight: "1.32",
-              }}
-            >
+              className="font-['TASA_Orbiter'] text-black text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl">
               As technology evolves, enterprises face the dual challenge of
               managing complex systems while ensuring seamless interoperability
               and scalability. Strategic consulting and expert integration
