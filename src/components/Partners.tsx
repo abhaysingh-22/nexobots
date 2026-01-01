@@ -91,7 +91,7 @@ export default function Partners() {
 
       <section
         id="partners"
-        className="relative bg-white py-10 sm:py-16 lg:pt-[120px] lg:pb-10"
+        className="relative bg-[#F8F8F8] py-10 sm:py-16 lg:pt-[120px] lg:pb-10"
       >
         {/* Heading */}
         <div className="mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-[72px]">
