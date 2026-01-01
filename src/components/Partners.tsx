@@ -99,11 +99,11 @@ export default function Partners() {
             className="mx-auto mb-8 sm:mb-12 lg:mb-[64px] flex flex-col items-center gap-3 sm:gap-4"
             style={{ maxWidth: "1143px" }}
           >
-            <p className="font-['Manrope'] text-sm sm:text-base lg:text-[18px] font-medium text-center text-black">
+            <p className="font-['Manrope'] lg:text-[20px] font-medium text-center text-black">
               Partner Ecosystem
             </p>
 
-            <h2 className="text-center font-['TASA_Orbiter'] text-lg sm:text-xl md:text-2xl lg:text-[32px] font-bold text-black px-2">
+            <h2 className="text-center font-['TASA_Orbiter'] text-lg sm:text-xl md:text-2xl lg:text-[32px] text-black px-2">
               We work with industry-leading OEMs to deliver enterprise-grade
               solutions that meet the highest standards of quality, performance,
               and security.
