@@ -194,7 +194,7 @@ export default function ServicesPage() {
 												{service.offerings.map((offering, i) => (
 													<div
 														key={i}
-														className="flex items-center gap-4 lg:rounded-full lg:border lg:border-[#E8E8E8] lg:bg-white px-0 lg:px-5 py-2 lg:py-3.5 w-full"
+														className="flex items-center gap-4 rounded-full border border-[#E8E8E8] lg:bg-white px-2 py-2 lg:px-5 w-full"
 													>
 														{/* Star Icon */}
 														<svg
@@ -210,7 +210,7 @@ export default function ServicesPage() {
 																fill="#E11E24"
 															/>
 														</svg>
-														<span className="font-['Manrope'] text-black text-[14px] sm:text-[15px] lg:text-[15px] font-semibold">
+														<span className="font-['Manrope'] text-black text-[12px] sm:text-[15px] lg:text-[15px] font-semibold">
 															{offering}
 														</span>
 													</div>
