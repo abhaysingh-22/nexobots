@@ -120,7 +120,7 @@ export default function Service1Page() {
   const infrastructureDeploymentPoints = calculateServicePoints(infrastructureDeploymentServices.length);
   const consultingPoints = calculateServicePoints(consultingServices.length);
 
-  // Animation function factory - EXACT COPY from solution-2
+  // Animation function factory - with easing from solution-1
   const createAnimation = (
     setRedBarTop: (value: number) => void,
     setActiveIndex: (value: number) => void,
@@ -134,12 +134,17 @@ export default function Service1Page() {
     const animate = (currentTime: number) => {
       if (!startTime) startTime = currentTime - offset;
       const elapsed = currentTime - startTime;
-      const progress = (elapsed % animationDuration) / animationDuration;
+      const linearProgress = (elapsed % animationDuration) / animationDuration;
 
-      const lastPointIndex = servicePoints.length - 1;
-      const lastPoint = servicePoints[lastPointIndex];
-      const thirdPoint = servicePoints[servicePoints.length - 2];
-      const thirdPointBottom = thirdPoint ? thirdPoint.top + thirdPoint.height : 0;
+      // Apply easing to slow down at the end (last 15% of animation)
+      let progress = linearProgress;
+      const slowdownThreshold = 0.85;
+      if (linearProgress > slowdownThreshold) {
+        // Ease out the last portion - slow down significantly before reset
+        const remainingProgress = (linearProgress - slowdownThreshold) / (1 - slowdownThreshold);
+        const easedRemaining = 1 - Math.pow(1 - remainingProgress, 3); // Cubic ease out
+        progress = slowdownThreshold + easedRemaining * (1 - slowdownThreshold);
+      }
 
       const maxTop = totalHeight - redBarHeight;
       const currentTop = progress * maxTop;
@@ -697,7 +702,7 @@ export default function Service1Page() {
       </section>
 
       {/* Why Choose Nexobots */}
-      <section className="bg-[#F8F8F8] py-8 sm:py-10 md:py-14 lg:py-[80px]">
+      <section className="hidden lg:block bg-[#F8F8F8] py-8 sm:py-10 md:py-14 lg:py-[80px]">
         <div className="mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-[78px]">
           <h2
             className="font-['TASA_Orbiter'] text-black text-center mb-6 sm:mb-8 lg:mb-[50px] text-xl sm:text-2xl md:text-3xl lg:text-[40px]"
@@ -741,7 +746,7 @@ export default function Service1Page() {
       </section>
 
       {/* FAQs */}
-      <section className="py-8 sm:py-10 md:py-14 lg:py-[80px] bg-[#F8F8F8]">
+      <section className="hidden lg:block py-8 sm:py-10 md:py-14 lg:py-[80px] bg-[#F8F8F8]">
         <div className="mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-[78px]">
           <h2
             className="font-['TASA_Orbiter'] text-black text-center mb-6 sm:mb-8 lg:mb-[50px] text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-[64px]"
