@@ -545,7 +545,7 @@ function IndustrySection({
 
 	return (
 		<section className="bg-[#F8F8F8] py-10 sm:py-14 md:py-16 lg:py-20 xl:py-[100px] overflow-hidden">
-			<div className="mx-auto w-full max-w-[1440px] px-4 sm:px-6 md:px-10 lg:px-[72px]">
+			<div className="mx-auto w-full max-w-[1440px] px-6 sm:px-6 md:px-10 lg:px-[72px]">
 				{/* Header */}
 				<div className="mb-8 sm:mb-10 md:mb-14 lg:mb-16">
 					<h2 className="font-['TASA_Orbiter'] text-black text-[28px] sm:text-[36px] md:text-[44px] lg:text-[52px] xl:text-[64px] font-semibold leading-[1.15] sm:leading-[1.22] max-w-[1000px] mb-2 sm:mb-3">
@@ -703,7 +703,7 @@ export default function IndustriesPage() {
 				{/* Content */}
 				<div className="relative z-10 h-full flex flex-col justify-start pt-8 sm:pt-12 lg:pt-0 lg:justify-center">
 					<div className="mx-auto w-full max-w-[1440px] px-6 sm:px-8 md:px-10 lg:px-[72px]">
-						<h1 className="font-['TASA_Orbiter'] text-white text-[26px] sm:text-[32px] md:text-[38px] lg:text-[44px] xl:text-[48px] font-semibold leading-[1.25] sm:leading-[1.35] lg:leading-[1.494] max-w-[320px] sm:max-w-[500px] lg:max-w-[1027px] mb-6 sm:mb-8 lg:mb-[33px]">
+						<h1 className="font-['TASA_Orbiter'] text-white text-[22px] max-sm:pt-14 sm:text-[32px] md:text-[38px] lg:text-[44px] xl:text-[48px] font-semibold leading-[1.25] sm:leading-[1.35] lg:leading-[1.494] max-w-[320px] sm:max-w-[500px] lg:max-w-[1027px] mb-6 sm:mb-8 lg:mb-[33px]">
 							Empowering Every Industry with Smart, Secure, and Scalable Technology
 						</h1>
 						<div className="inline-flex h-[44px] sm:h-[52px] lg:h-[67px] items-center justify-center gap-2 sm:gap-3 rounded-full border border-white/30 bg-black transition-all hover:bg-black/90 px-5 sm:px-6 lg:px-[29px]">
@@ -733,8 +733,8 @@ export default function IndustriesPage() {
 
 			{/* Below Hero Section - Responsive */}
 			<section className="flex items-center bg-[#F8F8F8] py-10 sm:py-14 md:py-16 lg:py-[71px]">
-				<div className="mx-auto w-full max-w-[1440px] px-4 sm:px-6 md:px-10 lg:px-[72px]">
-					<p className="font-['TASA_Orbiter'] text-left text-black text-[20px] sm:text-[24px] md:text-[28px] lg:text-[32px] font-bold leading-[1.3] sm:leading-[1.318] max-w-full lg:max-w-[1236px]">
+				<div className="mx-auto w-full max-w-[1440px] px-6 sm:px-6 md:px-10 lg:px-[72px]">
+					<p className="font-['TASA_Orbiter'] text-left text-black text-[18px] sm:text-[22px] md:text-[28px] lg:text-[32px] font-bold leading-[1.3] sm:leading-[1.318] max-w-full lg:max-w-[1236px]">
 						From global enterprises to education, healthcare, and hospitality —
 						Nexobots Technologies enables organizations to stay connected,
 						protected, and future-ready through intelligent IT and security
