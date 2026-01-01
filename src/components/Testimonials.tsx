@@ -15,47 +15,36 @@ export default function Testimonials({ testimonials }: TestimonialsProps) {
   return (
     <section
       id="testimonials"
-      className="relative bg-white py-16 sm:py-20 lg:py-24 xl:py-[120px] overflow-hidden"
+      className="relative bg-[#F8F8F8] py-16 sm:py-20 lg:py-24 xl:py-[100px] overflow-hidden"
     >
-      {/* Decorative Images - Responsive across all devices */}
-      <div className="absolute inset-0 pointer-events-none">
-        {/* Decorative Image 1 - Top Left */}
-        <div className="absolute left-2 sm:left-4 lg:left-10 2xl:left-[82px] top-8 sm:top-12 lg:top-[100px]">
-          <Image
-            src="/testimonials-decorative-1.svg"
-            alt=""
-            width={283}
-            height={218}
-            className="w-24 sm:w-32 md:w-40 lg:w-[200px] 2xl:w-[283px] h-auto opacity-60 sm:opacity-70 lg:opacity-100"
-          />
-        </div>
-
-        {/* Decorative Image 2 - Bottom Center-Right */}
-        <div className="absolute left-1/2 -translate-x-1/2 sm:translate-x-0 bottom-6 sm:bottom-8 lg:bottom-10 2xl:bottom-[60px]">
-          <Image
-            src="/testimonials-decorative-2.svg"
-            alt=""
-            width={105}
-            height={47}
-            className="w-12 sm:w-16 md:w-20 2xl:w-[105px] h-auto opacity-60 sm:opacity-70 lg:opacity-100"
-          />
-        </div>
-      </div>
-
       {/* Main Content Container */}
       <div className="relative z-10 mx-auto max-w-[1440px] px-4 sm:px-6 md:px-10 lg:px-[72px]">
-        {/* Heading Section */}
-        <div className="text-center mb-10 sm:mb-12 lg:mb-16">
-          <p className="font-['Manrope'] text-black text-[14px] sm:text-[16px] lg:text-[18px] font-medium leading-[1.366] mb-3 sm:mb-4">
-            Testimonials
-          </p>
-          <h2 className="font-['TASA_Orbiter'] text-black text-[24px] sm:text-[30px] lg:text-[36px] font-bold leading-[1.3] sm:leading-[1.222] max-w-[320px] sm:max-w-[450px] lg:max-w-[522px] mx-auto">
-            Trusted by Enterprises. Proven Through Experience
-          </h2>
+        {/* Header Section - Quote marks positioned absolutely, heading centered */}
+        <div className="relative mb-12 sm:mb-14 lg:mb-16 xl:mb-[70px]">
+          {/* Large Decorative Quote Marks - Positioned absolutely on left */}
+          <div className="absolute left-0 top-0">
+            <Image
+              src="/testimonials-grid.svg"
+              alt=""
+              width={281}
+              height={217}
+              className="w-[100px] h-[77px] sm:w-[140px] sm:h-[108px] md:w-[180px] md:h-[139px] lg:w-[220px] lg:h-[170px] xl:w-[281px] xl:h-[217px]"
+            />
+          </div>
+
+          {/* Heading Section - Centered on the page */}
+          <div className="text-center pt-8 sm:pt-10 lg:pt-12 xl:pt-[60px]">
+            <p className="font-['Manrope'] text-black text-[14px] sm:text-[15px] lg:text-[16px] font-medium leading-[1.366] mb-3 sm:mb-4 lg:mb-5">
+              Testimonials
+            </p>
+            <h2 className="font-['TASA_Orbiter'] text-black text-[24px] sm:text-[30px] md:text-[36px] lg:text-[40px] xl:text-[44px] font-bold leading-[1.22] max-w-[400px] sm:max-w-[450px] lg:max-w-[522px] mx-auto">
+              Trusted by Enterprises. Proven Through Experience
+            </h2>
+          </div>
         </div>
 
-        {/* Testimonial Cards - Responsive Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 justify-items-center">
+        {/* Testimonial Cards - 3 column grid with proper spacing */}
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 sm:gap-6 lg:gap-7 xl:gap-[28px]">
           {testimonials.map((testimonial, index) => {
             const authorName = testimonial.author || testimonial.name || "";
             const roleText = testimonial.role.startsWith("—")
@@ -65,21 +54,21 @@ export default function Testimonials({ testimonials }: TestimonialsProps) {
             return (
               <div
                 key={`testimonial-${index}`}
-                className="bg-white rounded-[13px] border border-gray-300 shadow-sm w-full max-w-[411px] min-h-60 sm:min-h-[258px]"
+                className="bg-white rounded-[13px] border border-[#E5E5E5] w-full"
               >
-                <div className="flex flex-col p-5 sm:p-6 lg:p-[24px_34px] h-full">
+                <div className="flex flex-col p-5 sm:p-6 lg:p-[28px_32px] h-full min-h-[220px] sm:min-h-[240px] lg:min-h-[260px]">
                   {/* Name and Role */}
-                  <div className="flex flex-col gap-2 mb-4">
-                    <p className="font-['Manrope'] text-black text-[18px] sm:text-[20px] lg:text-[22px] font-normal leading-[1.366] tracking-[0.02em]">
+                  <div className="flex flex-col gap-1 sm:gap-2 mb-4 sm:mb-5">
+                    <p className="font-['Manrope'] text-black text-[18px] sm:text-[20px] lg:text-[22px] font-medium leading-[1.366] tracking-[0.02em]">
                       {authorName}
                     </p>
-                    <p className="font-['Manrope'] text-black text-[11px] sm:text-[12px] font-normal leading-[1.366] tracking-[0.02em]">
+                    <p className="font-['Manrope'] text-black/60 text-[11px] sm:text-[12px] font-normal leading-[1.366] tracking-[0.02em]">
                       {roleText}
                     </p>
                   </div>
-                  
+
                   {/* Quote */}
-                  <p className="font-['Manrope'] text-black text-[14px] sm:text-[15px] lg:text-[16px] font-light leading-[1.6] sm:leading-[1.75] tracking-[0.02em] grow">
+                  <p className="font-['Manrope'] text-black/80 text-[14px] sm:text-[15px] lg:text-[16px] font-light leading-[1.7] tracking-[0.02em] grow">
                     {testimonial.quote}
                   </p>
                 </div>
