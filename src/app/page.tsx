@@ -209,56 +209,10 @@ function SectionHeading({
 
 export default function Home() {
   const [expandedService, setExpandedService] = useState<string | null>("01");
-  const blogScrollRef = useRef<HTMLDivElement>(null);
-  const [isPaused, setIsPaused] = useState(false);
 
   const toggleService = (serviceId: string) => {
     setExpandedService(expandedService === serviceId ? null : serviceId);
   };
-
-  // Auto-scroll functionality for blog section
-  useEffect(() => {
-    const scrollContainer = blogScrollRef.current;
-    if (!scrollContainer) return;
-
-    const scrollSpeed = 1; // pixels per frame (adjust for speed)
-    let animationFrameId: number;
-    let lastTime = performance.now();
-
-    const autoScroll = (currentTime: number) => {
-      if (!isPaused && scrollContainer) {
-        const deltaTime = currentTime - lastTime;
-        lastTime = currentTime;
-        
-        // Use time-based scrolling for consistent speed regardless of frame rate
-        const pixelsToScroll = (scrollSpeed * deltaTime) / 16.67; // Normalize to 60fps
-        
-        const maxScroll = scrollContainer.scrollWidth - scrollContainer.clientWidth;
-        const currentScroll = scrollContainer.scrollLeft;
-        
-        if (maxScroll > 0) {
-          let newScroll = currentScroll + pixelsToScroll;
-          
-          if (newScroll >= maxScroll) {
-            // Reset to start for infinite loop
-            newScroll = 0;
-            scrollContainer.scrollTo({ left: 0, behavior: 'auto' });
-          } else {
-            scrollContainer.scrollTo({ left: newScroll, behavior: 'auto' });
-          }
-        }
-      }
-      animationFrameId = requestAnimationFrame(autoScroll);
-    };
-
-    animationFrameId = requestAnimationFrame(autoScroll);
-
-    return () => {
-      if (animationFrameId) {
-        cancelAnimationFrame(animationFrameId);
-      }
-    };
-  }, [isPaused]);
 
   return (
     <div className="bg-white text-ink">
@@ -290,7 +244,7 @@ export default function Home() {
         />
         <div className="absolute inset-0 bg-black/70" aria-hidden="true" />
         <div 
-          className="relative z-10 mx-auto flex min-h-[500px] md:min-h-[600px] lg:min-h-[800px] max-w-[1440px] flex-col items-center justify-end px-4 sm:px-8 md:px-12 lg:px-[72px] pb-20 md:pb-28 lg:pb-36 text-center"
+          className="relative z-10 mx-auto flex min-h-[500px] md:min-h-[600px] lg:min-h-[800px] max-w-[1440px] flex-col items-center justify-center px-4 sm:px-8 md:px-12 lg:px-[72px] pb-20 md:pb-28 lg:pb-36 text-center"
           style={{ gap: "24px" }}
         >
           <h1 
@@ -656,27 +610,7 @@ export default function Home() {
         {/* Partners Section */}
         <Partners />
 
-        <Link href="/blog" id="blogs" className="block bg-white pt-[40px] pb-16 md:pb-20 lg:pb-[120px] cursor-pointer" style={{ width: '100%' }}>
-          <style>{`
-            .blog-scroll::-webkit-scrollbar {
-              display: none;
-              width: 0;
-              height: 0;
-            }
-            .blog-scroll {
-              -ms-overflow-style: none;
-              scrollbar-width: none;
-            }
-            .blog-container::-webkit-scrollbar {
-              display: none;
-              width: 0;
-              height: 0;
-            }
-            .blog-container {
-              -ms-overflow-style: none;
-              scrollbar-width: none;
-            }
-          `}</style>
+        <section id="blogs" className="bg-white pt-[40px] pb-16 md:pb-20 lg:pb-[120px]">
           
           {/* Mobile/Tablet Layout */}
           <div className="lg:hidden px-4 sm:px-8 md:px-12 py-8 md:py-12">
@@ -692,127 +626,28 @@ export default function Home() {
             </div>
             <div className="flex flex-col items-center sm:flex-row sm:flex-wrap justify-center gap-6">
               {blogs.map((blog, index) => (
-                <article
-                  key={index}
-                  className="flex flex-col w-[90vw] p-6 border border-gray-300 rounded-3xl md:max-w-[400px]"
-                >
-                  <div className="relative h-[270px] sm:h-[240px] md:h-[280px] w-full overflow-hidden rounded-[20px]">
-                    <Image
-                      src={blog.image}
-                      alt={blog.title}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 400px"
-                    />
-                    <div className="absolute inset-0 bg-black/60" />
-                    <h3 className="absolute bottom-4 left-4 right-4 font-['Manrope'] text-[16px] sm:text-[20px] md:text-[24px] font-extrabold leading-[1.366] text-white">
-                      {blog.title}
-                    </h3>
-                  </div>
-                  <p className="mt-4 font-['Manrope'] text-[14px] md:text-[15px] font-normal leading-[1.366] text-[#454545] line-clamp-3">
-                    {blog.excerpt}
-                  </p>
-                  <div
-                    className="mt-4 inline-flex h-[40px] w-[130px] items-center justify-center gap-2 rounded-[75px] border border-white/30 bg-black px-4 font-['Manrope'] text-[14px] font-semibold leading-[1.366] tracking-[0.02em] text-white"
-                  >
-                    <span>Read More</span>
-                    <svg
-                      width="5"
-                      height="8"
-                      viewBox="0 0 5 8"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M1 1L4 4L1 7"
-                        stroke="#E11E24"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </div>
-                </article>
-              ))}
-            </div>
-          </div>
-          
-          {/* Desktop Layout */}
-          <div className="relative mx-auto w-full px-[72px] hidden lg:block" style={{ maxWidth: "1440px", height: "927px" }}>
-            {/* Heading Section - positioned at x: 72, y: 120, width: 1296 */}
-            <div 
-              className="absolute flex flex-col items-center gap-4"
-              style={{ 
-                left: "72px",
-                top: "120px",
-                width: "calc(100% - 144px)"
-              }}
-            >
-              <p className="font-['Manrope'] text-[18px] font-medium leading-[1.366] text-black">
-                Blogs
-              </p>
-              <h2 
-                className="font-['TASA_Orbiter'] text-[36px] font-bold leading-[1.222] text-black"
-                style={{ maxWidth: "522px" }}
-              >
-                Read Our Latest Insights
-              </h2>
-            </div>
-
-            {/* Blog Cards - Horizontal Scroll with 2 visible, right card touches right edge */}
-            <div 
-              ref={blogScrollRef}
-              className="absolute  blog-container overflow-x-auto overflow-y-visible"
-              style={{ 
-                left: "72px",
-                right: "72px",
-                top: "280px",
-              }}
-              onMouseEnter={() => setIsPaused(true)}
-              onMouseLeave={() => setIsPaused(false)}
-            >
-              <div 
-                className="blog-scroll flex gap-[30px] pb-4"
-                style={{ 
-                  scrollSnapType: "x mandatory",
-                  WebkitOverflowScrolling: "touch",
-                  scrollBehavior: "smooth",
-                  width: "max-content"
-                }}
-              >
-                {blogs.map((blog, index) => (
+                <Link href="/blog" key={index}>
                   <article
-                    key={index}
-                    className="flex flex-shrink-0 flex-col"
-                    style={{ 
-                      width: "500px", 
-                      height: "527px",
-                      scrollSnapAlign: "start",
-                      marginLeft: index === 0 ? "auto" : "0"
-                    }}
+                    className="flex flex-col w-[90vw] p-6 border border-gray-300 rounded-3xl md:max-w-[400px]"
                   >
-                    <div className="relative h-[361px] w-full overflow-hidden rounded-[27px]">
+                    <div className="relative h-[270px] sm:h-[240px] md:h-[280px] w-full overflow-hidden rounded-[20px]">
                       <Image
                         src={blog.image}
                         alt={blog.title}
                         fill
                         className="object-cover"
-                        sizes="674px"
+                        sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 400px"
                       />
-                      {index === 0 ? (
-                        <div className="absolute inset-0 bg-black/61" />
-                      ) : (
-                        <div className="absolute inset-0 bg-black/58" />
-                      )}
-                      <h3 className="absolute bottom-[43.5px] left-[43px] right-[43px] font-['Manrope'] text-[24px] font-extrabold leading-[1.366] text-white">
+                      <div className="absolute inset-0 bg-black/60" />
+                      <h3 className="absolute bottom-4 left-4 right-4 font-['Manrope'] text-[16px] sm:text-[20px] md:text-[24px] font-extrabold leading-[1.366] text-white">
                         {blog.title}
                       </h3>
                     </div>
-                    <p className="mt-[31px] flex-1 font-['Manrope'] text-[15px] font-normal leading-[1.366] text-[#454545]">
+                    <p className="mt-4 font-['Manrope'] text-[14px] md:text-[15px] font-normal leading-[1.366] text-[#454545] line-clamp-3">
                       {blog.excerpt}
                     </p>
                     <div
-                      className="mt-[45px] inline-flex h-[45px] w-[148px] items-center justify-center gap-3 rounded-[75px] border border-white/30 bg-black px-[25px] font-['Manrope'] text-[15px] font-semibold leading-[1.366] tracking-[0.02em] text-white"
+                      className="mt-4 inline-flex h-[40px] w-[130px] items-center justify-center gap-2 rounded-[75px] border border-white/30 bg-black px-4 font-['Manrope'] text-[14px] font-semibold leading-[1.366] tracking-[0.02em] text-white"
                     >
                       <span>Read More</span>
                       <svg
@@ -832,11 +667,76 @@ export default function Home() {
                       </svg>
                     </div>
                   </article>
-                ))}
-              </div>
+                </Link>
+              ))}
             </div>
           </div>
-        </Link>
+          
+          {/* Desktop Layout */}
+          <div className="relative mx-auto w-full px-[72px] hidden lg:block" style={{ maxWidth: "1440px" }}>
+            {/* Heading Section */}
+            <div 
+              className="flex flex-col items-center gap-4 mb-[60px]"
+            >
+              <p className="font-['Manrope'] text-[18px] font-medium leading-[1.366] text-black">
+                Blogs
+              </p>
+              <h2 
+                className="font-['TASA_Orbiter'] text-[36px] font-bold leading-[1.222] text-black text-center"
+              >
+                Read Our Latest Insights
+              </h2>
+            </div>
+
+            {/* Blog Cards - Grid Layout */}
+            <div className="grid grid-cols-3 gap-[30px] max-w-[1296px] mx-auto">
+              {blogs.map((blog, index) => (
+                <Link href="/blog" key={index}>
+                  <article
+                    className="flex flex-col h-full"
+                  >
+                    <div className="relative h-[361px] w-full overflow-hidden rounded-[27px]">
+                      <Image
+                        src={blog.image}
+                        alt={blog.title}
+                        fill
+                        className="object-cover"
+                        sizes="400px"
+                      />
+                      <div className="absolute inset-0 bg-black/60" />
+                      <h3 className="absolute bottom-[43.5px] left-[43px] right-[43px] font-['Manrope'] text-[24px] font-extrabold leading-[1.366] text-white">
+                        {blog.title}
+                      </h3>
+                    </div>
+                    <p className="mt-[31px] flex-1 font-['Manrope'] text-[15px] font-normal leading-[1.366] text-[#454545]">
+                      {blog.excerpt}
+                    </p>
+                    <div
+                      className="mt-[45px] inline-flex h-[45px] w-[148px] items-center justify-center gap-3 rounded-[75px] border border-white/30 bg-black px-[25px] font-['Manrope'] text-[15px] font-semibold leading-[1.366] tracking-[0.02em] text-white cursor-pointer hover:bg-gray-900 transition-colors"
+                    >
+                      <span>Read More</span>
+                      <svg
+                        width="5"
+                        height="8"
+                        viewBox="0 0 5 8"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M1 1L4 4L1 7"
+                          stroke="#E11E24"
+                          strokeWidth="1.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </div>
+                  </article>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
 
         {/* Our Industries Section */}
         <Link href="/industries" id="industries" className="block relative bg-[#F8F8F8] cursor-pointer" style={{ width: '100%', overflow: 'hidden' }}>
