@@ -6,15 +6,179 @@ import ContactForm from "@/components/ContactForm";
 import Partners from "@/components/Partners";
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
+// Reorder to match the page order (screenshot shows Corporate first) + use the actual section images used below.
 const industries = [
+	{
+		id: "corporate",
+		title: "Corporate & Enterprise",
+		subtitle:
+			"Empowering enterprises with secure, scalable, and future-ready IT infrastructure.",
+		image: "/industry-corporate-featured.png",
+		what: "We help businesses build reliable, high-performance IT environments that connect teams, secure data, and support long-term growth. Our expertise spans structured cabling, networking, surveillance, and managed IT services — designed to keep enterprise operations running efficiently and securely.",
+		cta: "Let's Discuss Your Enterprise Needs",
+		services: [
+			"Strategic IT Infrastructure Consulting for scalable enterprise systems.",
+			"System Integration for seamless network and software interoperability.",
+			"AMC & Support with proactive monitoring and guaranteed uptime.",
+			"Cloud & Virtualization solutions for efficiency and hybrid environments.",
+		],
+		features: [
+			{
+				icon: "wifi",
+				title: "Smart Network Infrastructure",
+				description:
+					"Robust, enterprise-grade networks with secure switching, firewalls, and optimized Wi-Fi.",
+			},
+			{
+				icon: "monitor",
+				title: "Intelligent Surveillance",
+				description:
+					"IP-based CCTV, video management systems, and remote monitoring for complete visibility.",
+			},
+			{
+				icon: "finger",
+				title: "Secure Access & Biometrics",
+				description:
+					"Biometric and RFID-based access solutions for employees and visitors.",
+			},
+			{
+				icon: "archive",
+				title: "End-to-End IT Services",
+				description:
+					"From planning to management, ensure business continuity and performance.",
+			},
+		],
+	},
+	{
+		id: "education",
+		title: "Education & Research",
+		subtitle: "Creating connected, secure, and tech-driven learning environments.",
+		image: "/industry-education-section.png",
+		what: "We help institutions modernize their campuses with smart infrastructure that enhances collaboration, security, and digital learning. From classroom Wi-Fi to secure access, Nexobots delivers connected experiences for students, faculty, and researchers.",
+		cta: "Let's Build a Smarter Campus",
+		services: [
+			"Consulting & IT Roadmaps for digital transformation in education.",
+			"System Integration for LMS, library, and cloud platforms.",
+			"Comprehensive AMC ensuring seamless academic operations.",
+			"Virtualization Support for labs, learning platforms, and research networks.",
+		],
+		features: [
+			{
+				icon: "wifi",
+				title: "Smart Network Infrastructure",
+				description:
+					"High-speed wired and wireless networks across classrooms, labs, and hostels.",
+			},
+			{
+				icon: "monitor",
+				title: "Intelligent Surveillance",
+				description:
+					"Monitoring systems for exam halls, campuses, and student facilities.",
+			},
+			{
+				icon: "finger",
+				title: "Secure Access & Biometrics",
+				description:
+					"Attendance, hostel entry, and visitor management using smart authentication.",
+			},
+			{
+				icon: "archive",
+				title: "End-to-End IT Services",
+				description:
+					"Implementation and support for e-learning and research environments.",
+			},
+		],
+	},
+	{
+		id: "healthcare",
+		title: "Healthcare & Pharma",
+		subtitle:
+			"Securing sensitive data, optimizing patient care, and powering research innovation.",
+		image: "/industry-healthcare-section.png",
+		what: "Healthcare and pharma organizations rely on technology for compliance, patient care, and R&D. Nexobots delivers resilient IT infrastructure and security solutions to safeguard data and improve operational efficiency.",
+		cta: "Secure Your Healthcare IT",
+		services: [
+			"Compliance-Focused IT Consulting for healthcare regulations.",
+			"System Integration of EMR, PACS, and ERP systems.",
+			"Round-the-Clock AMC & Support for mission-critical environments.",
+			"Cloud & Virtualization Solutions for data storage, recovery, and research continuity.",
+		],
+		features: [
+			{
+				icon: "wifi",
+				title: "Smart Network Infrastructure",
+				description:
+					"Secure, compliant, and high-availability networks for hospitals, labs, and clinics",
+			},
+			{
+				icon: "monitor",
+				title: "Intelligent Surveillance",
+				description:
+					"Monitoring systems for ICUs, pharmacies, and critical care units.",
+			},
+			{
+				icon: "finger",
+				title: "Secure Access & Biometrics",
+				description:
+					"Controlled access for OTs, pharma stores, and restricted facilities.",
+			},
+			{
+				icon: "archive",
+				title: "End-to-End IT Services",
+				description:
+					"Infrastructure for EMR, telemedicine, and research data management.",
+			},
+		],
+	},
+	{
+		id: "retail",
+		title: "Retail & Hospitality",
+		subtitle:
+			"Driving customer experience, operational efficiency, and secure transactions.",
+		image: "/industry-retail-section.png",
+		what: "Retail and hospitality businesses thrive on speed, reliability, and customer trust. Nexobots enables these industries with IT and security infrastructure that connects locations, enhances safety, and streamlines guest experiences.",
+		cta: "Enhance Your Operations",
+		services: [
+			"IT Strategy Consulting for omnichannel and digital transformation.",
+			"System Integration of POS, booking, CRM, and inventory systems.",
+			"AMC & Monitoring to ensure always-on operations.",
+			"Cloud Enablement for customer data, apps, and analytics.",
+		],
+		features: [
+			{
+				icon: "wifi",
+				title: "Smart Network Infrastructure",
+				description:
+					"Reliable Wi-Fi and secure networks for POS, guests, and back-office systems.",
+			},
+			{
+				icon: "monitor",
+				title: "Intelligent Surveillance",
+				description:
+					"CCTV and remote monitoring for stores, hotels, and restaurants.",
+			},
+			{
+				icon: "finger",
+				title: "Secure Access & Biometrics",
+				description:
+					"Smart locks, staff access, and visitor management systems.",
+			},
+			{
+				icon: "archive",
+				title: "End-to-End IT Services",
+				description:
+					"IT management for POS, reservations, loyalty, and CRM systems.",
+			},
+		],
+	},
 	{
 		id: "realestate",
 		title: "Real Estate & Smart Infrastructure",
 		subtitle:
 			"Building intelligent, connected, and secure spaces for modern living and working.",
-		image: "/industry-realestate-hero.png",
+		image: "/industry-realestate-d966f0.png",
 		what: "From commercial complexes to residential communities, Nexobots helps real estate developers and facility managers implement cutting-edge IT and security infrastructure that enhances safety, efficiency, and digital connectivity. Our solutions turn traditional spaces into smart, future-ready environments.",
 		cta: "Transform Your Properties",
 		services: [
@@ -47,151 +211,6 @@ const industries = [
 				title: "End-to-End IT Services",
 				description:
 					"Infrastructure design, implementation, and maintenance for smart buildings and control centers.",
-			},
-		],
-	},
-	{
-		id: "retail",
-		title: "Retail & Hospitality",
-		subtitle: "Driving customer experience, operational efficiency, and secure transactions.",
-		image: "/industry-retail-hero.png",
-		what: "Retail and hospitality businesses thrive on speed, reliability, and customer trust. Nexobots enables these industries with IT and security infrastructure that connects locations, enhances safety, and streamlines guest experiences.",
-		cta: "Enhance Your Operations",
-		services: [
-			"IT Strategy Consulting for omnichannel and digital transformation.",
-			"System Integration of POS, booking, CRM, and inventory systems.",
-			"AMC & Monitoring to ensure always-on operations.",
-			"Cloud Enablement for customer data, apps, and analytics.",
-		],
-		features: [
-			{
-				icon: "wifi",
-				title: "Smart Network Infrastructure",
-				description:
-					"Reliable Wi-Fi and secure networks for POS, guests, and back-office systems.",
-			},
-			{
-				icon: "monitor",
-				title: "Intelligent Surveillance",
-				description: "CCTV and remote monitoring for stores, hotels, and restaurants.",
-			},
-			{
-				icon: "finger",
-				title: "Secure Access & Biometrics",
-				description: "Smart locks, staff access, and visitor management systems.",
-			},
-			{
-				icon: "archive",
-				title: "End-to-End IT Services",
-				description: "IT management for POS, reservations, loyalty, and CRM systems.",
-			},
-		],
-	},
-	{
-		id: "healthcare",
-		title: "Healthcare & Pharma",
-		subtitle: "Securing sensitive data, optimizing patient care, and powering research innovation.",
-		image: "/industry-healthcare-hero.png",
-		what: "Healthcare and pharma organizations rely on technology for compliance, patient care, and R&D. Nexobots delivers resilient IT infrastructure and security solutions to safeguard data and improve operational efficiency.",
-		cta: "Secure Your Healthcare IT",
-		services: [
-			"Compliance-Focused IT Consulting for healthcare regulations.",
-			"System Integration of EMR, PACS, and ERP systems.",
-			"Round-the-Clock AMC & Support for mission-critical environments.",
-			"Cloud & Virtualization Solutions for data storage, recovery, and research continuity.",
-		],
-		features: [
-			{
-				icon: "wifi",
-				title: "Smart Network Infrastructure",
-				description: "Secure, compliant, and high-availability networks for hospitals, labs, and clinics",
-			},
-			{
-				icon: "monitor",
-				title: "Intelligent Surveillance",
-				description: "Monitoring systems for ICUs, pharmacies, and critical care units.",
-			},
-			{
-				icon: "finger",
-				title: "Secure Access & Biometrics",
-				description: "Controlled access for OTs, pharma stores, and restricted facilities.",
-			},
-			{
-				icon: "archive",
-				title: "End-to-End IT Services",
-				description: "Infrastructure for EMR, telemedicine, and research data management.",
-			},
-		],
-	},
-	{
-		id: "education",
-		title: "Education & Research",
-		subtitle: "Creating connected, secure, and tech-driven learning environments.",
-		image: "/industry-education-hero.png",
-		what: "We help institutions modernize their campuses with smart infrastructure that enhances collaboration, security, and digital learning. From classroom Wi-Fi to secure access, Nexobots delivers connected experiences for students, faculty, and researchers.",
-		cta: "Let's Build a Smarter Campus",
-		services: [
-			"Consulting & IT Roadmaps for digital transformation in education.",
-			"System Integration for LMS, library, and cloud platforms.",
-			"Comprehensive AMC ensuring seamless academic operations.",
-			"Virtualization Support for labs, learning platforms, and research networks.",
-		],
-		features: [
-			{
-				icon: "wifi",
-				title: "Smart Network Infrastructure",
-				description: "High-speed wired and wireless networks across classrooms, labs, and hostels.",
-			},
-			{
-				icon: "monitor",
-				title: "Intelligent Surveillance",
-				description: "Monitoring systems for exam halls, campuses, and student facilities.",
-			},
-			{
-				icon: "finger",
-				title: "Secure Access & Biometrics",
-				description: "Attendance, hostel entry, and visitor management using smart authentication.",
-			},
-			{
-				icon: "archive",
-				title: "End-to-End IT Services",
-				description: "Implementation and support for e-learning and research environments.",
-			},
-		],
-	},
-	{
-		id: "corporate",
-		title: "Corporate & Enterprise",
-		subtitle: "Empowering enterprises with secure, scalable, and future-ready IT infrastructure.",
-		image: "/industry-corporate-hero.png",
-		what: "We help businesses build reliable, high-performance IT environments that connect teams, secure data, and support long-term growth. Our expertise spans structured cabling, networking, surveillance, and managed IT services — designed to keep enterprise operations running efficiently and securely.",
-		cta: "Let's Discuss Your Enterprise Needs",
-		services: [
-			"Strategic IT Infrastructure Consulting for scalable enterprise systems.",
-			"System Integration for seamless network and software interoperability.",
-			"AMC & Support with proactive monitoring and guaranteed uptime.",
-			"Cloud & Virtualization solutions for efficiency and hybrid environments.",
-		],
-		features: [
-			{
-				icon: "wifi",
-				title: "Smart Network Infrastructure",
-				description: "Robust, enterprise-grade networks with secure switching, firewalls, and optimized Wi-Fi.",
-			},
-			{
-				icon: "monitor",
-				title: "Intelligent Surveillance",
-				description: "IP-based CCTV, video management systems, and remote monitoring for complete visibility.",
-			},
-			{
-				icon: "finger",
-				title: "Secure Access & Biometrics",
-				description: "Biometric and RFID-based access solutions for employees and visitors.",
-			},
-			{
-				icon: "archive",
-				title: "End-to-End IT Services",
-				description: "From planning to management, ensure business continuity and performance.",
 			},
 		],
 	},
@@ -335,135 +354,181 @@ const getIconComponent = (icon: string) => {
 	}
 };
 
-// Service points with their positions (top offset from container)
-// Each point is positioned at: paddingTop (7.65px) + cumulative heights + spacing
-const servicePoints = [
-	{ top: 7.65, height: 80 }, // First point: 7.65px from top, 80px height
-	{ top: 7.65 + 80 + 8, height: 73 }, // Second: previous top + height + spacing (8px)
-	{ top: 7.65 + 80 + 8 + 73 + 8, height: 73 }, // Third
-	{ top: 7.65 + 80 + 8 + 73 + 8 + 73 + 8, height: 39 }, // Fourth
-];
+// Service points configuration - positions for 4 items
+const SERVICE_CONFIG = {
+	paddingTop: 0, // Start from top of the track
+	itemHeight: 24, // Height of each text item (visual)
+	spacing: 70, // space between items
+};
 
-export default function IndustriesPage() {
-	// Animation state for "How We Support You" sections
-	// Corporate & Enterprise
-	const [redBarTop1, setRedBarTop1] = useState(0);
-	const [activeIndex1, setActiveIndex1] = useState(0);
-	// Education & Research
-	const [redBarTop2, setRedBarTop2] = useState(0);
-	const [activeIndex2, setActiveIndex2] = useState(0);
-	// Healthcare & Pharma
-	const [redBarTop3, setRedBarTop3] = useState(0);
-	const [activeIndex3, setActiveIndex3] = useState(0);
-	// Retail & Hospitality
-	const [redBarTop4, setRedBarTop4] = useState(0);
-	const [activeIndex4, setActiveIndex4] = useState(0);
-	// Real Estate & Smart Infrastructure
-	const [redBarTop5, setRedBarTop5] = useState(0);
-	const [activeIndex5, setActiveIndex5] = useState(0);
+// Calculate the exact positions of each service point
+const calculateServicePoints = (itemCount: number) => {
+	const { paddingTop, itemHeight, spacing } = SERVICE_CONFIG;
+	const points = [];
+	let currentTop = paddingTop;
+	for (let i = 0; i < itemCount; i++) {
+		points.push({ top: currentTop, height: itemHeight });
+		currentTop += itemHeight + spacing;
+	}
+	return points;
+};
 
-	// Fixed red bar height (increased to ensure it reaches last point)
-	const redBarHeight = 70;
+function SupportList({
+	items,
+	activeIndex,
+	scrollProgress,
+}: {
+	items: readonly string[];
+	activeIndex: number;
+	scrollProgress: number; // 0 to 1
+}) {
+	const containerRef = useRef<HTMLDivElement>(null);
+	const itemRefs = useRef<(HTMLParagraphElement | null)[]>([]);
+	const [trackDimensions, setTrackDimensions] = useState({ top: 0, height: 0 });
 
-	// Total animation duration (in milliseconds)
-	const animationDuration = 4000; // 4 seconds per cycle
+	// Measure actual bullet positions and calculate track dimensions
+	useEffect(() => {
+		const measureTrack = () => {
+			if (!containerRef.current || itemRefs.current.length === 0) return;
 
-	// Animation function factory
-	const createAnimation = (
-		setRedBarTop: (value: number) => void,
-		setActiveIndex: (value: number) => void,
-		offset: number = 0
-	) => {
+			const containerRect = containerRef.current.getBoundingClientRect();
+			const firstItem = itemRefs.current[0];
+			const lastItem = itemRefs.current[itemRefs.current.length - 1];
+
+			if (!firstItem || !lastItem) return;
+
+			const firstRect = firstItem.getBoundingClientRect();
+			const lastRect = lastItem.getBoundingClientRect();
+
+			// Track top = top of first item relative to container
+			const trackTop = firstRect.top - containerRect.top;
+			// Track bottom = bottom of last item relative to container
+			const trackBottom = lastRect.bottom - containerRect.top;
+			// Track height = from top of first item to bottom of last item
+			const trackHeight = trackBottom - trackTop;
+
+			setTrackDimensions({ top: trackTop, height: trackHeight });
+		};
+
+		measureTrack();
+
+		// Re-measure on resize
+		const resizeObserver = new ResizeObserver(measureTrack);
+		if (containerRef.current) {
+			resizeObserver.observe(containerRef.current);
+		}
+
+		return () => resizeObserver.disconnect();
+	}, [items.length]);
+
+	// Red thumb dimensions
+	const thumbHeight = 50;
+
+	// Calculate thumb position based on scroll progress
+	// At progress 0: thumb top edge at track top
+	// At progress 1: thumb bottom edge at track bottom
+	const maxThumbTravel = trackDimensions.height - thumbHeight;
+	const thumbTop = trackDimensions.top + scrollProgress * maxThumbTravel;
+
+	return (
+		<div ref={containerRef} className="relative w-full">
+			{/* background rail - spans from first bullet to last bullet */}
+			<div
+				className="absolute left-0"
+				style={{
+					width: "8px",
+					height: `${trackDimensions.height}px`,
+					top: `${trackDimensions.top}px`,
+					borderRadius: "55px",
+					backgroundColor: "#D9D9D9",
+				}}
+			/>
+			{/* active indicator - animated red bar */}
+			<div
+				className="absolute left-0"
+				style={{
+					width: "8px",
+					height: `${thumbHeight}px`,
+					top: `${thumbTop}px`,
+					borderRadius: "55px",
+					backgroundColor: "#E11E24",
+				}}
+				aria-hidden="true"
+			/>
+			{/* Items with proper spacing */}
+			<div
+				style={{
+					paddingLeft: "52px",
+					display: "flex",
+					flexDirection: "column",
+					gap: "70px",
+				}}
+			>
+				{items.map((text, i) => {
+					const active = i === activeIndex;
+					return (
+						<p
+							key={i}
+							ref={(el) => {
+								itemRefs.current[i] = el;
+							}}
+							className="font-['TASA_Orbiter'] text-black"
+							style={{
+								fontSize: active ? "20px" : "16px",
+								fontWeight: active ? 700 : 600,
+								lineHeight: "1.3",
+								maxWidth: "500px",
+								// Instant transition - no delay
+								transition: "none",
+							}}
+						>
+							{text}
+						</p>
+					);
+				})}
+			</div>
+		</div>
+	);
+}
+
+function IndustrySection({
+	industry,
+	animationOffset = 0,
+}: {
+	industry: (typeof industries)[number];
+	animationOffset?: number;
+}) {
+	const [scrollProgress, setScrollProgress] = useState(0);
+	const [activeIndex, setActiveIndex] = useState(0);
+
+	const animationDuration = 12000; // 12 seconds for one complete cycle
+	const itemCount = industry.services.length;
+
+	useEffect(() => {
 		let startTime: number | null = null;
 		let animationFrameId: number;
 
 		const animate = (currentTime: number) => {
-			if (!startTime) startTime = currentTime - offset;
+			if (!startTime) startTime = currentTime - animationOffset;
 			const elapsed = currentTime - startTime;
-			const progress = (elapsed % animationDuration) / animationDuration; // 0 to 1
 
-			// Calculate red bar position (moves from top to bottom)
-			const totalHeight = 310; // Total container height
-			const lastPointIndex = servicePoints.length - 1;
-			const lastPoint = servicePoints[lastPointIndex];
-			const lastPointTop = lastPoint.top;
-			const thirdPoint = servicePoints[servicePoints.length - 2];
-			const thirdPointBottom = thirdPoint.top + thirdPoint.height;
+			const linearProgress = (elapsed % animationDuration) / animationDuration;
 
-			// Calculate maxTop - allow bar to go all the way to bottom
-			const maxTop = totalHeight - redBarHeight;
-			const currentTop = progress * maxTop;
-
-			// Determine active index based on red bar position
-			const barCenter = currentTop + redBarHeight / 2;
-			const barBottom = currentTop + redBarHeight;
-			const barTop = currentTop;
-
-			let newActiveIndex = 0;
-			let bestMatch = -1;
-			let bestOverlap = 0;
-
-			// Check ALL points and find which one has the most overlap with the bar
-			// This ensures we catch the third point even if barCenter is slightly off
-			for (let i = 0; i < servicePoints.length; i++) {
-				const pointTop = servicePoints[i].top;
-				const pointBottom = servicePoints[i].top + servicePoints[i].height;
-				const pointCenter = pointTop + servicePoints[i].height / 2;
-
-				// Calculate overlap between bar and point
-				const overlapTop = Math.max(barTop, pointTop);
-				const overlapBottom = Math.min(barBottom, pointBottom);
-				const overlap = Math.max(0, overlapBottom - overlapTop);
-
-				// Check if bar center is within the point's range (primary check)
-				const barCenterInRange =
-					barCenter >= pointTop && barCenter <= pointBottom;
-
-				// Check if bar overlaps significantly with the point (secondary check)
-				const significantOverlap = overlap > redBarHeight * 0.3; // At least 30% overlap
-
-				// Check if bar is near the point's center (tertiary check)
-				const distanceToCenter = Math.abs(barCenter - pointCenter);
-				const nearCenter =
-					distanceToCenter <
-					(redBarHeight / 2 + servicePoints[i].height / 2);
-
-				// If any condition is true, consider this point
-				if (
-					barCenterInRange ||
-					significantOverlap ||
-					nearCenter
-				) {
-					// Use the point with the most overlap, or if equal overlap, use the later point
-					if (
-						overlap > bestOverlap ||
-						(overlap === bestOverlap && i > bestMatch)
-					) {
-						bestMatch = i;
-						bestOverlap = overlap;
-					}
-				}
+			// Apply easing to slow down at the end (last 15% of animation)
+			let progress = linearProgress;
+			const slowdownThreshold = 0.85;
+			if (linearProgress > slowdownThreshold) {
+				const remainingProgress = (linearProgress - slowdownThreshold) / (1 - slowdownThreshold);
+				const easedRemaining = 1 - Math.pow(1 - remainingProgress, 3);
+				progress = slowdownThreshold + easedRemaining * (1 - slowdownThreshold);
 			}
 
-			// If we found a match, use it; otherwise default to 0
-			if (bestMatch >= 0) {
-				newActiveIndex = bestMatch;
-			} else {
-				// Fallback: find point closest to bar center
-				let closestIndex = 0;
-				let closestDistance = Infinity;
-				for (let i = 0; i < servicePoints.length; i++) {
-					const pointCenter = servicePoints[i].top + servicePoints[i].height / 2;
-					const distance = Math.abs(barCenter - pointCenter);
-					if (distance < closestDistance) {
-						closestDistance = distance;
-						closestIndex = i;
-					}
-				}
-				newActiveIndex = closestIndex;
-			}
+			// Determine active index based on progress
+			const segmentSize = 1 / itemCount;
+			let newActiveIndex = Math.floor(progress / segmentSize);
+			newActiveIndex = Math.min(newActiveIndex, itemCount - 1);
 
-			setRedBarTop(currentTop);
+			setScrollProgress(progress);
 			setActiveIndex(newActiveIndex);
 
 			animationFrameId = requestAnimationFrame(animate);
@@ -476,15 +541,129 @@ export default function IndustriesPage() {
 				cancelAnimationFrame(animationFrameId);
 			}
 		};
-	};
+	}, [animationOffset, itemCount, animationDuration]);
 
-	// Set up animations for all sections with slight offsets for visual variety
-	useEffect(() => createAnimation(setRedBarTop1, setActiveIndex1, 0), []);
-	useEffect(() => createAnimation(setRedBarTop2, setActiveIndex2, 800), []);
-	useEffect(() => createAnimation(setRedBarTop3, setActiveIndex3, 1600), []);
-	useEffect(() => createAnimation(setRedBarTop4, setActiveIndex4, 2400), []);
-	useEffect(() => createAnimation(setRedBarTop5, setActiveIndex5, 3200), []);
+	return (
+		<section className="bg-[#F8F8F8] py-10 sm:py-14 md:py-16 lg:py-20 xl:py-[100px] overflow-hidden">
+			<div className="mx-auto w-full max-w-[1440px] px-4 sm:px-6 md:px-10 lg:px-[72px]">
+				{/* Header */}
+				<div className="mb-8 sm:mb-10 md:mb-14 lg:mb-16">
+					<h2 className="font-['TASA_Orbiter'] text-black text-[28px] sm:text-[36px] md:text-[44px] lg:text-[52px] xl:text-[64px] font-semibold leading-[1.15] sm:leading-[1.22] max-w-[1000px] mb-2 sm:mb-3">
+						{industry.title}
+					</h2>
+					<p className="font-['TASA_Orbiter'] text-black text-[16px] sm:text-[18px] md:text-[20px] lg:text-[22px] xl:text-[24px] font-semibold leading-[1.3] sm:leading-[1.2] max-w-[980px] mb-3 sm:mb-4 lg:mb-5">
+						{industry.subtitle}
+					</p>
+					<p className="font-['TASA_Orbiter'] text-black/80 text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[22px] font-medium leading-[1.5] sm:leading-[1.4] max-w-[980px]">
+						{industry.what}
+					</p>
+				</div>
 
+				{/* Layout: LEFT support + RIGHT image on desktop */}
+				<div className="flex flex-col lg:flex-row lg:relative gap-6 sm:gap-8 lg:gap-10">
+					{/* Image - comes first on mobile, positioned right on desktop */}
+					<div className="order-1 lg:order-2 w-full lg:w-[640px] lg:flex-shrink-0">
+						<div className="relative overflow-hidden rounded-[13px] w-full h-[280px] sm:h-[350px] md:h-[400px] lg:h-[457px]">
+							<Image
+								src={industry.image}
+								alt={industry.title}
+								fill
+								className="object-cover"
+								sizes="(max-width: 1024px) 100vw, 640px"
+								priority={industry.id === "corporate"}
+							/>
+						</div>
+					</div>
+
+					{/* Support (left on desktop) */}
+					<div className="order-2 lg:order-1 w-full lg:flex-1">
+						<h3 className="font-['TASA_Orbiter'] text-black mb-5 sm:mb-6 lg:mb-[50px] text-[20px] sm:text-[24px] md:text-[28px] lg:text-[32px] xl:text-[40px] font-semibold leading-[1.08]">
+							How We Support You
+						</h3>
+
+						{/* Desktop: Animated progress bar */}
+						<div className="hidden lg:block mb-6 sm:mb-8 lg:mb-10">
+							<SupportList
+								items={industry.services}
+								activeIndex={activeIndex}
+								scrollProgress={scrollProgress}
+							/>
+						</div>
+
+						{/* Mobile/Tablet: Simple list without animation */}
+						<div className="lg:hidden space-y-4 sm:space-y-5 mb-6 sm:mb-8">
+							{industry.services.map((service, i) => (
+								<div key={i} className="flex items-start gap-3">
+									<div className="w-2 h-2 rounded-full bg-[#E11E24] mt-2 flex-shrink-0" />
+									<p
+										className="font-['TASA_Orbiter'] text-black text-base sm:text-lg"
+										style={{
+											fontWeight: 600,
+											lineHeight: "1.4",
+										}}
+									>
+										{service}
+									</p>
+								</div>
+							))}
+						</div>
+
+						<Link
+							href="#contact"
+							className="inline-flex h-[42px] sm:h-[45px] items-center justify-center gap-2 sm:gap-3 rounded-[75px] border border-white/30 bg-black transition-all hover:bg-black/90 px-4 sm:px-6 w-full sm:w-auto"
+						>
+							<span className="font-['Manrope'] text-white whitespace-nowrap text-[12px] sm:text-[13px] md:text-[14px] font-semibold leading-[1.366] tracking-[0.02em]">
+								{industry.cta}
+							</span>
+							<svg
+								width="5"
+								height="8"
+								viewBox="0 0 5 8"
+								fill="none"
+								xmlns="http://www.w3.org/2000/svg"
+								className="ml-1 sm:ml-2 flex-shrink-0"
+							>
+								<path
+									d="M1 1L4 4L1 7"
+									stroke="#E11E24"
+									strokeWidth="1.5"
+									strokeLinecap="round"
+									strokeLinejoin="round"
+								/>
+							</svg>
+						</Link>
+					</div>
+				</div>
+
+				{/* What We Deliver */}
+				<h3 className="font-['TASA_Orbiter'] text-black text-[22px] sm:text-[26px] md:text-[32px] lg:text-[36px] xl:text-[40px] font-semibold leading-[1.15] mt-10 sm:mt-12 lg:mt-16 xl:mt-20 mb-4 sm:mb-5 lg:mb-6">
+					What We Deliver
+				</h3>
+
+				<div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-3 sm:gap-4 lg:gap-5">
+					{industry.features.map((feature, i) => (
+						<article
+							key={i}
+							className="flex flex-col rounded-[8px] sm:rounded-[9px] bg-white p-4 sm:p-5 lg:p-6 gap-3 sm:gap-4"
+						>
+							<div className="flex items-center justify-center rounded-[6px] w-[28px] h-[28px] sm:w-[31px] sm:h-[31px] bg-[#F8F8F8]">
+								{getIconComponent(feature.icon)}
+							</div>
+							<h4 className="font-['TASA_Orbiter'] text-black text-[13px] sm:text-[14px] lg:text-[15px] xl:text-[16px] font-semibold leading-[1.2]">
+								{feature.title}
+							</h4>
+							<p className="font-['TASA_Orbiter'] text-[#A4A4A4] text-[12px] sm:text-[13px] lg:text-[14px] font-medium leading-[1.35] sm:leading-[1.3]">
+								{feature.description}
+							</p>
+						</article>
+					))}
+				</div>
+			</div>
+		</section>
+	);
+}
+
+export default function IndustriesPage() {
 	return (
 		<div className="bg-[#F8F8F8] text-black overflow-x-hidden">
 			<Navbar />
@@ -564,871 +743,20 @@ export default function IndustriesPage() {
 				</div>
 			</section>
 
-			{/* Corporate & Enterprise Featured Section - Responsive */}
-			<section className="bg-[#F8F8F8] py-12 sm:py-16 md:py-20 lg:py-[120px] overflow-hidden">
-				<div className="mx-auto w-full max-w-[1440px] px-4 sm:px-6 md:px-10 lg:px-[72px]">
-					{/* Industry Header */}
-					<div className="mb-10 sm:mb-14 md:mb-20 lg:mb-[109px]">
-						<h2 className="font-['TASA_Orbiter'] text-black text-[32px] sm:text-[42px] md:text-[52px] lg:text-[64px] font-semibold leading-[1.15] sm:leading-[1.22] max-w-full lg:max-w-[788px] mb-2 sm:mb-[9px]">
-							Corporate & Enterprise
-						</h2>
-						<p className="font-['TASA_Orbiter'] text-black text-[18px] sm:text-[20px] md:text-[22px] lg:text-[24px] font-semibold leading-[1.2] sm:leading-[1.08] max-w-full lg:max-w-[919px] mb-4 sm:mb-6 lg:mb-[28px]">
-							Empowering enterprises with secure, scalable, and future-ready IT
-							infrastructure.
-						</p>
-						<p className="font-['TASA_Orbiter'] text-black text-[16px] sm:text-[18px] md:text-[20px] lg:text-[22px] font-semibold leading-[1.4] sm:leading-[1.2] lg:leading-[0.98] max-w-full lg:max-w-[923px]">
-							We help businesses build reliable, high-performance IT environments
-							that connect teams, secure data, and support long-term growth. Our
-							expertise spans structured cabling, networking, surveillance, and
-							managed IT services — designed to keep enterprise operations running
-							efficiently and securely.
-						</p>
-					</div>
-
-					{/* Image + Content Layout - Fixed Responsive */}
-					<div className="relative mb-8 sm:mb-10 lg:mb-[45px]">
-						<div className="flex flex-col lg:flex-row items-start gap-6 lg:gap-8 mb-6 lg:mb-[28px]">
-							{/* Image - Fixed responsive sizing */}
-							<div className="relative overflow-hidden rounded-[13px] flex-shrink-0 w-full lg:w-[60%] xl:w-[65%] 2xl:w-[70%] h-[250px] sm:h-[320px] md:h-[400px] lg:h-[450px] xl:h-[474px] lg:-ml-[40px] xl:-ml-[60px] 2xl:-ml-[98px]">
-								<Image
-									src="/industry-corporate-featured.png"
-									alt="Corporate & Enterprise"
-									fill
-									className="object-cover"
-									sizes="(max-width: 768px) 100vw, (max-width: 1024px) 100vw, (max-width: 1280px) 60vw, 70vw"
-								/>
-							</div>
-
-							{/* How We Support You - Right side */}
-							<div className="flex-shrink-0 w-full lg:w-[40%] xl:w-[35%] 2xl:w-[30%] lg:max-w-[418px]">
-								<h3 className="font-['TASA_Orbiter'] text-black mb-6 sm:mb-8 lg:mb-[51px] text-[24px] sm:text-[28px] lg:text-[32px] font-semibold leading-[1.08]">
-									How We Support You
-								</h3>
-
-								{/* Services List with Progress Bar */}
-								<div className="relative mb-6 sm:mb-8 lg:mb-[45px] w-full h-[310px]">
-									{/* Background line */}
-									<div className="absolute left-0 top-0 w-[5px] h-[310px] rounded-[55px] bg-[#D9D9D9]" />
-									{/* Red progress line - animated */}
-									<div
-										className="absolute left-0 w-[5px] rounded-[55px] bg-[#E11E24]"
-										style={{
-											height: `${redBarHeight}px`,
-											top: `${redBarTop1}px`,
-											transition: "none",
-										}}
-									/>
-									{/* Services */}
-									<div className="space-y-[8px] pl-5 sm:pl-[30px] pt-[7.65px]">
-										<p
-											className="font-['TASA_Orbiter'] text-black h-[80px] w-full transition-all duration-200"
-											style={{
-												fontSize: activeIndex1 === 0 ? "18px" : "14px",
-												fontWeight: activeIndex1 === 0 ? 700 : 600,
-												lineHeight: "1.08",
-											}}
-										>
-											Strategic IT Infrastructure Consulting for scalable
-											enterprise systems.
-										</p>
-										<p
-											className="font-['TASA_Orbiter'] text-black h-[73px] w-full transition-all duration-200"
-											style={{
-												fontSize: activeIndex1 === 1 ? "18px" : "14px",
-												fontWeight: activeIndex1 === 1 ? 700 : 600,
-												lineHeight: "1.08",
-											}}
-										>
-											System Integration for seamless network and software
-											interoperability.
-										</p>
-										<p
-											className="font-['TASA_Orbiter'] text-black h-[73px] w-full transition-all duration-200"
-											style={{
-												fontSize: activeIndex1 === 2 ? "18px" : "14px",
-												fontWeight: activeIndex1 === 2 ? 700 : 600,
-												lineHeight: "1.08",
-											}}
-										>
-											AMC & Support with proactive monitoring and guaranteed
-											uptime.
-										</p>
-										<p
-											className="font-['TASA_Orbiter'] text-black h-[39px] w-full transition-all duration-200"
-											style={{
-												fontSize: activeIndex1 === 3 ? "18px" : "14px",
-												fontWeight: activeIndex1 === 3 ? 700 : 600,
-												lineHeight: "1.08",
-											}}
-										>
-											Cloud & Virtualization solutions for efficiency and
-											hybrid environments.
-										</p>
-									</div>
-								</div>
-
-								{/* CTA Button */}
-								<Link
-									href="#contact"
-									className="inline-flex h-[45px] items-center justify-center gap-2 sm:gap-3 rounded-[75px] border border-white/30 bg-black transition-all hover:bg-black/90 px-4 sm:px-[25px] w-full sm:w-auto"
-								>
-									<span className="font-['Manrope'] text-white whitespace-nowrap text-[13px] sm:text-[15px] font-semibold leading-[1.366] tracking-[0.02em]">
-										Let's Discuss Your Enterprise Needs
-									</span>
-									<svg
-										width="5"
-										height="8"
-										viewBox="0 0 5 8"
-										fill="none"
-										xmlns="http://www.w3.org/2000/svg"
-										className="ml-1 sm:ml-2 flex-shrink-0"
-									>
-										<path
-											d="M1 1L4 4L1 7"
-											stroke="#E11E24"
-											strokeWidth="1.5"
-											strokeLinecap="round"
-											strokeLinejoin="round"
-										/>
-									</svg>
-								</Link>
-							</div>
-						</div>
-					</div>
-
-					{/* What We Deliver Heading */}
-					<h3 className="font-['TASA_Orbiter'] text-black text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px] font-semibold leading-[1.08] mt-10 sm:mt-14 lg:mt-[85px] mb-5 sm:mb-6 lg:mb-[28px]">
-						What We Deliver
-					</h3>
-
-					{/* Features Grid - Responsive */}
-					<div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 sm:gap-5 lg:gap-[24px]">
-						{[
-							{
-								icon: "wifi",
-								title: "Smart Network Infrastructure",
-								description:
-									"Robust, enterprise-grade networks with secure switching, firewalls, and optimized Wi-Fi.",
-							},
-							{
-								icon: "monitor",
-								title: "Intelligent Surveillance",
-								description:
-									"IP-based CCTV, video management systems, and remote monitoring for complete visibility.",
-							},
-							{
-								icon: "finger",
-								title: "Secure Access & Biometrics",
-								description:
-									"Biometric and RFID-based access solutions for employees and visitors.",
-							},
-							{
-								icon: "archive",
-								title: "End-to-End IT Services",
-								description:
-									"From planning to management, ensure business continuity and performance.",
-							},
-						].map((feature, i) => (
-							<article
-								key={i}
-								className="flex flex-col rounded-[9px] bg-white p-4 sm:p-5 lg:p-[21px_24px] gap-4 sm:gap-5"
-							>
-								<div className="flex items-center justify-center rounded-[6px] w-[31px] h-[31px] bg-[#F8F8F8]">
-									{getIconComponent(feature.icon)}
-								</div>
-								<h4 className="font-['TASA_Orbiter'] text-black text-[14px] sm:text-[15px] lg:text-[16px] font-semibold leading-[1.08]">
-									{feature.title}
-								</h4>
-								<p className="font-['TASA_Orbiter'] text-[#A4A4A4] text-[13px] sm:text-[14px] lg:text-[15px] font-medium leading-[1.2] sm:leading-[1.08]">
-									{feature.description}
-								</p>
-							</article>
-						))}
-					</div>
-				</div>
-			</section>
-
-			{/* Education & Research Section - Responsive */}
-			<section className="bg-[#F8F8F8] py-12 sm:py-16 md:py-20 lg:py-[120px] overflow-hidden">
-				<div className="mx-auto w-full max-w-[1440px] px-4 sm:px-6 md:px-10 lg:px-[72px]">
-					<div className="mb-10 sm:mb-14 md:mb-20 lg:mb-[109px]">
-						<h2 className="font-['TASA_Orbiter'] text-black text-[32px] sm:text-[42px] md:text-[52px] lg:text-[64px] font-semibold leading-[1.15] sm:leading-[1.22] max-w-full lg:max-w-[788px] mb-2 sm:mb-[9px]">
-							Education & Research
-						</h2>
-						<p className="font-['TASA_Orbiter'] text-black text-[18px] sm:text-[20px] md:text-[22px] lg:text-[24px] font-semibold leading-[1.2] sm:leading-[1.08] max-w-full lg:max-w-[919px] mb-4 sm:mb-6 lg:mb-[28px]">
-							Creating connected, secure, and tech-driven learning
-							environments.
-						</p>
-						<p className="font-['TASA_Orbiter'] text-black text-[16px] sm:text-[18px] md:text-[20px] lg:text-[22px] font-semibold leading-[1.4] sm:leading-[1.2] lg:leading-[0.98] max-w-full lg:max-w-[923px]">
-							We help institutions modernize their campuses with smart
-							infrastructure that enhances collaboration, security, and digital
-							learning. From classroom Wi-Fi to secure access, Nexobots delivers
-							connected experiences for students, faculty, and researchers.
-						</p>
-					</div>
-
-					<div className="relative mb-8 sm:mb-10 lg:mb-[45px]">
-						<div className="flex flex-col lg:flex-row items-start gap-6 lg:gap-8 mb-6 lg:mb-[28px]">
-							<div className="relative overflow-hidden rounded-[13px] flex-shrink-0 w-full lg:w-[60%] xl:w-[65%] 2xl:w-[70%] h-[250px] sm:h-[320px] md:h-[400px] lg:h-[450px] xl:h-[474px] lg:-ml-[40px] xl:-ml-[60px] 2xl:-ml-[98px]">
-								<Image
-									src="/industry-education-section.png"
-									alt="Education & Research"
-									fill
-									className="object-cover"
-									sizes="(max-width: 768px) 100vw, (max-width: 1024px) 100vw, (max-width: 1280px) 60vw, 70vw"
-								/>
-							</div>
-
-							<div className="flex-shrink-0 w-full lg:w-[40%] xl:w-[35%] 2xl:w-[30%] lg:max-w-[418px]">
-								<h3 className="font-['TASA_Orbiter'] text-black mb-6 sm:mb-8 lg:mb-[51px] text-[24px] sm:text-[28px] lg:text-[32px] font-semibold leading-[1.08]">
-									How We Support You
-								</h3>
-
-								<div className="relative mb-6 sm:mb-8 lg:mb-[45px] w-full h-[310px]">
-									<div className="absolute left-0 top-0 w-[5px] h-[310px] rounded-[55px] bg-[#D9D9D9]" />
-									<div
-										className="absolute left-0 w-[5px] rounded-[55px] bg-[#E11E24]"
-										style={{
-											height: `${redBarHeight}px`,
-											top: `${redBarTop2}px`,
-											transition: "none",
-										}}
-									/>
-									<div className="space-y-[8px] pl-5 sm:pl-[30px] pt-[7.65px]">
-										<p
-											className="font-['TASA_Orbiter'] text-black h-[80px] w-full transition-all duration-200"
-											style={{
-												fontSize: activeIndex2 === 0 ? "18px" : "14px",
-												fontWeight: activeIndex2 === 0 ? 700 : 600,
-												lineHeight: "1.08",
-											}}
-										>
-											Consulting & IT Roadmaps for digital transformation in
-											education.
-										</p>
-										<p
-											className="font-['TASA_Orbiter'] text-black h-[73px] w-full transition-all duration-200"
-											style={{
-												fontSize: activeIndex2 === 1 ? "18px" : "14px",
-												fontWeight: activeIndex2 === 1 ? 700 : 600,
-												lineHeight: "1.08",
-											}}
-										>
-											System Integration for LMS, library, and cloud platforms.
-										</p>
-										<p
-											className="font-['TASA_Orbiter'] text-black h-[73px] w-full transition-all duration-200"
-											style={{
-												fontSize: activeIndex2 === 2 ? "18px" : "14px",
-												fontWeight: activeIndex2 === 2 ? 700 : 600,
-												lineHeight: "1.08",
-											}}
-										>
-											Comprehensive AMC ensuring seamless academic operations.
-										</p>
-										<p
-											className="font-['TASA_Orbiter'] text-black h-[39px] w-full transition-all duration-200"
-											style={{
-												fontSize: activeIndex2 === 3 ? "18px" : "14px",
-												fontWeight: activeIndex2 === 3 ? 700 : 600,
-												lineHeight: "1.08",
-											}}
-										>
-											Virtualization Support for labs, learning platforms, and
-											research networks.
-										</p>
-									</div>
-								</div>
-
-								<Link
-									href="#contact"
-									className="inline-flex h-[45px] items-center justify-center gap-2 sm:gap-3 rounded-[75px] border border-white/30 bg-black transition-all hover:bg-black/90 px-4 sm:px-[25px] w-full sm:w-auto"
-								>
-									<span className="font-['Manrope'] text-white whitespace-nowrap text-[13px] sm:text-[15px] font-semibold leading-[1.366] tracking-[0.02em]">
-										Let's Build a Smarter Campus
-									</span>
-									<svg
-										width="5"
-										height="8"
-										viewBox="0 0 5 8"
-										fill="none"
-										xmlns="http://www.w3.org/2000/svg"
-										className="ml-1 sm:ml-2 flex-shrink-0"
-									>
-										<path
-											d="M1 1L4 4L1 7"
-											stroke="#E11E24"
-											strokeWidth="1.5"
-											strokeLinecap="round"
-											strokeLinejoin="round"
-										/>
-									</svg>
-								</Link>
-							</div>
-						</div>
-					</div>
-
-					<h3 className="font-['TASA_Orbiter'] text-black text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px] font-semibold leading-[1.08] mt-10 sm:mt-14 lg:mt-[85px] mb-5 sm:mb-6 lg:mb-[28px]">
-						What We Deliver
-					</h3>
-
-					<div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 sm:gap-5 lg:gap-[24px]">
-						{[
-							{
-								icon: "wifi",
-								title: "Smart Network Infrastructure",
-								description:
-									"High-speed wired and wireless networks across classrooms, labs, and hostels.",
-							},
-							{
-								icon: "monitor",
-								title: "Intelligent Surveillance",
-								description:
-									"Monitoring systems for exam halls, campuses, and student facilities.",
-							},
-							{
-								icon: "finger",
-								title: "Secure Access & Biometrics",
-								description:
-									"Attendance, hostel entry, and visitor management using smart authentication.",
-							},
-							{
-								icon: "archive",
-								title: "End-to-End IT Services",
-								description:
-									"Implementation and support for e-learning and research environments.",
-							},
-						].map((feature, i) => (
-							<article
-								key={i}
-								className="flex flex-col rounded-[9px] bg-white p-4 sm:p-5 lg:p-[21px_24px] gap-4 sm:gap-5"
-							>
-								<div className="flex items-center justify-center rounded-[6px] w-[31px] h-[31px] bg-[#F8F8F8]">
-									{getIconComponent(feature.icon)}
-								</div>
-								<h4 className="font-['TASA_Orbiter'] text-black text-[14px] sm:text-[15px] lg:text-[16px] font-semibold leading-[1.08]">
-									{feature.title}
-								</h4>
-								<p className="font-['TASA_Orbiter'] text-[#A4A4A4] text-[13px] sm:text-[14px] lg:text-[15px] font-medium leading-[1.2] sm:leading-[1.08]">
-									{feature.description}
-								</p>
-							</article>
-						))}
-					</div>
-				</div>
-			</section>
-
-			{/* Healthcare & Pharma Section - Responsive */}
-			<section className="bg-[#F8F8F8] py-12 sm:py-16 md:py-20 lg:py-[120px] overflow-hidden">
-				<div className="mx-auto w-full max-w-[1440px] px-4 sm:px-6 md:px-10 lg:px-[72px]">
-					<div className="mb-10 sm:mb-14 md:mb-20 lg:mb-[109px]">
-						<h2 className="font-['TASA_Orbiter'] text-black text-[32px] sm:text-[42px] md:text-[52px] lg:text-[64px] font-semibold leading-[1.15] sm:leading-[1.22] max-w-full lg:max-w-[788px] mb-2 sm:mb-[9px]">
-							Healthcare & Pharma
-						</h2>
-						<p className="font-['TASA_Orbiter'] text-black text-[18px] sm:text-[20px] md:text-[22px] lg:text-[24px] font-semibold leading-[1.2] sm:leading-[1.08] max-w-full lg:max-w-[919px] mb-4 sm:mb-6 lg:mb-[28px]">
-							Securing sensitive data, optimizing patient care, and powering
-							research innovation.
-						</p>
-						<p className="font-['TASA_Orbiter'] text-black text-[16px] sm:text-[18px] md:text-[20px] lg:text-[22px] font-semibold leading-[1.4] sm:leading-[1.2] lg:leading-[0.98] max-w-full lg:max-w-[923px]">
-							Healthcare and pharma organizations rely on technology for
-							compliance, patient care, and R&D. Nexobots delivers resilient IT
-							infrastructure and security solutions to safeguard data and improve
-							operational efficiency.
-						</p>
-					</div>
-
-					<div className="relative mb-8 sm:mb-10 lg:mb-[45px]">
-						<div className="flex flex-col lg:flex-row items-start gap-6 lg:gap-8 mb-6 lg:mb-[28px]">
-							<div className="relative overflow-hidden rounded-[13px] flex-shrink-0 w-full lg:w-[60%] xl:w-[65%] 2xl:w-[70%] h-[250px] sm:h-[320px] md:h-[400px] lg:h-[450px] xl:h-[474px] lg:-ml-[40px] xl:-ml-[60px] 2xl:-ml-[98px]">
-								<Image
-									src="/industry-healthcare-section.png"
-									alt="Healthcare & Pharma"
-									fill
-									className="object-cover"
-									sizes="(max-width: 768px) 100vw, (max-width: 1024px) 100vw, (max-width: 1280px) 60vw, 70vw"
-								/>
-							</div>
-
-							<div className="flex-shrink-0 w-full lg:w-[40%] xl:w-[35%] 2xl:w-[30%] lg:max-w-[418px]">
-								<h3 className="font-['TASA_Orbiter'] text-black mb-6 sm:mb-8 lg:mb-[51px] text-[24px] sm:text-[28px] lg:text-[32px] font-semibold leading-[1.08]">
-									How We Support You
-								</h3>
-
-								<div className="relative mb-6 sm:mb-8 lg:mb-[45px] w-full h-[310px]">
-									<div className="absolute left-0 top-0 w-[5px] h-[310px] rounded-[55px] bg-[#D9D9D9]" />
-									<div
-										className="absolute left-0 w-[5px] rounded-[55px] bg-[#E11E24]"
-										style={{
-											height: `${redBarHeight}px`,
-											top: `${redBarTop3}px`,
-											transition: "none",
-										}}
-									/>
-									<div className="space-y-[8px] pl-5 sm:pl-[30px] pt-[7.65px]">
-										<p
-											className="font-['TASA_Orbiter'] text-black h-[80px] w-full transition-all duration-200"
-											style={{
-												fontSize: activeIndex3 === 0 ? "18px" : "14px",
-												fontWeight: activeIndex3 === 0 ? 700 : 600,
-												lineHeight: "1.08",
-											}}
-										>
-											Compliance-Focused IT Consulting for healthcare
-											regulations.
-										</p>
-										<p
-											className="font-['TASA_Orbiter'] text-black h-[73px] w-full transition-all duration-200"
-											style={{
-												fontSize: activeIndex3 === 1 ? "18px" : "14px",
-												fontWeight: activeIndex3 === 1 ? 700 : 600,
-												lineHeight: "1.08",
-											}}
-										>
-											System Integration of EMR, PACS, and ERP systems.
-										</p>
-										<p
-											className="font-['TASA_Orbiter'] text-black h-[73px] w-full transition-all duration-200"
-											style={{
-												fontSize: activeIndex3 === 2 ? "18px" : "14px",
-												fontWeight: activeIndex3 === 2 ? 700 : 600,
-												lineHeight: "1.08",
-											}}
-										>
-											Round-the-Clock AMC & Support for mission-critical
-											environments.
-										</p>
-										<p
-											className="font-['TASA_Orbiter'] text-black h-[39px] w-full transition-all duration-200"
-											style={{
-												fontSize: activeIndex3 === 3 ? "18px" : "14px",
-												fontWeight: activeIndex3 === 3 ? 700 : 600,
-												lineHeight: "1.08",
-											}}
-										>
-											Cloud & Virtualization Solutions for data storage,
-											recovery, and research continuity.
-										</p>
-									</div>
-								</div>
-
-								<Link
-									href="#contact"
-									className="inline-flex h-[45px] items-center justify-center gap-2 sm:gap-3 rounded-[75px] border border-white/30 bg-black transition-all hover:bg-black/90 px-4 sm:px-[25px] w-full sm:w-auto"
-								>
-									<span className="font-['Manrope'] text-white whitespace-nowrap text-[13px] sm:text-[15px] font-semibold leading-[1.366] tracking-[0.02em]">
-										Secure Your Healthcare IT
-									</span>
-									<svg
-										width="5"
-										height="8"
-										viewBox="0 0 5 8"
-										fill="none"
-										xmlns="http://www.w3.org/2000/svg"
-										className="ml-1 sm:ml-2 flex-shrink-0"
-									>
-										<path
-											d="M1 1L4 4L1 7"
-											stroke="#E11E24"
-											strokeWidth="1.5"
-											strokeLinecap="round"
-											strokeLinejoin="round"
-										/>
-									</svg>
-								</Link>
-							</div>
-						</div>
-					</div>
-
-					<h3 className="font-['TASA_Orbiter'] text-black text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px] font-semibold leading-[1.08] mt-10 sm:mt-14 lg:mt-[85px] mb-5 sm:mb-6 lg:mb-[28px]">
-						What We Deliver
-					</h3>
-
-					<div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 sm:gap-5 lg:gap-[24px]">
-						{[
-							{
-								icon: "wifi",
-								title: "Smart Network Infrastructure",
-								description: "Secure, compliant, and high-availability networks for hospitals, labs, and clinics",
-							},
-							{
-								icon: "monitor",
-								title: "Intelligent Surveillance",
-								description: "Monitoring systems for ICUs, pharmacies, and critical care units.",
-							},
-							{
-								icon: "finger",
-								title: "Secure Access & Biometrics",
-								description: "Controlled access for OTs, pharma stores, and restricted facilities.",
-							},
-							{
-								icon: "archive",
-								title: "End-to-End IT Services",
-								description: "Infrastructure for EMR, telemedicine, and research data management.",
-							},
-						].map((feature, i) => (
-							<article
-								key={i}
-								className="flex flex-col rounded-[9px] bg-white p-4 sm:p-5 lg:p-[21px_24px] gap-4 sm:gap-5"
-							>
-								<div className="flex items-center justify-center rounded-[6px] w-[31px] h-[31px] bg-[#F8F8F8]">
-									{getIconComponent(feature.icon)}
-								</div>
-								<h4 className="font-['TASA_Orbiter'] text-black text-[14px] sm:text-[15px] lg:text-[16px] font-semibold leading-[1.08]">
-									{feature.title}
-								</h4>
-								<p className="font-['TASA_Orbiter'] text-[#A4A4A4] text-[13px] sm:text-[14px] lg:text-[15px] font-medium leading-[1.2] sm:leading-[1.08]">
-									{feature.description}
-								</p>
-							</article>
-						))}
-					</div>
-				</div>
-			</section>
-
-			{/* Retail & Hospitality Section - Responsive */}
-			<section className="bg-[#F8F8F8] py-12 sm:py-16 md:py-20 lg:py-[120px] overflow-hidden">
-				<div className="mx-auto w-full max-w-[1440px] px-4 sm:px-6 md:px-10 lg:px-[72px]">
-					<div className="mb-10 sm:mb-14 md:mb-20 lg:mb-[109px]">
-						<h2 className="font-['TASA_Orbiter'] text-black text-[32px] sm:text-[42px] md:text-[52px] lg:text-[64px] font-semibold leading-[1.15] sm:leading-[1.22] max-w-full lg:max-w-[563px] mb-2 sm:mb-[9px]">
-							Retail & Hospitality
-						</h2>
-						<p className="font-['TASA_Orbiter'] text-black text-[18px] sm:text-[20px] md:text-[22px] lg:text-[24px] font-semibold leading-[1.2] sm:leading-[1.08] max-w-full lg:max-w-[919px] mb-4 sm:mb-6 lg:mb-[28px]">
-							Driving customer experience, operational efficiency, and secure
-							transactions.
-						</p>
-						<p className="font-['TASA_Orbiter'] text-black text-[16px] sm:text-[18px] md:text-[20px] lg:text-[22px] font-semibold leading-[1.4] sm:leading-[1.2] lg:leading-[0.98] max-w-full lg:max-w-[923px]">
-							Retail and hospitality businesses thrive on speed, reliability, and
-							customer trust. Nexobots enables these industries with IT and
-							security infrastructure that connects locations, enhances safety, and
-							streamlines guest experiences.
-						</p>
-					</div>
-
-					<div className="relative mb-8 sm:mb-10 lg:mb-[45px]">
-						<div className="flex flex-col lg:flex-row items-start gap-6 lg:gap-8 mb-6 lg:mb-[28px]">
-							<div className="relative overflow-hidden rounded-[13px] flex-shrink-0 w-full lg:w-[60%] xl:w-[65%] 2xl:w-[70%] h-[250px] sm:h-[320px] md:h-[400px] lg:h-[450px] xl:h-[474px] lg:-ml-[40px] xl:-ml-[60px] 2xl:-ml-[98px]">
-								<Image
-									src="/industry-retail-section.png"
-									alt="Retail & Hospitality"
-									fill
-									className="object-cover"
-									sizes="(max-width: 768px) 100vw, (max-width: 1024px) 100vw, (max-width: 1280px) 60vw, 70vw"
-								/>
-							</div>
-
-							<div className="flex-shrink-0 w-full lg:w-[40%] xl:w-[35%] 2xl:w-[30%] lg:max-w-[418px]">
-								<h3 className="font-['TASA_Orbiter'] text-black mb-6 sm:mb-8 lg:mb-[51px] text-[24px] sm:text-[28px] lg:text-[32px] font-semibold leading-[1.08]">
-									How We Support You
-								</h3>
-
-								<div className="relative mb-6 sm:mb-8 lg:mb-[45px] w-full h-[310px]">
-									<div className="absolute left-0 top-0 w-[5px] h-[310px] rounded-[55px] bg-[#D9D9D9]" />
-									<div
-										className="absolute left-0 w-[5px] rounded-[55px] bg-[#E11E24]"
-										style={{
-											height: `${redBarHeight}px`,
-											top: `${redBarTop4}px`,
-											transition: "none",
-										}}
-									/>
-									<div className="space-y-[8px] pl-5 sm:pl-[30px] pt-[7.65px]">
-										<p
-											className="font-['TASA_Orbiter'] text-black h-[80px] w-full transition-all duration-200"
-											style={{
-												fontSize: activeIndex4 === 0 ? "18px" : "14px",
-												fontWeight: activeIndex4 === 0 ? 700 : 600,
-												lineHeight: "1.08",
-											}}
-										>
-											IT Strategy Consulting for omnichannel and digital
-											transformation.
-										</p>
-										<p
-											className="font-['TASA_Orbiter'] text-black h-[73px] w-full transition-all duration-200"
-											style={{
-												fontSize: activeIndex4 === 1 ? "18px" : "14px",
-												fontWeight: activeIndex4 === 1 ? 700 : 600,
-												lineHeight: "1.08",
-											}}
-										>
-											System Integration of POS, booking, CRM, and inventory
-											systems.
-										</p>
-										<p
-											className="font-['TASA_Orbiter'] text-black h-[73px] w-full transition-all duration-200"
-											style={{
-												fontSize: activeIndex4 === 2 ? "18px" : "14px",
-												fontWeight: activeIndex4 === 2 ? 700 : 600,
-												lineHeight: "1.08",
-											}}
-										>
-											AMC & Monitoring to ensure always-on operations.
-										</p>
-										<p
-											className="font-['TASA_Orbiter'] text-black h-[39px] w-full transition-all duration-200"
-											style={{
-												fontSize: activeIndex4 === 3 ? "18px" : "14px",
-												fontWeight: activeIndex4 === 3 ? 700 : 600,
-												lineHeight: "1.08",
-											}}
-										>
-											Cloud Enablement for customer data, apps, and analytics.
-										</p>
-									</div>
-								</div>
-
-								<Link
-									href="#contact"
-									className="inline-flex h-[45px] items-center justify-center gap-2 sm:gap-3 rounded-[75px] border border-white/30 bg-black transition-all hover:bg-black/90 px-4 sm:px-[25px] w-full sm:w-auto"
-								>
-									<span className="font-['Manrope'] text-white whitespace-nowrap text-[13px] sm:text-[15px] font-semibold leading-[1.366] tracking-[0.02em]">
-										Enhance Your Operations
-									</span>
-									<svg
-										width="5"
-										height="8"
-										viewBox="0 0 5 8"
-										fill="none"
-										xmlns="http://www.w3.org/2000/svg"
-										className="ml-1 sm:ml-2 flex-shrink-0"
-									>
-										<path
-											d="M1 1L4 4L1 7"
-											stroke="#E11E24"
-											strokeWidth="1.5"
-											strokeLinecap="round"
-											strokeLinejoin="round"
-										/>
-									</svg>
-								</Link>
-							</div>
-						</div>
-					</div>
-
-					<h3 className="font-['TASA_Orbiter'] text-black text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px] font-semibold leading-[1.08] mt-10 sm:mt-14 lg:mt-[85px] mb-5 sm:mb-6 lg:mb-[28px]">
-						What We Deliver
-					</h3>
-
-					<div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 sm:gap-5 lg:gap-[24px]">
-						{[
-							{
-								icon: "wifi",
-								title: "Smart Network Infrastructure",
-								description:
-									"Reliable Wi-Fi and secure networks for POS, guests, and back-office systems.",
-							},
-							{
-								icon: "monitor",
-								title: "Intelligent Surveillance",
-								description: "CCTV and remote monitoring for stores, hotels, and restaurants.",
-							},
-							{
-								icon: "finger",
-								title: "Secure Access & Biometrics",
-								description: "Smart locks, staff access, and visitor management systems.",
-							},
-							{
-								icon: "archive",
-								title: "End-to-End IT Services",
-								description: "IT management for POS, reservations, loyalty, and CRM systems.",
-							},
-						].map((feature, i) => (
-							<article
-								key={i}
-								className="flex flex-col rounded-[9px] bg-white p-4 sm:p-5 lg:p-[21px_24px] gap-4 sm:gap-5"
-							>
-								<div className="flex items-center justify-center rounded-[6px] w-[31px] h-[31px] bg-[#F8F8F8]">
-									{getIconComponent(feature.icon)}
-								</div>
-								<h4 className="font-['TASA_Orbiter'] text-black text-[14px] sm:text-[15px] lg:text-[16px] font-semibold leading-[1.08]">
-									{feature.title}
-								</h4>
-								<p className="font-['TASA_Orbiter'] text-[#A4A4A4] text-[13px] sm:text-[14px] lg:text-[15px] font-medium leading-[1.2] sm:leading-[1.08]">
-									{feature.description}
-								</p>
-							</article>
-						))}
-					</div>
-				</div>
-			</section>
-
-			{/* Real Estate & Smart Infrastructure Section - Responsive */}
-			<section className="bg-[#F8F8F8] py-12 sm:py-16 md:py-20 lg:py-[120px] overflow-hidden">
-				<div className="mx-auto w-full max-w-[1440px] px-4 sm:px-6 md:px-10 lg:px-[72px]">
-					<div className="mb-10 sm:mb-14 md:mb-20 lg:mb-[109px]">
-						<h2 className="font-['TASA_Orbiter'] text-black text-[28px] sm:text-[38px] md:text-[48px] lg:text-[64px] font-semibold leading-[1.15] sm:leading-[1.22] max-w-full lg:max-w-[1009px] mb-2 sm:mb-[9px]">
-							Real Estate & Smart Infrastructure
-						</h2>
-						<p className="font-['TASA_Orbiter'] text-black text-[18px] sm:text-[20px] md:text-[22px] lg:text-[24px] font-semibold leading-[1.2] sm:leading-[1.08] max-w-full lg:max-w-[919px] mb-4 sm:mb-6 lg:mb-[28px]">
-							Building intelligent, connected, and secure spaces for modern
-							living and working.
-						</p>
-						<p className="font-['TASA_Orbiter'] text-black text-[16px] sm:text-[18px] md:text-[20px] lg:text-[22px] font-semibold leading-[1.4] sm:leading-[1.2] lg:leading-[0.98] max-w-full lg:max-w-[923px]">
-							From commercial complexes to residential communities, Nexobots helps
-							real estate developers and facility managers implement cutting-edge
-							IT and security infrastructure that enhances safety, efficiency, and
-							digital connectivity. Our solutions turn traditional spaces into
-							smart, future-ready environments.
-						</p>
-					</div>
-
-					<div className="relative mb-8 sm:mb-10 lg:mb-[45px]">
-						<div className="flex flex-col lg:flex-row items-start gap-6 lg:gap-8 mb-6 lg:mb-[28px]">
-							<div className="relative overflow-hidden rounded-[13px] flex-shrink-0 w-full lg:w-[60%] xl:w-[65%] 2xl:w-[70%] h-[250px] sm:h-[320px] md:h-[400px] lg:h-[450px] xl:h-[474px] lg:-ml-[40px] xl:-ml-[60px] 2xl:-ml-[98px]">
-								<Image
-									src="/industry-realestate-d966f0.png"
-									alt="Real Estate & Smart Infrastructure"
-									fill
-									className="object-cover"
-									sizes="(max-width: 768px) 100vw, (max-width: 1024px) 100vw, (max-width: 1280px) 60vw, 70vw"
-								/>
-							</div>
-
-							<div className="flex-shrink-0 w-full lg:w-[40%] xl:w-[35%] 2xl:w-[30%] lg:max-w-[418px]">
-								<h3 className="font-['TASA_Orbiter'] text-black mb-6 sm:mb-8 lg:mb-[51px] text-[24px] sm:text-[28px] lg:text-[32px] font-semibold leading-[1.08]">
-									How We Support You
-								</h3>
-
-								<div className="relative mb-6 sm:mb-8 lg:mb-[45px] w-full h-[310px]">
-									<div className="absolute left-0 top-0 w-[5px] h-[310px] rounded-[55px] bg-[#D9D9D9]" />
-									<div
-										className="absolute left-0 w-[5px] rounded-[55px] bg-[#E11E24]"
-										style={{
-											height: `${redBarHeight}px`,
-											top: `${redBarTop5}px`,
-											transition: "none",
-										}}
-									/>
-									<div className="space-y-[8px] pl-5 sm:pl-[30px] pt-[7.65px]">
-										<p
-											className="font-['TASA_Orbiter'] text-black h-[80px] w-full transition-all duration-200"
-											style={{
-												fontSize: activeIndex5 === 0 ? "18px" : "14px",
-												fontWeight: activeIndex5 === 0 ? 700 : 600,
-												lineHeight: "1.08",
-											}}
-										>
-											IT & Security Consulting for smart city, commercial, and
-											residential projects.
-										</p>
-										<p
-											className="font-['TASA_Orbiter'] text-black h-[73px] w-full transition-all duration-200"
-											style={{
-												fontSize: activeIndex5 === 1 ? "18px" : "14px",
-												fontWeight: activeIndex5 === 1 ? 700 : 600,
-												lineHeight: "1.08",
-											}}
-										>
-											System Integration of surveillance, access control, fire
-											safety, and building automation systems.
-										</p>
-										<p
-											className="font-['TASA_Orbiter'] text-black h-[73px] w-full transition-all duration-200"
-											style={{
-												fontSize: activeIndex5 === 2 ? "18px" : "14px",
-												fontWeight: activeIndex5 === 2 ? 700 : 600,
-												lineHeight: "1.08",
-											}}
-										>
-											AMC & Managed Support for round-the-clock maintenance and
-											uptime.
-										</p>
-										<p
-											className="font-['TASA_Orbiter'] text-black h-[39px] w-full transition-all duration-200"
-											style={{
-												fontSize: activeIndex5 === 3 ? "18px" : "14px",
-												fontWeight: activeIndex5 === 3 ? 700 : 600,
-												lineHeight: "1.08",
-											}}
-										>
-											Cloud & Virtualization Enablement for centralized monitoring and property management dashboards.
-										</p>
-									</div>
-								</div>
-
-								<Link
-									href="#contact"
-									className="inline-flex h-[45px] items-center justify-center gap-2 sm:gap-3 rounded-[75px] border border-white/30 bg-black transition-all hover:bg-black/90 px-4 sm:px-[25px] w-full sm:w-auto"
-								>
-									<span className="font-['Manrope'] text-white whitespace-nowrap text-[13px] sm:text-[15px] font-semibold leading-[1.366] tracking-[0.02em]">
-										Transform Your Properties
-									</span>
-									<svg
-										width="5"
-										height="8"
-										viewBox="0 0 5 8"
-										fill="none"
-										xmlns="http://www.w3.org/2000/svg"
-										className="ml-1 sm:ml-2 flex-shrink-0"
-									>
-										<path
-											d="M1 1L4 4L1 7"
-											stroke="#E11E24"
-											strokeWidth="1.5"
-											strokeLinecap="round"
-											strokeLinejoin="round"
-										/>
-									</svg>
-								</Link>
-							</div>
-						</div>
-					</div>
-
-					<h3 className="font-['TASA_Orbiter'] text-black text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px] font-semibold leading-[1.08] mt-10 sm:mt-14 lg:mt-[85px] mb-5 sm:mb-6 lg:mb-[28px]">
-						What We Deliver
-					</h3>
-
-					<div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 sm:gap-5 lg:gap-[24px]">
-						{[
-							{
-								icon: "wifi",
-								title: "Smart Network Infrastructure",
-								description:
-									"High-speed backbone networks for buildings, estates, and townships with seamless Wi-Fi and IoT connectivity.",
-							},
-							{
-								icon: "monitor",
-								title: "Intelligent Surveillance",
-								description:
-									"Integrated CCTV, ANPR, and centralized monitoring for property-wide security and safety compliance.",
-							},
-							{
-								icon: "finger",
-								title: "Secure Access & Biometrics",
-								description:
-									"Smart access systems for residents, visitors, and facility staff with mobile or RFID authentication.",
-							},
-							{
-								icon: "archive",
-								title: "End-to-End IT Services",
-								description:
-									"Infrastructure design, implementation, and maintenance for smart buildings and control centers.",
-							},
-						].map((feature, i) => (
-							<article
-								key={i}
-								className="flex flex-col rounded-[9px] bg-white p-4 sm:p-5 lg:p-[21px_24px] gap-4 sm:gap-5"
-							>
-								<div className="flex items-center justify-center rounded-[6px] w-[31px] h-[31px] bg-[#F8F8F8]">
-									{getIconComponent(feature.icon)}
-								</div>
-								<h4 className="font-['TASA_Orbiter'] text-black text-[14px] sm:text-[15px] lg:text-[16px] font-semibold leading-[1.08]">
-									{feature.title}
-								</h4>
-								<p className="font-['TASA_Orbiter'] text-[#A4A4A4] text-[13px] sm:text-[14px] lg:text-[15px] font-medium leading-[1.2] sm:leading-[1.08]">
-									{feature.description}
-								</p>
-							</article>
-						))}
-					</div>
-				</div>
-			</section>
+			{/* Industry sections with staggered animation offsets */}
+			{industries.map((industry, index) => (
+				<IndustrySection
+					key={industry.id}
+					industry={industry}
+					animationOffset={index * 2400}
+				/>
+			))}
 
 			{/* Our Partners Section */}
 			<Partners />
 
-			{/* Closing CTA Section - Responsive */}
-			<section className="flex items-center justify-center bg-white min-h-[500px] sm:min-h-[600px] lg:min-h-[723px]">
+			{/* Closing CTA Section - Hidden on mobile, visible on sm and up */}
+			<section className="hidden sm:flex items-center justify-center bg-white min-h-[500px] sm:min-h-[600px] lg:min-h-[723px]">
 				<div className="mx-auto w-full max-w-[1440px] px-4 sm:px-6 md:px-10 lg:px-[72px] py-12 sm:py-16 md:py-20 lg:py-[112px] text-center">
 					<h2 className="font-['TASA_Orbiter'] text-black mx-auto mb-6 sm:mb-8 lg:mb-[37px] text-[28px] sm:text-[38px] md:text-[48px] lg:text-[64px] font-semibold leading-[1.3] sm:leading-[1.4] lg:leading-[1.494] max-w-full lg:max-w-[1148px]">
 						Partner with Nexobots to Transform Your Industry with Smarter IT
