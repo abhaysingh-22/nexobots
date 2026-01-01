@@ -93,14 +93,14 @@ export default function SolutionsPage() {
 				<div className="mx-auto w-full max-w-[1440px] py-12 sm:py-16 lg:py-20 xl:py-24 relative z-10 min-h-[500px] lg:min-h-[600px]">
 					{/* Title - Top Left */}
 					<div className="max-w-[500px] lg:max-w-[520px] xl:max-w-[550px]">
-						<h1 className="font-['TASA_Orbiter'] text-black text-[28px] sm:text-[34px] md:text-[40px] lg:text-[44px] xl:text-[48px] font-semibold leading-[1.15] tracking-[-0.02em]">
+						<h1 className="font-['TASA_Orbiter'] text-black text-[24px] sm:text-[34px] md:text-[40px] lg:text-[44px] xl:text-[48px] font-semibold leading-[1.15] tracking-[-0.02em]">
 							Comprehensive IT & Security Solutions for a Connected, Intelligent, and Secure Enterprise
 						</h1>
 					</div>
 
 					{/* Description + Button - Bottom Right */}
 					<div className="mt-16 sm:mt-20 lg:mt-0 lg:absolute lg:bottom-20 xl:bottom-24 lg:right-16 xl:right-20 lg:max-w-[480px] xl:max-w-[500px]">
-						<p className="font-['Manrope'] text-black text-[14px] sm:text-[15px] lg:text-[15px] xl:text-[16px] font-normal leading-[1.7]">
+						<p className="font-['Manrope'] text-black  text-[14px] sm:text-[15px] lg:text-[15px] xl:text-[16px] font-normal leading-[1.7]">
 							At Nexobots Technologies, we deliver end-to-end IT and security
 							infrastructure solutions that empower,organizations to operate
 							smarter, safer, and more efficiently.
