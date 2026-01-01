@@ -184,7 +184,16 @@ export default function Solution4Page() {
 		const animate = (currentTime: number) => {
 			if (!startTime) startTime = currentTime - offset;
 			const elapsed = currentTime - startTime;
-			const progress = (elapsed % animationDuration) / animationDuration;
+			const linearProgress = (elapsed % animationDuration) / animationDuration;
+
+			// Apply easing to slow down at the end (last 15% of animation)
+			let progress = linearProgress;
+			const slowdownThreshold = 0.85;
+			if (linearProgress > slowdownThreshold) {
+				const remainingProgress = (linearProgress - slowdownThreshold) / (1 - slowdownThreshold);
+				const easedRemaining = 1 - Math.pow(1 - remainingProgress, 3);
+				progress = slowdownThreshold + easedRemaining * (1 - slowdownThreshold);
+			}
 
 			const maxTop = totalHeight - redBarHeight;
 			const currentTop = progress * maxTop;
@@ -192,17 +201,14 @@ export default function Solution4Page() {
 			const barBottom = currentTop + redBarHeight;
 			const barTop = currentTop;
 
-			// Improved highlighting logic - check if bar overlaps with any point
 			let newActiveIndex = 0;
 			let foundMatch = false;
 
-			// Check all points including the last one
 			for (let i = 0; i < servicePoints.length; i++) {
 				const pointTop = servicePoints[i].top;
 				const pointBottom = servicePoints[i].top + servicePoints[i].height;
 				const pointCenter = pointTop + servicePoints[i].height / 2;
 
-				// Check if bar center is within point range, or if bar overlaps with point
 				if (
 					(barCenter >= pointTop && barCenter <= pointBottom) ||
 					(barTop <= pointCenter && barBottom >= pointCenter) ||
@@ -215,7 +221,6 @@ export default function Solution4Page() {
 				}
 			}
 
-			// Fallback: if no match found, use progress-based highlighting
 			if (!foundMatch) {
 				const progressPerPoint = 1 / servicePoints.length;
 				newActiveIndex = Math.min(
@@ -1007,7 +1012,7 @@ export default function Solution4Page() {
 			</section>
 
 			{/* FAQs */}
-			<section className="py-8 sm:py-10 md:py-14 lg:py-[80px] bg-[#F8F8F8]">
+			<section className="hidden lg:block py-8 sm:py-10 md:py-14 lg:py-[80px] bg-[#F8F8F8]">
 				<div className="mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-[78px]">
 					<h2
 						className="font-['TASA_Orbiter'] text-black text-center mb-6 sm:mb-8 lg:mb-[50px] text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-[64px]"
