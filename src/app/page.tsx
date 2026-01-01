@@ -155,13 +155,13 @@ const blogs = [
     title: "Smarter Surveillance — How AI is Redefining Security Operations",
     excerpt:
       "Traditional CCTV systems are evolving into intelligent surveillance networks. Learn how AI-enabled analytics, remote monitoring, and integrated security solutions are helping businesses detect threats faster and make smarter security decisions.",
-    image: "/blog-1-image.png",
+    image: "/blog-2.png",
   },
   {
     title: "Smarter Surveillance — How AI is Redefining Security Operations",
     excerpt:
       "Traditional CCTV systems are evolving into intelligent surveillance networks. Learn how AI-enabled analytics, remote monitoring, and integrated security solutions are helping businesses detect threats faster and make smarter security decisions.",
-    image: "/blog-1-image.png",
+    image: "/blog-3.png",
   },
 ] as const;
 
