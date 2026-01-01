@@ -1159,71 +1159,35 @@ export default function Service4Page() {
       </section>
 
       {/* Why Choose Nexobots Section - Exact from Figma (node-id=1-1928) */}
-      <section
-        className="hidden lg:block py-16 sm:py-20 md:py-24 lg:py-[120px]"
-        style={{
-          backgroundColor: "#F8F8F8",
-        }}
-      >
-        <div className="mx-auto w-full max-w-[1440px] px-6 sm:px-8 md:px-12 lg:px-[69px]">
+      <section className="bg-[#F8F8F8] py-8 sm:py-10 md:py-14 lg:py-16 xl:py-[80px]">
+        <div className="mx-auto w-full  px-4 sm:px-6 lg:px-[78px]">
           <h2
-            className="font-['TASA_Orbiter'] text-black text-center mb-10 sm:mb-12 md:mb-14 lg:mb-[60px] text-2xl sm:text-3xl md:text-4xl lg:text-[40px]"
-            style={{
-              fontWeight: 600,
-              lineHeight: "1.494",
-              maxWidth: "1148px",
-              margin: "0 auto 60px",
-            }}
+            className="font-['TASA_Orbiter'] text-black text-center mb-6 sm:mb-8 md:mb-10 lg:mb-[50px] text-md sm:text-xl md:text-3xl lg:text-[40px] px-2"
+            style={{ fontWeight: 600, lineHeight: "1.494" }}
           >
-            Why Choose Nexobots for Cloud & Virtualization Support
+            Why Choose Nexobots for IT Infrastructure <br /> Consulting & System Integration
           </h2>
 
-          {/* Benefit Cards Grid - 5 cards in a row - Exact from Figma */}
-          <div
-            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-5 lg:gap-6"
-          >
+          {/* Benefit Cards - Fully Responsive Grid */}
+          <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-5 lg:gap-6 w-full mx-auto">
             {benefitCards.map((card, index) => (
               <div
                 key={index}
-                className="rounded-[21px] p-5 flex flex-col gap-5 bg-white lg:w-[241px] lg:h-[242px] shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 hover:border-2 hover:border-red-600/10"
-                style={{
-                  padding: index === 0 ? "20px 16px" : "20px",
-                }}
+                className="bg-white rounded-[21px] h-64 w-64  p-5 sm:p-5 lg:p-6 flex flex-col gap-3 sm:gap-4 shadow-sm hover:shadow-md transition-shadow duration-300"
               >
-                {/* Icon - Exact from Figma */}
-                <div
-                  className="flex-shrink-0"
-                  style={{
-                    width: "51px",
-                    height: "51px",
-                  }}
-                >
+                <div className="flex-shrink-0 w-12 h-12 sm:w-12 sm:h-12 lg:w-14 lg:h-14">
                   <Image
                     src="/cpu-icon-service-1.svg"
                     alt=""
                     width={51}
                     height={51}
-                    className="w-[51px] h-[51px]"
+                    className="w-full h-full"
                   />
                 </div>
-                <h3
-                  className="font-['Manrope'] text-black"
-                  style={{
-                    fontSize: "16px",
-                    fontWeight: 700,
-                    lineHeight: "1.25",
-                  }}
-                >
+                <h3 className="font-['Manrope'] text-black text-base sm:text-base lg:text-md font-semibold leading-tight">
                   {card.title}
                 </h3>
-                <p
-                  className="font-['Manrope'] text-[#A4A4A4]"
-                  style={{
-                    fontSize: "13px",
-                    fontWeight: 700,
-                    lineHeight: "1.462",
-                  }}
-                >
+                <p className="font-['Manrope'] text-[#A4A4A4] text-sm leading-relaxed">
                   {card.description}
                 </p>
               </div>
@@ -1231,6 +1195,9 @@ export default function Service4Page() {
           </div>
         </div>
       </section>
+
+      {/* Our Partners Section */}
+      <Partners />
 
       {/* FAQs Section - Exact from Figma */}
       <section
@@ -1316,8 +1283,7 @@ export default function Service4Page() {
         </div>
       </section>
 
-      {/* Our Partners Section */}
-      <Partners />
+
 
       {/* Contact Form */}
       <div id="contact">
