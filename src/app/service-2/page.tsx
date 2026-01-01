@@ -334,14 +334,14 @@ export default function Service2Page() {
 
           {/* Get In Touch Button */}
           <div className="flex justify-center mb-8 sm:mb-10 md:mb-14 lg:mb-16">
-                <Link
-                    href="#contact"
+            <Link
+              href="#contact"
               className="group inline-flex h-11 sm:h-12 w-[155px] items-center justify-between rounded-full bg-black hover:bg-gray-900 transition-all duration-300 hover:shadow-lg px-5 sm:px-6"
             >
               <span
                 className="font-['Manrope'] text-white whitespace-nowrap text-sm sm:text-[15px] font-semibold tracking-wide"
-                >
-                    Get In Touch
+              >
+                Get In Touch
               </span>
               <svg
                 width="5"
@@ -359,8 +359,8 @@ export default function Service2Page() {
                   strokeLinejoin="round"
                 />
               </svg>
-                </Link>
-             </div>
+            </Link>
+          </div>
 
           {/* Three Image Cards */}
           <div className="mx-auto flex flex-col lg:flex-row gap-3 sm:gap-4 md:gap-5 lg:gap-[17px] max-w-full lg:max-w-[1201px]">
@@ -968,32 +968,23 @@ export default function Service2Page() {
       </section>
 
       {/* Why Choose Nexobots Section - Exact from Figma (node-id=1-4266) */}
-      <section
-        className="hidden lg:block py-12 sm:py-16 md:py-20 lg:py-24"
-        style={{
-          backgroundColor: "#F8F8F8",
-        }}
-      >
-        <div className="mx-auto w-full max-w-7xl px-4 sm:px-8 md:px-12 lg:px-16">
+      <section className="bg-[#F8F8F8] py-8 sm:py-10 md:py-14 lg:py-16 xl:py-[80px]">
+        <div className="mx-auto w-full  px-4 sm:px-6 lg:px-[78px]">
           <h2
-            className="font-['TASA_Orbiter'] text-black text-center mb-8 sm:mb-10 md:mb-12 lg:mb-16 text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold leading-snug max-w-3xl mx-auto"
+            className="font-['TASA_Orbiter'] text-black text-center mb-6 sm:mb-8 md:mb-10 lg:mb-[50px] text-md sm:text-xl md:text-3xl lg:text-[40px] px-2"
+            style={{ fontWeight: 600, lineHeight: "1.494" }}
           >
-            Why Choose Nexobots for IT Support, Monitoring & Optimization
+            Why Choose Nexobots for IT Infrastructure <br /> Consulting & System Integration
           </h2>
 
-          {/* Benefit Cards Grid - 5 cards in a row - Exact from Figma */}
-          <div
-            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-5 md:gap-6"
-          >
+          {/* Benefit Cards - Fully Responsive Grid */}
+          <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-5 lg:gap-6 w-full mx-auto">
             {benefitCards.map((card, index) => (
               <div
                 key={index}
-                className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-5 flex flex-col gap-3 sm:gap-4 shadow-sm hover:shadow-md transition-shadow duration-300 group"
+                className="bg-white rounded-[21px] h-64 w-64  p-5 sm:p-5 lg:p-6 flex flex-col gap-3 sm:gap-4 shadow-sm hover:shadow-md transition-shadow duration-300"
               >
-                {/* Icon - Exact from Figma */}
-                <div
-                  className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 group-hover:scale-110 transition-transform duration-300"
-                >
+                <div className="flex-shrink-0 w-12 h-12 sm:w-12 sm:h-12 lg:w-14 lg:h-14">
                   <Image
                     src="/cpu-icon-service-1.svg"
                     alt=""
@@ -1002,21 +993,19 @@ export default function Service2Page() {
                     className="w-full h-full"
                   />
                 </div>
-                <h3
-                  className="font-['Manrope'] text-black text-sm sm:text-base font-bold leading-tight"
-                >
+                <h3 className="font-['Manrope'] text-black text-base sm:text-base lg:text-md font-semibold leading-tight">
                   {card.title}
                 </h3>
-                <p
-                  className="font-['Manrope'] text-gray-500 text-xs sm:text-sm font-semibold leading-relaxed"
-                >
+                <p className="font-['Manrope'] text-[#A4A4A4] text-sm leading-relaxed">
                   {card.description}
                 </p>
               </div>
             ))}
           </div>
-         </div>
+        </div>
       </section>
+
+      <Partners />
 
       {/* FAQs Section - Exact from Figma */}
       <section
@@ -1080,11 +1069,11 @@ export default function Service2Page() {
       </section>
 
       {/* Our Partners Section */}
-      <Partners />
+
 
       {/* Contact Form */}
       <div id="contact">
-      <ContactForm />
+        <ContactForm />
       </div>
 
       {/* Footer */}
