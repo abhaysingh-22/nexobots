@@ -120,7 +120,7 @@ export default function Service4Page() {
   const virtualizationPoints = calculateServicePoints(virtualizationServices.length);
   const backupDraasPoints = calculateServicePoints(backupDraasServices.length);
 
-  // Animation function factory - EXACT COPY from solution-2
+  // Animation function factory - with easing from solution-1
   const createAnimation = (
     setRedBarTop: (value: number) => void,
     setActiveIndex: (value: number) => void,
@@ -134,12 +134,17 @@ export default function Service4Page() {
     const animate = (currentTime: number) => {
       if (!startTime) startTime = currentTime - offset;
       const elapsed = currentTime - startTime;
-      const progress = (elapsed % animationDuration) / animationDuration;
+      const linearProgress = (elapsed % animationDuration) / animationDuration;
 
-      const lastPointIndex = servicePoints.length - 1;
-      const lastPoint = servicePoints[lastPointIndex];
-      const thirdPoint = servicePoints[servicePoints.length - 2];
-      const thirdPointBottom = thirdPoint ? thirdPoint.top + thirdPoint.height : 0;
+      // Apply easing to slow down at the end (last 15% of animation)
+      let progress = linearProgress;
+      const slowdownThreshold = 0.85;
+      if (linearProgress > slowdownThreshold) {
+        // Ease out the last portion - slow down significantly before reset
+        const remainingProgress = (linearProgress - slowdownThreshold) / (1 - slowdownThreshold);
+        const easedRemaining = 1 - Math.pow(1 - remainingProgress, 3); // Cubic ease out
+        progress = slowdownThreshold + easedRemaining * (1 - slowdownThreshold);
+      }
 
       const maxTop = totalHeight - redBarHeight;
       const currentTop = progress * maxTop;
@@ -1155,7 +1160,7 @@ export default function Service4Page() {
 
       {/* Why Choose Nexobots Section - Exact from Figma (node-id=1-1928) */}
       <section
-        className="py-16 sm:py-20 md:py-24 lg:py-[120px]"
+        className="hidden lg:block py-16 sm:py-20 md:py-24 lg:py-[120px]"
         style={{
           backgroundColor: "#F8F8F8",
         }}
@@ -1229,7 +1234,7 @@ export default function Service4Page() {
 
       {/* FAQs Section - Exact from Figma */}
       <section
-        className="py-16 sm:py-20 md:py-24 lg:py-[120px]"
+        className="hidden lg:block py-16 sm:py-20 md:py-24 lg:py-[120px]"
         style={{
           backgroundColor: "#F8F8F8",
         }}
